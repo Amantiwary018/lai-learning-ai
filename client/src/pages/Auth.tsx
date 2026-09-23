@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
+import { BackButton } from "@/components/BackButton";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Logo } from "@/components/Logo";
@@ -33,7 +34,7 @@ export default function AuthPage({ mode }: { mode: "login" | "signup" }) {
   return (
     <div className="grid min-h-screen lg:grid-cols-2">
       <div className="flex flex-col p-6 sm:p-10">
-        <div className="flex items-center justify-between"><Link href="/"><Logo /></Link><ThemeToggle /></div>
+        <div className="flex items-center justify-between"><Link href="/"><Logo /></Link><div className="flex items-center gap-1"><BackButton loggedIn={false} /><ThemeToggle /></div></div>
         <div className="mx-auto flex w-full max-w-sm flex-1 flex-col justify-center py-10">
           <h1 className="font-display text-2xl font-bold">{mode === "login" ? "Welcome back" : "Create your LAI account"}</h1>
           <p className="mt-1 text-sm text-muted-foreground">{mode === "login" ? "Log in to continue learning." : "Free forever for learners. No credit card."}</p>

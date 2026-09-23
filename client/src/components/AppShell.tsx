@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { LayoutDashboard, BookOpen, MessageCircleQuestion, Box, Code2, Sparkles, NotebookPen, Award, ShieldCheck, Moon, Sun, LogOut, Menu, X, BadgeCheck, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "./Logo";
+import { BackButton } from "./BackButton";
 import { useAuth, useTheme } from "@/lib/auth";
 import { cn } from "@/lib/utils";
 
@@ -58,6 +59,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         <header className="sticky top-0 z-20 flex h-14 items-center gap-2 border-b bg-background/85 px-3 backdrop-blur sm:px-6">
           <Button size="icon" variant="ghost" className="lg:hidden" onClick={() => setOpen(true)} aria-label="Open menu" data-testid="button-menu"><Menu className="h-5 w-5" /></Button>
           <div className="lg:hidden"><Logo compact /></div>
+          <BackButton loggedIn={!!user} />
           <div className="ml-auto flex items-center gap-1">
             <ThemeToggle />
             {user && <Button variant="ghost" size="sm" onClick={logout} data-testid="button-logout"><LogOut className="mr-1.5 h-4 w-4" />Log out</Button>}
