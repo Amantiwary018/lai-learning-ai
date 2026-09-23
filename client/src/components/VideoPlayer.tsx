@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState, useCallback } from "react";
-import { Play, Pause, RotateCcw, Loader2, Captions, Code2, AlertTriangle, SkipBack, SkipForward, ListVideo, CheckCircle2, Languages } from "lucide-react";
+import { Play, Pause, RotateCcw, Loader2, Captions, Code2, AlertTriangle, SkipBack, SkipForward, ListVideo, CheckCircle2, Languages, Maximize, Minimize, MoreVertical, X } from "lucide-react";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { mediaUrl, api } from "@/lib/queryClient";
 import { cn } from "@/lib/utils";
@@ -23,10 +24,11 @@ function writeWindow(st: Step) {
 }
 
 /** The hand: a stylised hand holding a marker, tip at (0,0). */
-function Hand({ x, y, t, visible }: { x: number; y: number; t: number; visible: boolean }) {
-  const wobble = Math.sin(t * 22) * 1.6;
+function Hand({ x, y, t, visible, size = 120 }: { x: number; y: number; t: number; visible: boolean; size?: number }) {
+  const wobble = Math.sin(t * 22) * 1.6 * (size / 120);
+  const k = size / 120;
   return (
-    <svg aria-hidden className="pointer-events-none absolute z-20 transition-opacity duration-200" style={{ left: x - 4, top: y - 6 + wobble, opacity: visible ? 1 : 0 }} width="120" height="120" viewBox="0 0 120 120">
+    <svg aria-hidden className="pointer-events-none absolute z-20 transition-opacity duration-200" style={{ left: x - 4 * k, top: y - 6 * k + wobble, opacity: visible ? 0.95 : 0 }} width={size} height={size} viewBox="0 0 120 120">
       <g transform="rotate(-8 10 10)">
         <path d="M4 6 L22 24" stroke="#1d2b64" strokeWidth="7" strokeLinecap="round" />
         <path d="M2 3 L7 9" stroke="#0f172a" strokeWidth="4" strokeLinecap="round" />
@@ -43,11 +45,11 @@ function Hand({ x, y, t, visible }: { x: number; y: number; t: number; visible: 
 function BoardLine({ kind, text, p, lineRef }: { kind: string; text: string; p: number; lineRef?: (el: HTMLElement | null) => void }) {
   const clip = { clipPath: `inset(-12px ${(1 - p) * 100}% -12px -4px)` } as const;
   if (kind === "code") return null;
-  const base = "relative inline-block whitespace-pre-wrap font-hand leading-snug";
+  const base = "relative inline-block whitespace-pre-wrap font-hand font-bold leading-snug [text-rendering:geometricPrecision]";
   if (kind === "heading")
     return (
       <div className="mb-2">
-        <span ref={lineRef} className={cn(base, "text-[clamp(1.25rem,3.2vw,2.1rem)] font-bold text-board-ink")} style={clip}>{text}
+        <span ref={lineRef} className={cn(base, "text-[clamp(1.35rem,3.4vw,2.3rem)] text-board-ink")} style={clip}>{text}
           <svg className="absolute -bottom-2 left-0 h-3 w-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 10"><path d="M1 6 Q 30 2 55 6 T 99 5" stroke="hsl(var(--chart-2))" strokeWidth="3" fill="none" pathLength={1} strokeDasharray={1} strokeDashoffset={1 - clamp((p - 0.7) / 0.3)} vectorEffect="non-scaling-stroke" /></svg>
         </span>
       </div>
@@ -55,7 +57,7 @@ function BoardLine({ kind, text, p, lineRef }: { kind: string; text: string; p: 
   if (kind === "highlight")
     return (
       <div className="my-1">
-        <span ref={lineRef} className={cn(base, "px-2 text-[clamp(1rem,2.4vw,1.55rem)] font-bold text-board-accent")} style={clip}>
+        <span ref={lineRef} className={cn(base, "px-2 text-[clamp(1.1rem,2.6vw,1.7rem)] text-board-accent")} style={clip}>
           <span className="absolute inset-0 -z-0 rounded-sm bg-[hsl(var(--chart-2)/0.28)]" style={{ transformOrigin: "left", transform: `scaleX(${clamp(p * 1.1)})` }} />
           <span className="relative">{text}</span>
         </span>
@@ -64,7 +66,7 @@ function BoardLine({ kind, text, p, lineRef }: { kind: string; text: string; p: 
   return (
     <div className={cn("my-0.5", kind === "equation" && "my-1.5 pl-4")}>
       {kind === "bullet" && <span className="mr-2 font-hand text-board-accent" style={{ opacity: p > 0 ? 1 : 0 }}>•</span>}
-      <span ref={lineRef} className={cn(base, kind === "equation" ? "text-[clamp(1.2rem,3vw,2rem)] tracking-wide text-board-ink" : "text-[clamp(0.95rem,2.2vw,1.45rem)] text-board-ink")} style={clip}>{text}</span>
+      <span ref={lineRef} className={cn(base, kind === "equation" ? "text-[clamp(1.25rem,3.1vw,2.1rem)] tracking-wide text-board-ink" : "text-[clamp(1.05rem,2.5vw,1.65rem)] text-board-ink")} style={clip}>{text}</span>
     </div>
   );
 }
@@ -94,6 +96,41 @@ export function VideoPlayer({ videos, initialPos = 0, onProgress, onComplete, co
   const writingCode = useRef(false);
   const boardRef = useRef<HTMLDivElement>(null);
   const [pen, setPen] = useState({ x: 0, y: 0, on: false });
+  const playerRef = useRef<HTMLDivElement>(null);
+  const textColRef = useRef<HTMLDivElement>(null);
+  const codeColRef = useRef<HTMLDivElement>(null);
+  const [isFs, setIsFs] = useState(false); // real Fullscreen API
+  const [pseudoFs, setPseudoFs] = useState(false); // fallback (e.g. iPhone Safari)
+  const [boardW, setBoardW] = useState(800);
+  const fs = isFs || pseudoFs;
+
+  useEffect(() => {
+    const on = () => setIsFs(document.fullscreenElement === playerRef.current);
+    document.addEventListener("fullscreenchange", on);
+    return () => document.removeEventListener("fullscreenchange", on);
+  }, []);
+  useEffect(() => {
+    const b = boardRef.current; if (!b) return;
+    const ro = new ResizeObserver(() => setBoardW(b.clientWidth)); ro.observe(b);
+    return () => ro.disconnect();
+  });
+  useEffect(() => { // lock page scroll in fallback fullscreen
+    if (!pseudoFs) return; const o = document.body.style.overflow; document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = o; };
+  }, [pseudoFs]);
+  const toggleFs = async () => {
+    const el = playerRef.current as any; if (!el) return;
+    if (fs) {
+      if (document.fullscreenElement) await document.exitFullscreen().catch(() => {});
+      setPseudoFs(false); (screen.orientation as any)?.unlock?.();
+      return;
+    }
+    const req = el.requestFullscreen || el.webkitRequestFullscreen;
+    if (req) {
+      try { await req.call(el); (screen.orientation as any)?.lock?.("landscape").catch(() => {}); return; } catch { /* fall through */ }
+    }
+    setPseudoFs(true);
+  };
 
   const report = useCallback((type: string, detail?: string) => {
     if (!m) return;
@@ -158,6 +195,8 @@ export function VideoPlayer({ videos, initialPos = 0, onProgress, onComplete, co
       if (e.code === "Space") { e.preventDefault(); toggle(); }
       if (e.code === "ArrowRight") seek(t + 5);
       if (e.code === "ArrowLeft") seek(t - 5);
+      if (e.code === "KeyF") toggleFs();
+      if (e.code === "Escape" && pseudoFs) setPseudoFs(false);
     };
     window.addEventListener("keydown", h); return () => window.removeEventListener("keydown", h);
   });
@@ -188,6 +227,10 @@ export function VideoPlayer({ videos, initialPos = 0, onProgress, onComplete, co
     } else setPen((pp) => (pp.on ? { ...pp, on: false } : pp));
   }, [items]);
 
+  useEffect(() => {
+    for (const el of [textColRef.current, codeColRef.current]) if (el) el.scrollTop = el.scrollHeight;
+  }, [items]);
+
   if (!published.length) {
     const v = videos[0];
     return (
@@ -205,7 +248,7 @@ export function VideoPlayer({ videos, initialPos = 0, onProgress, onComplete, co
   const firstWriting = items.find((x) => x.writing);
 
   return (
-    <div data-player tabIndex={-1} className="overflow-hidden rounded-xl border bg-card shadow-sm outline-none" data-testid="video-player">
+    <div ref={playerRef} data-player tabIndex={-1} className={cn("overflow-hidden bg-card outline-none", fs ? "fixed inset-0 z-[100] flex flex-col" : "rounded-xl border shadow-sm")} data-testid="video-player">
       <audio ref={audioRef} key={m!.videoId} src={src} preload="auto"
         onLoadedMetadata={(e) => { setBuffering(false); if (resumeAt && resumeAt < m!.duration - 5) { /* wait for user choice */ } }}
         onWaiting={() => setBuffering(true)} onCanPlay={() => setBuffering(false)} onPlaying={() => { setBuffering(false); setPlaying(true); setError(null); }}
@@ -214,13 +257,13 @@ export function VideoPlayer({ videos, initialPos = 0, onProgress, onComplete, co
         onError={() => { setBuffering(false); setError("The lecture audio could not be loaded."); report("error", audioRef.current?.error?.message || `code ${audioRef.current?.error?.code}`); }} />
 
       {/* Board */}
-      <div ref={boardRef} className="board relative aspect-video w-full cursor-pointer select-none overflow-hidden" onClick={toggle} data-testid="video-board">
+      <div ref={boardRef} className={cn("board relative w-full cursor-pointer select-none overflow-hidden", fs ? "min-h-0 flex-1" : "aspect-[4/3] sm:aspect-video")} onClick={toggle} onDoubleClick={(e) => { e.preventDefault(); toggleFs(); }} data-testid="video-board">
         <div className="absolute left-4 top-3 z-10 flex items-center gap-2 text-xs font-medium text-board-muted sm:left-6 sm:top-4 sm:text-sm">
           <span className="rounded-full bg-board-chip px-2 py-0.5">Scene {sceneIdx + 1}/{m!.scenes.length}</span>
           <span className="line-clamp-1" data-testid="text-scene-title">{scene?.title}</span>
         </div>
-        <div className={cn("absolute inset-0 flex gap-4 px-5 pb-14 pt-12 sm:px-10 sm:pt-14", codeItems.length ? "flex-col md:flex-row" : "flex-col")}>
-          <div className={cn("flex min-w-0 flex-col justify-start overflow-hidden", codeItems.length ? "md:w-1/2" : "w-full")}>
+        <div className={cn("absolute inset-0 flex gap-3 px-4 pt-11 sm:gap-4 sm:px-10 sm:pt-14", cc && step ? (fs ? "pb-20" : "pb-3 sm:pb-16") : "pb-4", codeItems.length ? "flex-col md:flex-row" : "flex-col")}>
+          <div ref={textColRef} className={cn("no-scrollbar flex min-w-0 flex-col overflow-y-auto", codeItems.length ? "max-h-[42%] shrink-0 md:max-h-none md:w-1/2" : "w-full")}>
             {textItems.slice(-6).map((x, i) => (
               <div key={x.st.start}>{x.st.write!.content.split("\n").map((ln, k, arr) => {
                 const lp = clamp(x.p * arr.length - k);
@@ -229,7 +272,7 @@ export function VideoPlayer({ videos, initialPos = 0, onProgress, onComplete, co
             ))}
           </div>
           {codeItems.length > 0 && (
-            <div className="min-w-0 flex-1 overflow-hidden rounded-lg bg-[#0f1629] p-3 font-mono text-[clamp(0.65rem,1.5vw,0.95rem)] leading-relaxed text-[#dbe4ff] shadow-inner sm:p-4">
+            <div ref={codeColRef} className="no-scrollbar min-h-0 min-w-0 flex-1 overflow-y-auto rounded-lg bg-[#0f1629] p-3 font-mono text-[clamp(0.78rem,1.7vw,1.1rem)] font-medium leading-relaxed text-[#e6ecff] shadow-inner sm:p-4">
               <div className="mb-2 flex gap-1.5"><span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" /><span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" /><span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" /><span className="ml-2 text-[10px] uppercase tracking-wider text-[#7d8bb5]">{codeLang || "code"}</span></div>
               {codeItems.map((x) => {
                 const txt = x.st.write!.content; const n = Math.floor(txt.length * x.p);
@@ -238,10 +281,10 @@ export function VideoPlayer({ videos, initialPos = 0, onProgress, onComplete, co
             </div>
           )}
         </div>
-        <Hand x={pen.x} y={pen.y} t={t} visible={pen.on && playing} />
+        <Hand x={pen.x} y={pen.y} t={t} visible={pen.on && playing} size={Math.round(Math.max(52, Math.min(120, boardW * 0.1)))} />
         {cc && step && (
-          <div className="absolute inset-x-0 bottom-3 z-10 hidden justify-center px-4 sm:flex">
-            <p className="max-w-3xl rounded-md bg-black/75 px-3 py-1.5 text-center text-sm leading-snug text-white" data-testid="text-caption">{step.say}</p>
+          <div className={cn("absolute inset-x-0 bottom-3 z-10 justify-center px-4", fs ? "flex" : "hidden sm:flex")}>
+            <p className={cn("max-w-3xl rounded-md bg-black/80 px-3 py-1.5 text-center leading-snug text-white", fs ? "text-base sm:text-lg" : "text-sm")} data-testid="text-caption">{step.say}</p>
           </div>
         )}
         {(buffering && !error) && <div className="absolute inset-0 z-30 flex items-center justify-center bg-black/10"><Loader2 className="h-10 w-10 animate-spin text-primary" /></div>}
@@ -265,7 +308,7 @@ export function VideoPlayer({ videos, initialPos = 0, onProgress, onComplete, co
           </div>
         )}
       </div>
-      {cc && step && <p className="border-t bg-card px-3 py-2 text-center text-xs leading-snug text-muted-foreground sm:hidden" data-testid="text-caption-mobile">{step.say}</p>}
+      {cc && step && !fs && <p className="border-t bg-card px-3 py-2 text-center text-sm leading-snug text-foreground/80 sm:hidden" data-testid="text-caption-mobile">{step.say}</p>}
 
       {/* Controls */}
       <div className="space-y-2 border-t px-3 py-2.5 sm:px-4">
@@ -284,13 +327,26 @@ export function VideoPlayer({ videos, initialPos = 0, onProgress, onComplete, co
             )}
             <Button size="sm" variant="ghost" onClick={() => setRate((r) => (r >= 1.5 ? 0.75 : r + 0.25))} data-testid="button-speed">{rate}x</Button>
             <Button size="icon" variant={cc ? "secondary" : "ghost"} onClick={() => setCc(!cc)} aria-label="Captions" data-testid="button-captions"><Captions className="h-4 w-4" /></Button>
-            {allCode && <Button size="sm" variant={fullCode ? "secondary" : "ghost"} onClick={() => setFullCode(!fullCode)} data-testid="button-full-code"><Code2 className="mr-1 h-4 w-4" />{fullCode ? "Hide full code" : "Show full code"}</Button>}
             <Button size="icon" variant={showScenes ? "secondary" : "ghost"} onClick={() => setShowScenes(!showScenes)} aria-label="Scenes" data-testid="button-scenes"><ListVideo className="h-4 w-4" /></Button>
+            {allCode && (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild><Button size="icon" variant="ghost" aria-label="More options" data-testid="button-video-more"><MoreVertical className="h-4 w-4" /></Button></DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="z-[110]">
+                  <DropdownMenuItem onSelect={() => setFullCode(!fullCode)} data-testid="button-full-code"><Code2 className="mr-2 h-4 w-4" />{fullCode ? "Hide full code" : "Show full code"}</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
+            <Button size="icon" variant="ghost" onClick={toggleFs} aria-label={fs ? "Exit full screen" : "Full screen"} title={fs ? "Exit full screen (F)" : "Full screen (F)"} data-testid="button-fullscreen">{fs ? <Minimize className="h-4 w-4" /> : <Maximize className="h-4 w-4" />}</Button>
           </div>
         </div>
-        {fullCode && allCode && <pre className="max-h-72 overflow-auto rounded-lg bg-[#0f1629] p-3 font-mono text-xs text-[#dbe4ff]" data-testid="text-full-code">{allCode}</pre>}
+        {fullCode && allCode && !fs && (
+          <div className="relative">
+            <Button size="icon" variant="ghost" className="absolute right-1 top-1 h-7 w-7 text-[#dbe4ff] hover:bg-white/10" onClick={() => setFullCode(false)} aria-label="Hide full code" data-testid="button-hide-full-code"><X className="h-4 w-4" /></Button>
+            <pre className="max-h-72 overflow-auto rounded-lg bg-[#0f1629] p-3 pr-10 font-mono text-sm text-[#e6ecff]" data-testid="text-full-code">{allCode}</pre>
+          </div>
+        )}
         {showScenes && (
-          <div className="grid gap-1 sm:grid-cols-2">
+          <div className={cn("grid gap-1 sm:grid-cols-2", fs && "max-h-48 overflow-y-auto")}>
             {m!.scenes.map((s) => (
               <button key={s.index} onClick={() => seek(s.start)} className={cn("flex items-center justify-between rounded-md px-2 py-1.5 text-left text-sm hover-elevate", s.index === sceneIdx && "bg-secondary")} data-testid={`button-scene-${s.index}`}>
                 <span className="line-clamp-1">{s.index + 1}. {s.title}</span><span className="font-mono text-xs text-muted-foreground">{fmt(s.start)}</span>

@@ -341,3 +341,4 @@
 .prose-lai strong { font-weight: 650; }
 .prose-lai a { color: hsl(var(--primary)); text-decoration: underline; }
 @media print { .no-print { display: none !important; } body { background: white; } }
+.no-scrollbar { scrollbar-width: none; } .no-scrollbar::-webkit-scrollbar { display: none; }
