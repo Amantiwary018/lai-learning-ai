@@ -99,38 +99,20 @@ export function VideoPlayer({ videos, initialPos = 0, onProgress, onComplete, co
   const playerRef = useRef<HTMLDivElement>(null);
   const textColRef = useRef<HTMLDivElement>(null);
   const codeColRef = useRef<HTMLDivElement>(null);
-  const [isFs, setIsFs] = useState(false); // real Fullscreen API
-  const [pseudoFs, setPseudoFs] = useState(false); // fallback (e.g. iPhone Safari)
+  const [fs, setFs] = useState(false); // full-screen view: the player covers the whole window
   const [boardW, setBoardW] = useState(800);
-  const fs = isFs || pseudoFs;
 
-  useEffect(() => {
-    const on = () => setIsFs(document.fullscreenElement === playerRef.current);
-    document.addEventListener("fullscreenchange", on);
-    return () => document.removeEventListener("fullscreenchange", on);
-  }, []);
   useEffect(() => {
     const b = boardRef.current; if (!b) return;
     const ro = new ResizeObserver(() => setBoardW(b.clientWidth)); ro.observe(b);
     return () => ro.disconnect();
   });
-  useEffect(() => { // lock page scroll in fallback fullscreen
-    if (!pseudoFs) return; const o = document.body.style.overflow; document.body.style.overflow = "hidden";
+  useEffect(() => { // lock page scroll while the full-screen view is open
+    if (!fs) return; const o = document.body.style.overflow; document.body.style.overflow = "hidden";
     return () => { document.body.style.overflow = o; };
-  }, [pseudoFs]);
-  const toggleFs = async () => {
-    const el = playerRef.current as any; if (!el) return;
-    if (fs) {
-      if (document.fullscreenElement) await document.exitFullscreen().catch(() => {});
-      setPseudoFs(false); (screen.orientation as any)?.unlock?.();
-      return;
-    }
-    const req = el.requestFullscreen || el.webkitRequestFullscreen;
-    if (req) {
-      try { await req.call(el); (screen.orientation as any)?.lock?.("landscape").catch(() => {}); return; } catch { /* fall through */ }
-    }
-    setPseudoFs(true);
-  };
+  }, [fs]);
+  const toggleFs = () => setFs((v) => !v);
+
 
   const report = useCallback((type: string, detail?: string) => {
     if (!m) return;
@@ -196,7 +178,7 @@ export function VideoPlayer({ videos, initialPos = 0, onProgress, onComplete, co
       if (e.code === "ArrowRight") seek(t + 5);
       if (e.code === "ArrowLeft") seek(t - 5);
       if (e.code === "KeyF") toggleFs();
-      if (e.code === "Escape" && pseudoFs) setPseudoFs(false);
+      if (e.code === "Escape" && fs) setFs(false);
     };
     window.addEventListener("keydown", h); return () => window.removeEventListener("keydown", h);
   });
