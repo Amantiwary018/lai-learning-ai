@@ -1,0 +1,359 @@
+{
+ "summary": "Loops in Java allow you to repeat a block of code multiple times using for, while, and do-while constructs, making programs efficient and concise.",
+ "shortNotes": [
+  "Java has three loop types: for, while, and do-while.",
+  "A for loop is best when the number of iterations is known in advance.",
+  "A while loop checks the condition before executing the body.",
+  "A do-while loop executes the body at least once before checking the condition.",
+  "Use break to exit a loop early and continue to skip the current iteration.",
+  "An infinite loop occurs when the loop condition never becomes false — always update the loop variable."
+ ],
+ "detailed": {
+  "explanation": "A **loop** is a control flow statement that repeats a block of code as long as a specified condition is true. Instead of writing the same code ten times, you write it once inside a loop and let Java repeat it for you. This saves time, reduces errors, and makes your code easier to read.\n\nThe **for loop** is the most common loop when you know exactly how many times you want to repeat. Its header has three parts: initialization (runs once at the start), condition (checked before every iteration), and update (runs after every iteration). Example: `for (int i = 0; i < 5; i++)` runs the body five times.\n\nThe **while loop** first checks the condition, and only if it is true does it execute the body. If the condition is false from the beginning, the body never runs. Use a while loop when you do not know in advance how many iterations are needed, such as reading user input until a sentinel value is entered.\n\nThe **do-while loop** is similar to the while loop but it checks the condition *after* executing the body. This guarantees the body runs at least once. It is useful for menu-driven programs where you must show the menu before asking the user to choose.\n\nTwo important keywords work inside any loop: `break` immediately exits the loop, and `continue` skips the rest of the current iteration and jumps to the next one. Nested loops (a loop inside another loop) are allowed and are commonly used for patterns and 2D arrays.",
+  "definitions": [
+   {
+    "term": "Loop",
+    "meaning": "A control flow statement that repeatedly executes a block of code while a condition remains true."
+   },
+   {
+    "term": "Iteration",
+    "meaning": "One single execution of the loop body."
+   },
+   {
+    "term": "Initialization",
+    "meaning": "The part of a for loop that sets the starting value of the loop variable, executed only once."
+   },
+   {
+    "term": "Condition",
+    "meaning": "A boolean expression evaluated before (or after, in do-while) each iteration to decide whether to continue looping."
+   },
+   {
+    "term": "Update (Increment/Decrement)",
+    "meaning": "The part of a for loop that changes the loop variable after each iteration."
+   },
+   {
+    "term": "break",
+    "meaning": "A keyword that immediately terminates the nearest enclosing loop or switch statement."
+   },
+   {
+    "term": "continue",
+    "meaning": "A keyword that skips the remaining statements in the current iteration and moves to the next iteration."
+   },
+   {
+    "term": "Infinite Loop",
+    "meaning": "A loop whose condition never becomes false, causing the program to run forever unless interrupted."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "for loop syntax: for (initialization; condition; update) { body }",
+   "while loop syntax: while (condition) { body }",
+   "do-while loop syntax: do { body } while (condition); — note the semicolon at the end.",
+   "do-while always executes the body at least once, even if the condition is false from the start.",
+   "Always make sure the loop variable is updated inside the loop to avoid an infinite loop.",
+   "break and continue can be used in all three loop types.",
+   "In nested loops, break and continue affect only the innermost loop they are placed in.",
+   "Exam tip: Trace through loop iterations manually on paper — identify the value of the loop variable at each step and what gets printed."
+  ]
+ },
+ "codeExample": {
+  "language": "java",
+  "code": "public class LoopsDemo {\n    public static void main(String[] args) {\n\n        // 1. for loop: print numbers 1 to 5\n        System.out.println(\"--- for loop ---\");\n        for (int i = 1; i <= 5; i++) {\n            System.out.println(\"i = \" + i);\n        }\n\n        // 2. while loop: print even numbers 2 to 10\n        System.out.println(\"--- while loop ---\");\n        int n = 2;\n        while (n <= 10) {\n            System.out.println(\"n = \" + n);\n            n += 2;\n        }\n\n        // 3. do-while loop: runs at least once\n        System.out.println(\"--- do-while loop ---\");\n        int x = 1;\n        do {\n            System.out.println(\"x = \" + x);\n            x++;\n        } while (x <= 3);\n\n        // 4. break: stop when i equals 3\n        System.out.println(\"--- break example ---\");\n        for (int i = 1; i <= 5; i++) {\n            if (i == 3) break;\n            System.out.println(\"i = \" + i);\n        }\n\n        // 5. continue: skip number 3\n        System.out.println(\"--- continue example ---\");\n        for (int i = 1; i <= 5; i++) {\n            if (i == 3) continue;\n            System.out.println(\"i = \" + i);\n        }\n    }\n}",
+  "explanation": "Line 1: Declare the public class LoopsDemo.\nLine 2: main method — program starts here.\nLine 5: Print a separator label for the for loop section.\nLine 6: for loop — i starts at 1, runs while i <= 5, increments i by 1 after each iteration.\nLine 7: Print the current value of i (runs 5 times: 1,2,3,4,5).\nLine 11: Print separator for the while loop section.\nLine 12: Initialize n to 2 before the while loop.\nLine 13: while loop — continues as long as n <= 10.\nLine 14: Print the current value of n.\nLine 15: n += 2 increases n by 2 each time (prints 2,4,6,8,10).\nLine 18: Print separator for the do-while section.\nLine 19: Initialize x to 1.\nLine 20-23: do-while — body runs first (prints x=1, x=2, x=3), then checks x<=3; stops when x becomes 4.\nLine 26: Print separator for break example.\nLine 27-30: for loop — when i equals 3, break exits the loop immediately; only 1 and 2 are printed.\nLine 33: Print separator for continue example.\nLine 34-37: for loop — when i equals 3, continue skips the print statement for that iteration; prints 1,2,4,5."
+ },
+ "commonMistakes": [
+  "Forgetting to update the loop variable inside a while loop, which causes an infinite loop. For example, writing 'while (n <= 10)' but never changing n inside the body.",
+  "Using '=' instead of '==' in the loop condition, which is an assignment not a comparison. For example, writing 'while (x = 5)' instead of 'while (x == 5)' causes a compile error or unintended behavior.",
+  "Putting a semicolon immediately after the for or while header, like 'for (int i = 0; i < 5; i++);' — this creates an empty loop body, so the intended code block runs only once (or not at all) instead of repeating."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Which loop in Java is guaranteed to execute its body at least once?",
+   "options": [
+    "for loop",
+    "while loop",
+    "do-while loop",
+    "enhanced for loop"
+   ],
+   "answer": 2,
+   "explanation": "The do-while loop checks the condition after executing the body, so the body always runs at least one time regardless of whether the condition is true or false.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the output of the following code?\nfor (int i = 0; i < 3; i++) {\n    System.out.print(i + \" \");\n}",
+   "options": [
+    "1 2 3",
+    "0 1 2 3",
+    "0 1 2",
+    "1 2"
+   ],
+   "answer": 2,
+   "explanation": "i starts at 0. The condition i < 3 is true for i = 0, 1, 2 but false when i = 3, so the values printed are 0, 1, and 2.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which keyword is used to skip the current iteration of a loop and move to the next one?",
+   "options": [
+    "break",
+    "return",
+    "continue",
+    "skip"
+   ],
+   "answer": 2,
+   "explanation": "The continue keyword skips the remaining statements in the current iteration and transfers control to the update expression (in a for loop) or back to the condition check.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "How many times will the body of the following loop execute?\nint i = 10;\nwhile (i < 5) {\n    System.out.println(i);\n    i++;\n}",
+   "options": [
+    "10 times",
+    "5 times",
+    "0 times",
+    "Infinite times"
+   ],
+   "answer": 2,
+   "explanation": "The condition i < 5 is false immediately because i starts at 10. A while loop checks the condition before entering the body, so the body never executes.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is wrong with this code?\nfor (int i = 0; i < 5; i++);\n    System.out.println(\"Hello\");",
+   "options": [
+    "The loop variable i is not initialized correctly",
+    "A semicolon after the for header creates an empty loop body, so Hello prints only once",
+    "System.out.println cannot be used inside a for loop",
+    "The condition i < 5 is invalid"
+   ],
+   "answer": 1,
+   "explanation": "The semicolon right after the closing parenthesis of the for header makes the loop body empty. The println statement is outside the loop and executes only once after the loop finishes.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following correctly counts down from 5 to 1?",
+   "options": [
+    "for (int i = 5; i > 0; i--) { System.out.println(i); }",
+    "for (int i = 5; i < 0; i--) { System.out.println(i); }",
+    "for (int i = 0; i <= 5; i++) { System.out.println(i); }",
+    "for (int i = 5; i >= 0; i++) { System.out.println(i); }"
+   ],
+   "answer": 0,
+   "explanation": "Starting i at 5, the condition i > 0 keeps it going while i is 5, 4, 3, 2, 1, and i-- decrements it each time. This correctly prints 5 down to 1.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain the difference between a while loop and a do-while loop in Java.",
+   "answer": "A while loop checks the condition before executing the body, so if the condition is false initially, the body never runs. A do-while loop executes the body first and then checks the condition, guaranteeing that the body runs at least once.",
+   "keywords": [
+    "condition",
+    "before",
+    "after",
+    "at least once",
+    "do-while"
+   ],
+   "explanation": "The key distinction is when the condition is evaluated — before the body (while) or after the body (do-while). This matters when you need the body to execute unconditionally the first time.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "What is an infinite loop? Give one reason why it happens and how to avoid it.",
+   "answer": "An infinite loop is a loop whose condition never becomes false, so the program repeats forever. It commonly happens when the loop variable is not updated inside the loop body. To avoid it, always make sure the update expression or a statement inside the body will eventually make the condition false.",
+   "keywords": [
+    "condition",
+    "never false",
+    "update",
+    "loop variable",
+    "infinite"
+   ],
+   "explanation": "Infinite loops are a common bug for beginners. Understanding that the loop variable must change towards making the condition false is the key preventive insight.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "What is the exact output printed to the console when the following code runs?\nint sum = 0;\nfor (int i = 1; i <= 4; i++) {\n    sum += i;\n}\nSystem.out.println(sum);",
+   "answer": "10",
+   "explanation": "sum starts at 0. After each iteration: i=1 sum=1, i=2 sum=3, i=3 sum=6, i=4 sum=10. The loop ends because i becomes 5 which is not <= 4. Then sum (10) is printed.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a Java program that uses a for loop to print the multiplication table of 3 (from 3×1 to 3×10). Each line should look like: 3 x 1 = 3",
+   "starter": "public class MultiplicationTable {\n    public static void main(String[] args) {\n        // Write your for loop here\n\n    }\n}",
+   "solution": "public class MultiplicationTable {\n    public static void main(String[] args) {\n        for (int i = 1; i <= 10; i++) {\n            System.out.println(\"3 x \" + i + \" = \" + (3 * i));\n        }\n    }\n}",
+   "explanation": "The for loop runs from i = 1 to i = 10. In each iteration, it prints the string '3 x', then the current value of i, then ' = ', and finally the product 3 * i. Parentheses around (3 * i) are important to ensure multiplication happens before string concatenation.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What is a Loop and Why Do We Need It?",
+    "steps": [
+     {
+      "say": "Welcome! Today we are learning about loops in Java. Imagine you want to print the word Hello five times. You could write five print statements, but that is tedious.",
+      "write": {
+       "kind": "heading",
+       "content": "Loops in Java"
+      }
+     },
+     {
+      "say": "A loop lets you write the code once and repeat it as many times as you want. This saves time and makes your code clean and short.",
+      "write": {
+       "kind": "bullet",
+       "content": "Repeat code without rewriting it"
+      }
+     },
+     {
+      "say": "Java gives us three types of loops: the for loop, the while loop, and the do-while loop. Each is useful in different situations.",
+      "write": {
+       "kind": "bullet",
+       "content": "for | while | do-while"
+      }
+     }
+    ]
+   },
+   {
+    "title": "The for Loop",
+    "steps": [
+     {
+      "say": "The for loop is your go-to when you know exactly how many times to repeat. It has three parts in its header: initialization, condition, and update.",
+      "write": {
+       "kind": "text",
+       "content": "for (init; condition; update)"
+      }
+     },
+     {
+      "say": "Here is a simple example. We declare i equals zero, run while i is less than five, and add one to i each time.",
+      "write": {
+       "kind": "code",
+       "content": "for (int i = 0; i < 5; i++) {"
+      }
+     },
+     {
+      "say": "Inside the body we print the value of i. So this loop prints zero, one, two, three, four — five numbers in total.",
+      "write": {
+       "kind": "code",
+       "content": "  System.out.println(i);\n}"
+      }
+     },
+     {
+      "say": "Remember: initialization runs once, the condition is checked before every iteration, and the update runs after every iteration.",
+      "write": {
+       "kind": "bullet",
+       "content": "init once | check before | update after"
+      }
+     }
+    ]
+   },
+   {
+    "title": "The while Loop and the do-while Loop",
+    "steps": [
+     {
+      "say": "The while loop checks the condition first. If it is false from the start, the body never runs at all.",
+      "write": {
+       "kind": "code",
+       "content": "while (condition) {"
+      }
+     },
+     {
+      "say": "The do-while loop is different. It runs the body first and checks the condition after. So the body always runs at least once.",
+      "write": {
+       "kind": "code",
+       "content": "do {\n} while (condition);"
+      }
+     },
+     {
+      "say": "Notice the semicolon at the end of the do-while. That is required and is a common place to make a mistake.",
+      "write": {
+       "kind": "highlight",
+       "content": "Semicolon needed after while(cond);"
+      }
+     }
+    ]
+   },
+   {
+    "title": "break and continue Keywords",
+    "steps": [
+     {
+      "say": "Two special keywords change how a loop behaves. The break keyword exits the loop immediately, no matter what the condition says.",
+      "write": {
+       "kind": "bullet",
+       "content": "break  → exit loop immediately"
+      }
+     },
+     {
+      "say": "The continue keyword skips the rest of the current iteration and jumps straight to the next one.",
+      "write": {
+       "kind": "bullet",
+       "content": "continue → skip to next iteration"
+      }
+     },
+     {
+      "say": "Here is a quick example. When i equals three, break stops the loop early, so only one and two are printed.",
+      "write": {
+       "kind": "code",
+       "content": "if (i == 3) break;"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Avoiding Infinite Loops",
+    "steps": [
+     {
+      "say": "An infinite loop happens when the condition never becomes false. This freezes your program. It is one of the most common beginner mistakes.",
+      "write": {
+       "kind": "heading",
+       "content": "Infinite Loop — Common Mistake"
+      }
+     },
+     {
+      "say": "For example, if you forget to write n plus equals two inside the while loop body, n never changes and the condition stays true forever.",
+      "write": {
+       "kind": "code",
+       "content": "int n = 2;\nwhile (n <= 10) {\n  // forgot n += 2;\n}"
+      }
+     },
+     {
+      "say": "Always make sure your loop variable is updated so that the condition will eventually become false and the loop will stop.",
+      "write": {
+       "kind": "highlight",
+       "content": "Always update your loop variable!"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us quickly recap what we learned today. Java has three loops: for, while, and do-while.",
+      "write": {
+       "kind": "bullet",
+       "content": "for | while | do-while"
+      }
+     },
+     {
+      "say": "Use a for loop when you know the count, a while loop when you do not, and a do-while loop when the body must run at least once.",
+      "write": {
+       "kind": "bullet",
+       "content": "known count → for\nunknown count → while\nat least once → do-while"
+      }
+     },
+     {
+      "say": "Use break to exit early and continue to skip an iteration. And always update your loop variable to prevent infinite loops. Great work today!",
+      "write": {
+       "kind": "bullet",
+       "content": "break | continue | update variable"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

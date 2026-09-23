@@ -1,0 +1,355 @@
+{
+ "summary": "Generative AI uses Large Language Models trained on massive text data to understand and produce human-like text, images, and other content by predicting the most likely next token.",
+ "shortNotes": [
+  "Generative AI creates new content (text, images, code) rather than just classifying or analysing existing data.",
+  "Large Language Models (LLMs) are neural networks trained on huge amounts of text to learn language patterns.",
+  "LLMs work by predicting the next token (word or word-piece) based on the context provided.",
+  "Training involves two stages: pre-training on broad data, then fine-tuning on specific tasks or human feedback.",
+  "Prompt engineering means writing clear, specific instructions to get better outputs from an LLM.",
+  "Popular LLMs include GPT-4, Gemini, LLaMA, and Claude; they power tools like ChatGPT and Copilot."
+ ],
+ "detailed": {
+  "explanation": "**What is Generative AI?**\nGenerative AI refers to AI systems that can *create* new content — text, images, audio, code, or video — rather than simply recognising or labelling things. Earlier AI systems were mostly discriminative (they answered yes/no questions like \"Is this email spam?\"). Generative AI goes a step further and *produces* something new, much like a human writer or artist would.\n\n**What are Large Language Models (LLMs)?**\nAn LLM is a type of deep neural network — specifically based on the *Transformer* architecture — trained on billions of words from books, websites, and other text sources. During training the model sees an enormous number of sentences and learns statistical patterns: which words follow which, how ideas connect, and how grammar works across many languages. The word \"large\" refers to the number of *parameters* (the adjustable weights inside the network), which can range from millions to hundreds of billions.\n\n**How do LLMs generate text?**\nAt its core, an LLM is a next-token predictor. A *token* is roughly a word or part of a word. Given a prompt (your input text), the model calculates a probability for every possible next token and picks one — then repeats the process until the response is complete. This is why the same prompt can give slightly different answers each time: there is controlled randomness called *temperature* that influences how creative or conservative the output is.\n\n**Training and Fine-tuning**\nPre-training is expensive and is done by large research labs on thousands of GPUs over weeks. Most developers and students interact with already pre-trained models that have been further *fine-tuned* using Reinforcement Learning from Human Feedback (RLHF), which teaches the model to give helpful, safe, and polite answers. Fine-tuning on domain-specific data (medical, legal, coding) makes the model more useful for particular professions.\n\n**Limitations to keep in mind**\nLLMs can produce confident-sounding but incorrect information — this is called a *hallucination*. They do not \"know\" facts the way a database does; they pattern-match from training data. They also have a *context window* limit (the maximum amount of text they can consider at once), and their knowledge has a *training cutoff date*, meaning they are unaware of very recent events.",
+  "definitions": [
+   {
+    "term": "Generative AI",
+    "meaning": "AI that creates new content such as text, images, or code, rather than only classifying or analysing existing data."
+   },
+   {
+    "term": "Large Language Model (LLM)",
+    "meaning": "A deep neural network with a very large number of parameters, trained on massive text corpora to understand and generate human language."
+   },
+   {
+    "term": "Token",
+    "meaning": "The basic unit an LLM processes — roughly a word or a sub-word piece (e.g., 'unbelievable' may be split into 'un', 'believ', 'able')."
+   },
+   {
+    "term": "Transformer",
+    "meaning": "The neural network architecture that most modern LLMs are built on; it uses a mechanism called 'attention' to weigh the importance of different words in context."
+   },
+   {
+    "term": "Hallucination",
+    "meaning": "When an LLM generates text that sounds confident and fluent but is factually incorrect or made up."
+   },
+   {
+    "term": "Temperature",
+    "meaning": "A setting that controls how random or creative an LLM's output is; low temperature gives predictable answers, high temperature gives more varied ones."
+   },
+   {
+    "term": "Fine-tuning",
+    "meaning": "Additional training of a pre-trained model on a smaller, specific dataset to make it more useful or safe for a particular task."
+   },
+   {
+    "term": "Context window",
+    "meaning": "The maximum number of tokens an LLM can read and consider at one time when generating a response."
+   },
+   {
+    "term": "Prompt engineering",
+    "meaning": "The practice of carefully crafting input instructions to get more accurate, useful, or relevant outputs from an LLM."
+   },
+   {
+    "term": "RLHF (Reinforcement Learning from Human Feedback)",
+    "meaning": "A fine-tuning technique where human raters score model outputs and those scores are used to train the model to produce better responses."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "Generative AI ≠ all AI. Traditional AI classifies or predicts; generative AI creates new content — remember this distinction for exams.",
+   "The Transformer architecture (introduced in the 2017 paper 'Attention Is All You Need') is the foundation of almost every modern LLM.",
+   "LLMs do NOT look up facts from a live database — they generate responses based on patterns learned during training, which is why hallucinations happen.",
+   "More parameters generally means a more capable model, but also higher compute and memory costs.",
+   "Temperature controls creativity: temperature = 0 gives near-deterministic output; higher values (e.g., 0.8–1.0) make output more varied.",
+   "A training cutoff date means an LLM will not know about events that happened after its training data was collected.",
+   "Prompt engineering is a practical skill: being specific, providing context, and giving examples (few-shot prompting) dramatically improves output quality.",
+   "LLMs raise ethical concerns including bias (from biased training data), misinformation (hallucinations), and intellectual property issues — these are active research areas."
+  ]
+ },
+ "codeExample": null,
+ "commonMistakes": [
+  "Believing LLMs 'know' facts like a search engine — they actually generate statistically likely text and can confidently state wrong information (hallucination).",
+  "Confusing 'Generative AI' with 'all AI' — many AI systems (spam filters, recommendation engines, image classifiers) are not generative.",
+  "Thinking a larger context window means better accuracy — a bigger window helps the model consider more text at once, but it does not prevent hallucinations or guarantee correctness."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "What does a Large Language Model fundamentally do to generate text?",
+   "options": [
+    "It searches a live database of facts and returns the best match.",
+    "It predicts the most likely next token based on the input context.",
+    "It copies sentences directly from its training data.",
+    "It translates the user's query into a programming language and executes it."
+   ],
+   "answer": 1,
+   "explanation": "LLMs are next-token predictors. They calculate a probability distribution over all possible next tokens and sample from it to build a response word by word.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which neural network architecture is the foundation of most modern LLMs?",
+   "options": [
+    "Convolutional Neural Network (CNN)",
+    "Recurrent Neural Network (RNN)",
+    "Transformer",
+    "Generative Adversarial Network (GAN)"
+   ],
+   "answer": 2,
+   "explanation": "The Transformer architecture, introduced in 2017, uses an attention mechanism that allows the model to weigh relationships between all tokens in the input simultaneously, making it highly effective for language tasks.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is 'hallucination' in the context of Large Language Models?",
+   "options": [
+    "The model generating visual images from text prompts.",
+    "The model refusing to answer a question.",
+    "The model producing fluent but factually incorrect or made-up information.",
+    "The model repeating the same sentence in a loop."
+   ],
+   "answer": 2,
+   "explanation": "Hallucination refers to confident-sounding but incorrect outputs. Because LLMs pattern-match rather than retrieve verified facts, they can invent plausible-sounding but false information.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "A student sets the temperature of an LLM to 0. What output behaviour should they expect?",
+   "options": [
+    "The model will refuse to generate any output.",
+    "The model will produce highly creative and unpredictable responses.",
+    "The model will produce near-deterministic, consistent responses.",
+    "The model will only respond in formal English."
+   ],
+   "answer": 2,
+   "explanation": "Temperature near 0 makes the model almost always choose the single highest-probability token, resulting in very consistent, predictable output. Higher temperatures introduce more randomness.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "RLHF stands for Reinforcement Learning from Human Feedback. What is its main purpose when applied to LLMs?",
+   "options": [
+    "To reduce the size of the model so it runs faster on mobile phones.",
+    "To fine-tune the model to produce more helpful, safe, and aligned responses.",
+    "To translate the model's outputs into multiple Indian languages.",
+    "To increase the model's context window during inference."
+   ],
+   "answer": 1,
+   "explanation": "RLHF uses human raters to score model responses; these scores train a reward model that guides further training so the LLM learns to give better, safer, more helpful answers.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following is the BEST example of a Generative AI task?",
+   "options": [
+    "Identifying whether a given X-ray shows pneumonia or not.",
+    "Sorting a list of student scores from highest to lowest.",
+    "Writing a short essay on climate change when prompted.",
+    "Detecting fraudulent bank transactions in real time."
+   ],
+   "answer": 2,
+   "explanation": "Writing an essay is a creative, content-generation task — exactly what generative AI does. The other options are classification, sorting, and anomaly detection tasks, which are not generative.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain what a 'training cutoff date' means for an LLM and why it matters to users.",
+   "answer": "A training cutoff date is the point in time after which no new data was included when training the LLM. It matters because the model will have no knowledge of events, discoveries, or changes that occurred after that date. For example, if a model was trained on data up to early 2024, it cannot tell you about a law passed in late 2024.",
+   "keywords": [
+    "training cutoff",
+    "no knowledge",
+    "after that date",
+    "recent events"
+   ],
+   "explanation": "This tests understanding that LLMs learn from a fixed snapshot of data. Unlike a search engine, they cannot access new information after training ends, making them potentially outdated.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "What is prompt engineering and why is it a valuable skill for professionals using AI tools?",
+   "answer": "Prompt engineering is the practice of crafting clear, specific, and well-structured inputs to guide an LLM towards more accurate and useful outputs. It is valuable because the quality of an LLM's response depends heavily on how the question or instruction is framed. Professionals who master this skill can save time, reduce errors, and get more relevant results from AI tools in their work.",
+   "keywords": [
+    "prompt",
+    "clear instructions",
+    "better output",
+    "input design"
+   ],
+   "explanation": "This question checks whether students understand that interacting effectively with LLMs is itself a skill, not just typing any question.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "A sentence has 8 words. An LLM tokenizer splits it into tokens where every regular word is 1 token, but the word 'unbelievable' is split into 3 tokens. If the sentence is 'This achievement is truly unbelievable and very inspiring', how many tokens does the tokenizer produce?",
+   "answer": "10",
+   "explanation": "The sentence has 8 words. The word 'unbelievable' is split into 3 tokens instead of 1, adding 2 extra tokens. So total tokens = 8 + 2 = 10.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What is Generative AI?",
+    "steps": [
+     {
+      "say": "Welcome! Today we are exploring one of the most exciting areas in technology right now — Generative AI and Large Language Models. Let's start with the big question: what does generative mean?",
+      "write": {
+       "kind": "heading",
+       "content": "Generative AI"
+      }
+     },
+     {
+      "say": "Traditional AI looks at data and gives a label — spam or not spam, cat or dog. Generative AI goes further. It actually creates something new.",
+      "write": {
+       "kind": "bullet",
+       "content": "Traditional AI: classifies existing data"
+      }
+     },
+     {
+      "say": "Think of it like the difference between a judge who scores a painting and an artist who paints a brand new one. Generative AI is the artist.",
+      "write": {
+       "kind": "bullet",
+       "content": "Generative AI: creates new content"
+      }
+     },
+     {
+      "say": "This new content can be text, images, code, or even music — all produced by the AI from a simple instruction you give it.",
+      "write": {
+       "kind": "bullet",
+       "content": "Output: text, images, code, audio"
+      }
+     }
+    ]
+   },
+   {
+    "title": "What is a Large Language Model?",
+    "steps": [
+     {
+      "say": "At the heart of most generative AI tools for text is something called a Large Language Model, or LLM. Let's break that name down.",
+      "write": {
+       "kind": "heading",
+       "content": "Large Language Model (LLM)"
+      }
+     },
+     {
+      "say": "Large means it has a huge number of parameters — sometimes hundreds of billions — which are the adjustable weights the model learns during training.",
+      "write": {
+       "kind": "bullet",
+       "content": "Large = billions of parameters"
+      }
+     },
+     {
+      "say": "Language means it works with human language — reading, understanding, and writing text in many languages including English and Hindi.",
+      "write": {
+       "kind": "bullet",
+       "content": "Language = understands human text"
+      }
+     },
+     {
+      "say": "Model means it is a mathematical system trained on data. It learned by reading billions of sentences from books and the internet.",
+      "write": {
+       "kind": "bullet",
+       "content": "Model = trained on billions of words"
+      }
+     }
+    ]
+   },
+   {
+    "title": "How LLMs Generate Text — Token by Token",
+    "steps": [
+     {
+      "say": "So how does an LLM actually write a sentence? It does not look anything up. Instead, it predicts the next token, one step at a time.",
+      "write": {
+       "kind": "heading",
+       "content": "How LLMs Work"
+      }
+     },
+     {
+      "say": "A token is roughly one word or part of a word. For example, the word unbelievable might be split into three tokens: un, believ, and able.",
+      "write": {
+       "kind": "text",
+       "content": "Token ≈ word or word-piece"
+      }
+     },
+     {
+      "say": "Given your prompt, the model calculates which token is most likely to come next, picks one, then repeats — again and again until the answer is complete.",
+      "write": {
+       "kind": "bullet",
+       "content": "Step: predict next token → repeat"
+      }
+     },
+     {
+      "say": "A setting called temperature controls creativity. Low temperature gives safe, predictable answers. High temperature gives more varied, creative ones.",
+      "write": {
+       "kind": "bullet",
+       "content": "Temperature: low = safe, high = creative"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Training, Fine-tuning, and Hallucinations",
+    "steps": [
+     {
+      "say": "LLMs are first pre-trained on massive data by research labs, which takes weeks on thousands of powerful graphics cards.",
+      "write": {
+       "kind": "heading",
+       "content": "Training an LLM"
+      }
+     },
+     {
+      "say": "They are then fine-tuned using human feedback — a process called RLHF — to make them more helpful, polite, and safe to use.",
+      "write": {
+       "kind": "bullet",
+       "content": "Fine-tuning with RLHF → safer output"
+      }
+     },
+     {
+      "say": "But watch out for hallucinations. Because the model generates text by pattern matching, not fact lookup, it can confidently state something that is completely wrong.",
+      "write": {
+       "kind": "highlight",
+       "content": "Hallucination = fluent but wrong output"
+      }
+     },
+     {
+      "say": "Always verify important facts from an LLM using a reliable source. This is a critical habit for any professional using AI tools.",
+      "write": {
+       "kind": "bullet",
+       "content": "Always verify AI-generated facts!"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us quickly recap everything we covered today. Generative AI creates new content — text, images, and code — rather than just classifying data.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap"
+      }
+     },
+     {
+      "say": "LLMs are large neural networks trained on billions of words. They work by predicting the next token using the Transformer architecture.",
+      "write": {
+       "kind": "bullet",
+       "content": "LLM = next-token predictor (Transformer)"
+      }
+     },
+     {
+      "say": "Temperature controls creativity, RLHF makes models safer, and hallucinations remind us to always think critically about AI output.",
+      "write": {
+       "kind": "bullet",
+       "content": "Temperature | RLHF | Hallucinations"
+      }
+     },
+     {
+      "say": "And remember — writing clear, specific prompts is a real skill called prompt engineering. Master it and you will get much better results from any AI tool.",
+      "write": {
+       "kind": "highlight",
+       "content": "Prompt engineering = key skill"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

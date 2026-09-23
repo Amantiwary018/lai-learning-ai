@@ -1,0 +1,86 @@
+{
+ "subjects": [
+  {
+   "title": "C++ Fundamentals & Object-Oriented Programming",
+   "chapters": [
+    {
+     "title": "Getting Started with Modern C++",
+     "topics": [
+      "Setting up a C++ development environment",
+      "Basic syntax, data types, and variables",
+      "Control flow: loops and conditionals",
+      "Functions and modern C++ features (auto, range-based for)"
+     ]
+    },
+    {
+     "title": "Classes and Object-Oriented Design",
+     "topics": [
+      "Defining classes, constructors, and destructors",
+      "Encapsulation, access specifiers, and member functions",
+      "Inheritance and polymorphism",
+      "Abstract classes and interfaces"
+     ]
+    },
+    {
+     "title": "Memory Management",
+     "topics": [
+      "Stack vs heap memory and pointers",
+      "Dynamic allocation with new and delete",
+      "Smart pointers: unique_ptr, shared_ptr, and weak_ptr",
+      "Move semantics and rvalue references"
+     ]
+    },
+    {
+     "title": "Operator Overloading & Modern Class Features",
+     "topics": [
+      "Overloading arithmetic and comparison operators",
+      "Copy constructor and copy assignment operator",
+      "Move constructor and move assignment operator",
+      "Rule of Five and Rule of Zero"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Templates, STL & Advanced C++",
+   "chapters": [
+    {
+     "title": "Templates and Generic Programming",
+     "topics": [
+      "Function templates and type deduction",
+      "Class templates and template specialization",
+      "Variadic templates and fold expressions",
+      "Concepts and constraints (C++20)"
+     ]
+    },
+    {
+     "title": "STL Containers and Iterators",
+     "topics": [
+      "Sequence containers: vector, list, and deque",
+      "Associative containers: map, set, and unordered variants",
+      "Iterators and iterator categories",
+      "Container adapters: stack, queue, and priority_queue"
+     ]
+    },
+    {
+     "title": "STL Algorithms and Lambda Expressions",
+     "topics": [
+      "Common algorithms: sort, find, transform, and accumulate",
+      "Lambda expressions and captures",
+      "std::function and function objects",
+      "Ranges library overview (C++20)"
+     ]
+    },
+    {
+     "title": "Error Handling and Best Practices",
+     "topics": [
+      "Exception handling with try, catch, and throw",
+      "noexcept and exception safety guarantees",
+      "Debugging techniques and using sanitizers",
+      "Writing clean, idiomatic Modern C++ code"
+     ]
+    }
+   ]
+  }
+ ]
+}

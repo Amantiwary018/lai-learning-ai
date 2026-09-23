@@ -1,0 +1,347 @@
+{
+ "summary": "Strings in C are arrays of characters ending with a null character, and C provides standard library functions to work with them.",
+ "shortNotes": [
+  "A string in C is a character array terminated by the null character '\\0'.",
+  "Declare a string as char name[size] or initialize it directly with a string literal.",
+  "Use the <string.h> library for functions like strlen, strcpy, strcat, and strcmp.",
+  "scanf reads a string without spaces; use fgets to read strings with spaces.",
+  "Strings are passed to functions as pointers — the array name acts as the address.",
+  "Never forget to allocate one extra byte for the null terminator when sizing your array."
+ ],
+ "detailed": {
+  "explanation": "A **string** in C is simply an array of `char` values that ends with the special character `'\\0'` (called the null terminator). This null character tells the compiler and library functions where the string ends. For example, the string `\"Hello\"` is stored in memory as six bytes: `H`, `e`, `l`, `l`, `o`, `\\0`.\n\nYou can declare and initialize a string in two common ways:\n```\nchar greeting[6] = \"Hello\";   // fixed size\nchar name[] = \"Ravi\";         // compiler sets size to 5\n```\nWhen you use a string literal like `\"Hello\"`, the compiler automatically adds the null terminator for you.\n\nTo read and print strings, use `scanf(\"%s\", name)` and `printf(\"%s\", name)`. Note that `scanf` stops reading at whitespace, so it cannot capture a full name with spaces. Use `fgets(name, size, stdin)` when you need to read a whole line including spaces.\n\nThe standard library `<string.h>` gives you ready-made functions to manipulate strings without writing loops yourself. The most important ones are `strlen` (length), `strcpy` (copy), `strcat` (concatenate), and `strcmp` (compare). Always include `#include <string.h>` at the top of your program before using these.\n\nBecause a string is an array, when you pass it to a function you are actually passing the address of the first character. Inside the function you can read or modify the string through this pointer. This is why string functions in C take `char *` parameters.",
+  "definitions": [
+   {
+    "term": "String",
+    "meaning": "A sequence of characters stored in a char array, terminated by the null character '\\0'."
+   },
+   {
+    "term": "Null Terminator",
+    "meaning": "The character '\\0' (ASCII value 0) that marks the end of a string in C."
+   },
+   {
+    "term": "String Literal",
+    "meaning": "A sequence of characters enclosed in double quotes, e.g. \"Hello\". The compiler automatically appends '\\0'."
+   },
+   {
+    "term": "strlen",
+    "meaning": "A <string.h> function that returns the number of characters in a string, not counting the null terminator."
+   },
+   {
+    "term": "strcpy",
+    "meaning": "A <string.h> function that copies one string into another character array."
+   },
+   {
+    "term": "strcat",
+    "meaning": "A <string.h> function that appends (concatenates) one string to the end of another."
+   },
+   {
+    "term": "strcmp",
+    "meaning": "A <string.h> function that compares two strings; returns 0 if they are equal, a negative value if the first is less, and positive if the first is greater."
+   },
+   {
+    "term": "fgets",
+    "meaning": "A standard I/O function that reads a line of input including spaces into a char array, stopping at newline or end-of-file."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "Always declare your char array with at least one extra space for the null terminator, e.g. char city[21] for a 20-character city name.",
+   "The length returned by strlen does NOT include '\\0', but sizeof on a string literal DOES include it — know the difference in exams.",
+   "Never use strcpy or strcat without ensuring the destination array is large enough to hold the result; otherwise you get a buffer overflow.",
+   "strcmp returns 0 when strings are equal — a common exam trap is using == to compare strings, which only compares addresses, not contents.",
+   "scanf with %s automatically adds '\\0' at the end but cannot read spaces; fgets is safer and handles spaces.",
+   "When you write char s[] = \"ABC\", the array size is 4 (3 letters plus '\\0'), set by the compiler.",
+   "String functions work because they walk character by character until they find '\\0' — removing or missing the null terminator causes undefined behavior.",
+   "In exam questions, trace through string operations step by step and always check where '\\0' is placed after each operation."
+  ]
+ },
+ "codeExample": {
+  "language": "c",
+  "code": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    /* Declare and initialize strings */\n    char firstName[20] = \"Ravi\";\n    char lastName[20]  = \"Kumar\";\n    char fullName[41];\n\n    /* Copy firstName into fullName */\n    strcpy(fullName, firstName);\n\n    /* Append a space */\n    strcat(fullName, \" \");\n\n    /* Append lastName */\n    strcat(fullName, lastName);\n\n    /* Print results */\n    printf(\"First Name : %s\\n\", firstName);\n    printf(\"Last  Name : %s\\n\", lastName);\n    printf(\"Full  Name : %s\\n\", fullName);\n\n    /* Show string length */\n    printf(\"Length of full name: %lu\\n\",\n           (unsigned long)strlen(fullName));\n\n    /* Compare two strings */\n    if (strcmp(firstName, \"Ravi\") == 0) {\n        printf(\"First name matches Ravi\\n\");\n    } else {\n        printf(\"Names do not match\\n\");\n    }\n\n    return 0;\n}",
+  "explanation": "Line 1-2: Include stdio.h for printf/scanf and string.h for string functions.\nLine 5-7: Declare three char arrays. firstName and lastName hold 20 chars each; fullName holds 41 chars (enough for both names plus a space and null terminator).\nLine 10: strcpy copies 'Ravi' into fullName. After this, fullName = \"Ravi\".\nLine 13: strcat appends a single space to fullName. Now fullName = \"Ravi \".\nLine 16: strcat appends 'Kumar' to fullName. Now fullName = \"Ravi Kumar\".\nLine 19-21: printf with %s prints each string. %s keeps printing characters until it hits '\\0'.\nLine 24-25: strlen returns the number of characters in fullName excluding '\\0'. For \"Ravi Kumar\" this is 10.\nLine 28: strcmp compares firstName with the literal \"Ravi\". It returns 0 because they are identical, so the if-block executes.\nLine 35: return 0 signals successful program completion."
+ },
+ "commonMistakes": [
+  "Using == to compare strings (e.g. if (s1 == s2)) instead of strcmp — this compares memory addresses, not the actual characters, and almost always gives wrong results.",
+  "Declaring the array too small and forgetting the null terminator, e.g. char name[5] = \"Hello\" causes a buffer overflow because 'Hello' needs 6 bytes including '\\0'.",
+  "Using strcpy or strcat without making sure the destination array is large enough, which overwrites adjacent memory and leads to unpredictable program behavior."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Which character marks the end of a string in C?",
+   "options": [
+    "'$'",
+    "'#'",
+    "'\\0'",
+    "'\\n'"
+   ],
+   "answer": 2,
+   "explanation": "The null character '\\0' (ASCII 0) is the standard string terminator in C. All string library functions rely on it to detect the end of the string.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the minimum array size needed to store the string \"India\" in C?",
+   "options": [
+    "4",
+    "5",
+    "6",
+    "7"
+   ],
+   "answer": 2,
+   "explanation": "\"India\" has 5 characters (I, n, d, i, a) plus one null terminator '\\0', so the array must be at least 6 characters wide.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which function should you use to read a string that may contain spaces from the keyboard?",
+   "options": [
+    "scanf(\"%s\", s)",
+    "getchar()",
+    "fgets(s, size, stdin)",
+    "strlen(s)"
+   ],
+   "answer": 2,
+   "explanation": "scanf with %s stops at the first whitespace. fgets reads the whole line including spaces, making it the correct choice for strings with spaces.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What does strcmp(\"apple\", \"apple\") return?",
+   "options": [
+    "1",
+    "-1",
+    "0",
+    "Any non-zero value"
+   ],
+   "answer": 2,
+   "explanation": "strcmp returns 0 when both strings are identical. Non-zero values indicate one string is lexicographically less or greater than the other.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "After executing: char s[10] = \"Hi\"; strcat(s, \"!!!\"); what is the content of s?",
+   "options": [
+    "\"Hi\"",
+    "\"!!!\"",
+    "\"Hi!!!\"",
+    "\"!!!Hi\""
+   ],
+   "answer": 2,
+   "explanation": "strcat appends the second string to the end of the first string. So \"Hi\" becomes \"Hi!!!\" with a null terminator after the last exclamation mark.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which header file must you include to use strlen and strcpy?",
+   "options": [
+    "<stdio.h>",
+    "<stdlib.h>",
+    "<math.h>",
+    "<string.h>"
+   ],
+   "answer": 3,
+   "explanation": "All standard string manipulation functions like strlen, strcpy, strcat, and strcmp are declared in <string.h>.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain the difference between the length of a string returned by strlen and the size of the character array that stores it.",
+   "answer": "strlen returns the number of actual characters in the string, not counting the null terminator '\\0'. The array size, declared by the programmer, must be at least one more than the string length to accommodate the null terminator. For example, for the string \"Hello\" strlen returns 5, but the array must be at least size 6.",
+   "keywords": [
+    "strlen",
+    "null terminator",
+    "array size",
+    "characters",
+    "excluding"
+   ],
+   "explanation": "This tests whether students understand that strlen measures the content while the array size must account for the hidden '\\0' byte.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Why is using == to compare two strings in C incorrect, and what should you use instead?",
+   "answer": "Using == on two string variables compares their memory addresses (pointers), not their actual character contents. Two different arrays holding the same text will have different addresses, so == returns false even when the strings are identical. The correct approach is to use strcmp, which compares the strings character by character and returns 0 if they are equal.",
+   "keywords": [
+    "addresses",
+    "pointers",
+    "strcmp",
+    "character by character",
+    "== compares addresses"
+   ],
+   "explanation": "A very common beginner error; understanding pointer semantics is key to correct string comparison in C.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "What is the exact output printed by this code?\n#include<stdio.h>\n#include<string.h>\nint main(){\n  char s[] = \"Delhi\";\n  printf(\"%d\", (int)strlen(s));\n  return 0;\n}",
+   "answer": "5",
+   "explanation": "\"Delhi\" contains 5 characters: D, e, l, h, i. strlen counts only the characters and not the null terminator, so it returns 5.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a C program that reads a string from the user (up to 50 characters, possibly with spaces), prints it back, and also prints its length using strlen.",
+   "starter": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char sentence[51];\n    // Read a line of input here\n\n    // Print the sentence\n\n    // Print the length\n\n    return 0;\n}",
+   "solution": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char sentence[51];\n\n    printf(\"Enter a sentence: \");\n    fgets(sentence, sizeof(sentence), stdin);\n\n    printf(\"You entered: %s\", sentence);\n    printf(\"Length: %d\\n\", (int)strlen(sentence));\n\n    return 0;\n}",
+   "explanation": "We declare a char array of size 51 to hold up to 50 characters plus the null terminator. fgets reads the whole line including spaces. printf with %s prints the string. strlen returns the number of characters; note that fgets includes the newline character in the string, so the length may be one more than expected — this is a good discussion point for students.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What is a String in C?",
+    "steps": [
+     {
+      "say": "Welcome! Today we are going to learn about strings in C. A string is simply a sequence of characters stored together in memory.",
+      "write": {
+       "kind": "heading",
+       "content": "Strings in C"
+      }
+     },
+     {
+      "say": "In C, every string is stored as a character array and always ends with a special character called the null terminator.",
+      "write": {
+       "kind": "text",
+       "content": "String = char array + '\\0'"
+      }
+     },
+     {
+      "say": "For example, the word Hello is stored as six bytes in memory: H, e, l, l, o, and then backslash zero.",
+      "write": {
+       "kind": "text",
+       "content": "\"Hello\" -> H e l l o \\0"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Declaring and Initializing Strings",
+    "steps": [
+     {
+      "say": "Let us look at how to declare a string in C. We use the char keyword followed by the array name and its size.",
+      "write": {
+       "kind": "heading",
+       "content": "Declaring Strings"
+      }
+     },
+     {
+      "say": "Here we declare a char array called name with size 6 and assign it the value Hello. The compiler adds the null terminator automatically.",
+      "write": {
+       "kind": "code",
+       "content": "char name[6] = \"Hello\";"
+      }
+     },
+     {
+      "say": "We can also let the compiler decide the size by leaving the brackets empty. It counts the characters and adds one for the null terminator.",
+      "write": {
+       "kind": "code",
+       "content": "char city[] = \"Delhi\";"
+      }
+     },
+     {
+      "say": "Remember, always make your array at least one size larger than the number of characters you want to store.",
+      "write": {
+       "kind": "bullet",
+       "content": "Size = number of chars + 1 for \\0"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Common String Functions",
+    "steps": [
+     {
+      "say": "C gives us a set of ready-made functions to work with strings. These are available when we include the string dot h header.",
+      "write": {
+       "kind": "heading",
+       "content": "String Functions: #include <string.h>"
+      }
+     },
+     {
+      "say": "strlen gives us the length of a string, not counting the null character. For Hello it returns five.",
+      "write": {
+       "kind": "bullet",
+       "content": "strlen(s)  -> number of chars"
+      }
+     },
+     {
+      "say": "strcpy copies one string into another, and strcat joins two strings together end to end.",
+      "write": {
+       "kind": "bullet",
+       "content": "strcpy(dst, src) -> copies src to dst\nstrcat(dst, src) -> joins src to dst"
+      }
+     },
+     {
+      "say": "strcmp compares two strings and returns zero if they are equal, which is very useful for checking user input.",
+      "write": {
+       "kind": "bullet",
+       "content": "strcmp(s1, s2) -> 0 if equal"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Reading Strings from the User",
+    "steps": [
+     {
+      "say": "To read a string, we can use scanf with percent s. But watch out, it stops reading as soon as it sees a space.",
+      "write": {
+       "kind": "code",
+       "content": "scanf(\"%s\", name);"
+      }
+     },
+     {
+      "say": "If we want to read a full sentence including spaces, we use fgets. We give it the array, the size, and standard input.",
+      "write": {
+       "kind": "code",
+       "content": "fgets(name, sizeof(name), stdin);"
+      }
+     },
+     {
+      "say": "fgets is safer because it also prevents reading more characters than the array can hold, avoiding memory problems.",
+      "write": {
+       "kind": "highlight",
+       "content": "Use fgets for strings with spaces"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us quickly recap what we covered today about strings in C.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap: Strings in C"
+      }
+     },
+     {
+      "say": "A string is a char array ending with the null terminator backslash zero. Always size your array one byte larger than needed.",
+      "write": {
+       "kind": "bullet",
+       "content": "char array ending with '\\0'"
+      }
+     },
+     {
+      "say": "Use string dot h functions: strlen for length, strcpy to copy, strcat to join, and strcmp to compare.",
+      "write": {
+       "kind": "bullet",
+       "content": "strlen, strcpy, strcat, strcmp"
+      }
+     },
+     {
+      "say": "Use fgets to read strings with spaces, and never use double equals to compare strings, always use strcmp. Great work today!",
+      "write": {
+       "kind": "bullet",
+       "content": "strcmp to compare, NOT =="
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

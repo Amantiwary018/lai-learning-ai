@@ -1,0 +1,347 @@
+{
+ "summary": "A function in C is a named block of code that performs a specific task and can be called multiple times to avoid code repetition.",
+ "shortNotes": [
+  "A function has a return type, a name, optional parameters, and a body enclosed in curly braces.",
+  "The `main()` function is the entry point of every C program and is called automatically by the system.",
+  "Functions must be declared before use via a function prototype, or defined before the calling function.",
+  "Use `return` to send a value back to the caller; use `void` if nothing is returned.",
+  "Arguments are passed by value by default, meaning the function gets a copy of the variable.",
+  "Breaking a program into functions makes code readable, reusable, and easier to debug."
+ ],
+ "detailed": {
+  "explanation": "A **function** in C is a self-contained block of statements that carries out a well-defined job. Instead of writing the same logic repeatedly, you write it once inside a function and call it whenever needed. This is the core idea behind structured programming.\n\nEvery C function has four parts: a **return type** (what kind of value it gives back), a **name** (how you call it), a **parameter list** (input values it needs, or empty parentheses if none), and a **body** (the statements inside `{ }`). For example, `int add(int a, int b) { return a + b; }` defines a function named `add` that takes two integers and returns their sum.\n\nBefore you call a function that is defined later in the file, you must provide a **function prototype** — a one-line declaration ending with a semicolon, such as `int add(int a, int b);`. This tells the compiler what to expect. If the function is defined above `main()`, the prototype is not strictly required but is considered good practice.\n\nWhen a function is called, control jumps to the function body, executes the statements, and then returns to the line after the call. If the return type is not `void`, the `return` statement sends a value back. C passes arguments **by value**, so changes inside the function do not affect the original variable in the caller.\n\nChoosing good function names and keeping each function focused on a single task is a key habit in professional C programming. Functions also make testing easier because you can check each piece of logic independently.",
+  "definitions": [
+   {
+    "term": "Function",
+    "meaning": "A named, reusable block of C code that performs a specific task and may return a value."
+   },
+   {
+    "term": "Return type",
+    "meaning": "The data type of the value the function sends back to the caller (e.g., int, float, void)."
+   },
+   {
+    "term": "Parameter",
+    "meaning": "A variable listed in the function definition that receives input when the function is called."
+   },
+   {
+    "term": "Argument",
+    "meaning": "The actual value passed to a function when it is called."
+   },
+   {
+    "term": "Function prototype",
+    "meaning": "A forward declaration of a function (return type, name, parameter types) placed before it is used, ending with a semicolon."
+   },
+   {
+    "term": "void",
+    "meaning": "A keyword used as return type when a function does not return any value."
+   },
+   {
+    "term": "return statement",
+    "meaning": "Exits the current function and optionally sends a value back to the caller."
+   },
+   {
+    "term": "Call by value",
+    "meaning": "The default argument-passing method in C where a copy of the variable is passed, not the original."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "Syntax: `return_type function_name(parameter_list) { body }` — memorise this structure.",
+   "A function prototype must match the definition exactly in return type and parameter types.",
+   "If a function returns `int` but you forget the `return` statement, the behaviour is undefined.",
+   "A `void` function can use `return;` (with no value) to exit early.",
+   "Local variables declared inside a function exist only while that function is executing (automatic storage duration).",
+   "Recursion is allowed in C — a function can call itself — but every recursive call needs a base case to stop.",
+   "The `main()` function returns `int`; returning `0` signals successful execution to the operating system.",
+   "Exam tip: distinguish between formal parameters (in the definition) and actual arguments (in the call)."
+  ]
+ },
+ "codeExample": {
+  "language": "c",
+  "code": "#include <stdio.h>\n\n/* Function prototype */\nint add(int a, int b);\nvoid greet(void);\n\nint main(void) {\n    int x = 10, y = 20;\n    int result;\n\n    greet();                  /* Call void function  */\n\n    result = add(x, y);       /* Call int function   */\n    printf(\"Sum = %d\\n\", result);\n\n    /* Original values unchanged (call by value) */\n    printf(\"x = %d, y = %d\\n\", x, y);\n\n    return 0;\n}\n\n/* Function definition: no return value */\nvoid greet(void) {\n    printf(\"Welcome to Functions in C!\\n\");\n}\n\n/* Function definition: returns int */\nint add(int a, int b) {\n    int sum = a + b;\n    return sum;\n}",
+  "explanation": "Line 1: Include standard I/O header.\nLines 4-5: Prototypes declare `add` and `greet` before `main` so the compiler knows their signatures.\nLine 7: `main` is the program entry point; it returns `int`.\nLines 8-9: Declare local variables `x`, `y`, and `result`.\nLine 11: Call `greet()` — no arguments, no return value captured.\nLine 13: Call `add(x, y)` passing copies of x and y; store the returned value in `result`.\nLine 14: Print the result using `printf`.\nLine 17: Print x and y to show they are still 10 and 20 — proof of call by value.\nLine 19: Return 0 to the OS indicating success.\nLines 22-24: Definition of `greet` — prints a welcome message, returns nothing.\nLines 27-30: Definition of `add` — computes the sum and returns it with `return sum;`."
+ },
+ "commonMistakes": [
+  "Forgetting the function prototype and defining the function after main() — the compiler will warn about an implicit declaration or give an error.",
+  "Using the wrong return type (e.g., declaring `void` but trying to `return` a value, or declaring `int` but forgetting to `return` anything).",
+  "Expecting a function to modify the caller's variable through normal parameters — since C uses call by value, the original variable is not changed; pointers are needed for that."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Which part of a function tells the compiler what type of value the function will send back?",
+   "options": [
+    "Function name",
+    "Parameter list",
+    "Return type",
+    "Function body"
+   ],
+   "answer": 2,
+   "explanation": "The return type (e.g., int, float, void) is placed before the function name and specifies the type of value returned to the caller.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the correct syntax for a function prototype of a function named `multiply` that takes two `int` parameters and returns an `int`?",
+   "options": [
+    "int multiply(int a, int b)",
+    "int multiply(int a, int b);",
+    "multiply(int a, int b): int;",
+    "void multiply(int, int);"
+   ],
+   "answer": 1,
+   "explanation": "A prototype is a declaration ending with a semicolon. The return type comes first, followed by the function name and parameter types.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "In C, what does 'call by value' mean?",
+   "options": [
+    "The function receives the memory address of the argument.",
+    "The function receives a copy of the argument's value.",
+    "The caller receives the function's local variables.",
+    "The function modifies the original variable directly."
+   ],
+   "answer": 1,
+   "explanation": "Call by value means a copy of the actual argument is passed. Changes inside the function do not affect the original variable in the caller.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which keyword is used when a function does NOT return any value?",
+   "options": [
+    "null",
+    "empty",
+    "void",
+    "zero"
+   ],
+   "answer": 2,
+   "explanation": "`void` is the return type used to indicate that a function returns nothing to its caller.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Where does execution of a C program always begin?",
+   "options": [
+    "The first function defined in the file",
+    "The function named `start`",
+    "The function named `main`",
+    "The first prototype in the file"
+   ],
+   "answer": 2,
+   "explanation": "Every C program starts execution at `main()`. The operating system calls `main` automatically when the program runs.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "A function is defined after `main()` but no prototype is provided. What is the most likely outcome with a modern C compiler?",
+   "options": [
+    "The program compiles and runs perfectly without any issue.",
+    "The compiler generates a warning or error about an implicit declaration.",
+    "The function is ignored completely by the compiler.",
+    "The function is moved automatically before `main` by the compiler."
+   ],
+   "answer": 1,
+   "explanation": "In C99 and later, implicit function declarations are not allowed. The compiler will issue a warning or error if a function is used before its prototype or definition appears.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain the difference between a function parameter and a function argument, and give a simple example of each.",
+   "answer": "A parameter is the variable listed in the function definition that acts as a placeholder for input, for example `int a` in `int square(int a)`. An argument is the actual value supplied when the function is called, for example `5` in `square(5)`. The argument is copied into the parameter when the function executes.",
+   "keywords": [
+    "parameter",
+    "argument",
+    "definition",
+    "call",
+    "copy"
+   ],
+   "explanation": "Parameters belong to the function signature; arguments are provided by the caller. This distinction is commonly tested in exams.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Why is it good practice to use function prototypes in a C program?",
+   "answer": "A function prototype tells the compiler the return type and parameter types of a function before it is defined. This allows the compiler to check that calls to the function use the correct number and types of arguments, catching type mismatches at compile time instead of causing bugs at runtime.",
+   "keywords": [
+    "prototype",
+    "compiler",
+    "type checking",
+    "declaration",
+    "error"
+   ],
+   "explanation": "Prototypes enable compile-time type checking. Without them, the compiler cannot verify that function calls are correct, leading to hard-to-find bugs.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "What is the exact output printed when the following C code is executed?\n\n#include <stdio.h>\nint double_val(int n) {\n    n = n * 2;\n    return n;\n}\nint main(void) {\n    int x = 7;\n    int y = double_val(x);\n    printf(\"%d %d\", x, y);\n    return 0;\n}",
+   "answer": "7 14",
+   "explanation": "x is passed by value so it remains 7 inside main. The function doubles its local copy of n (7*2=14) and returns 14, which is stored in y. printf prints x then y separated by a space: 7 14.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a complete C program that defines a function `int maxOfTwo(int a, int b)` which returns the larger of two integers. In `main`, read two integers from the user, call the function, and print the larger value.",
+   "starter": "#include <stdio.h>\n\n/* Write your function prototype here */\n\nint main(void) {\n    int p, q;\n    printf(\"Enter two integers: \");\n    scanf(\"%d %d\", &p, &q);\n    /* Call maxOfTwo and print the result */\n    return 0;\n}\n\n/* Write your function definition here */",
+   "solution": "#include <stdio.h>\n\n/* Function prototype */\nint maxOfTwo(int a, int b);\n\nint main(void) {\n    int p, q;\n    printf(\"Enter two integers: \");\n    scanf(\"%d %d\", &p, &q);\n    printf(\"Larger value = %d\\n\", maxOfTwo(p, q));\n    return 0;\n}\n\n/* Function definition */\nint maxOfTwo(int a, int b) {\n    if (a >= b)\n        return a;\n    else\n        return b;\n}",
+   "explanation": "The prototype declares `maxOfTwo` before `main`. Inside `main`, two integers are read with `scanf` and the function is called directly inside `printf`. The function uses an `if-else` to compare the two parameters and return the larger one. Because arguments are passed by value, the original variables `p` and `q` are not modified.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What Is a Function?",
+    "steps": [
+     {
+      "say": "Hello everyone! Today we are going to learn about functions in C. A function is simply a named block of code that does one specific job.",
+      "write": {
+       "kind": "heading",
+       "content": "Functions in C"
+      }
+     },
+     {
+      "say": "Think of a function like a recipe. You write the steps once, and you can use that recipe as many times as you want without rewriting it.",
+      "write": {
+       "kind": "bullet",
+       "content": "Write once, call many times"
+      }
+     },
+     {
+      "say": "Functions help us avoid repeating code and make programs much easier to read and fix.",
+      "write": {
+       "kind": "bullet",
+       "content": "Avoids repetition, easier to debug"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Anatomy of a Function",
+    "steps": [
+     {
+      "say": "Every function in C has four parts. Let me write the general structure on the board.",
+      "write": {
+       "kind": "text",
+       "content": "return_type name(parameters) {"
+      }
+     },
+     {
+      "say": "The return type tells us what kind of value the function gives back. The name is how we call it. The parameters are the inputs.",
+      "write": {
+       "kind": "code",
+       "content": "    /* statements */"
+      }
+     },
+     {
+      "say": "And we close the body with a curly brace. So a simple add function looks like this.",
+      "write": {
+       "kind": "code",
+       "content": "}"
+      }
+     },
+     {
+      "say": "Here is a real example. We write int add, then two int parameters a and b, and the body returns a plus b.",
+      "write": {
+       "kind": "code",
+       "content": "int add(int a, int b) {\n    return a + b;\n}"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Prototypes and Calling a Function",
+    "steps": [
+     {
+      "say": "Before we call a function, the compiler needs to know about it. We do that with a prototype, which is just the first line of the function followed by a semicolon.",
+      "write": {
+       "kind": "code",
+       "content": "int add(int a, int b);"
+      }
+     },
+     {
+      "say": "This line goes above main. It is like telling the compiler, hey, this function exists and here is what it looks like.",
+      "write": {
+       "kind": "bullet",
+       "content": "Prototype goes above main()"
+      }
+     },
+     {
+      "say": "To call the function we simply write its name, pass the arguments inside parentheses, and store the result in a variable.",
+      "write": {
+       "kind": "code",
+       "content": "int result = add(10, 20);"
+      }
+     },
+     {
+      "say": "C passes arguments by value, which means the function gets a copy. The original variable in main is never changed.",
+      "write": {
+       "kind": "bullet",
+       "content": "Call by value: function gets a copy"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Void Functions and Return",
+    "steps": [
+     {
+      "say": "Not every function needs to return a value. If it just prints something or does an action, we use the keyword void as the return type.",
+      "write": {
+       "kind": "code",
+       "content": "void greet(void) {"
+      }
+     },
+     {
+      "say": "Inside, we just write our statements. No return statement needed, although we can write return with no value to exit early.",
+      "write": {
+       "kind": "code",
+       "content": "    printf(\"Hello!\\n\");\n}"
+      }
+     },
+     {
+      "say": "And we call it simply by writing its name with parentheses. No need to store any result.",
+      "write": {
+       "kind": "code",
+       "content": "greet();"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Great work! Let us quickly recap what we covered today about functions in C.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap: Functions in C"
+      }
+     },
+     {
+      "say": "A function has a return type, a name, parameters, and a body. Use void when nothing is returned.",
+      "write": {
+       "kind": "bullet",
+       "content": "return_type, name, params, body"
+      }
+     },
+     {
+      "say": "Always write a prototype before main so the compiler can check your function calls.",
+      "write": {
+       "kind": "bullet",
+       "content": "Prototype before main()"
+      }
+     },
+     {
+      "say": "C uses call by value, so changes inside the function do not affect the original variable. Keep these points in mind and you will do great in your exams!",
+      "write": {
+       "kind": "bullet",
+       "content": "Call by value: copy is passed"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,317 @@
+{
+ "summary": "Responsible and ethical use of AI means using AI tools honestly, fairly, and safely while being aware of bias, privacy, accountability, and the impact on society.",
+ "shortNotes": [
+  "AI ethics covers fairness, transparency, privacy, accountability, and safety in AI use.",
+  "Bias in AI happens when training data reflects unfair human prejudices, leading to discriminatory outputs.",
+  "Privacy concerns arise because AI systems often collect and process large amounts of personal data.",
+  "Accountability means humans — not just machines — are responsible for AI decisions and their consequences.",
+  "Transparency (explainability) means being able to understand and explain how an AI reached a decision.",
+  "Responsible AI use requires questioning AI outputs, checking for errors, and avoiding misuse such as plagiarism or deepfakes."
+ ],
+ "detailed": {
+  "explanation": "Artificial Intelligence is becoming part of everyday life — from recommending YouTube videos to helping doctors detect diseases. But with great power comes great responsibility. **AI ethics** is the set of principles that guide us to use AI in a way that is fair, honest, and beneficial to everyone, not just a select few.\n\n**Bias and Fairness:** AI systems learn from historical data. If that data contains human prejudices — for example, hiring records that favoured one gender — the AI will repeat and even amplify those prejudices. A biased AI hiring tool used by Amazon in 2018 was found to downgrade resumes from women. Fairness means actively checking for and correcting such bias.\n\n**Privacy and Data Protection:** AI models are often trained on huge datasets that can include personal information like medical records, browsing habits, or financial details. Using such data without proper consent violates a person's privacy. In India, the **Digital Personal Data Protection Act, 2023** sets rules for how personal data must be handled. Responsible AI users always ask: *is this data being used with permission?*\n\n**Transparency and Accountability:** Transparency means the ability to explain how an AI system made a decision. For example, if a bank's AI rejects your loan application, you should be able to know why. Accountability means that a human or organisation must own the outcome of an AI decision — you cannot blame the algorithm and walk away.\n\n**Avoiding Misuse:** AI tools can be misused — generating fake news, creating deepfakes, writing assignments dishonestly, or automating cyberattacks. Responsible use means using AI to assist and enhance your work, not to deceive others or bypass learning. As a student and future professional, your integrity matters more than any shortcut AI can offer.",
+  "definitions": [
+   {
+    "term": "AI Ethics",
+    "meaning": "A set of moral principles and guidelines that govern the development and use of AI systems to ensure they are fair, safe, transparent, and respectful of human rights."
+   },
+   {
+    "term": "Bias (in AI)",
+    "meaning": "Systematic and unfair discrimination in AI outputs caused by prejudiced or unrepresentative training data."
+   },
+   {
+    "term": "Transparency",
+    "meaning": "The ability to understand and explain how an AI system processes inputs and arrives at its outputs or decisions."
+   },
+   {
+    "term": "Accountability",
+    "meaning": "The principle that humans and organisations are responsible for the decisions and consequences produced by AI systems they deploy."
+   },
+   {
+    "term": "Privacy",
+    "meaning": "An individual's right to control how their personal information is collected, stored, and used — including by AI systems."
+   },
+   {
+    "term": "Deepfake",
+    "meaning": "AI-generated synthetic media (video, audio, or image) that realistically depicts a person saying or doing something they never did."
+   },
+   {
+    "term": "Digital Personal Data Protection Act, 2023",
+    "meaning": "An Indian law that establishes rules for how organisations must collect, store, and process citizens' personal digital data responsibly."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "AI ethics is not just for AI developers — every user of AI has an ethical responsibility.",
+   "Bias can enter AI at the data collection stage, the model training stage, or even at the output interpretation stage.",
+   "The FATE framework is a useful memory aid: Fairness, Accountability, Transparency, and Ethics.",
+   "India's Digital Personal Data Protection Act, 2023 is the country's primary legislation on data privacy — know it by name.",
+   "Transparency does not mean exposing proprietary code; it means being able to explain a decision in human-understandable terms.",
+   "Using AI to write assignments and submitting them as your own work is academic dishonesty — treat AI as a tool, not a ghostwriter.",
+   "Even a well-intentioned AI can cause harm if deployed without adequate testing — always validate AI outputs before acting on them.",
+   "Exam tip: Questions often ask you to match ethical principles (bias, privacy, accountability, transparency) to real-world scenarios — practise with examples."
+  ]
+ },
+ "codeExample": null,
+ "commonMistakes": [
+  "Assuming AI is always neutral and objective — AI reflects the biases present in its training data and can be just as biased as the humans who created it.",
+  "Believing that accountability lies solely with the AI system or its creators — the person or organisation deploying and using AI is equally responsible for outcomes.",
+  "Using AI-generated content without checking it for accuracy — AI can produce confident-sounding but factually incorrect information, known as hallucination."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Which of the following best describes 'AI bias'?",
+   "options": [
+    "An AI system that runs too slowly due to hardware limitations",
+    "Unfair or discriminatory outputs caused by prejudiced training data",
+    "An AI that prefers one programming language over another",
+    "An error caused by a bug in the AI's code"
+   ],
+   "answer": 1,
+   "explanation": "AI bias refers to systematic unfairness in outputs that arises when the data used to train the AI reflects historical human prejudices or is unrepresentative of the real world.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Amazon's AI hiring tool, which was discontinued in 2018, is a well-known example of which AI ethics issue?",
+   "options": [
+    "Lack of speed and efficiency",
+    "Violation of intellectual property rights",
+    "Gender bias in AI decision-making",
+    "Poor user interface design"
+   ],
+   "answer": 2,
+   "explanation": "Amazon's AI recruiting tool was found to systematically downgrade resumes from women because it was trained on historical hiring data that reflected male dominance in technical roles — a classic case of gender bias.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What does the principle of 'transparency' mean in the context of AI ethics?",
+   "options": [
+    "Making all AI source code publicly available",
+    "Being able to understand and explain how an AI system reached its decision",
+    "Ensuring AI systems are visible on a user's screen",
+    "Publishing the names of all engineers who built an AI"
+   ],
+   "answer": 1,
+   "explanation": "Transparency in AI means that decisions made by AI systems can be explained in a way humans can understand — it does not necessarily require revealing proprietary source code.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which Indian law, enacted in 2023, governs the protection of citizens' personal digital data?",
+   "options": [
+    "Information Technology Act, 2000",
+    "Indian Penal Code (Digital Amendment), 2022",
+    "Digital Personal Data Protection Act, 2023",
+    "National Cyber Security Policy, 2013"
+   ],
+   "answer": 2,
+   "explanation": "The Digital Personal Data Protection Act, 2023 is India's primary legislation that sets out rules for collecting, storing, and processing personal digital data responsibly.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "A student uses an AI chatbot to write their entire college assignment and submits it as their own work. Which ethical principle is being violated?",
+   "options": [
+    "Transparency",
+    "Scalability",
+    "Academic integrity and honest use of AI",
+    "Data privacy"
+   ],
+   "answer": 2,
+   "explanation": "Submitting AI-generated content as your own work without disclosure is a form of academic dishonesty. Responsible AI use means using AI as a support tool while maintaining your own integrity and learning.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is a 'deepfake'?",
+   "options": [
+    "A very deep neural network used for image recognition",
+    "AI-generated synthetic media that falsely depicts a real person",
+    "A type of encrypted data used to protect AI models",
+    "A fake dataset used to test AI systems"
+   ],
+   "answer": 1,
+   "explanation": "A deepfake is AI-generated video, audio, or image content that makes it appear as though a real person said or did something they never actually did — a major ethical and social concern.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain why AI systems can be biased even when their creators did not intend any discrimination.",
+   "answer": "AI systems learn patterns from historical training data. If that data reflects past human prejudices — such as racial or gender discrimination in hiring or lending — the AI will learn and repeat those patterns. Since the bias is embedded in the data rather than explicitly programmed, developers may not even be aware of it, making it an unintentional but real problem.",
+   "keywords": [
+    "training data",
+    "historical bias",
+    "unintentional",
+    "patterns",
+    "discriminatory"
+   ],
+   "explanation": "This question tests understanding that bias is a data and design problem, not always a deliberate act — a nuance important for responsible AI literacy.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Why is human accountability important in AI systems, especially when an AI makes a harmful decision?",
+   "answer": "AI systems do not have moral agency — they cannot be held legally or ethically responsible. When an AI causes harm, the humans and organisations that built, deployed, or used the system must be accountable. Without clear human accountability, victims of AI errors have no one to seek justice from, which makes responsible oversight essential.",
+   "keywords": [
+    "moral agency",
+    "responsible",
+    "harm",
+    "organisations",
+    "oversight"
+   ],
+   "explanation": "This question checks whether students understand that accountability is a human responsibility and cannot be delegated to an algorithm.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "The FATE framework for AI ethics stands for four principles. How many principles does it contain?",
+   "answer": "4",
+   "explanation": "FATE stands for Fairness, Accountability, Transparency, and Ethics — exactly four principles used as a guideline for responsible AI development and use.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "Welcome: Why AI Ethics Matters",
+    "steps": [
+     {
+      "say": "Hello everyone, welcome to this lesson on responsible and ethical use of AI. AI is everywhere today — from your phone to hospitals — and with that power comes real responsibility.",
+      "write": {
+       "kind": "heading",
+       "content": "Responsible & Ethical Use of AI"
+      }
+     },
+     {
+      "say": "Ethics in AI is about making sure these powerful tools are used fairly, safely, and honestly for everyone in society.",
+      "write": {
+       "kind": "text",
+       "content": "AI Ethics = Fair + Safe + Honest use"
+      }
+     },
+     {
+      "say": "Today we will look at four big ideas: bias, privacy, transparency, and accountability.",
+      "write": {
+       "kind": "bullet",
+       "content": "Bias | Privacy | Transparency | Accountability"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Bias and Fairness in AI",
+    "steps": [
+     {
+      "say": "Let us start with bias. AI learns from data — and if that data contains unfair human prejudices, the AI will repeat them.",
+      "write": {
+       "kind": "heading",
+       "content": "Bias in AI"
+      }
+     },
+     {
+      "say": "A real example: Amazon built an AI to screen job applicants, but it was trained on past hiring data that favoured men. The AI started downgrading women's resumes without anyone telling it to.",
+      "write": {
+       "kind": "text",
+       "content": "Biased data → Biased AI output"
+      }
+     },
+     {
+      "say": "This shows that bias is not always intentional. It hides in data. Responsible AI users must always ask — is this output fair to everyone?",
+      "write": {
+       "kind": "highlight",
+       "content": "Ask: Is this output fair to everyone?"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Privacy and Accountability",
+    "steps": [
+     {
+      "say": "Now let us talk about privacy. AI systems often collect huge amounts of personal data — your location, health records, browsing habits.",
+      "write": {
+       "kind": "heading",
+       "content": "Privacy in AI"
+      }
+     },
+     {
+      "say": "In India, we now have the Digital Personal Data Protection Act of 2023, which sets rules on how personal data must be collected and used with proper consent.",
+      "write": {
+       "kind": "text",
+       "content": "DPDP Act 2023 — India's data privacy law"
+      }
+     },
+     {
+      "say": "Accountability means humans — not algorithms — are responsible for what AI does. If an AI denies your loan application, a real person or organisation must own that decision and explain it.",
+      "write": {
+       "kind": "bullet",
+       "content": "Humans are always accountable for AI decisions"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Transparency and Avoiding Misuse",
+    "steps": [
+     {
+      "say": "Transparency means being able to explain how an AI reached a decision in plain human language. It is not about revealing secret code — it is about understanding the reasoning.",
+      "write": {
+       "kind": "heading",
+       "content": "Transparency = Explainable Decisions"
+      }
+     },
+     {
+      "say": "Misuse of AI is also a serious concern. Creating deepfakes, spreading fake news, or submitting AI-written assignments as your own — these are all ethical violations.",
+      "write": {
+       "kind": "bullet",
+       "content": "Deepfakes | Fake news | Academic dishonesty"
+      }
+     },
+     {
+      "say": "Use AI as a helper to boost your learning and work — not as a shortcut that bypasses your own thinking and honesty.",
+      "write": {
+       "kind": "highlight",
+       "content": "Use AI to assist, not to deceive."
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Great work today! Let us quickly recap what we covered. Remember the four pillars of AI ethics using the word FATE.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap: FATE Framework"
+      }
+     },
+     {
+      "say": "F stands for Fairness — check for bias. A stands for Accountability — humans own AI decisions.",
+      "write": {
+       "kind": "bullet",
+       "content": "F – Fairness   A – Accountability"
+      }
+     },
+     {
+      "say": "T stands for Transparency — explain AI decisions. E stands for Ethics — use AI honestly and responsibly.",
+      "write": {
+       "kind": "bullet",
+       "content": "T – Transparency   E – Ethics"
+      }
+     },
+     {
+      "say": "Always question AI outputs, protect personal data, and remember — you are responsible for how you use these tools. See you in the next lesson!",
+      "write": {
+       "kind": "highlight",
+       "content": "You are responsible for how you use AI."
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

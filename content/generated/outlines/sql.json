@@ -1,0 +1,82 @@
+{
+ "subjects": [
+  {
+   "title": "SQL Fundamentals",
+   "chapters": [
+    {
+     "title": "Introduction to Relational Databases",
+     "topics": [
+      "What is a relational database?",
+      "Tables, rows, and columns",
+      "Primary keys and foreign keys"
+     ]
+    },
+    {
+     "title": "Basic SELECT Queries",
+     "topics": [
+      "SELECT and FROM clauses",
+      "Filtering rows with WHERE",
+      "Sorting results with ORDER BY",
+      "Limiting output with LIMIT"
+     ]
+    },
+    {
+     "title": "Filtering and Functions",
+     "topics": [
+      "Comparison and logical operators",
+      "Using LIKE, IN, and BETWEEN",
+      "NULL values and IS NULL",
+      "Built-in string and numeric functions"
+     ]
+    },
+    {
+     "title": "Aggregation and Grouping",
+     "topics": [
+      "Aggregate functions: COUNT, SUM, AVG, MIN, MAX",
+      "Grouping data with GROUP BY",
+      "Filtering groups with HAVING"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Intermediate SQL and Database Design",
+   "chapters": [
+    {
+     "title": "Joining Tables",
+     "topics": [
+      "INNER JOIN: combining matching rows",
+      "LEFT and RIGHT OUTER JOINs",
+      "Joining multiple tables",
+      "Self joins and aliases"
+     ]
+    },
+    {
+     "title": "Subqueries and Set Operations",
+     "topics": [
+      "Subqueries in WHERE and FROM",
+      "Correlated subqueries",
+      "UNION and INTERSECT"
+     ]
+    },
+    {
+     "title": "Database Design Principles",
+     "topics": [
+      "Entity-relationship (ER) modeling",
+      "Normalization: 1NF, 2NF, 3NF",
+      "Choosing data types",
+      "Indexes and performance basics"
+     ]
+    },
+    {
+     "title": "Putting It All Together",
+     "topics": [
+      "Writing complex multi-table queries",
+      "Query optimization tips",
+      "Common real-world query patterns"
+     ]
+    }
+   ]
+  }
+ ]
+}

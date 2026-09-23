@@ -1,0 +1,371 @@
+{
+ "summary": "C is a general-purpose, procedural programming language developed in the early 1970s, and every C program follows a fixed structure starting with preprocessor directives, a main function, and statements inside curly braces.",
+ "shortNotes": [
+  "C was created by Dennis Ritchie at Bell Labs around 1972 and is the foundation for many modern languages.",
+  "Every C program must have exactly one main() function — execution always starts there.",
+  "Preprocessor directives like #include <stdio.h> are processed before compilation and bring in library functions.",
+  "Statements inside a function are enclosed in curly braces { } and each statement ends with a semicolon.",
+  "printf() is used to print output to the screen and is declared in the stdio.h header file.",
+  "The return 0; statement at the end of main() tells the operating system the program finished successfully."
+ ],
+ "detailed": {
+  "explanation": "C is a general-purpose, procedural programming language created by **Dennis Ritchie** at Bell Labs (AT&T) around **1972**. It was originally developed to write the UNIX operating system. C is called a *middle-level* language because it combines features of high-level languages (easy to read) with low-level access to memory and hardware. Languages like C++, Java, and Python were heavily influenced by C.\n\nEvery C program has a **fixed skeleton structure**. At the top you write *preprocessor directives* — lines that start with `#`. The most common one is `#include <stdio.h>`, which tells the compiler to include the Standard Input Output library so you can use functions like `printf` and `scanf`.\n\nAfter the directives comes the **main function**: `int main()`. This is the entry point — when you run a C program, the computer always starts executing from the first line inside `main`. The body of the function is wrapped in curly braces `{ }`. Inside the body you write your statements, each ending with a **semicolon** `;`.\n\nThe statement `printf(\"Hello, World!\\n\");` prints text to the screen. The `\\n` is an *escape sequence* that moves the cursor to a new line. At the end of `main`, writing `return 0;` signals to the operating system that the program ran without errors. A non-zero return value traditionally means something went wrong.",
+  "definitions": [
+   {
+    "term": "Preprocessor Directive",
+    "meaning": "A command starting with # that is handled before actual compilation, e.g., #include <stdio.h> adds the standard I/O library."
+   },
+   {
+    "term": "main() Function",
+    "meaning": "The mandatory entry-point function in every C program; execution begins from the first statement inside it."
+   },
+   {
+    "term": "Header File",
+    "meaning": "A file (e.g., stdio.h) that contains declarations of library functions so the compiler knows how to use them."
+   },
+   {
+    "term": "Statement",
+    "meaning": "A single instruction in C that performs an action; every statement ends with a semicolon."
+   },
+   {
+    "term": "Escape Sequence",
+    "meaning": "A special two-character code starting with a backslash that represents a non-printable character, e.g., \\n for newline."
+   },
+   {
+    "term": "Compiler",
+    "meaning": "A program (e.g., GCC) that translates C source code into machine code that the computer can execute."
+   },
+   {
+    "term": "return 0",
+    "meaning": "A statement at the end of main() that returns the value 0 to the operating system, indicating successful execution."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "C was developed by Dennis Ritchie in 1972 at Bell Labs — this is a very common exam fact.",
+   "Every valid C program must contain a main() function; without it the program will not compile or run.",
+   "#include <stdio.h> must be written before using printf() or scanf(); forgetting it is a classic beginner error.",
+   "Each statement must end with a semicolon (;) — missing semicolons are the most frequent compilation error.",
+   "Curly braces { } define the body (block) of a function; every opening brace must have a matching closing brace.",
+   "The return type of main() is int; writing int main() is the standard and preferred form in modern C (C99 and later).",
+   "printf() is used for output and scanf() is used for input — both live in stdio.h.",
+   "C is case-sensitive: Main() and main() are treated as completely different names by the compiler."
+  ]
+ },
+ "codeExample": {
+  "language": "c",
+  "code": "#include <stdio.h>   /* Include standard I/O library */\n\nint main()           /* Entry point of the program   */\n{\n    /* Print a greeting message */\n    printf(\"Hello, World!\\n\");\n\n    /* Print a second line */\n    printf(\"Welcome to C Programming.\\n\");\n\n    return 0;        /* Signal successful completion */\n}",
+  "explanation": "Line 1: #include <stdio.h> — preprocessor directive that includes the Standard Input Output header file, giving access to printf().\nLine 3: int main() — declares the main function with return type int; this is where program execution begins.\nLine 4: { — opening curly brace marks the start of the main function body.\nLine 6: printf(\"Hello, World!\\n\"); — calls the printf function to print the text 'Hello, World!' followed by a newline character (\\n).\nLine 9: printf(\"Welcome to C Programming.\\n\"); — prints a second line of text to the screen.\nLine 11: return 0; — returns the integer 0 to the operating system, indicating the program ended successfully.\nLine 12: } — closing curly brace marks the end of the main function body."
+ },
+ "commonMistakes": [
+  "Forgetting the semicolon (;) at the end of a statement — this is the single most common compilation error and produces a 'expected ;' error message.",
+  "Writing #include<stdio.h> but then misspelling printf as Printf or PRINTF — C is case-sensitive, so only the lowercase version works.",
+  "Omitting the return 0; statement or writing return; without a value — while some compilers may accept it, it is bad practice and can cause warnings or undefined behavior."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Who created the C programming language?",
+   "options": [
+    "Bjarne Stroustrup",
+    "Dennis Ritchie",
+    "James Gosling",
+    "Guido van Rossum"
+   ],
+   "answer": 1,
+   "explanation": "Dennis Ritchie created C at Bell Labs around 1972. Bjarne Stroustrup created C++, James Gosling created Java, and Guido van Rossum created Python.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following is the correct entry point of a C program?",
+   "options": [
+    "start()",
+    "begin()",
+    "main()",
+    "run()"
+   ],
+   "answer": 2,
+   "explanation": "Every C program must have a main() function. The operating system calls main() to begin execution of the program.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the purpose of #include <stdio.h> in a C program?",
+   "options": [
+    "It defines the main() function",
+    "It tells the linker to create an executable",
+    "It includes the Standard Input Output header so functions like printf() can be used",
+    "It allocates memory for the program"
+   ],
+   "answer": 2,
+   "explanation": "#include <stdio.h> is a preprocessor directive that includes the standard I/O library header, which contains declarations for printf(), scanf(), and other I/O functions.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What does the escape sequence \\n do inside a printf() string?",
+   "options": [
+    "Prints the letter n",
+    "Ends the program",
+    "Inserts a tab space",
+    "Moves the cursor to a new line"
+   ],
+   "answer": 3,
+   "explanation": "\\n is a newline escape sequence. When printf() encounters \\n in a string, it moves the output cursor to the beginning of the next line.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What will happen if you forget the semicolon at the end of printf(\"Hello\");?",
+   "options": [
+    "The program will print nothing",
+    "The program will compile and run normally",
+    "The compiler will produce a syntax error",
+    "The program will print an extra blank line"
+   ],
+   "answer": 2,
+   "explanation": "In C, every statement must end with a semicolon. Missing a semicolon causes a compilation (syntax) error and the program cannot be built.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What value should main() return to indicate that the program executed successfully?",
+   "options": [
+    "1",
+    "-1",
+    "0",
+    "Any positive integer"
+   ],
+   "answer": 2,
+   "explanation": "By convention, returning 0 from main() tells the operating system that the program completed without errors. Non-zero values indicate errors.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain the role of a preprocessor directive in a C program and give one example.",
+   "answer": "A preprocessor directive is an instruction (starting with #) that is processed before the actual compilation of the program. It is used to include header files or define constants. For example, #include <stdio.h> includes the Standard Input Output header file, which provides access to functions like printf() and scanf().",
+   "keywords": [
+    "preprocessor",
+    "#include",
+    "header file",
+    "before compilation",
+    "stdio.h"
+   ],
+   "explanation": "A good answer must mention that directives start with #, are processed before compilation, and give a concrete example like #include <stdio.h>.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Why is C sometimes called a middle-level programming language?",
+   "answer": "C is called a middle-level language because it combines features of both high-level and low-level languages. Like a high-level language, it has readable syntax and supports structured programming. Like a low-level language, it allows direct manipulation of memory through pointers and close interaction with hardware.",
+   "keywords": [
+    "high-level",
+    "low-level",
+    "memory",
+    "pointers",
+    "hardware"
+   ],
+   "explanation": "The answer should address both sides: readability like a high-level language and direct memory/hardware access like a low-level language.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "What is the exact output printed to the screen when the following code is executed?\n\n#include <stdio.h>\nint main() {\n    printf(\"C\");\n    printf(\"Programming\");\n    return 0;\n}",
+   "answer": "CProgramming",
+   "explanation": "There is no space or newline between the two printf() calls and neither string contains \\n or a space, so the outputs are concatenated directly to give CProgramming on a single line.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a complete C program that prints the following two lines exactly:\nI am learning C.\nC was made in 1972.",
+   "starter": "#include <stdio.h>\n\nint main()\n{\n    // Write your printf statements here\n\n    return 0;\n}",
+   "solution": "#include <stdio.h>\n\nint main()\n{\n    printf(\"I am learning C.\\n\");\n    printf(\"C was made in 1972.\\n\");\n    return 0;\n}",
+   "explanation": "Two printf() calls are needed, one for each line. Each string ends with \\n to move to the next line after printing. The #include <stdio.h> directive is required to use printf(), and return 0; signals successful completion.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What is C?",
+    "steps": [
+     {
+      "say": "Welcome! Today we are going to learn about C programming — one of the most important languages you will ever study.",
+      "write": {
+       "kind": "heading",
+       "content": "What is C?"
+      }
+     },
+     {
+      "say": "C is a general-purpose programming language created by Dennis Ritchie at Bell Labs in 1972.",
+      "write": {
+       "kind": "bullet",
+       "content": "Created by Dennis Ritchie, 1972"
+      }
+     },
+     {
+      "say": "It was originally built to write the UNIX operating system, and it is the parent of languages like C plus plus, Java, and Python.",
+      "write": {
+       "kind": "bullet",
+       "content": "Influenced C++, Java, Python"
+      }
+     },
+     {
+      "say": "C gives you both readable code and direct control over memory, which is why we call it a middle-level language.",
+      "write": {
+       "kind": "bullet",
+       "content": "Middle-level: readable + low-level power"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Structure of a C Program",
+    "steps": [
+     {
+      "say": "Every C program follows the same fixed structure. Let us build it on the board step by step.",
+      "write": {
+       "kind": "heading",
+       "content": "Structure of a C Program"
+      }
+     },
+     {
+      "say": "The very first line is a preprocessor directive. We write hash include stdio dot h to bring in the input output library.",
+      "write": {
+       "kind": "code",
+       "content": "#include <stdio.h>"
+      }
+     },
+     {
+      "say": "Next comes the main function. We write int main with empty parentheses and an opening curly brace.",
+      "write": {
+       "kind": "code",
+       "content": "int main()\n{"
+      }
+     },
+     {
+      "say": "Inside the braces we write our statements. Here we use printf to print Hello World followed by a newline.",
+      "write": {
+       "kind": "code",
+       "content": "    printf(\"Hello, World!\\n\");"
+      }
+     },
+     {
+      "say": "Finally we write return zero and close the brace. Return zero tells the operating system the program finished successfully.",
+      "write": {
+       "kind": "code",
+       "content": "    return 0;\n}"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Key Parts Explained",
+    "steps": [
+     {
+      "say": "Let us quickly go through what each part does so it is crystal clear.",
+      "write": {
+       "kind": "heading",
+       "content": "Key Parts"
+      }
+     },
+     {
+      "say": "Hash include stdio dot h is a preprocessor directive. It runs before compilation and loads the I O library.",
+      "write": {
+       "kind": "bullet",
+       "content": "#include <stdio.h> → loads I/O library"
+      }
+     },
+     {
+      "say": "int main is the entry point. The computer always starts running your program from the first line inside main.",
+      "write": {
+       "kind": "bullet",
+       "content": "int main() → entry point"
+      }
+     },
+     {
+      "say": "printf prints text to the screen. The backslash n inside the string is an escape sequence that moves to a new line.",
+      "write": {
+       "kind": "bullet",
+       "content": "printf(...) → prints output"
+      }
+     },
+     {
+      "say": "Every statement ends with a semicolon. If you forget even one semicolon, the compiler will give you an error.",
+      "write": {
+       "kind": "highlight",
+       "content": "Every statement ends with  ;"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Common Mistake to Avoid",
+    "steps": [
+     {
+      "say": "The number one mistake beginners make is forgetting the semicolon at the end of a statement. Let me show you.",
+      "write": {
+       "kind": "heading",
+       "content": "Common Mistake"
+      }
+     },
+     {
+      "say": "This line is missing the semicolon at the end. The compiler will stop and report a syntax error.",
+      "write": {
+       "kind": "code",
+       "content": "printf(\"Hello\")   /* WRONG */"
+      }
+     },
+     {
+      "say": "This is the correct version with the semicolon in place. Always double-check every statement.",
+      "write": {
+       "kind": "code",
+       "content": "printf(\"Hello\");  /* CORRECT */"
+      }
+     },
+     {
+      "say": "Also remember that C is case-sensitive, so main with a capital M is not the same as main with a small m.",
+      "write": {
+       "kind": "bullet",
+       "content": "C is case-sensitive: main ≠ Main"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Great work! Let us do a quick recap of everything we covered today.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap"
+      }
+     },
+     {
+      "say": "C was created by Dennis Ritchie in 1972 and influenced almost every popular language that came after it.",
+      "write": {
+       "kind": "bullet",
+       "content": "Dennis Ritchie, Bell Labs, 1972"
+      }
+     },
+     {
+      "say": "Every C program starts with hash include, then int main, then statements inside curly braces, and ends with return zero.",
+      "write": {
+       "kind": "bullet",
+       "content": "#include → main() → { } → return 0"
+      }
+     },
+     {
+      "say": "Remember: every statement needs a semicolon, and C is case-sensitive. Keep these two rules in mind and you will avoid most beginner errors.",
+      "write": {
+       "kind": "bullet",
+       "content": "Semicolon + case-sensitive = key rules"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

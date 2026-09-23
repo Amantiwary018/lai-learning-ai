@@ -1,0 +1,343 @@
+{
+ "summary": "A method in Java is a named block of code that performs a specific task and can be called multiple times to avoid code repetition.",
+ "shortNotes": [
+  "A method is defined with a return type, name, and optional parameters inside a class.",
+  "The `void` keyword means the method does not return any value.",
+  "Methods are called by their name followed by parentheses, e.g., `greet()`.",
+  "Parameters allow you to pass data into a method; arguments are the actual values passed.",
+  "The `return` statement sends a value back to the caller and exits the method.",
+  "Method overloading allows multiple methods with the same name but different parameter lists."
+ ],
+ "detailed": {
+  "explanation": "A **method** in Java is a block of code grouped under a name. You write it once and call it as many times as needed. This makes your program shorter, easier to read, and easier to fix. Every Java program already uses one method you know — `main`.\n\nA method has five parts: an **access modifier** (like `public`), a **return type** (like `int` or `void`), a **method name**, a **parameter list** inside parentheses, and the **method body** inside curly braces. For example: `public int add(int a, int b) { return a + b; }`.\n\n**Parameters vs Arguments:** Parameters are the variable names listed in the method definition. Arguments are the actual values you pass when you call the method. In `add(3, 5)`, the numbers 3 and 5 are arguments.\n\nWhen a method has a non-void return type, it must use the `return` keyword to send a value back to the caller. The type of the returned value must match the declared return type exactly, otherwise the code will not compile.\n\n**Method overloading** means you can have two or more methods with the same name in the same class, as long as their parameter lists are different (different number or types of parameters). Java decides which one to call based on the arguments you provide at the time of the call.",
+  "definitions": [
+   {
+    "term": "Method",
+    "meaning": "A named block of code inside a class that performs a specific task and can be called multiple times."
+   },
+   {
+    "term": "Return type",
+    "meaning": "The data type of the value a method sends back. Use `void` if the method returns nothing."
+   },
+   {
+    "term": "Parameter",
+    "meaning": "A variable declared in the method signature that receives a value when the method is called."
+   },
+   {
+    "term": "Argument",
+    "meaning": "The actual value passed to a method when it is called."
+   },
+   {
+    "term": "Method signature",
+    "meaning": "The combination of the method name and its parameter list that uniquely identifies a method."
+   },
+   {
+    "term": "Method overloading",
+    "meaning": "Defining multiple methods with the same name but different parameter lists in the same class."
+   },
+   {
+    "term": "return statement",
+    "meaning": "The keyword used inside a method to send a value back to the caller and exit the method."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "A method must be defined inside a class in Java — standalone functions do not exist in Java.",
+   "If the return type is not `void`, the method MUST have a `return` statement that returns the correct type.",
+   "The `main` method signature `public static void main(String[] args)` must be exact for the JVM to run the program.",
+   "Static methods belong to the class and can be called without creating an object — useful for utility/helper methods.",
+   "Java passes primitive types by value, meaning changes to parameters inside the method do NOT affect the original variable.",
+   "Method overloading is resolved at compile time based on the number and types of arguments.",
+   "A method name should start with a lowercase letter and follow camelCase convention, e.g., `calculateArea`.",
+   "Exam tip: If a method declares a return type other than void and any code path does not return a value, the code will NOT compile."
+  ]
+ },
+ "codeExample": {
+  "language": "java",
+  "code": "public class MethodDemo {\n\n    // Method with no parameters and no return value\n    public static void greet() {\n        System.out.println(\"Hello! Welcome to Java.\");\n    }\n\n    // Method with parameters and a return value\n    public static int add(int a, int b) {\n        return a + b;\n    }\n\n    // Overloaded method: same name, different parameters\n    public static double add(double a, double b) {\n        return a + b;\n    }\n\n    // Method that checks if a number is even\n    public static boolean isEven(int number) {\n        return number % 2 == 0;\n    }\n\n    public static void main(String[] args) {\n\n        // Calling the greet method\n        greet();\n\n        // Calling add with integers\n        int sum = add(10, 20);\n        System.out.println(\"Sum (int): \" + sum);\n\n        // Calling add with doubles (overloaded version)\n        double dsum = add(3.5, 2.5);\n        System.out.println(\"Sum (double): \" + dsum);\n\n        // Calling isEven and printing result\n        boolean result = isEven(7);\n        System.out.println(\"Is 7 even? \" + result);\n    }\n}",
+  "explanation": "Line 1: Declare the class MethodDemo.\nLine 4-6: `greet()` has return type void and no parameters; it just prints a message.\nLine 9-11: `add(int a, int b)` takes two integers, adds them, and returns the result using `return`.\nLine 14-16: An overloaded version of `add` that accepts two doubles instead of ints — Java picks the right one based on argument types.\nLine 19-21: `isEven` returns a boolean; `number % 2 == 0` evaluates to true or false.\nLine 24: `main` is the entry point; execution starts here.\nLine 27: `greet()` is called — no arguments needed, no return value captured.\nLine 30: `add(10, 20)` is called; the returned integer 30 is stored in `sum`.\nLine 31: Prints 'Sum (int): 30'.\nLine 34: The double version of `add` is called; result 6.0 is stored in `dsum`.\nLine 35: Prints 'Sum (double): 6.0'.\nLine 38: `isEven(7)` returns false because 7 % 2 is 1, not 0.\nLine 39: Prints 'Is 7 even? false'."
+ },
+ "commonMistakes": [
+  "Forgetting the `return` statement in a non-void method — the compiler will throw an error saying 'missing return statement'.",
+  "Confusing parameters and arguments — parameters are the placeholders in the method definition, while arguments are the actual values passed during the call.",
+  "Calling a non-static method without creating an object, or calling a static method on an object instance — always check whether the method is `static` before calling it directly from `main`."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "What is the correct way to declare a method that takes two integers and returns their product?",
+   "options": [
+    "void multiply(int a, int b) { return a * b; }",
+    "int multiply(int a, int b) { return a * b; }",
+    "int multiply(int a, int b) { System.out.println(a * b); }",
+    "multiply int(int a, int b) { return a * b; }"
+   ],
+   "answer": 1,
+   "explanation": "The return type must be `int` since the method returns an integer product, and the `return` statement must be used. Option A uses `void` but tries to return a value, which is invalid. Option C prints but does not return. Option D has incorrect syntax.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which keyword is used to send a value back from a method to its caller?",
+   "options": [
+    "send",
+    "output",
+    "return",
+    "yield"
+   ],
+   "answer": 2,
+   "explanation": "The `return` keyword is used in Java to exit a method and optionally send a value back to the caller. `yield` is used in switch expressions (Java 14+), not in methods. `send` and `output` are not Java keywords.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What does `void` as a return type indicate?",
+   "options": [
+    "The method returns the value 0.",
+    "The method returns a boolean.",
+    "The method does not return any value.",
+    "The method is empty and has no body."
+   ],
+   "answer": 2,
+   "explanation": "`void` means the method performs an action but does not return any value to the caller. It does not mean the method body is empty — it can still contain executable statements.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following is an example of method overloading?",
+   "options": [
+    "Two methods with the same name and same parameter list in different classes.",
+    "Two methods with the same name but different parameter lists in the same class.",
+    "A method that calls itself recursively.",
+    "A method with more than two parameters."
+   ],
+   "answer": 1,
+   "explanation": "Method overloading means defining multiple methods with the same name in the same class but with different parameter lists (different number or types of parameters). Java resolves which version to call at compile time.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What will happen if a method declares return type `int` but has no `return` statement?",
+   "options": [
+    "It will return 0 by default.",
+    "It will compile and return null.",
+    "The compiler will throw a compile-time error.",
+    "The program will compile but throw a runtime exception."
+   ],
+   "answer": 2,
+   "explanation": "Java requires that every code path in a non-void method must have a return statement. If it is missing, the compiler reports a 'missing return statement' error and the code does not compile.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "In Java, primitive type arguments are passed to methods by:",
+   "options": [
+    "Reference",
+    "Value",
+    "Pointer",
+    "Address"
+   ],
+   "answer": 1,
+   "explanation": "Java passes primitive types (int, double, boolean, etc.) by value. This means a copy of the value is passed to the method, and any changes made to the parameter inside the method do not affect the original variable.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain the difference between a parameter and an argument in Java methods.",
+   "answer": "A parameter is a variable declared in the method definition that acts as a placeholder for incoming data. An argument is the actual value passed to the method when it is called. For example, in `int add(int a, int b)`, `a` and `b` are parameters; when you call `add(3, 5)`, the values 3 and 5 are arguments.",
+   "keywords": [
+    "parameter",
+    "argument",
+    "method definition",
+    "value",
+    "call"
+   ],
+   "explanation": "Students often mix these terms. Parameters belong to the method signature; arguments belong to the method call.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "What is method overloading and why is it useful?",
+   "answer": "Method overloading is the ability to define multiple methods with the same name in the same class, provided their parameter lists differ in number or type of parameters. It is useful because it allows the same operation (like `add`) to work with different data types (int, double) without needing different method names, making the code more readable and intuitive.",
+   "keywords": [
+    "same name",
+    "different parameters",
+    "same class",
+    "compile time",
+    "readability"
+   ],
+   "explanation": "Overloading improves code readability and follows the principle of using one logical name for the same kind of operation regardless of data type.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "What is the exact output printed to the console when the following code runs?\n\npublic class Test {\n    public static int square(int n) {\n        return n * n;\n    }\n    public static void main(String[] args) {\n        System.out.println(square(4));\n    }\n}",
+   "answer": "16",
+   "explanation": "`square(4)` computes 4 * 4 = 16 and returns it. `System.out.println(16)` prints 16 followed by a newline. So the exact output is 16.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a Java method called `isPositive` that accepts one integer parameter and returns `true` if the number is greater than zero, and `false` otherwise. Call it from `main` with the value -5 and print the result.",
+   "starter": "public class CheckNumber {\n\n    // Write your isPositive method here\n\n    public static void main(String[] args) {\n        // Call isPositive with -5 and print the result\n    }\n}",
+   "solution": "public class CheckNumber {\n\n    public static boolean isPositive(int num) {\n        return num > 0;\n    }\n\n    public static void main(String[] args) {\n        boolean result = isPositive(-5);\n        System.out.println(result);\n    }\n}",
+   "explanation": "The method `isPositive` has return type `boolean` because it returns true or false. The expression `num > 0` evaluates to a boolean directly, so it can be returned immediately. In `main`, we call `isPositive(-5)` — since -5 is not greater than 0, the method returns false, which is stored in `result` and printed. The output is: false.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What is a Method?",
+    "steps": [
+     {
+      "say": "Welcome! Today we are going to learn about methods in Java. Think of a method as a small named machine — you give it some input, it does a job, and it gives you back an output.",
+      "write": {
+       "kind": "heading",
+       "content": "Methods in Java"
+      }
+     },
+     {
+      "say": "Instead of writing the same code again and again, you put it inside a method and simply call that method whenever you need it.",
+      "write": {
+       "kind": "bullet",
+       "content": "Write once, call many times"
+      }
+     },
+     {
+      "say": "This makes your program shorter, easier to read, and much easier to fix when something goes wrong.",
+      "write": {
+       "kind": "bullet",
+       "content": "Cleaner and reusable code"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Structure of a Method",
+    "steps": [
+     {
+      "say": "Every method has a fixed structure. Let us build it step by step on the board.",
+      "write": {
+       "kind": "text",
+       "content": "Method Structure:"
+      }
+     },
+     {
+      "say": "First we write the access modifier and return type, then the method name and parentheses.",
+      "write": {
+       "kind": "code",
+       "content": "public static int add(int a, int b)"
+      }
+     },
+     {
+      "say": "Then inside curly braces we write the body — the actual code that runs.",
+      "write": {
+       "kind": "code",
+       "content": "{"
+      }
+     },
+     {
+      "say": "We use the return keyword to send the result back to the caller.",
+      "write": {
+       "kind": "code",
+       "content": "  return a + b;\n}"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Calling a Method",
+    "steps": [
+     {
+      "say": "Defining a method does not run it. You have to call it. Let us see how to call our add method from main.",
+      "write": {
+       "kind": "text",
+       "content": "Calling a Method:"
+      }
+     },
+     {
+      "say": "Inside main, we write the method name followed by parentheses and pass the actual values called arguments.",
+      "write": {
+       "kind": "code",
+       "content": "int result = add(10, 20);"
+      }
+     },
+     {
+      "say": "Java goes to the add method, computes 10 plus 20, returns 30, and stores it in result.",
+      "write": {
+       "kind": "code",
+       "content": "System.out.println(result);"
+      }
+     },
+     {
+      "say": "This prints 30 on the screen. The method did its job and came back with the answer.",
+      "write": {
+       "kind": "text",
+       "content": "Output: 30"
+      }
+     }
+    ]
+   },
+   {
+    "title": "void Methods and Method Overloading",
+    "steps": [
+     {
+      "say": "Not every method needs to return a value. If a method just does something like printing, we use void as the return type.",
+      "write": {
+       "kind": "code",
+       "content": "public static void greet() {"
+      }
+     },
+     {
+      "say": "Inside this method we just print a message and there is no return statement needed.",
+      "write": {
+       "kind": "code",
+       "content": "  System.out.println(\"Hello!\");\n}"
+      }
+     },
+     {
+      "say": "Now, method overloading means you can have two methods with the same name as long as their parameters are different. Java picks the right one for you.",
+      "write": {
+       "kind": "bullet",
+       "content": "Overloading: same name, different params"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us quickly recap what we learned today about methods in Java.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap: Methods in Java"
+      }
+     },
+     {
+      "say": "A method has a return type, a name, parameters, and a body. Use void when you return nothing.",
+      "write": {
+       "kind": "bullet",
+       "content": "return type | name | params | body"
+      }
+     },
+     {
+      "say": "Use the return keyword to send a value back. Arguments are the real values you pass when calling a method.",
+      "write": {
+       "kind": "bullet",
+       "content": "return sends the value back"
+      }
+     },
+     {
+      "say": "And remember, method overloading lets you reuse the same method name for different types of input. Great work today!",
+      "write": {
+       "kind": "bullet",
+       "content": "Overloading: same name, diff params"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,77 @@
+{
+ "subjects": [
+  {
+   "title": "Frontend Development",
+   "chapters": [
+    {
+     "title": "HTML Fundamentals",
+     "topics": [
+      "Document Structure & Semantic Elements",
+      "Forms, Tables & Media Embedding"
+     ]
+    },
+    {
+     "title": "CSS Styling & Layouts",
+     "topics": [
+      "Selectors, Box Model & Typography",
+      "Flexbox & CSS Grid",
+      "Responsive Design & Media Queries"
+     ]
+    },
+    {
+     "title": "JavaScript Essentials",
+     "topics": [
+      "Variables, Data Types & Operators",
+      "Functions, Loops & Conditionals",
+      "DOM Manipulation & Events"
+     ]
+    },
+    {
+     "title": "Modern Frontend Tools",
+     "topics": [
+      "Version Control with Git & GitHub",
+      "Package Managers & Build Tools",
+      "Introduction to React & Component Basics"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Backend, APIs & Deployment",
+   "chapters": [
+    {
+     "title": "Backend Development with Node.js",
+     "topics": [
+      "Node.js Fundamentals & NPM",
+      "Building a Server with Express.js",
+      "Middleware, Routing & Error Handling"
+     ]
+    },
+    {
+     "title": "Databases & Data Modeling",
+     "topics": [
+      "Relational Databases & SQL Basics",
+      "NoSQL with MongoDB & Mongoose",
+      "CRUD Operations & Data Validation"
+     ]
+    },
+    {
+     "title": "REST APIs & Authentication",
+     "topics": [
+      "Designing & Building RESTful APIs",
+      "JWT Authentication & Authorization",
+      "Consuming APIs from the Frontend"
+     ]
+    },
+    {
+     "title": "Deployment & DevOps Basics",
+     "topics": [
+      "Environment Variables & Configuration",
+      "Deploying to Cloud Platforms (Render/Vercel)",
+      "CI/CD Basics & Monitoring"
+     ]
+    }
+   ]
+  }
+ ]
+}

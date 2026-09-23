@@ -1,0 +1,350 @@
+{
+ "summary": "An array in Java is a fixed-size, indexed collection of elements of the same data type, stored in contiguous memory locations.",
+ "shortNotes": [
+  "An array stores multiple values of the same type under one variable name.",
+  "Array indices start at 0 and end at length-1.",
+  "Declare and create: int[] arr = new int[5]; allocates space for 5 integers.",
+  "Array elements are accessed using arr[index] syntax.",
+  "The length of an array is obtained using arr.length (not a method, no parentheses).",
+  "Arrays have a fixed size once created; they cannot grow or shrink dynamically."
+ ],
+ "detailed": {
+  "explanation": "An **array** is a data structure that lets you store multiple values of the **same data type** under a single variable name. Instead of declaring five separate variables like `int a1, a2, a3, a4, a5;`, you can simply write `int[] marks = new int[5];`. This makes your code cleaner and easier to manage, especially when dealing with large amounts of data.\n\nIn Java, array indices always **start at 0**. So for an array of size 5, valid indices are 0, 1, 2, 3, and 4. Accessing `marks[5]` on a size-5 array will cause an `ArrayIndexOutOfBoundsException` at runtime. Always remember: last valid index = `length - 1`.\n\nYou can declare, create, and initialise an array in one line using an **array literal**: `int[] marks = {85, 90, 78, 92, 88};`. Java automatically sets the size based on the number of values you provide. You can also first declare (`int[] marks;`), then create (`marks = new int[5];`), and then assign values individually.\n\nTo process all elements of an array, a `for` loop or an **enhanced for loop** (for-each) is commonly used. The enhanced for loop `for (int m : marks)` reads as \"for each integer m in marks\" and is cleaner when you only need to read elements. When you need the index (e.g., to modify elements), use the regular `for` loop with `arr.length`.\n\nBy default, numeric arrays are initialised to **0**, boolean arrays to **false**, and object arrays to **null**. This is different from local primitive variables, which are not initialised automatically. Understanding default values prevents bugs when you forget to assign a value before using it.",
+  "definitions": [
+   {
+    "term": "Array",
+    "meaning": "A fixed-size, ordered collection of elements of the same data type stored in contiguous memory."
+   },
+   {
+    "term": "Index",
+    "meaning": "The position of an element in an array, starting from 0."
+   },
+   {
+    "term": "Array Literal",
+    "meaning": "A shorthand way to declare and initialise an array at once, e.g., int[] a = {1, 2, 3};"
+   },
+   {
+    "term": "ArrayIndexOutOfBoundsException",
+    "meaning": "A runtime error thrown when you try to access an array element using an index that is negative or greater than or equal to the array length."
+   },
+   {
+    "term": "arr.length",
+    "meaning": "A property (not a method) that returns the total number of elements in the array."
+   },
+   {
+    "term": "Enhanced for loop",
+    "meaning": "A simplified for loop syntax (for-each) used to iterate over all elements of an array without using an index variable."
+   }
+  ],
+  "formulas": [
+   {
+    "name": "Last Valid Index",
+    "expression": "lastIndex = arr.length - 1",
+    "note": "Accessing any index beyond this causes ArrayIndexOutOfBoundsException."
+   },
+   {
+    "name": "Array Memory Size (approximate)",
+    "expression": "memory = n × size_of_datatype (bytes)",
+    "note": "For int[5], approximately 5 × 4 = 20 bytes are used."
+   }
+  ],
+  "points": [
+   "Array indices start at 0, not 1 — this is the most common source of off-by-one errors.",
+   "Use arr.length (no parentheses) to get the size; arr.length() does not exist and will cause a compile error.",
+   "Arrays in Java are objects; they are created on the heap using the new keyword.",
+   "Once an array is created with a fixed size, that size cannot be changed.",
+   "Default values: int/long/short/byte → 0, double/float → 0.0, boolean → false, String/Object → null.",
+   "The enhanced for loop is best for reading; use a regular for loop when you need to modify elements or need the index.",
+   "Multidimensional arrays (e.g., int[][] matrix) are arrays of arrays in Java.",
+   "Exam tip: If asked about the output of arr[arr.length], remember it throws ArrayIndexOutOfBoundsException."
+  ]
+ },
+ "codeExample": {
+  "language": "java",
+  "code": "public class ArrayDemo {\n    public static void main(String[] args) {\n\n        // 1. Declare and initialise using array literal\n        int[] marks = {85, 90, 78, 92, 88};\n\n        // 2. Print total number of elements\n        System.out.println(\"Total subjects: \" + marks.length);\n\n        // 3. Access individual elements\n        System.out.println(\"First subject marks: \" + marks[0]);\n        System.out.println(\"Last subject marks: \" + marks[marks.length - 1]);\n\n        // 4. Modify an element\n        marks[2] = 95;\n        System.out.println(\"Updated 3rd subject marks: \" + marks[2]);\n\n        // 5. Loop through array using regular for loop\n        System.out.println(\"\\nAll marks (regular for loop):\");\n        for (int i = 0; i < marks.length; i++) {\n            System.out.println(\"Subject \" + (i + 1) + \": \" + marks[i]);\n        }\n\n        // 6. Loop through array using enhanced for loop\n        System.out.println(\"\\nAll marks (enhanced for loop):\");\n        int total = 0;\n        for (int m : marks) {\n            total += m;\n        }\n        System.out.println(\"Total marks: \" + total);\n        System.out.println(\"Average marks: \" + (total / marks.length));\n    }\n}",
+  "explanation": "Line 1-2: Class and main method declaration — standard Java entry point.\nLine 5: An integer array 'marks' is declared and initialised with 5 values using an array literal. Java sets the size to 5 automatically.\nLine 8: marks.length gives the number of elements (5) without parentheses.\nLine 11: marks[0] accesses the first element (85); indices start at 0.\nLine 12: marks[marks.length - 1] accesses the last element (88) safely, regardless of array size.\nLine 15: marks[2] = 95 overwrites the third element (previously 78) with 95.\nLine 19-22: A regular for loop iterates from index 0 to marks.length - 1 (i.e., 0 to 4), printing each element with its subject number.\nLine 25-30: An enhanced for loop reads each element into variable 'm' one by one, adding it to 'total'. This is clean and avoids index management.\nLine 31: Integer division is used here — total divided by marks.length gives an integer average."
+ },
+ "commonMistakes": [
+  "Using arr.length() with parentheses instead of arr.length — length is a property, not a method, and this causes a compile-time error.",
+  "Starting the loop index at 1 or going up to i <= arr.length, which causes an ArrayIndexOutOfBoundsException because valid indices are 0 to length-1.",
+  "Confusing array declaration (int[] arr;) with array creation (arr = new int[5];) — declaring does not allocate memory; you must use 'new' or an array literal before accessing elements."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "What is the index of the first element in a Java array?",
+   "options": [
+    "1",
+    "0",
+    "-1",
+    "Depends on array size"
+   ],
+   "answer": 1,
+   "explanation": "Java arrays are zero-indexed, meaning the first element is always at index 0.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following correctly creates an integer array of size 4 in Java?",
+   "options": [
+    "int arr = new int[4];",
+    "int[] arr = new int[4];",
+    "int arr[] = int[4];",
+    "array int[] arr = new[4];"
+   ],
+   "answer": 1,
+   "explanation": "The correct syntax is int[] arr = new int[4]; The square brackets indicate it is an array type, and new int[4] allocates memory for 4 integers.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the default value of elements in an int array when created using new int[5] in Java?",
+   "options": [
+    "null",
+    "1",
+    "0",
+    "Undefined"
+   ],
+   "answer": 2,
+   "explanation": "In Java, integer array elements are automatically initialised to 0 when the array is created using the new keyword.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which exception is thrown when you access arr[10] on an array of size 5?",
+   "options": [
+    "NullPointerException",
+    "ArrayIndexOutOfBoundsException",
+    "IllegalArgumentException",
+    "ClassCastException"
+   ],
+   "answer": 1,
+   "explanation": "Accessing an index beyond the valid range (0 to length-1) throws ArrayIndexOutOfBoundsException at runtime.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What does arr.length return for: int[] arr = {10, 20, 30, 40, 50};?",
+   "options": [
+    "4",
+    "50",
+    "5",
+    "6"
+   ],
+   "answer": 2,
+   "explanation": "arr.length returns the total number of elements in the array. The array has 5 elements, so arr.length = 5.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which loop type is most suitable when you need to modify elements of an array using their index?",
+   "options": [
+    "Enhanced for loop",
+    "while loop",
+    "Regular for loop with index variable",
+    "do-while loop"
+   ],
+   "answer": 2,
+   "explanation": "The regular for loop provides access to the index variable, which is necessary to assign new values to specific positions in the array. The enhanced for loop only gives a copy of the value.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain the difference between declaring an array and creating an array in Java.",
+   "answer": "Declaring an array means specifying the variable name and type, for example int[] arr;. This does not allocate any memory. Creating an array means using the new keyword to allocate memory, for example arr = new int[5];. Only after creation can you store and access elements.",
+   "keywords": [
+    "declare",
+    "new",
+    "memory",
+    "allocate",
+    "create"
+   ],
+   "explanation": "Declaration tells the compiler the type; creation allocates actual memory on the heap. Forgetting to create (allocate) before using the array results in a NullPointerException.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "What is an enhanced for loop and when should you prefer it over a regular for loop when working with arrays?",
+   "answer": "An enhanced for loop (for-each) iterates over each element of an array automatically without needing an index variable. You should prefer it when you only need to read elements, as it is cleaner and less error-prone. However, if you need the index to modify elements or access specific positions, use a regular for loop.",
+   "keywords": [
+    "for-each",
+    "index",
+    "read",
+    "iterate",
+    "modify"
+   ],
+   "explanation": "The enhanced for loop simplifies code by removing index management, but it does not provide the index, making it unsuitable when element modification by position is needed.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "What is the exact output printed by the following code?\nint[] nums = {3, 6, 9, 12};\nSystem.out.println(nums[1] + nums[3]);",
+   "answer": "18",
+   "explanation": "nums[1] is 6 and nums[3] is 12. Adding them gives 6 + 12 = 18, which is printed as a single integer.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a Java program that declares an integer array of size 5 with values {4, 8, 15, 16, 23}, finds the largest element in the array using a for loop, and prints it.",
+   "starter": "public class FindMax {\n    public static void main(String[] args) {\n        int[] nums = {4, 8, 15, 16, 23};\n        // Write your code here\n    }\n}",
+   "solution": "public class FindMax {\n    public static void main(String[] args) {\n        int[] nums = {4, 8, 15, 16, 23};\n        int max = nums[0]; // Assume first element is largest\n        for (int i = 1; i < nums.length; i++) {\n            if (nums[i] > max) {\n                max = nums[i];\n            }\n        }\n        System.out.println(\"Largest element: \" + max);\n    }\n}",
+   "explanation": "We start by assuming the first element (nums[0] = 4) is the largest and store it in max. We then loop from index 1 to nums.length - 1, comparing each element to max. If we find a larger element, we update max. After the loop, max holds the largest value (23), which is printed.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What is an Array?",
+    "steps": [
+     {
+      "say": "Hello everyone! Today we are going to learn about arrays in Java. Imagine you need to store marks for 5 subjects. Would you create 5 separate variables? That sounds tedious, right?",
+      "write": {
+       "kind": "heading",
+       "content": "Arrays in Java"
+      }
+     },
+     {
+      "say": "Instead of five separate variables, an array lets you store all five marks under one single name. It is a collection of values of the same type.",
+      "write": {
+       "kind": "bullet",
+       "content": "Array = multiple values, one name"
+      }
+     },
+     {
+      "say": "All elements must be of the same data type, such as all integers or all doubles. And the size is fixed when you create the array.",
+      "write": {
+       "kind": "bullet",
+       "content": "Same data type, fixed size"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Declaring and Creating an Array",
+    "steps": [
+     {
+      "say": "Let us see how to declare and create an array in Java. First, we write the data type followed by square brackets, then the variable name.",
+      "write": {
+       "kind": "code",
+       "content": "int[] marks;"
+      }
+     },
+     {
+      "say": "This only declares the variable. To actually create the array and reserve memory, we use the new keyword with the size in brackets.",
+      "write": {
+       "kind": "code",
+       "content": "marks = new int[5];"
+      }
+     },
+     {
+      "say": "Or we can do both on one line. We can also use an array literal to declare and fill values at the same time. Java sets the size automatically.",
+      "write": {
+       "kind": "code",
+       "content": "int[] marks = {85, 90, 78, 92, 88};"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Indexing and Accessing Elements",
+    "steps": [
+     {
+      "say": "Now, this is very important. In Java, array indices always start at zero, not one. So the first element is at index zero.",
+      "write": {
+       "kind": "text",
+       "content": "Index starts at 0"
+      }
+     },
+     {
+      "say": "For our marks array of size 5, valid indices are zero to four. The last valid index is always length minus one.",
+      "write": {
+       "kind": "equation",
+       "content": "lastIndex = arr.length - 1"
+      }
+     },
+     {
+      "say": "To access an element, write the array name followed by the index in square brackets. For example, marks at index zero gives us 85.",
+      "write": {
+       "kind": "code",
+       "content": "marks[0]  // gives 85"
+      }
+     },
+     {
+      "say": "If you try to access index 5 on a size-5 array, Java will throw an ArrayIndexOutOfBoundsException at runtime. Always stay within bounds.",
+      "write": {
+       "kind": "highlight",
+       "content": "marks[5] --> ERROR at runtime"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Looping Through an Array",
+    "steps": [
+     {
+      "say": "To process all elements, we use a for loop. We start i at zero and go while i is less than the length of the array.",
+      "write": {
+       "kind": "code",
+       "content": "for (int i = 0; i < marks.length; i++) {"
+      }
+     },
+     {
+      "say": "Inside the loop, we use marks of i to access each element. Notice we use marks dot length without any parentheses.",
+      "write": {
+       "kind": "code",
+       "content": "    System.out.println(marks[i]);"
+      }
+     },
+     {
+      "say": "There is also the enhanced for loop, which is cleaner when you only need to read values. It reads as: for each integer m in marks.",
+      "write": {
+       "kind": "code",
+       "content": "for (int m : marks) {"
+      }
+     },
+     {
+      "say": "Use the enhanced for loop for reading, and the regular for loop when you need the index to modify elements.",
+      "write": {
+       "kind": "bullet",
+       "content": "Read only -> enhanced for loop\nModify -> regular for loop"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Great work! Let us quickly recap what we learned today about arrays in Java.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap: Arrays in Java"
+      }
+     },
+     {
+      "say": "An array stores multiple values of the same type under one name, with a fixed size set at creation.",
+      "write": {
+       "kind": "bullet",
+       "content": "Fixed size, same data type"
+      }
+     },
+     {
+      "say": "Indices start at zero, and the last valid index is length minus one. Going beyond throws a runtime exception.",
+      "write": {
+       "kind": "bullet",
+       "content": "Index: 0 to length-1"
+      }
+     },
+     {
+      "say": "Use arr dot length, without parentheses, to get the size. And choose between regular and enhanced for loops based on whether you need the index. Happy coding!",
+      "write": {
+       "kind": "bullet",
+       "content": "arr.length (no parentheses)"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,310 @@
+{
+ "summary": "AI has impressive capabilities like recognizing patterns and processing large data, but it also has clear limitations such as lack of common sense, bias, and inability to truly understand context.",
+ "shortNotes": [
+  "AI excels at pattern recognition, language processing, image recognition, and data analysis.",
+  "AI cannot truly understand meaning — it finds patterns in data without real comprehension.",
+  "AI systems can be biased if trained on biased or unrepresentative data.",
+  "AI lacks common sense reasoning and struggles with tasks that humans find trivially easy.",
+  "AI is narrow — most AI tools are built for one specific task and cannot generalize beyond it.",
+  "AI cannot learn continuously on its own after deployment unless specifically designed to do so."
+ ],
+ "detailed": {
+  "explanation": "Artificial Intelligence has become very powerful in specific areas. AI can process millions of data points in seconds, recognize faces in photos, translate languages, recommend movies, detect diseases in medical scans, and even write text. These capabilities come from machine learning — a technique where AI learns patterns from large amounts of labeled data. For example, a spam filter learns what spam looks like by studying thousands of spam and non-spam emails.\n\nHowever, AI has serious limitations that are important to understand. First, AI does not truly *understand* anything. A language model can write a grammatically correct sentence without knowing what the words actually mean in the real world. It is essentially a very sophisticated pattern-matching system. This is why AI sometimes confidently produces incorrect information — a problem called **hallucination**.\n\nSecond, AI systems can reflect and amplify **bias**. If the data used to train an AI model comes mostly from one group of people or one region, the model may perform poorly or unfairly for others. For instance, a facial recognition system trained mostly on lighter-skinned faces may have lower accuracy for darker-skinned faces.\n\nThird, most AI today is **narrow AI** — it does one specific job. A chess-playing AI cannot drive a car. A translation tool cannot diagnose a disease. This is very different from human intelligence, which is flexible and general-purpose. There is no true General AI (AGI) available today.\n\nFinally, AI struggles with **common sense** and **context**. If you tell a human 'It is raining cats and dogs,' they understand it is an idiom. An AI may interpret it more literally unless it has seen enough similar examples. Understanding culture, emotion, sarcasm, and nuance remains a challenge for even the most advanced AI systems.",
+  "definitions": [
+   {
+    "term": "Machine Learning",
+    "meaning": "A subset of AI where a system learns patterns from data to make predictions or decisions without being explicitly programmed for each rule."
+   },
+   {
+    "term": "Hallucination (AI)",
+    "meaning": "When an AI model generates information that sounds confident and fluent but is factually incorrect or made up."
+   },
+   {
+    "term": "Bias (in AI)",
+    "meaning": "Systematic errors in AI outputs caused by imbalanced, incomplete, or unrepresentative training data."
+   },
+   {
+    "term": "Narrow AI",
+    "meaning": "An AI system designed to perform one specific task, such as image recognition or language translation, and cannot perform other tasks."
+   },
+   {
+    "term": "General AI (AGI)",
+    "meaning": "A hypothetical AI that can perform any intellectual task a human can. AGI does not exist yet."
+   },
+   {
+    "term": "Pattern Recognition",
+    "meaning": "The ability of an AI to identify regularities, structures, or trends in data — the core of how most AI systems work."
+   },
+   {
+    "term": "Training Data",
+    "meaning": "The large collection of examples used to teach an AI model how to perform a task."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "AI capabilities include pattern recognition, natural language processing, image recognition, recommendation systems, and predictive analytics.",
+   "AI does not have consciousness, feelings, or true understanding — it works by finding statistical patterns in data.",
+   "Hallucination is a key limitation: AI can generate wrong answers confidently, so always verify important AI-generated content.",
+   "Bias in AI comes from bias in training data — this is a real-world ethical concern, especially in healthcare, hiring, and law enforcement.",
+   "Narrow AI (which is all we have today) can only do the task it was trained for — it cannot generalize to other domains.",
+   "AI requires large amounts of good-quality data to work well — with poor data, AI performance drops significantly (Garbage In, Garbage Out).",
+   "AI lacks common sense and struggles with ambiguity, sarcasm, cultural references, and rapidly changing real-world contexts.",
+   "Exam tip: Remember the difference between what AI CAN do (process data fast, recognize patterns) and what it CANNOT do (understand meaning, apply common sense, generalize across tasks)."
+  ]
+ },
+ "codeExample": null,
+ "commonMistakes": [
+  "Thinking AI 'understands' language or images the way humans do — AI only detects statistical patterns, it has no real comprehension.",
+  "Assuming AI is always neutral and unbiased — AI can be very biased depending on the quality and diversity of its training data.",
+  "Confusing Narrow AI (what exists today) with General AI (AGI) — no general-purpose AI that can do everything a human can exists yet."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Which of the following is an example of an AI capability?",
+   "options": [
+    "Understanding the emotional meaning behind a poem",
+    "Recognizing faces in photographs",
+    "Applying common sense to brand new situations",
+    "Learning continuously without any new data"
+   ],
+   "answer": 1,
+   "explanation": "AI is very good at pattern-based tasks like facial recognition. It does not truly understand emotion, cannot reliably apply common sense to new situations, and does not learn on its own after deployment without new training.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is 'hallucination' in the context of AI?",
+   "options": [
+    "AI experiencing visual errors due to hardware failure",
+    "AI generating confident but factually incorrect information",
+    "AI refusing to answer a question",
+    "AI making decisions based on emotions"
+   ],
+   "answer": 1,
+   "explanation": "Hallucination refers to when an AI model produces output that sounds fluent and confident but is factually wrong or invented. It is a well-known limitation of large language models.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "A hiring AI trained mostly on resumes of male candidates is likely to:",
+   "options": [
+    "Perform equally well for all genders",
+    "Show bias against female candidates",
+    "Automatically correct itself over time",
+    "Refuse to process female resumes"
+   ],
+   "answer": 1,
+   "explanation": "If training data is not representative, the AI learns to favor patterns from the majority group. This is a real example of bias in AI — such systems have been found to unfairly rank female applicants lower.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following best describes 'Narrow AI'?",
+   "options": [
+    "An AI that can perform any task a human can",
+    "An AI that is small in file size",
+    "An AI built to perform one specific type of task",
+    "An AI that works only on mobile devices"
+   ],
+   "answer": 2,
+   "explanation": "Narrow AI is designed for one specific task, such as playing chess or translating text. All existing AI systems today are narrow AI — they cannot generalize to tasks outside their training.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Why does AI struggle with understanding sarcasm and idioms?",
+   "options": [
+    "AI processors are too slow to handle complex language",
+    "AI relies on pattern matching and lacks real-world context and common sense",
+    "Sarcasm and idioms are too short for AI to process",
+    "AI was never given any language data to learn from"
+   ],
+   "answer": 1,
+   "explanation": "AI systems do not truly understand language — they match patterns from training data. Sarcasm and idioms require cultural context and common sense reasoning, which AI struggles to apply reliably.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What does the phrase 'Garbage In, Garbage Out' mean in AI?",
+   "options": [
+    "AI systems produce waste data that must be deleted",
+    "Poor quality training data leads to poor AI outputs",
+    "AI should not be used for waste management",
+    "AI outputs are always unreliable"
+   ],
+   "answer": 1,
+   "explanation": "'Garbage In, Garbage Out' means that if you feed an AI model bad or low-quality data, you will get bad or unreliable results. Data quality is critical to AI performance.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain in your own words why AI is considered 'narrow' and why this is an important limitation.",
+   "answer": "Narrow AI means that an AI system is trained to do only one specific task, such as translating languages or detecting spam, and cannot perform tasks outside that domain. This is an important limitation because it means we cannot rely on a single AI tool for all needs, and an AI that is excellent at one job has no ability to handle related or different tasks that a human could manage easily.",
+   "keywords": [
+    "narrow",
+    "specific task",
+    "cannot generalize",
+    "one domain",
+    "limitation"
+   ],
+   "explanation": "Understanding narrow AI helps students recognize that today's AI tools have well-defined boundaries and cannot be used as a substitute for human general intelligence.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "What is AI bias and how can it cause harm in real-world applications?",
+   "answer": "AI bias occurs when a model is trained on data that is unrepresentative or skewed toward a particular group, causing it to perform unfairly for others. In real-world applications such as hiring, loan approvals, or medical diagnosis, biased AI can lead to unfair decisions that disadvantage certain groups, causing real harm to individuals.",
+   "keywords": [
+    "bias",
+    "training data",
+    "unfair",
+    "unrepresentative",
+    "harm"
+   ],
+   "explanation": "AI bias is not just a technical issue — it has ethical and social consequences. Students should understand its origin (biased data) and its real-world impact.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "An AI spam filter was tested on 100 emails. It correctly identified 45 out of 50 spam emails and correctly identified 40 out of 50 non-spam emails. How many emails did the AI classify correctly in total?",
+   "answer": "85",
+   "explanation": "The AI correctly identified 45 spam emails and 40 non-spam emails. 45 + 40 = 85 emails classified correctly out of 100 total. This illustrates that even a capable AI is not perfect — it made 15 errors, showing the reality of AI limitations in practice.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What Can AI Actually Do?",
+    "steps": [
+     {
+      "say": "Welcome! Today we are going to explore something really important — what AI can do, and just as importantly, what it cannot do. Understanding both sides will make you a smarter user of AI in any profession.",
+      "write": {
+       "kind": "heading",
+       "content": "AI Capabilities and Limitations"
+      }
+     },
+     {
+      "say": "AI is surprisingly powerful at certain tasks. It can recognize faces in photos, understand spoken words, translate languages, recommend products, and spot diseases in medical scans.",
+      "write": {
+       "kind": "bullet",
+       "content": "AI can: recognize faces, translate,\nrecommend, detect diseases"
+      }
+     },
+     {
+      "say": "All of this is possible because AI learns from huge amounts of data and gets very good at finding patterns inside that data.",
+      "write": {
+       "kind": "text",
+       "content": "Core idea: AI finds patterns in data"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Hallucination — When AI Gets It Wrong",
+    "steps": [
+     {
+      "say": "Here is a key limitation you must know — AI can produce wrong answers confidently. We call this hallucination. The AI is not lying; it simply has no way to check if what it says is true.",
+      "write": {
+       "kind": "heading",
+       "content": "Limitation 1: Hallucination"
+      }
+     },
+     {
+      "say": "For example, if you ask an AI to list references for a research paper, it might generate book titles and author names that look real but do not actually exist.",
+      "write": {
+       "kind": "bullet",
+       "content": "AI can make up facts that\nsound completely believable"
+      }
+     },
+     {
+      "say": "The lesson here — always verify important information that AI gives you, especially for academic or professional work.",
+      "write": {
+       "kind": "highlight",
+       "content": "Always verify AI-generated facts"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Bias and Narrow AI",
+    "steps": [
+     {
+      "say": "Another big limitation is bias. If the data used to train an AI mostly comes from one group of people, the AI will not work fairly for everyone else.",
+      "write": {
+       "kind": "heading",
+       "content": "Limitation 2: Bias in AI"
+      }
+     },
+     {
+      "say": "For instance, a facial recognition system trained mostly on one skin tone may be much less accurate for people with different skin tones. The data decides the fairness.",
+      "write": {
+       "kind": "bullet",
+       "content": "Biased data leads to\nunfair AI outputs"
+      }
+     },
+     {
+      "say": "Also remember — all AI today is Narrow AI. A translation app cannot diagnose diseases. Each AI tool does only the one job it was trained for.",
+      "write": {
+       "kind": "text",
+       "content": "Narrow AI = one task only\nNo General AI exists yet"
+      }
+     }
+    ]
+   },
+   {
+    "title": "No Common Sense — A Hidden Weakness",
+    "steps": [
+     {
+      "say": "Here is something surprising. AI does not have common sense. If you say it is raining cats and dogs, a human instantly knows that is an idiom. An AI might struggle unless it has seen that phrase many times before.",
+      "write": {
+       "kind": "heading",
+       "content": "Limitation 3: No Common Sense"
+      }
+     },
+     {
+      "say": "AI also does not understand culture, sarcasm, or emotions the way humans do. It is matching patterns, not actually thinking.",
+      "write": {
+       "kind": "bullet",
+       "content": "Sarcasm, idioms, culture\n= difficult for AI"
+      }
+     },
+     {
+      "say": "This is why human judgment is still essential. AI is a powerful tool, but it works best when a thinking human guides and checks it.",
+      "write": {
+       "kind": "highlight",
+       "content": "Human + AI together\n= best results"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us quickly recap what we covered today. AI has real strengths — it processes data fast, recognizes patterns, and automates repetitive tasks.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap: Capabilities vs Limitations"
+      }
+     },
+     {
+      "say": "But AI also has clear limitations — hallucination, bias from training data, being narrow rather than general, and lacking common sense.",
+      "write": {
+       "kind": "bullet",
+       "content": "Limitations: hallucination,\nbias, narrow, no common sense"
+      }
+     },
+     {
+      "say": "Knowing both sides helps you use AI wisely and responsibly — whether you work in medicine, business, law, or any other field. Great job today!",
+      "write": {
+       "kind": "highlight",
+       "content": "Use AI wisely — know\nits strengths AND limits"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "subjects": [
+  {
+   "title": "Linux Fundamentals",
+   "chapters": [
+    {
+     "title": "Introduction to the Shell",
+     "topics": [
+      "What is the Shell and Terminal",
+      "Basic Shell Commands and Syntax",
+      "Navigating the Filesystem with cd, ls, pwd"
+     ]
+    },
+    {
+     "title": "Linux File System",
+     "topics": [
+      "File System Hierarchy and Structure",
+      "Creating, Moving and Deleting Files",
+      "Viewing and Editing File Content",
+      "Searching Files with find and grep"
+     ]
+    },
+    {
+     "title": "File Permissions and Ownership",
+     "topics": [
+      "Understanding rwx Permissions",
+      "chmod, chown and chgrp Commands",
+      "Special Permissions and Umask"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Processes and Shell Scripting",
+   "chapters": [
+    {
+     "title": "Managing Processes",
+     "topics": [
+      "Viewing Processes with ps and top",
+      "Foreground, Background and Job Control",
+      "Killing and Prioritizing Processes"
+     ]
+    },
+    {
+     "title": "Shell Scripting Basics",
+     "topics": [
+      "Creating and Running a Shell Script",
+      "Variables, Input and Output",
+      "Conditionals and Loops"
+     ]
+    },
+    {
+     "title": "Intermediate Scripting",
+     "topics": [
+      "Functions and Script Arguments",
+      "Working with Text using awk and sed",
+      "Scheduling Tasks with cron",
+      "Debugging and Error Handling"
+     ]
+    }
+   ]
+  }
+ ]
+}

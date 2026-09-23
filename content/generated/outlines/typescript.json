@@ -1,0 +1,78 @@
+{
+ "subjects": [
+  {
+   "title": "TypeScript Fundamentals",
+   "chapters": [
+    {
+     "title": "Getting Started",
+     "topics": [
+      "What is TypeScript and why use it",
+      "Installing TypeScript and setting up the compiler",
+      "Your first TypeScript file and compiling to JavaScript"
+     ]
+    },
+    {
+     "title": "Basic Types",
+     "topics": [
+      "Primitive types: string, number, boolean",
+      "Arrays and tuples",
+      "Enums and the any, unknown, void types"
+     ]
+    },
+    {
+     "title": "Functions and Type Annotations",
+     "topics": [
+      "Typing function parameters and return values",
+      "Optional and default parameters",
+      "Function overloads"
+     ]
+    },
+    {
+     "title": "Interfaces and Object Types",
+     "topics": [
+      "Defining interfaces for objects",
+      "Optional and readonly properties",
+      "Extending interfaces and type aliases"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Intermediate TypeScript",
+   "chapters": [
+    {
+     "title": "Classes and Object-Oriented Patterns",
+     "topics": [
+      "Classes with typed properties and methods",
+      "Access modifiers: public, private, protected",
+      "Implementing interfaces in classes"
+     ]
+    },
+    {
+     "title": "Generics",
+     "topics": [
+      "Introduction to generics and type parameters",
+      "Generic functions and interfaces",
+      "Generic constraints with extends"
+     ]
+    },
+    {
+     "title": "Advanced Types",
+     "topics": [
+      "Union and intersection types",
+      "Type guards and narrowing",
+      "Utility types: Partial, Required, Pick, Omit"
+     ]
+    },
+    {
+     "title": "Tooling and Configuration",
+     "topics": [
+      "Understanding tsconfig.json options",
+      "Integrating TypeScript with Node.js and bundlers",
+      "Using TypeScript with ESLint and popular frameworks"
+     ]
+    }
+   ]
+  }
+ ]
+}

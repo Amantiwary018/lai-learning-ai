@@ -1,0 +1,333 @@
+{
+ "summary": "Writing clear and effective prompts means giving an AI tool enough context, a specific task, and the right format so it returns useful, accurate responses every time.",
+ "shortNotes": [
+  "A prompt is the instruction or question you type into an AI tool to get a response.",
+  "Good prompts are specific, provide context, and state the desired output format.",
+  "Vague prompts produce vague answers; add details to guide the AI precisely.",
+  "Use the 4-part formula: Role + Task + Context + Format for stronger prompts.",
+  "Iterate your prompts: if the first response is weak, refine and try again.",
+  "Avoid overloading one prompt with too many unrelated questions at once."
+ ],
+ "detailed": {
+  "explanation": "A **prompt** is any text you send to an AI model to tell it what you want. Think of it like giving instructions to a very capable but literal assistant — the clearer your instructions, the better the result. If you ask something vague like *'tell me about marketing'*, the AI has no idea what level, topic, or format you need, so the answer will be broad and often unhelpful.\n\nThe most reliable way to write effective prompts is to use four building blocks: **Role** (who should the AI act as?), **Task** (what exactly should it do?), **Context** (background information that helps), and **Format** (how should the answer look?). For example: *'You are a marketing teacher. Explain digital marketing to a first-year college student in 5 bullet points.'* Each building block removes ambiguity and steers the AI toward exactly what you need.\n\n**Context** is especially powerful. If you mention your subject, your level, your purpose, or any constraints, the AI can tailor its response much more precisely. For instance, saying *'I am preparing for a 10-minute class presentation'* changes the length and tone of the answer completely compared to saying nothing at all.\n\n**Format instructions** tell the AI how to structure the output — bullet points, a table, a numbered list, a short paragraph, code, etc. This saves you editing time and makes the response immediately usable. Always specify format when you have a preference.\n\nFinally, treat prompt writing as an **iterative process**. Your first attempt may not give the perfect answer. Read the response, identify what is missing or wrong, then refine your prompt and try again. Professionals who use AI daily spend time improving their prompts just like they would improve a rough draft of any document.",
+  "definitions": [
+   {
+    "term": "Prompt",
+    "meaning": "The text input (question, instruction, or request) that a user types into an AI tool to get a response."
+   },
+   {
+    "term": "Context",
+    "meaning": "Background information included in a prompt that helps the AI understand the situation, audience, or purpose."
+   },
+   {
+    "term": "Role prompting",
+    "meaning": "Telling the AI to act as a specific type of expert or persona (e.g., 'You are a financial advisor') to shape the style and depth of its answer."
+   },
+   {
+    "term": "Format instruction",
+    "meaning": "A part of the prompt that specifies how the output should be structured, such as bullet points, a table, or a numbered list."
+   },
+   {
+    "term": "Iteration",
+    "meaning": "The process of reviewing an AI response, identifying weaknesses, and rewriting the prompt to improve the next response."
+   },
+   {
+    "term": "Specificity",
+    "meaning": "The degree of detail and precision in a prompt; higher specificity usually leads to more relevant and accurate AI responses."
+   }
+  ],
+  "formulas": [
+   {
+    "name": "4-Part Prompt Formula",
+    "expression": "Prompt = Role + Task + Context + Format",
+    "note": "Use all four parts together for best results. Any part can be short, but all four should be present when precision matters."
+   }
+  ],
+  "points": [
+   "A prompt is not just a question — it is a set of instructions. Treat it as such.",
+   "Always include context: who you are, what you need it for, and any constraints like word count or audience level.",
+   "Role prompting (e.g., 'Act as a doctor') shifts the AI's tone, vocabulary, and depth of answer.",
+   "Format instructions (bullet points, table, numbered list) save editing time and give ready-to-use output.",
+   "One prompt, one main task — avoid asking five unrelated things in a single prompt.",
+   "If an AI response is off-target, do not start over; refine the existing prompt by adding missing details.",
+   "Exam tip: The 4-part formula (Role + Task + Context + Format) is the most tested concept in this topic.",
+   "Longer prompts are not always better — concise and precise beats long and rambling every time."
+  ]
+ },
+ "codeExample": null,
+ "commonMistakes": [
+  "Being too vague: writing 'explain AI' instead of 'explain AI to a first-year engineering student in 3 simple bullet points' gives a generic and often unusable answer.",
+  "Skipping the format instruction: without telling the AI how to structure the output, you may receive a wall of text when you needed a table or a list.",
+  "Asking multiple unrelated questions in one prompt: this confuses the AI and often results in shallow answers to each question rather than one thorough response."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "What is a 'prompt' in the context of AI tools?",
+   "options": [
+    "A software program that runs the AI model",
+    "The text input a user gives to an AI to get a response",
+    "The training data used to build the AI",
+    "The server that hosts the AI"
+   ],
+   "answer": 1,
+   "explanation": "A prompt is simply the text — a question, instruction, or request — that a user types into an AI tool. The AI reads this and generates a response based on it.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following is the BEST example of a well-written prompt?",
+   "options": [
+    "Tell me about business.",
+    "Explain business strategy.",
+    "You are a business professor. Explain Porter's Five Forces to a second-year BBA student in 5 bullet points.",
+    "What is business and why is it important and also tell me about marketing?"
+   ],
+   "answer": 2,
+   "explanation": "Option C uses all four parts of the prompt formula: Role (business professor), Task (explain Porter's Five Forces), Context (second-year BBA student), and Format (5 bullet points). The other options are vague, unstructured, or ask too many things at once.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "In the 4-part prompt formula, what does the 'Format' component tell the AI?",
+   "options": [
+    "The background or purpose of the request",
+    "The persona or expert role the AI should adopt",
+    "The specific action or question you want answered",
+    "How the output should be structured, such as a list or table"
+   ],
+   "answer": 3,
+   "explanation": "Format tells the AI how to present its answer — for example, as bullet points, a numbered list, a table, or a paragraph. This saves you editing time and makes the response immediately usable.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following best describes 'role prompting'?",
+   "options": [
+    "Asking the AI to write a role-play story",
+    "Telling the AI to act as a specific expert or persona to shape the response",
+    "Giving the AI a list of roles to choose from",
+    "Asking the AI to format output as a numbered list"
+   ],
+   "answer": 1,
+   "explanation": "Role prompting means telling the AI to adopt a specific expert identity, like 'You are a doctor' or 'Act as a financial advisor'. This shifts the tone, vocabulary, and depth of the response to match that role.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "A student types: 'Write an essay.' What is the main problem with this prompt?",
+   "options": [
+    "It is too long",
+    "It uses incorrect grammar",
+    "It is too vague and lacks context, topic, and format details",
+    "It asks for too many things at once"
+   ],
+   "answer": 2,
+   "explanation": "The prompt 'Write an essay' gives the AI no topic, no audience, no length, and no purpose. The AI cannot know what the student actually needs, so the response will be generic and probably not useful.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What should you do if your first AI response does not fully meet your needs?",
+   "options": [
+    "Accept the response as the best the AI can do",
+    "Start a completely new, unrelated prompt",
+    "Refine your prompt by adding missing details and try again",
+    "Switch to a different AI tool immediately"
+   ],
+   "answer": 2,
+   "explanation": "Prompt writing is an iterative process. If the response is not quite right, review what information was missing from your original prompt, add those details, and submit a revised version. This is faster and more effective than starting from scratch.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain why adding context to a prompt improves the quality of an AI's response. Give one example.",
+   "answer": "Context gives the AI background information about who you are, what you need the answer for, and any constraints — such as your knowledge level or purpose. Without context, the AI must guess, which often leads to a response that is too advanced, too basic, or off-topic. For example, adding 'I am a first-year college student preparing a 5-minute speech' tells the AI to keep the language simple and the answer brief.",
+   "keywords": [
+    "context",
+    "background",
+    "specific",
+    "audience",
+    "improves"
+   ],
+   "explanation": "Context narrows the space of possible responses the AI could give, steering it toward the one that actually fits the user's situation. It is one of the most powerful tools in prompt writing.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Write a prompt using the 4-part formula (Role + Task + Context + Format) to ask an AI for help studying for a history exam.",
+   "answer": "A strong example: 'You are a history teacher. Summarise the main causes of World War One for a first-year college student who is preparing for a history exam tomorrow. Present the answer as 5 numbered points, each no longer than two sentences.' This prompt includes Role (history teacher), Task (summarise causes of WWI), Context (first-year student, exam tomorrow), and Format (5 numbered points, max two sentences each).",
+   "keywords": [
+    "role",
+    "task",
+    "context",
+    "format",
+    "specific"
+   ],
+   "explanation": "The 4-part formula ensures every important piece of information is included. Any answer that clearly identifies and uses all four parts should be accepted.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "The 4-part prompt formula has four components. A student uses only Role and Task but forgets Context and Format. How many components of the formula is the student missing?",
+   "answer": "2",
+   "explanation": "The four components are Role, Task, Context, and Format. The student uses Role and Task, so Context and Format are both missing. 4 minus 2 equals 2 missing components.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What Is a Prompt?",
+    "steps": [
+     {
+      "say": "Welcome! Today we are learning about writing clear and effective prompts for AI tools. This is one of the most practical skills you can build as a student.",
+      "write": {
+       "kind": "heading",
+       "content": "Writing Effective Prompts"
+      }
+     },
+     {
+      "say": "A prompt is simply the text you type into an AI tool, like a question or instruction, to get a response back.",
+      "write": {
+       "kind": "text",
+       "content": "Prompt = your text input to the AI"
+      }
+     },
+     {
+      "say": "Think of the AI as a very capable assistant. If your instructions are unclear, the output will be unclear too.",
+      "write": {
+       "kind": "bullet",
+       "content": "Clear input → Useful output"
+      }
+     }
+    ]
+   },
+   {
+    "title": "The Problem with Vague Prompts",
+    "steps": [
+     {
+      "say": "Let us look at a common mistake. Many students type something like this into an AI tool.",
+      "write": {
+       "kind": "text",
+       "content": "Bad prompt: 'Tell me about marketing'"
+      }
+     },
+     {
+      "say": "The AI does not know your level, your topic, or how long the answer should be. So it gives a very generic response.",
+      "write": {
+       "kind": "bullet",
+       "content": "Problem: no context, no format, no goal"
+      }
+     },
+     {
+      "say": "A small change makes a huge difference. Adding detail guides the AI toward exactly what you need.",
+      "write": {
+       "kind": "highlight",
+       "content": "Specific prompt = specific, useful answer"
+      }
+     }
+    ]
+   },
+   {
+    "title": "The 4-Part Prompt Formula",
+    "steps": [
+     {
+      "say": "The best way to write prompts is to use four building blocks. Let us write them on the board now.",
+      "write": {
+       "kind": "heading",
+       "content": "Prompt Formula"
+      }
+     },
+     {
+      "say": "First is Role. Tell the AI who it should act as, for example, a teacher or a doctor.",
+      "write": {
+       "kind": "bullet",
+       "content": "1. Role – who should the AI be?"
+      }
+     },
+     {
+      "say": "Second is Task. State exactly what you want the AI to do.",
+      "write": {
+       "kind": "bullet",
+       "content": "2. Task – what should it do?"
+      }
+     },
+     {
+      "say": "Third is Context. Give background like your level, purpose, or any limits.",
+      "write": {
+       "kind": "bullet",
+       "content": "3. Context – background information"
+      }
+     },
+     {
+      "say": "Fourth is Format. Tell the AI how to present the answer, such as a numbered list or a table.",
+      "write": {
+       "kind": "bullet",
+       "content": "4. Format – how to structure output"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Seeing the Formula in Action",
+    "steps": [
+     {
+      "say": "Let us put the formula together with a real example. Here is the Role part first.",
+      "write": {
+       "kind": "text",
+       "content": "You are a marketing teacher."
+      }
+     },
+     {
+      "say": "Now we add the Task, which is what we want the AI to explain.",
+      "write": {
+       "kind": "text",
+       "content": "Explain digital marketing"
+      }
+     },
+     {
+      "say": "Next comes Context, telling the AI about the audience.",
+      "write": {
+       "kind": "text",
+       "content": "to a first-year college student"
+      }
+     },
+     {
+      "say": "Finally we add Format so we get a clean, easy-to-read response. That is one complete, powerful prompt.",
+      "write": {
+       "kind": "text",
+       "content": "in 5 bullet points."
+      }
+     }
+    ]
+   },
+   {
+    "title": "Iterate and Improve",
+    "steps": [
+     {
+      "say": "Even good prompt writers do not always get perfect results on the first try. That is completely normal.",
+      "write": {
+       "kind": "heading",
+       "content": "Prompt Writing is Iterative"
+      }
+     },
+     {
+      "say": "After you read the response, ask yourself what is missing, then add that detail to your prompt and try again.",
+      "write": {
+       "kind": "bullet",
+       "content": "Read → Refine → Retry"
+      }
+     },
+     {
+      "say": "To recap: use Role, Task, Context, and Format, keep prompts focused on one goal, and keep improving until you get exactly what you need.",
+      "write": {
+       "kind": "highlight",
+       "content": "Role + Task + Context + Format = Great Prompt"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

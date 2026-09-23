@@ -1,0 +1,343 @@
+{
+ "summary": "Dictionaries store data as key-value pairs and sets store unique unordered elements, making both powerful tools for organising and processing data in Python.",
+ "shortNotes": [
+  "A dictionary is a collection of key-value pairs written with curly braces, e.g. {'name': 'Riya', 'age': 20}.",
+  "Keys in a dictionary must be unique and immutable (strings, numbers, tuples); values can be anything.",
+  "A set is an unordered collection of unique elements; duplicates are automatically removed.",
+  "Use dict[key] or dict.get(key) to access values; use set.add() to insert into a set.",
+  "Common dictionary methods: keys(), values(), items(), get(), pop(), update().",
+  "Common set operations: union (|), intersection (&), difference (-), and issubset()."
+ ],
+ "detailed": {
+  "explanation": "A **dictionary** in Python is a collection that stores data in **key-value pairs**. You create one using curly braces with a colon separating each key from its value, like `student = {'name': 'Riya', 'marks': 95}`. Dictionaries are very useful when you want to look up information quickly using a meaningful label (the key) instead of a numeric index.\n\nYou can access a value using `student['name']` or the safer `student.get('name')` which returns `None` instead of raising an error if the key does not exist. You can add or update entries simply by assigning: `student['grade'] = 'A'`. To remove a key, use `student.pop('marks')`. The methods `keys()`, `values()`, and `items()` let you loop over the dictionary easily.\n\nA **set** is an unordered collection that **never stores duplicates**. You create a set with curly braces too, but without key-value pairs: `fruits = {'apple', 'mango', 'apple'}` automatically becomes `{'apple', 'mango'}`. To create an **empty set** you must write `set()` — writing `{}` creates an empty dictionary, not a set.\n\nSets support powerful mathematical operations. `A | B` gives the union (all elements from both), `A & B` gives the intersection (only common elements), and `A - B` gives the difference (elements in A but not in B). These are very handy for tasks like finding common students in two class lists.\n\nChoose a **dictionary** when your data has labels or attributes (like a student record). Choose a **set** when you only care about unique membership, such as removing duplicates from a list or checking whether an item exists quickly.",
+  "definitions": [
+   {
+    "term": "Dictionary",
+    "meaning": "A mutable, ordered (Python 3.7+) collection of key-value pairs enclosed in curly braces, where each key is unique."
+   },
+   {
+    "term": "Key",
+    "meaning": "The unique, immutable identifier used to access a value in a dictionary, such as a string or number."
+   },
+   {
+    "term": "Value",
+    "meaning": "The data associated with a key in a dictionary; can be any Python object."
+   },
+   {
+    "term": "Set",
+    "meaning": "An unordered, mutable collection of unique elements enclosed in curly braces, with no duplicates allowed."
+   },
+   {
+    "term": "Union",
+    "meaning": "A set operation (|) that returns all unique elements from two sets combined."
+   },
+   {
+    "term": "Intersection",
+    "meaning": "A set operation (&) that returns only the elements that appear in both sets."
+   },
+   {
+    "term": "Difference",
+    "meaning": "A set operation (-) that returns elements present in the first set but not in the second."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "Dictionaries maintain insertion order in Python 3.7 and later — this is important to remember for exams.",
+   "Dictionary keys must be immutable: strings, integers, and tuples are valid keys; lists are NOT.",
+   "Accessing a key that does not exist with dict[key] raises a KeyError; use dict.get(key) to avoid this.",
+   "An empty set must be created with set(), not {} — {} always creates an empty dictionary.",
+   "Sets are unordered, so you cannot access set elements by index or slice.",
+   "The in keyword works for both dictionaries (checks keys) and sets (checks membership) and is very fast.",
+   "Use dict.items() in a for loop to get both key and value at the same time: for k, v in d.items().",
+   "Duplicates added to a set are silently ignored — this is useful for de-duplicating a list."
+  ]
+ },
+ "codeExample": {
+  "language": "python",
+  "code": "# --- DICTIONARIES ---\n# Create a student dictionary\nstudent = {\n    'name': 'Arjun',\n    'branch': 'CSE',\n    'marks': 88\n}\n\n# Access values\nprint(student['name'])          # Arjun\nprint(student.get('grade', 'N/A'))  # N/A (key missing, default returned)\n\n# Add / update an entry\nstudent['grade'] = 'A'\nprint(student)\n\n# Loop through key-value pairs\nfor key, value in student.items():\n    print(f\"{key}: {value}\")\n\n# Remove a key\nstudent.pop('marks')\nprint(student)\n\n# --- SETS ---\n# Create a set (duplicates removed automatically)\nattendance = {'Priya', 'Arjun', 'Meera', 'Priya'}\nprint(attendance)   # 'Priya' appears only once\n\n# Add and remove elements\nattendance.add('Rohit')\nattendance.discard('Meera')   # no error if element missing\nprint(attendance)\n\n# Set operations\nset_a = {1, 2, 3, 4}\nset_b = {3, 4, 5, 6}\n\nprint(set_a | set_b)   # Union:        {1, 2, 3, 4, 5, 6}\nprint(set_a & set_b)   # Intersection: {3, 4}\nprint(set_a - set_b)   # Difference:   {1, 2}\n\n# Check membership\nif 'Arjun' in attendance:\n    print(\"Arjun is present\")\n\n# De-duplicate a list using a set\nscores = [90, 85, 90, 78, 85, 100]\nunique_scores = list(set(scores))\nprint(unique_scores)",
+  "explanation": "Line 3-7: We create a dictionary called student with three key-value pairs — name, branch, and marks.\nLine 10: student['name'] retrieves the value for the key 'name', printing 'Arjun'.\nLine 11: student.get('grade', 'N/A') safely looks up 'grade'; since it does not exist, it returns the default 'N/A' instead of raising an error.\nLine 14: Assigning to a new key 'grade' adds it to the dictionary.\nLine 17-18: dict.items() returns each key-value pair as a tuple; we unpack it into key and value inside the for loop.\nLine 21: pop('marks') removes the 'marks' key and its value from the dictionary.\nLine 25: We create a set with a duplicate 'Priya'; Python keeps only one copy automatically.\nLine 29: add() inserts 'Rohit' into the set.\nLine 30: discard() removes 'Meera' safely — unlike remove(), it does not raise an error if the element is absent.\nLine 34-36: We demonstrate union (|), intersection (&), and difference (-) operations on two sets.\nLine 39-40: The in keyword checks if 'Arjun' is a member of the attendance set.\nLine 43-44: Converting a list to a set removes all duplicates; converting back with list() gives a unique list."
+ },
+ "commonMistakes": [
+  "Using {} to create an empty set — this creates an empty dictionary. Always use set() for an empty set.",
+  "Using a mutable object like a list as a dictionary key — this raises a TypeError because keys must be immutable.",
+  "Accessing a dictionary key that does not exist with dict[key] instead of dict.get(key), causing an unexpected KeyError that crashes the program."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Which of the following correctly creates an empty set in Python?",
+   "options": [
+    "empty = {}",
+    "empty = set()",
+    "empty = []",
+    "empty = dict()"
+   ],
+   "answer": 1,
+   "explanation": "Writing {} creates an empty dictionary, not a set. The only way to create an empty set is set().",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What will be the output of the following code?\nd = {'x': 10, 'y': 20}\nprint(d.get('z', 0))",
+   "options": [
+    "KeyError",
+    "None",
+    "0",
+    "z"
+   ],
+   "answer": 2,
+   "explanation": "dict.get(key, default) returns the default value when the key is not found. Since 'z' is not in d, it returns 0.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following can be used as a dictionary key?",
+   "options": [
+    "[1, 2, 3]",
+    "{'a': 1}",
+    "(1, 2, 3)",
+    "set()"
+   ],
+   "answer": 2,
+   "explanation": "Dictionary keys must be immutable. A tuple is immutable and therefore a valid key. Lists and dictionaries are mutable and cannot be used as keys.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What does the set operation A & B return?",
+   "options": [
+    "All elements from A and B combined",
+    "Elements only in A",
+    "Elements common to both A and B",
+    "Elements in A that are not in B"
+   ],
+   "answer": 2,
+   "explanation": "The & operator on sets computes the intersection, which contains only the elements that appear in both sets.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the output of this code?\ns = {3, 1, 4, 1, 5, 9, 2, 6, 5}\nprint(len(s))",
+   "options": [
+    "9",
+    "7",
+    "8",
+    "6"
+   ],
+   "answer": 1,
+   "explanation": "The set removes duplicate values. The unique elements are {1, 2, 3, 4, 5, 6, 9}, which gives a length of 7.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which method would you use to loop over both keys and values of a dictionary at the same time?",
+   "options": [
+    "dict.keys()",
+    "dict.values()",
+    "dict.items()",
+    "dict.pairs()"
+   ],
+   "answer": 2,
+   "explanation": "dict.items() returns each entry as a (key, value) tuple, allowing you to unpack both in a for loop. dict.pairs() does not exist.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain the difference between using dict['key'] and dict.get('key') to access a value in a dictionary.",
+   "answer": "Using dict['key'] raises a KeyError if the key does not exist, which will crash the program. Using dict.get('key') returns None by default, or a custom default value if provided, so it is safer when you are not sure whether a key is present.",
+   "keywords": [
+    "KeyError",
+    "get",
+    "default",
+    "safe",
+    "None"
+   ],
+   "explanation": "Understanding this difference is important for writing robust programs that do not crash on missing data.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Why are sets useful for removing duplicates from a list? Give a brief example.",
+   "answer": "Sets automatically discard duplicate elements because every element in a set must be unique. For example, if you have a list like [1, 2, 2, 3, 3], converting it with list(set([1, 2, 2, 3, 3])) gives [1, 2, 3] with all duplicates removed.",
+   "keywords": [
+    "unique",
+    "duplicate",
+    "set()",
+    "list",
+    "convert"
+   ],
+   "explanation": "This is a very common and practical use-case of sets — cleaning data by removing repeated values quickly.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "What is the exact output printed by this code?\na = {10, 20, 30}\nb = {20, 30, 40}\nprint(len(a | b))",
+   "answer": "4",
+   "explanation": "The union of {10, 20, 30} and {20, 30, 40} is {10, 20, 30, 40}, which has 4 unique elements, so len() returns 4.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a Python program that takes a dictionary of student names and their marks, then prints only the names of students who scored more than 75.",
+   "starter": "# Dictionary of student marks\nstudents = {\n    'Aarav': 82,\n    'Bhavna': 67,\n    'Chirag': 91,\n    'Divya': 74,\n    'Esha': 88\n}\n\n# Write your code below\n",
+   "solution": "# Dictionary of student marks\nstudents = {\n    'Aarav': 82,\n    'Bhavna': 67,\n    'Chirag': 91,\n    'Divya': 74,\n    'Esha': 88\n}\n\n# Print names of students with marks > 75\nfor name, marks in students.items():\n    if marks > 75:\n        print(name)",
+   "explanation": "We use dict.items() to loop over each name-marks pair. Inside the loop, we check if marks is greater than 75 and print the name if the condition is true. The output will be Aarav, Chirag, and Esha.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "Welcome to Dictionaries and Sets",
+    "steps": [
+     {
+      "say": "Hello everyone! Today we are going to learn about two very useful data structures in Python — dictionaries and sets. These tools help you store and organise data in smart ways.",
+      "write": {
+       "kind": "heading",
+       "content": "Dictionaries and Sets in Python"
+      }
+     },
+     {
+      "say": "Think of a dictionary like a real-life contact book. Each contact has a name — that is the key — and a phone number — that is the value.",
+      "write": {
+       "kind": "bullet",
+       "content": "Dictionary = key-value pairs"
+      }
+     },
+     {
+      "say": "A set is like a bag where every item is unique. If you try to put a duplicate item in, it simply ignores it.",
+      "write": {
+       "kind": "bullet",
+       "content": "Set = unique, unordered elements"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Creating and Using Dictionaries",
+    "steps": [
+     {
+      "say": "Let us create a dictionary for a student. We use curly braces, and separate each key and value with a colon.",
+      "write": {
+       "kind": "code",
+       "content": "student = {"
+      }
+     },
+     {
+      "say": "We add the name and marks as key-value pairs, then close the braces.",
+      "write": {
+       "kind": "code",
+       "content": "  'name': 'Riya', 'marks': 95}"
+      }
+     },
+     {
+      "say": "To read a value, we write the dictionary name followed by the key in square brackets. We can also use dot-get for a safer lookup.",
+      "write": {
+       "kind": "code",
+       "content": "print(student['name'])"
+      }
+     },
+     {
+      "say": "To add a new key called grade, we simply assign a value to it. Python adds it to the dictionary automatically.",
+      "write": {
+       "kind": "code",
+       "content": "student['grade'] = 'A'"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Looping and Removing from Dictionaries",
+    "steps": [
+     {
+      "say": "The items method lets us loop over a dictionary and get both the key and value together in each step of the loop.",
+      "write": {
+       "kind": "code",
+       "content": "for k, v in student.items():"
+      }
+     },
+     {
+      "say": "Inside the loop, we print both the key and its value on one line.",
+      "write": {
+       "kind": "code",
+       "content": "    print(k, ':', v)"
+      }
+     },
+     {
+      "say": "To remove a key from a dictionary, we use the pop method and pass the key name we want to delete.",
+      "write": {
+       "kind": "code",
+       "content": "student.pop('marks')"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Creating and Using Sets",
+    "steps": [
+     {
+      "say": "Now let us look at sets. We create one using curly braces but without key-value pairs. Notice we added the name Priya twice.",
+      "write": {
+       "kind": "code",
+       "content": "names = {'Priya','Arjun','Priya'}"
+      }
+     },
+     {
+      "say": "When we print the set, Python keeps only one copy of Priya. Duplicates are removed automatically.",
+      "write": {
+       "kind": "code",
+       "content": "print(names)"
+      }
+     },
+     {
+      "say": "We can perform set operations. The pipe symbol gives the union, which combines both sets. The ampersand gives the intersection, which is only the common elements.",
+      "write": {
+       "kind": "code",
+       "content": "a = {1,2,3}  b = {2,3,4}"
+      }
+     },
+     {
+      "say": "Union gives all unique elements from both sets, and intersection gives only the ones that appear in both.",
+      "write": {
+       "kind": "code",
+       "content": "print(a | b)  # {1,2,3,4}\nprint(a & b)  # {2,3}"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us quickly recap what we learned today. A dictionary stores key-value pairs, and the keys must be unique and immutable.",
+      "write": {
+       "kind": "bullet",
+       "content": "dict: key-value, keys unique+immutable"
+      }
+     },
+     {
+      "say": "A set stores only unique elements and supports union, intersection, and difference operations.",
+      "write": {
+       "kind": "bullet",
+       "content": "set: unique items, supports | & -"
+      }
+     },
+     {
+      "say": "Remember — to create an empty set always use set(), because empty curly braces create a dictionary, not a set.",
+      "write": {
+       "kind": "highlight",
+       "content": "Empty set: set()  NOT {}"
+      }
+     },
+     {
+      "say": "Great work today! Practice by creating your own dictionary and set, and try out the different methods we covered. See you in the next lesson!",
+      "write": {
+       "kind": "text",
+       "content": "Practice: create your own dict and set"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

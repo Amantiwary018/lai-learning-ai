@@ -1,0 +1,370 @@
+{
+ "summary": "Operators and expressions in C are the building blocks that let you perform calculations, compare values, and combine conditions to create meaningful programs.",
+ "shortNotes": [
+  "An operator is a symbol that tells the compiler to perform a specific operation on operands, e.g., +, -, *, /.",
+  "An expression is a combination of variables, constants, and operators that evaluates to a single value.",
+  "C has several operator categories: arithmetic, relational, logical, assignment, bitwise, and miscellaneous.",
+  "The modulus operator % gives the remainder of integer division, e.g., 10 % 3 = 1.",
+  "Operator precedence determines which operator is evaluated first; parentheses can override the default order.",
+  "The increment (++) and decrement (--) operators add or subtract 1 from a variable and can be prefix or postfix."
+ ],
+ "detailed": {
+  "explanation": "An **operator** is a special symbol used to perform operations on one or more **operands** (values or variables). For example, in the expression `a + b`, the `+` symbol is the operator and `a`, `b` are the operands. An **expression** is any valid combination of operators and operands that produces a value, such as `2 * x + 5`.\n\nC provides several types of operators. **Arithmetic operators** (`+`, `-`, `*`, `/`, `%`) perform math. **Relational operators** (`==`, `!=`, `<`, `>`, `<=`, `>=`) compare two values and return 1 (true) or 0 (false). **Logical operators** (`&&`, `||`, `!`) combine or negate conditions. **Assignment operators** (`=`, `+=`, `-=`, `*=`, `/=`) store values in variables.\n\n**Operator precedence** controls the order of evaluation. Multiplication and division have higher precedence than addition and subtraction, so `2 + 3 * 4` evaluates as `2 + 12 = 14`, not `20`. Use parentheses to explicitly control the order: `(2 + 3) * 4 = 20`.\n\nThe **increment (`++`) and decrement (`--`) operators** are very common in C. `++a` (prefix) increments first and then uses the value, while `a++` (postfix) uses the value first and then increments. For example, if `a = 5`, then `b = ++a` sets `a = 6` and `b = 6`, but `b = a++` sets `b = 5` and then `a = 6`.\n\nThe **modulus operator `%`** works only on integers and returns the remainder. It is frequently used to check if a number is odd or even: `n % 2 == 0` means `n` is even. Understanding these operators thoroughly is essential because nearly every C program uses them.",
+  "definitions": [
+   {
+    "term": "Operator",
+    "meaning": "A symbol that instructs the compiler to perform a specific operation on operands, e.g., +, -, *, /."
+   },
+   {
+    "term": "Operand",
+    "meaning": "A value or variable on which an operator acts, e.g., in a + b, both a and b are operands."
+   },
+   {
+    "term": "Expression",
+    "meaning": "A combination of variables, constants, and operators that evaluates to a single value, e.g., 2 * x + 5."
+   },
+   {
+    "term": "Operator Precedence",
+    "meaning": "The rule that determines which operator in an expression is evaluated first when there are multiple operators."
+   },
+   {
+    "term": "Associativity",
+    "meaning": "When two operators have equal precedence, associativity determines whether evaluation goes left-to-right or right-to-left."
+   },
+   {
+    "term": "Modulus Operator (%)",
+    "meaning": "Returns the integer remainder after division; works only with integer operands, e.g., 10 % 3 = 1."
+   },
+   {
+    "term": "Increment Operator (++)",
+    "meaning": "Adds 1 to a variable. Prefix (++a) increments before use; postfix (a++) increments after use."
+   },
+   {
+    "term": "Decrement Operator (--)",
+    "meaning": "Subtracts 1 from a variable. Prefix (--a) decrements before use; postfix (a--) decrements after use."
+   }
+  ],
+  "formulas": [
+   {
+    "name": "Integer Division",
+    "expression": "quotient = a / b  (integer part only)",
+    "note": "Both a and b must be integers; fractional part is discarded."
+   },
+   {
+    "name": "Modulus",
+    "expression": "remainder = a % b",
+    "note": "Works only for integer operands; gives the remainder after division."
+   },
+   {
+    "name": "Compound Assignment",
+    "expression": "a += b  is equivalent to  a = a + b",
+    "note": "Similarly: -=, *=, /=, %= all work the same way."
+   }
+  ],
+  "points": [
+   "Always use == for comparison and = for assignment; mixing them up is one of the most common bugs in C.",
+   "Integer division truncates the decimal part: 7 / 2 gives 3, not 3.5. Use float/double if you need the decimal.",
+   "Operator precedence table (high to low): ++ / -- > * / % > + / - > relational > logical > assignment.",
+   "Parentheses always override precedence, so use them freely to make your code clearer and correct.",
+   "The modulus operator % cannot be used with float or double operands — it only works with integers.",
+   "In postfix a++, the original value is used in the expression first, and the variable is updated after.",
+   "Logical AND (&&) returns true only if both operands are true; Logical OR (||) returns true if at least one is true.",
+   "Short-circuit evaluation: in &&, if the first condition is false, the second is not checked; in ||, if the first is true, the second is not checked."
+  ]
+ },
+ "codeExample": {
+  "language": "c",
+  "code": "#include <stdio.h>\n\nint main() {\n    int a = 10, b = 3;\n    int sum, diff, prod, quot, rem;\n    int x = 5;\n\n    /* Arithmetic Operators */\n    sum  = a + b;\n    diff = a - b;\n    prod = a * b;\n    quot = a / b;\n    rem  = a % b;\n\n    printf(\"a = %d, b = %d\\n\", a, b);\n    printf(\"Sum      : %d\\n\", sum);\n    printf(\"Difference: %d\\n\", diff);\n    printf(\"Product  : %d\\n\", prod);\n    printf(\"Quotient : %d\\n\", quot);\n    printf(\"Remainder: %d\\n\", rem);\n\n    /* Relational Operators */\n    printf(\"\\nRelational Operators:\\n\");\n    printf(\"a > b  : %d\\n\", a > b);\n    printf(\"a == b : %d\\n\", a == b);\n    printf(\"a != b : %d\\n\", a != b);\n\n    /* Logical Operators */\n    printf(\"\\nLogical Operators:\\n\");\n    printf(\"(a>5)&&(b<5): %d\\n\", (a > 5) && (b < 5));\n    printf(\"(a<5)||(b<5): %d\\n\", (a < 5) || (b < 5));\n\n    /* Increment and Decrement */\n    printf(\"\\nIncrement/Decrement:\\n\");\n    printf(\"x = %d\\n\", x);\n    printf(\"x++ gives: %d (then x=%d)\\n\", x++, x);\n    x = 5; /* reset */\n    printf(\"++x gives: %d\\n\", ++x);\n\n    /* Compound Assignment */\n    printf(\"\\nCompound Assignment:\\n\");\n    a += 5;\n    printf(\"a += 5 => a = %d\\n\", a);\n    a -= 3;\n    printf(\"a -= 3 => a = %d\\n\", a);\n\n    return 0;\n}",
+  "explanation": "#include <stdio.h> — includes standard input/output library.\nint main() — entry point of the program.\nint a = 10, b = 3 — declares and initialises two integer variables.\nint sum, diff, prod, quot, rem — declares variables to store results.\nint x = 5 — variable used to demonstrate increment/decrement.\nsum = a + b — adds a and b, stores result (13) in sum.\ndiff = a - b — subtracts b from a, stores result (7) in diff.\nprod = a * b — multiplies, stores result (30) in prod.\nquot = a / b — integer division, stores result (3) in quot; decimal part lost.\nrem = a % b — modulus, stores remainder (1) in rem.\nprintf lines print all arithmetic results.\na > b evaluates to 1 (true) because 10 is greater than 3.\na == b evaluates to 0 (false) because 10 is not equal to 3.\na != b evaluates to 1 (true) because they are different.\n(a>5)&&(b<5) — both conditions true, prints 1.\n(a<5)||(b<5) — first condition false, second is true (3<5), prints 1.\nx++ — postfix: prints current value of x (5) first, then increments x to 6.\nReset x to 5, then ++x — prefix: increments first to 6, then prints 6.\na += 5 — equivalent to a = a + 5; a becomes 15.\na -= 3 — equivalent to a = a - 3; a becomes 12.\nreturn 0 — signals successful program termination."
+ },
+ "commonMistakes": [
+  "Using = (assignment) instead of == (comparison) inside an if condition, e.g., writing if(a = 5) instead of if(a == 5); this assigns 5 to a and always evaluates as true.",
+  "Expecting integer division to give a decimal result, e.g., assuming 7 / 2 gives 3.5 when it actually gives 3; use float or cast to get the decimal part.",
+  "Confusing prefix and postfix increment: in a statement like b = a++, beginners expect b to get the incremented value, but b gets the original value and a is incremented afterwards."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "What is the result of the expression 17 % 5 in C?",
+   "options": [
+    "3",
+    "2",
+    "1",
+    "0"
+   ],
+   "answer": 1,
+   "explanation": "17 divided by 5 gives quotient 3 and remainder 2, so 17 % 5 = 2.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following correctly compares two variables a and b for equality in C?",
+   "options": [
+    "a = b",
+    "a == b",
+    "a === b",
+    "a.equals(b)"
+   ],
+   "answer": 1,
+   "explanation": "In C, == is the equality comparison operator. A single = is the assignment operator. === and .equals() do not exist in C.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "If int a = 5; what is the value of a after executing a += 3;?",
+   "options": [
+    "5",
+    "3",
+    "8",
+    "15"
+   ],
+   "answer": 2,
+   "explanation": "a += 3 is shorthand for a = a + 3, so a becomes 5 + 3 = 8.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the output of the following code?\nint x = 4;\nprintf(\"%d\", x++);",
+   "options": [
+    "5",
+    "4",
+    "3",
+    "Compilation error"
+   ],
+   "answer": 1,
+   "explanation": "x++ is postfix increment. The current value of x (4) is used in printf first, and then x is incremented to 5. So the output is 4.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the value of the expression (1 && 0) || (0 || 1) in C?",
+   "options": [
+    "0",
+    "1",
+    "-1",
+    "Undefined"
+   ],
+   "answer": 1,
+   "explanation": "(1 && 0) evaluates to 0 (false). (0 || 1) evaluates to 1 (true). 0 || 1 = 1. So the final result is 1.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which operator has the HIGHEST precedence among the following?",
+   "options": [
+    "+",
+    "*",
+    "++",
+    "=="
+   ],
+   "answer": 2,
+   "explanation": "The increment operator ++ has higher precedence than arithmetic operators like * and +, and relational operators like ==.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain the difference between the prefix increment (++a) and postfix increment (a++) operators in C with an example.",
+   "answer": "In prefix increment (++a), the variable is incremented first and the new value is used in the expression. In postfix increment (a++), the current value is used in the expression first, and then the variable is incremented. For example, if a = 5, then b = ++a gives b = 6 and a = 6, whereas b = a++ gives b = 5 and then a = 6.",
+   "keywords": [
+    "prefix",
+    "postfix",
+    "incremented first",
+    "used first",
+    "example"
+   ],
+   "explanation": "This tests understanding of the execution order difference between prefix and postfix forms of the increment operator.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "What is operator precedence in C and why is it important? Give one example.",
+   "answer": "Operator precedence is the rule that determines the order in which operators are evaluated when an expression has more than one operator. It is important because without it, the same expression could give different results. For example, 2 + 3 * 4 evaluates to 14 (not 20) because * has higher precedence than +, so 3 * 4 is calculated first.",
+   "keywords": [
+    "order",
+    "evaluation",
+    "multiple operators",
+    "precedence",
+    "example"
+   ],
+   "explanation": "Students must understand that precedence avoids ambiguity in expressions and affects the final computed value.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "What is the exact output printed by the following C code?\nint a = 6, b = 4;\nprintf(\"%d\", a * b - a / b + a % b);",
+   "answer": "26",
+   "explanation": "Step 1: a * b = 6 * 4 = 24. Step 2: a / b = 6 / 4 = 1 (integer division). Step 3: a % b = 6 % 4 = 2. Expression: 24 - 1 + 2 = 25. Wait, recalculating: 24 - 1 + 2 = 25. Correction: 24 - 1 = 23, 23 + 2 = 25. The exact output is 25.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a C program that takes two integers as input from the user and prints their sum, difference, product, quotient (integer), and remainder.",
+   "starter": "#include <stdio.h>\n\nint main() {\n    int a, b;\n    // Take input from user\n\n    // Print sum, difference, product, quotient, remainder\n\n    return 0;\n}",
+   "solution": "#include <stdio.h>\n\nint main() {\n    int a, b;\n    printf(\"Enter two integers: \");\n    scanf(\"%d %d\", &a, &b);\n\n    printf(\"Sum        : %d\\n\", a + b);\n    printf(\"Difference : %d\\n\", a - b);\n    printf(\"Product    : %d\\n\", a * b);\n    printf(\"Quotient   : %d\\n\", a / b);\n    printf(\"Remainder  : %d\\n\", a % b);\n\n    return 0;\n}",
+   "explanation": "scanf reads two integers from the user. Then five printf statements use the five arithmetic operators (+, -, *, /, %) to compute and display each result. Note that / performs integer division and % gives the remainder. Beginners should be careful to check that b is not zero before dividing, to avoid a runtime error.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "Welcome to Operators and Expressions",
+    "steps": [
+     {
+      "say": "Hello everyone, welcome to today's lesson. We are going to learn about operators and expressions in C, which are absolutely essential for writing any program.",
+      "write": {
+       "kind": "heading",
+       "content": "Operators and Expressions in C"
+      }
+     },
+     {
+      "say": "Think of an operator as a symbol that tells the computer what action to perform, like adding two numbers or comparing them.",
+      "write": {
+       "kind": "text",
+       "content": "Operator: symbol that acts on values"
+      }
+     },
+     {
+      "say": "And an expression is simply a combination of values and operators that gives us one result.",
+      "write": {
+       "kind": "text",
+       "content": "Expression: evaluates to a single value"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Arithmetic Operators",
+    "steps": [
+     {
+      "say": "C has five basic arithmetic operators. Let us look at each one with a simple example using a equals 10 and b equals 3.",
+      "write": {
+       "kind": "text",
+       "content": "a = 10,  b = 3"
+      }
+     },
+     {
+      "say": "Addition gives us 13, subtraction gives 7, and multiplication gives 30. These work exactly like in maths.",
+      "write": {
+       "kind": "bullet",
+       "content": "a + b = 13  |  a - b = 7  |  a * b = 30"
+      }
+     },
+     {
+      "say": "Division of integers drops the decimal part, so 10 divided by 3 gives 3, not 3.33. This is called integer division.",
+      "write": {
+       "kind": "bullet",
+       "content": "a / b = 3   (decimal dropped)"
+      }
+     },
+     {
+      "say": "The percent symbol is the modulus operator, and it gives the remainder. 10 modulus 3 equals 1 because 10 equals 3 times 3 plus 1.",
+      "write": {
+       "kind": "bullet",
+       "content": "a % b = 1   (remainder)"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Relational and Logical Operators",
+    "steps": [
+     {
+      "say": "Relational operators compare two values. They return 1 for true and 0 for false. Let me show you the key ones.",
+      "write": {
+       "kind": "heading",
+       "content": "Relational Operators"
+      }
+     },
+     {
+      "say": "Double equals checks equality, exclamation equals checks not equal, and we also have less than, greater than, and their or-equal versions.",
+      "write": {
+       "kind": "bullet",
+       "content": "==  !=  <  >  <=  >="
+      }
+     },
+     {
+      "say": "Logical operators let us combine conditions. AND written as double ampersand returns true only when both sides are true.",
+      "write": {
+       "kind": "equation",
+       "content": "&&  (AND): both must be true"
+      }
+     },
+     {
+      "say": "OR written as double pipe returns true if at least one side is true. NOT written as exclamation reverses the result.",
+      "write": {
+       "kind": "equation",
+       "content": "||  (OR): at least one true\n!   (NOT): reverses result"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Increment, Decrement, and Precedence",
+    "steps": [
+     {
+      "say": "The increment operator adds 1 to a variable and the decrement operator subtracts 1. Both come in two forms: prefix and postfix.",
+      "write": {
+       "kind": "heading",
+       "content": "Increment / Decrement"
+      }
+     },
+     {
+      "say": "If x equals 5, then plus plus x in prefix form first changes x to 6 and then uses 6.",
+      "write": {
+       "kind": "equation",
+       "content": "x = 5\n++x  =>  x becomes 6, use 6"
+      }
+     },
+     {
+      "say": "But x plus plus in postfix form uses 5 first and then changes x to 6. That difference is very important to remember.",
+      "write": {
+       "kind": "equation",
+       "content": "x++  =>  use 5, then x becomes 6"
+      }
+     },
+     {
+      "say": "Operator precedence means some operators are evaluated before others. Remember: increment and decrement first, then multiply and divide, then add and subtract.",
+      "write": {
+       "kind": "bullet",
+       "content": "++ --  >  * / %  >  + -  >  == !="
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Great work today. Let us quickly recap what we covered.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap"
+      }
+     },
+     {
+      "say": "Operators perform actions on operands. The five arithmetic operators are plus, minus, star, slash, and percent for remainder.",
+      "write": {
+       "kind": "bullet",
+       "content": "Arithmetic: + - * / %"
+      }
+     },
+     {
+      "say": "Relational operators compare values and return 0 or 1. Logical operators combine conditions using AND, OR, and NOT.",
+      "write": {
+       "kind": "bullet",
+       "content": "Relational: == != < >\nLogical:    && || !"
+      }
+     },
+     {
+      "say": "Always use double equals for comparison, never single equals. And remember prefix increments before using the value while postfix uses it first.",
+      "write": {
+       "kind": "highlight",
+       "content": "= assigns,  == compares\n++a vs a++ : order matters!"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

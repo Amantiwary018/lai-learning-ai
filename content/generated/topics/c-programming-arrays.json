@@ -1,0 +1,360 @@
+{
+ "summary": "An array in C is a collection of elements of the same data type stored in contiguous memory locations, accessed using an index.",
+ "shortNotes": [
+  "An array stores multiple values of the same type under one variable name.",
+  "Array indexing in C starts at 0, so the last element is at index n-1.",
+  "Declaration syntax: data_type array_name[size]; e.g., int marks[5];",
+  "Arrays are stored in contiguous memory; the name itself holds the base address.",
+  "Array size must be a positive integer constant at the time of declaration (in basic C).",
+  "Out-of-bounds access is undefined behaviour and a very common bug in C."
+ ],
+ "detailed": {
+  "explanation": "An **array** is a fixed-size, ordered collection of elements that all share the same data type. Instead of declaring five separate variables like `marks1`, `marks2`, … `marks5`, you declare one array: `int marks[5];`. All five integers are stored back-to-back in memory, which makes accessing them fast and predictable.\n\nThe elements of an array are accessed using an **index** (also called a subscript) inside square brackets. C uses **zero-based indexing**, meaning the first element is `marks[0]`, the second is `marks[1]`, and so on up to `marks[4]` for a size-5 array. Trying to read or write `marks[5]` goes beyond the allocated memory and causes undefined behaviour.\n\nArrays can be **initialized** at the time of declaration. For example, `int marks[5] = {90, 85, 78, 92, 88};` fills all five slots immediately. If you provide fewer values than the size, the remaining elements are automatically set to zero. You can also omit the size and let the compiler count: `int marks[] = {90, 85, 78};` creates an array of size 3.\n\nTo process every element of an array you typically use a `for` loop. The loop counter serves as the index, running from `0` to `n-1`. This pattern — declare, initialize, loop — is the backbone of almost every array operation you will write in C.",
+  "definitions": [
+   {
+    "term": "Array",
+    "meaning": "A fixed-size sequence of elements of the same data type stored in contiguous memory locations."
+   },
+   {
+    "term": "Index (Subscript)",
+    "meaning": "An integer value inside square brackets used to identify a specific element in an array; starts at 0 in C."
+   },
+   {
+    "term": "Base Address",
+    "meaning": "The memory address of the first element of the array; the array name itself represents this address."
+   },
+   {
+    "term": "Initialization",
+    "meaning": "Assigning values to array elements at the time of declaration using a comma-separated list inside curly braces."
+   },
+   {
+    "term": "Contiguous Memory",
+    "meaning": "Memory locations that are adjacent to each other without any gaps, which is how array elements are stored."
+   },
+   {
+    "term": "Undefined Behaviour",
+    "meaning": "What happens in C when you access an array element outside its valid index range; the result is unpredictable and dangerous."
+   }
+  ],
+  "formulas": [
+   {
+    "name": "Address of element i",
+    "expression": "address = base_address + i * sizeof(data_type)",
+    "note": "Shows why array access is O(1) — the CPU computes the exact address directly from the index."
+   },
+   {
+    "name": "Valid index range",
+    "expression": "0  <=  i  <=  n - 1",
+    "note": "For an array declared with size n, valid indices run from 0 to n minus 1."
+   },
+   {
+    "name": "Total memory used",
+    "expression": "memory = n * sizeof(data_type)  bytes",
+    "note": "For example, int arr[10] uses 10 * 4 = 40 bytes on most systems."
+   }
+  ],
+  "points": [
+   "Always remember: for an array of size n, valid indices are 0 to n-1. Writing to index n is a common and dangerous mistake.",
+   "In C, the compiler does NOT check array bounds at runtime — it is your responsibility to stay within limits.",
+   "When you pass an array to a function, you are actually passing its base address (a pointer), so changes inside the function affect the original array.",
+   "A partially initialized array like int a[5] = {1, 2}; sets a[0]=1, a[1]=2, and a[2], a[3], a[4] to 0 automatically.",
+   "sizeof(arr) / sizeof(arr[0]) is a common idiom to find the number of elements in an array inside the same function where it is declared.",
+   "Multi-dimensional arrays (e.g., int matrix[3][4];) are simply arrays of arrays and are stored row-by-row in memory.",
+   "Exam tip: If asked for the memory address of element i, use: base + i * sizeof(type). This is a frequently tested formula.",
+   "Global and static arrays are zero-initialized by default; local (automatic) arrays contain garbage values if not explicitly initialized."
+  ]
+ },
+ "codeExample": {
+  "language": "c",
+  "code": "#include <stdio.h>\n\nint main() {\n    /* Declare and initialize an array of 5 integers */\n    int marks[5] = {90, 85, 78, 92, 88};\n    int i;\n    int sum = 0;\n    float average;\n\n    /* Print all elements using a for loop */\n    printf(\"Student Marks:\\n\");\n    for (i = 0; i < 5; i++) {\n        printf(\"marks[%d] = %d\\n\", i, marks[i]);\n    }\n\n    /* Calculate sum and average */\n    for (i = 0; i < 5; i++) {\n        sum = sum + marks[i];\n    }\n    average = sum / 5.0f;\n\n    printf(\"\\nSum     = %d\\n\", sum);\n    printf(\"Average = %.2f\\n\", average);\n\n    /* Modify one element */\n    marks[2] = 95;\n    printf(\"\\nAfter update, marks[2] = %d\\n\", marks[2]);\n\n    return 0;\n}",
+  "explanation": "Line 1: Include standard I/O header.\nLine 3: main() is the program entry point.\nLine 5: Declare an integer array named 'marks' with 5 elements and initialize all five values inside curly braces.\nLine 6: Loop counter variable i.\nLine 7: Variable to accumulate the sum, initialized to 0.\nLine 8: Variable to hold the computed average as a float.\nLine 11-14: printf prints a heading, then the for loop runs i from 0 to 4 (i < 5), printing each element along with its index.\nLine 17-19: Second for loop adds every element to sum one by one.\nLine 20: Divide sum by 5.0f (float literal) so the result is a float, stored in average.\nLine 22-23: Print sum and average; %.2f formats average to 2 decimal places.\nLine 26: Directly assign a new value to element at index 2, changing 78 to 95.\nLine 27: Print the updated element to confirm the change.\nLine 29: Return 0 to indicate successful execution."
+ },
+ "commonMistakes": [
+  "Off-by-one error: declaring int arr[5] and then accessing arr[5] — valid indices are only 0 through 4; arr[5] is out of bounds.",
+  "Forgetting that local arrays are uninitialized: writing int arr[5]; and reading values from it without assigning them first gives garbage output.",
+  "Using = instead of a loop to copy arrays: writing arr2 = arr1 does NOT copy array contents in C; you must copy element by element (or use memcpy)."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "What is the index of the first element of an array in C?",
+   "options": [
+    "1",
+    "0",
+    "-1",
+    "Depends on the data type"
+   ],
+   "answer": 1,
+   "explanation": "C uses zero-based indexing, so the first element is always at index 0.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following correctly declares an integer array of size 10 in C?",
+   "options": [
+    "int arr(10);",
+    "array int arr[10];",
+    "int arr[10];",
+    "int[10] arr;"
+   ],
+   "answer": 2,
+   "explanation": "The correct C syntax is data_type array_name[size], which is int arr[10];",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Given: int a[4] = {5, 10, 15, 20}; What is the value of a[3]?",
+   "options": [
+    "5",
+    "10",
+    "15",
+    "20"
+   ],
+   "answer": 3,
+   "explanation": "Index 3 is the fourth element (0-based indexing), which is 20.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What happens if you access an array element out of its valid index range in C?",
+   "options": [
+    "The program prints 0 automatically",
+    "The compiler shows an error and stops",
+    "It causes undefined behaviour",
+    "The element wraps around to the beginning"
+   ],
+   "answer": 2,
+   "explanation": "C does not perform runtime bounds checking. Accessing out-of-bounds memory leads to undefined behaviour — the result is unpredictable.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What will be the value of a[2] after this declaration? int a[5] = {1, 2};",
+   "options": [
+    "2",
+    "Garbage value",
+    "0",
+    "Undefined"
+   ],
+   "answer": 2,
+   "explanation": "When an array is partially initialized, all remaining elements are automatically set to 0 by the C standard.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "For an integer array declared as int arr[6]; on a system where sizeof(int) = 4, how many bytes does the array occupy in memory?",
+   "options": [
+    "6",
+    "12",
+    "24",
+    "48"
+   ],
+   "answer": 2,
+   "explanation": "Total memory = number of elements × sizeof(data_type) = 6 × 4 = 24 bytes.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain the significance of the base address of an array in C.",
+   "answer": "The base address is the memory address of the first element (index 0) of the array. In C, the array name itself holds this base address. The address of any element i is calculated as base_address + i * sizeof(data_type), which is why array access takes constant time regardless of the index.",
+   "keywords": [
+    "base address",
+    "first element",
+    "array name",
+    "index",
+    "memory"
+   ],
+   "explanation": "Understanding the base address helps explain how C computes the location of any element in O(1) time and why the array name behaves like a pointer.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "What is the difference between array declaration and array initialization in C? Give a short example of each.",
+   "answer": "Declaration allocates memory for the array without assigning values, e.g., int marks[5]; — this reserves space for 5 integers but their values are undefined (garbage) for local arrays. Initialization assigns specific values at the time of declaration, e.g., int marks[5] = {10, 20, 30, 40, 50}; — this both allocates memory and fills it with known values.",
+   "keywords": [
+    "declaration",
+    "initialization",
+    "memory",
+    "values",
+    "curly braces"
+   ],
+   "explanation": "Students often confuse declaring an array with initializing it. Uninitialized local arrays contain garbage values which is a very common source of bugs.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "Consider the following C code:\n\nint a[5] = {3, 6, 9, 12, 15};\nint sum = 0, i;\nfor (i = 1; i < 4; i++) {\n    sum = sum + a[i];\n}\nprintf(\"%d\", sum);\n\nWhat is the exact output printed?",
+   "answer": "27",
+   "explanation": "The loop runs for i = 1, 2, 3. a[1]=6, a[2]=9, a[3]=12. Sum = 6 + 9 + 12 = 27.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a complete C program that reads 5 integers from the user into an array, then finds and prints the largest element among them.",
+   "starter": "#include <stdio.h>\n\nint main() {\n    int arr[5];\n    int i;\n    int largest;\n\n    // Read 5 integers from user\n    // YOUR CODE HERE\n\n    // Find the largest element\n    // YOUR CODE HERE\n\n    printf(\"Largest = %d\\n\", largest);\n    return 0;\n}",
+   "solution": "#include <stdio.h>\n\nint main() {\n    int arr[5];\n    int i;\n    int largest;\n\n    /* Read 5 integers from user */\n    printf(\"Enter 5 integers:\\n\");\n    for (i = 0; i < 5; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n\n    /* Find the largest element */\n    largest = arr[0];  /* assume first is largest */\n    for (i = 1; i < 5; i++) {\n        if (arr[i] > largest) {\n            largest = arr[i];\n        }\n    }\n\n    printf(\"Largest = %d\\n\", largest);\n    return 0;\n}",
+   "explanation": "First, a for loop reads each element using scanf with &arr[i] to pass the address. Then largest is initialized to arr[0] — a safe starting assumption. The second loop compares every remaining element with largest; if a bigger element is found, largest is updated. After the loop, the true maximum is printed.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What is an Array?",
+    "steps": [
+     {
+      "say": "Hello everyone! Today we are going to learn about arrays in C. Imagine you want to store marks of five students. Would you really create five separate variables?",
+      "write": {
+       "kind": "heading",
+       "content": "Arrays in C"
+      }
+     },
+     {
+      "say": "Instead of five variables, an array lets you store all five values under one single name. Much cleaner and easier to manage.",
+      "write": {
+       "kind": "bullet",
+       "content": "Store many values under ONE name"
+      }
+     },
+     {
+      "say": "All elements must be of the same data type, and they are stored next to each other in memory, which is called contiguous memory.",
+      "write": {
+       "kind": "bullet",
+       "content": "Same type, contiguous memory"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Declaring and Initializing an Array",
+    "steps": [
+     {
+      "say": "Let us look at how to declare an array. You write the data type, then the name, then the size inside square brackets.",
+      "write": {
+       "kind": "code",
+       "content": "int marks[5];"
+      }
+     },
+     {
+      "say": "You can also initialize the array right away by listing the values inside curly braces, separated by commas.",
+      "write": {
+       "kind": "code",
+       "content": "int marks[5] = {90,85,78,92,88};"
+      }
+     },
+     {
+      "say": "If you give fewer values than the size, the remaining elements are automatically set to zero by the compiler.",
+      "write": {
+       "kind": "text",
+       "content": "int marks[5] = {1, 2};\n// marks[2], [3], [4] = 0"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Accessing Elements with Index",
+    "steps": [
+     {
+      "say": "Every element in an array has an index. In C, indexing always starts at zero, so the first element is at index zero.",
+      "write": {
+       "kind": "text",
+       "content": "Index:  0   1   2   3   4\nValue: 90  85  78  92  88"
+      }
+     },
+     {
+      "say": "To read the first element you write marks of zero, and to read the last element of a size five array you write marks of four.",
+      "write": {
+       "kind": "code",
+       "content": "marks[0]  // 90 (first)\nmarks[4]  // 88 (last)"
+      }
+     },
+     {
+      "say": "Never access marks of five because that is outside the array boundary. C will not warn you and the result is unpredictable.",
+      "write": {
+       "kind": "highlight",
+       "content": "marks[5] → OUT OF BOUNDS!"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Looping Through an Array",
+    "steps": [
+     {
+      "say": "The real power of arrays comes when you combine them with a for loop. The loop counter acts as the index.",
+      "write": {
+       "kind": "code",
+       "content": "int i, sum = 0;"
+      }
+     },
+     {
+      "say": "We start i at zero and keep going while i is less than five. Inside the loop we add each element to sum.",
+      "write": {
+       "kind": "code",
+       "content": "for (i = 0; i < 5; i++) {"
+      }
+     },
+     {
+      "say": "Each time through the loop, i increases by one, so we visit every element from index zero to index four.",
+      "write": {
+       "kind": "code",
+       "content": "  sum = sum + marks[i];\n}"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Memory and the Address Formula",
+    "steps": [
+     {
+      "say": "Arrays are stored in contiguous memory. The array name holds the base address, which is the address of element zero.",
+      "write": {
+       "kind": "text",
+       "content": "Base address = address of marks[0]"
+      }
+     },
+     {
+      "say": "To find the address of any element i, multiply i by the size of one element and add it to the base address.",
+      "write": {
+       "kind": "equation",
+       "content": "addr(i) = base + i * sizeof(int)"
+      }
+     },
+     {
+      "say": "This is why accessing any array element is instant — the CPU calculates the exact location directly from the index.",
+      "write": {
+       "kind": "bullet",
+       "content": "Array access is O(1) — constant time"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us quickly recap what we learned today. An array stores multiple values of the same type under one name.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap"
+      }
+     },
+     {
+      "say": "Declare with square brackets, initialize with curly braces, and always remember indexing starts at zero.",
+      "write": {
+       "kind": "bullet",
+       "content": "Declare: int arr[5];\nIndex: 0 to n-1"
+      }
+     },
+     {
+      "say": "Use a for loop to process all elements, and never go out of bounds. Practice these concepts and arrays will become your best friend in C programming!",
+      "write": {
+       "kind": "bullet",
+       "content": "Loop from 0 to n-1\nNever access index n!"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

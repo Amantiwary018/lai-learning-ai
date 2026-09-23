@@ -1,0 +1,317 @@
+{
+ "summary": "Artificial Intelligence is the science of building computer systems that can perform tasks which normally require human intelligence, such as understanding language, recognising images, and making decisions.",
+ "shortNotes": [
+  "AI stands for Artificial Intelligence — machines designed to mimic human thinking and decision-making.",
+  "AI systems learn from data, identify patterns, and improve their performance over time.",
+  "Key branches include Machine Learning, Natural Language Processing, Computer Vision, and Robotics.",
+  "AI is already used in everyday tools like Google Search, voice assistants, and recommendation systems.",
+  "Narrow AI handles one specific task; General AI (still theoretical) would handle any intellectual task like a human.",
+  "AI does not think or feel — it processes inputs and produces outputs based on training and algorithms."
+ ],
+ "detailed": {
+  "explanation": "Artificial Intelligence, or AI, refers to the ability of a computer or machine to perform tasks that would normally require human intelligence. These tasks include understanding spoken language, recognising faces in photos, translating text, and even playing complex games like chess. The word 'artificial' means man-made, and 'intelligence' refers to the ability to learn, reason, and solve problems.\n\nAI systems work by processing large amounts of data and finding patterns within it. For example, a spam filter learns to identify junk emails by studying thousands of examples of spam and non-spam messages. Over time, the system gets better at making correct predictions. This ability to improve from experience is called **Machine Learning**, which is one of the most important branches of AI.\n\nThere are two broad types of AI discussed today. **Narrow AI** (also called Weak AI) is designed to do one specific task very well — for example, a voice assistant like Siri or Google Assistant. **General AI** (also called Strong AI or AGI) would be able to perform any intellectual task a human can do, but this level of AI does not yet exist and remains an area of ongoing research.\n\nAI is not a new idea. The term was officially coined by computer scientist **John McCarthy** at the Dartmouth Conference in **1956**. However, practical and powerful AI applications have grown rapidly since the 2010s, thanks to more data, faster computers, and improved algorithms.\n\nIn India and across the world, AI is transforming professions — from healthcare and agriculture to banking and education. Understanding the basics of AI is now an essential skill for students in every field, not just computer science.",
+  "definitions": [
+   {
+    "term": "Artificial Intelligence (AI)",
+    "meaning": "The simulation of human intelligence processes by computer systems, including learning, reasoning, and self-correction."
+   },
+   {
+    "term": "Machine Learning (ML)",
+    "meaning": "A subset of AI where systems learn from data and improve their performance without being explicitly programmed for every task."
+   },
+   {
+    "term": "Natural Language Processing (NLP)",
+    "meaning": "A branch of AI that enables computers to understand, interpret, and generate human language."
+   },
+   {
+    "term": "Computer Vision",
+    "meaning": "A field of AI that trains computers to interpret and understand visual information from images and videos."
+   },
+   {
+    "term": "Narrow AI (Weak AI)",
+    "meaning": "AI designed to perform one specific task, such as recognising speech or recommending movies."
+   },
+   {
+    "term": "General AI (AGI)",
+    "meaning": "A theoretical form of AI that would have the ability to understand, learn, and apply intelligence across any task, just like a human."
+   },
+   {
+    "term": "Algorithm",
+    "meaning": "A set of step-by-step instructions given to a computer to solve a problem or complete a task."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "AI was coined as a term by John McCarthy in 1956 at the Dartmouth Conference — remember this for history-of-AI questions.",
+   "Narrow AI exists today (e.g., chatbots, image recognition); General AI (AGI) does not yet exist.",
+   "AI is not magic — it relies on data, algorithms, and computing power.",
+   "Machine Learning is a subset of AI, not a synonym for it. All ML is AI, but not all AI is ML.",
+   "Common real-world AI examples in India: Google Pay fraud detection, Ola/Uber route optimisation, Zomato food recommendations.",
+   "AI does not have emotions, consciousness, or common sense the way humans do.",
+   "Three core capabilities of AI systems: Perception (taking input), Reasoning (processing), and Action (giving output).",
+   "Ethics in AI — bias, privacy, and job displacement — are important topics alongside the technical basics."
+  ]
+ },
+ "codeExample": null,
+ "commonMistakes": [
+  "Confusing AI with robots — AI is software and logic; a robot is physical hardware. A robot may use AI, but most AI is not a robot.",
+  "Thinking AI 'thinks' like a human — AI finds statistical patterns in data; it does not understand, feel, or have intentions.",
+  "Using 'AI' and 'Machine Learning' as if they mean the same thing — Machine Learning is just one branch of the broader field of AI."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Who is credited with officially coining the term 'Artificial Intelligence'?",
+   "options": [
+    "Alan Turing",
+    "John McCarthy",
+    "Geoffrey Hinton",
+    "Elon Musk"
+   ],
+   "answer": 1,
+   "explanation": "John McCarthy coined the term 'Artificial Intelligence' at the Dartmouth Conference in 1956. Alan Turing is known for the Turing Test but did not coin the term AI.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following is the best example of Narrow AI?",
+   "options": [
+    "A machine that can do any task a human can do",
+    "A voice assistant that answers questions and sets reminders",
+    "A robot that has emotions and feelings",
+    "A computer that has general common sense"
+   ],
+   "answer": 1,
+   "explanation": "Narrow AI is designed for one specific type of task. A voice assistant performs specific tasks like answering questions and setting reminders, making it a clear example of Narrow AI.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following statements about General AI (AGI) is correct?",
+   "options": [
+    "AGI already powers smartphones and apps today",
+    "AGI is the same as Machine Learning",
+    "AGI is a theoretical concept and does not yet exist",
+    "AGI was achieved in the year 2020"
+   ],
+   "answer": 2,
+   "explanation": "General AI or AGI — a machine that can perform any intellectual task a human can — is still theoretical and has not been achieved as of now.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the correct relationship between AI and Machine Learning?",
+   "options": [
+    "Machine Learning and AI are completely different and unrelated fields",
+    "AI is a subset of Machine Learning",
+    "Machine Learning is a subset of AI",
+    "Machine Learning and AI are exactly the same thing"
+   ],
+   "answer": 2,
+   "explanation": "Machine Learning is one branch within the broader field of Artificial Intelligence. AI includes other branches too, such as Computer Vision, NLP, and Robotics.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following is NOT a core branch of Artificial Intelligence?",
+   "options": [
+    "Natural Language Processing",
+    "Computer Vision",
+    "Spreadsheet Formatting",
+    "Machine Learning"
+   ],
+   "answer": 2,
+   "explanation": "Spreadsheet formatting is a basic software skill, not a branch of AI. NLP, Computer Vision, and Machine Learning are all recognised branches of AI.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "A spam filter that learns to identify junk emails by studying thousands of examples is best described as an example of which technology?",
+   "options": [
+    "Computer Vision",
+    "Robotics",
+    "Machine Learning",
+    "General AI"
+   ],
+   "answer": 2,
+   "explanation": "The spam filter improves its performance by learning from data (examples of spam and non-spam). Learning from data to improve performance is the definition of Machine Learning.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "In your own words, explain what Artificial Intelligence is and give one example of how it is used in daily life in India.",
+   "answer": "Artificial Intelligence is the science of programming computers to perform tasks that normally require human intelligence, such as learning, decision-making, and understanding language. One everyday example in India is the fraud detection system used by UPI payment apps like Google Pay, which uses AI to identify suspicious transactions automatically.",
+   "keywords": [
+    "human intelligence",
+    "machines",
+    "data",
+    "learn",
+    "example"
+   ],
+   "explanation": "A good answer should define AI in relation to human intelligence, mention that machines or computers are involved, and tie it to a real-world application the student can relate to.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "What is the difference between Narrow AI and General AI? Why does this distinction matter?",
+   "answer": "Narrow AI is designed to perform one specific task very well, such as recognising faces or translating languages. General AI would be able to handle any intellectual task a human can, but it does not yet exist. This distinction matters because it helps us understand the real current capabilities and limitations of AI, preventing exaggerated expectations.",
+   "keywords": [
+    "narrow",
+    "specific task",
+    "general",
+    "theoretical",
+    "limitations"
+   ],
+   "explanation": "Students should clearly contrast the two types, note that AGI is not yet real, and reflect on why understanding this difference is practically important.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "The term 'Artificial Intelligence' was officially coined at the Dartmouth Conference. In what year did this conference take place?",
+   "answer": "1956",
+   "explanation": "The Dartmouth Conference, where John McCarthy proposed the term 'Artificial Intelligence', was held in 1956. This is a key historical fact in the timeline of AI.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "Welcome: What Is Artificial Intelligence?",
+    "steps": [
+     {
+      "say": "Hello and welcome! Today we are going to explore one of the most exciting topics of our time — Artificial Intelligence. By the end of this lesson, you will understand exactly what AI is and why it matters to you.",
+      "write": {
+       "kind": "heading",
+       "content": "What is Artificial Intelligence?"
+      }
+     },
+     {
+      "say": "Think about this — when you ask Google a question, or when Swiggy suggests a dish you might like, something intelligent is happening inside that app. That intelligence is AI.",
+      "write": {
+       "kind": "bullet",
+       "content": "Google Search, Swiggy, UPI fraud alerts = AI"
+      }
+     },
+     {
+      "say": "So at its heart, Artificial Intelligence means building computer systems that can do tasks which normally need human intelligence — things like understanding language, recognising pictures, or making decisions.",
+      "write": {
+       "kind": "text",
+       "content": "AI = machines mimicking human intelligence"
+      }
+     }
+    ]
+   },
+   {
+    "title": "A Simple Definition and History",
+    "steps": [
+     {
+      "say": "The term Artificial Intelligence was officially coined by a computer scientist named John McCarthy way back in 1956 at a conference called the Dartmouth Conference in the United States.",
+      "write": {
+       "kind": "text",
+       "content": "Term coined by: John McCarthy, 1956"
+      }
+     },
+     {
+      "say": "The word artificial means man-made, and intelligence means the ability to learn, reason, and solve problems. Put them together and you get AI — man-made intelligence built into a machine.",
+      "write": {
+       "kind": "bullet",
+       "content": "Artificial = man-made"
+      }
+     },
+     {
+      "say": "AI has grown very fast since the 2010s because we now have more data, faster computers, and much better algorithms to train these systems.",
+      "write": {
+       "kind": "bullet",
+       "content": "Intelligence = learn, reason, solve problems"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Types of AI: Narrow vs General",
+    "steps": [
+     {
+      "say": "Now let us talk about the two main types of AI. The first is called Narrow AI, also known as Weak AI. This type of AI is designed to do exactly one job and do it very well.",
+      "write": {
+       "kind": "heading",
+       "content": "Types of AI"
+      }
+     },
+     {
+      "say": "Examples of Narrow AI include voice assistants like Siri, image recognition on your phone, and spam filters in your email. These systems are very powerful but only within their one area.",
+      "write": {
+       "kind": "bullet",
+       "content": "Narrow AI: one task (Siri, spam filter)"
+      }
+     },
+     {
+      "say": "The second type is called General AI, or AGI. This would be a machine that can do any intellectual task a human can — but here is the important part: General AI does not exist yet. It is still theoretical.",
+      "write": {
+       "kind": "bullet",
+       "content": "General AI (AGI): any task — NOT yet real"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Key Branches of AI",
+    "steps": [
+     {
+      "say": "AI is a broad field with many branches. Let us quickly look at the four most important ones you should know.",
+      "write": {
+       "kind": "heading",
+       "content": "Key Branches of AI"
+      }
+     },
+     {
+      "say": "First is Machine Learning — this is where a system learns from data and improves over time without being manually programmed for every case.",
+      "write": {
+       "kind": "bullet",
+       "content": "Machine Learning: learns from data"
+      }
+     },
+     {
+      "say": "Second is Natural Language Processing, which helps computers understand and generate human language — this powers chatbots and translation apps.",
+      "write": {
+       "kind": "bullet",
+       "content": "NLP: understand human language"
+      }
+     },
+     {
+      "say": "Third is Computer Vision, which lets machines interpret images and videos. And fourth is Robotics, where AI is used to control physical machines.",
+      "write": {
+       "kind": "bullet",
+       "content": "Computer Vision | Robotics"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us do a quick recap of everything we covered today. AI stands for Artificial Intelligence — it means building machines that can perform tasks requiring human-level intelligence.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap"
+      }
+     },
+     {
+      "say": "The term was coined by John McCarthy in 1956. Today we have Narrow AI all around us, while General AI remains a future goal.",
+      "write": {
+       "kind": "bullet",
+       "content": "John McCarthy coined AI in 1956"
+      }
+     },
+     {
+      "say": "Remember — AI is not magic, it is not thinking like a human, and it is not the same as Machine Learning. AI is a powerful tool built on data and algorithms, and understanding it is a key skill for every profession today.",
+      "write": {
+       "kind": "highlight",
+       "content": "AI = data + algorithms, not magic!"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,347 @@
+{
+ "summary": "Lists and tuples are Python's most common sequence types — lists are mutable (changeable) while tuples are immutable (fixed), and both let you store ordered collections of items.",
+ "shortNotes": [
+  "A list is created with square brackets [ ] and can be changed after creation.",
+  "A tuple is created with parentheses ( ) and cannot be changed after creation.",
+  "Both lists and tuples are ordered, indexed from 0, and allow duplicate values.",
+  "Common list methods: append(), remove(), pop(), sort(), len().",
+  "Tuples are faster than lists and are used when data should not change.",
+  "Negative indexing works on both: -1 gives the last element."
+ ],
+ "detailed": {
+  "explanation": "A **list** in Python is a collection of items stored in a single variable. You create a list using square brackets, like `fruits = ['apple', 'banana', 'mango']`. Lists are **mutable**, meaning you can add, remove, or change items after the list is created. This makes them very flexible for everyday programming tasks.\n\nA **tuple** is similar to a list but uses parentheses: `colors = ('red', 'green', 'blue')`. The key difference is that tuples are **immutable** — once you create a tuple, you cannot change its contents. This is useful when you want to protect data from accidental changes, such as storing the days of the week or GPS coordinates.\n\nBoth lists and tuples support **indexing** and **slicing**. Indexing starts at 0, so `fruits[0]` gives `'apple'`. You can also use negative indices: `fruits[-1]` gives the last item. Slicing lets you get a sub-section: `fruits[0:2]` gives `['apple', 'banana']`.\n\nLists come with many built-in methods. `append()` adds an item at the end, `remove()` deletes a specific value, `pop()` removes by index, and `sort()` arranges items in order. Tuples have only two methods: `count()` and `index()`, because they cannot be modified.\n\nChoosing between a list and a tuple depends on your use case. If your data needs to change, use a list. If it should remain constant throughout the program, a tuple is the safer and slightly faster choice.",
+  "definitions": [
+   {
+    "term": "List",
+    "meaning": "An ordered, mutable collection of items created using square brackets, e.g., [1, 2, 3]."
+   },
+   {
+    "term": "Tuple",
+    "meaning": "An ordered, immutable collection of items created using parentheses, e.g., (1, 2, 3)."
+   },
+   {
+    "term": "Mutable",
+    "meaning": "An object whose contents can be changed after it is created."
+   },
+   {
+    "term": "Immutable",
+    "meaning": "An object whose contents cannot be changed after it is created."
+   },
+   {
+    "term": "Indexing",
+    "meaning": "Accessing an individual element in a sequence using its position number, starting from 0."
+   },
+   {
+    "term": "Slicing",
+    "meaning": "Extracting a portion of a sequence using a start and end index, e.g., my_list[1:3]."
+   },
+   {
+    "term": "append()",
+    "meaning": "A list method that adds a single element to the end of the list."
+   },
+   {
+    "term": "Negative Index",
+    "meaning": "Accessing elements from the end of a sequence; -1 refers to the last element."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "Lists use [ ] and tuples use ( ) — this distinction is commonly tested in exams.",
+   "Index always starts at 0; the last valid index is len(sequence) - 1.",
+   "Trying to modify a tuple raises a TypeError — remember this for debugging questions.",
+   "len() works on both lists and tuples to get the number of elements.",
+   "A single-element tuple must have a trailing comma: (5,) — without the comma Python treats it as just (5), which is an integer.",
+   "List slicing syntax: list[start:stop:step] — stop index is excluded.",
+   "Tuples can be used as dictionary keys because they are immutable; lists cannot.",
+   "append() adds one item; extend() adds multiple items from another iterable to a list."
+  ]
+ },
+ "codeExample": {
+  "language": "python",
+  "code": "# Lists and Tuples in Python\n\n# --- LISTS ---\nfruits = ['apple', 'banana', 'mango']\nprint('Original list:', fruits)\n\n# Accessing elements\nprint('First fruit:', fruits[0])\nprint('Last fruit:', fruits[-1])\n\n# Adding and removing elements\nfruits.append('grapes')\nprint('After append:', fruits)\n\nfruits.remove('banana')\nprint('After remove:', fruits)\n\n# Slicing\nprint('Slice [0:2]:', fruits[0:2])\n\n# Sorting\nnumbers = [5, 2, 8, 1, 9]\nnumbers.sort()\nprint('Sorted numbers:', numbers)\n\n# --- TUPLES ---\ndays = ('Monday', 'Tuesday', 'Wednesday')\nprint('\\nTuple:', days)\nprint('Second day:', days[1])\nprint('Number of days:', len(days))\n\n# Tuple count and index methods\nscores = (10, 20, 10, 30, 10)\nprint('Count of 10:', scores.count(10))\nprint('Index of 20:', scores.index(20))\n\n# Trying to modify a tuple (this will raise an error)\ntry:\n    days[0] = 'Sunday'\nexcept TypeError as e:\n    print('\\nError:', e)\n\n# Single-element tuple\nsingle = (42,)\nprint('\\nSingle-element tuple:', single)\nprint('Type:', type(single))",
+  "explanation": "Line 3: We create a list called 'fruits' with three string items using square brackets.\nLine 4: We print the full list.\nLine 7: fruits[0] accesses the first element ('apple') using index 0.\nLine 8: fruits[-1] uses negative indexing to access the last element ('mango').\nLine 11: append('grapes') adds 'grapes' to the end of the list.\nLine 14: remove('banana') finds and deletes 'banana' from the list.\nLine 17: fruits[0:2] returns a new list from index 0 up to (but not including) index 2.\nLine 20-22: We create a numbers list and call sort() to arrange it in ascending order.\nLine 25: We create a tuple called 'days' using parentheses.\nLine 26-27: Indexing and len() work the same as with lists.\nLine 31-33: count(10) returns how many times 10 appears; index(20) returns the position of 20.\nLine 36-39: We try to change a tuple element inside a try-except block — Python raises a TypeError, which we catch and print.\nLine 42-44: A single-element tuple needs a trailing comma; we verify its type is 'tuple'."
+ },
+ "commonMistakes": [
+  "Forgetting the trailing comma in a single-element tuple: writing (5) gives an integer, not a tuple — you must write (5,).",
+  "Trying to change a tuple element directly (e.g., my_tuple[0] = 10) and being confused by the TypeError — remember, tuples are immutable.",
+  "Confusing the stop index in slicing: my_list[1:3] returns elements at index 1 and 2 only — index 3 is NOT included."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Which of the following correctly creates a list in Python?",
+   "options": [
+    "my_list = (1, 2, 3)",
+    "my_list = [1, 2, 3]",
+    "my_list = {1, 2, 3}",
+    "my_list = <1, 2, 3>"
+   ],
+   "answer": 1,
+   "explanation": "Lists are created using square brackets [ ]. Parentheses create a tuple, curly braces create a set or dictionary, and angle brackets are not valid Python syntax.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What will be the output of: print(['a', 'b', 'c', 'd'][2])?",
+   "options": [
+    "'a'",
+    "'b'",
+    "'c'",
+    "'d'"
+   ],
+   "answer": 2,
+   "explanation": "Python indexing starts at 0. Index 2 refers to the third element, which is 'c'.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which method adds a single element to the END of a list?",
+   "options": [
+    "insert()",
+    "extend()",
+    "append()",
+    "add()"
+   ],
+   "answer": 2,
+   "explanation": "append() adds one element to the end of a list. insert() adds at a specific position, extend() adds multiple items from an iterable, and add() is a set method.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What error is raised when you try to change an element of a tuple?",
+   "options": [
+    "ValueError",
+    "IndexError",
+    "TypeError",
+    "AttributeError"
+   ],
+   "answer": 2,
+   "explanation": "Because tuples are immutable, attempting to assign a new value to a tuple index raises a TypeError.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What does the slice my_list[1:4] return if my_list = [10, 20, 30, 40, 50]?",
+   "options": [
+    "[10, 20, 30, 40]",
+    "[20, 30, 40, 50]",
+    "[20, 30, 40]",
+    "[20, 30, 40, 50, 60]"
+   ],
+   "answer": 2,
+   "explanation": "Slicing [1:4] includes indices 1, 2, and 3 (stops before index 4), giving elements 20, 30, and 40.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following is a valid single-element tuple?",
+   "options": [
+    "(5)",
+    "[5]",
+    "(5,)",
+    "{5}"
+   ],
+   "answer": 2,
+   "explanation": "(5,) is a tuple with one element because of the trailing comma. (5) is just the integer 5 in parentheses, [5] is a list, and {5} is a set.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain the main difference between a list and a tuple in Python.",
+   "answer": "A list is mutable, meaning its elements can be added, removed, or changed after creation. A tuple is immutable, meaning once it is created, its elements cannot be changed. Lists use square brackets while tuples use parentheses.",
+   "keywords": [
+    "mutable",
+    "immutable",
+    "square brackets",
+    "parentheses",
+    "changed"
+   ],
+   "explanation": "The core distinction is mutability. Students must connect the terms mutable/immutable to the ability to change contents, and mention the syntax difference.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "When would you choose a tuple over a list in Python? Give one practical example.",
+   "answer": "You would choose a tuple when the data should not change throughout the program, ensuring it is protected from accidental modification. For example, storing the coordinates of a location as (latitude, longitude) is a good use of a tuple because those values should remain fixed.",
+   "keywords": [
+    "immutable",
+    "constant",
+    "protect",
+    "fixed",
+    "example"
+   ],
+   "explanation": "Students should demonstrate understanding that tuples are for fixed data. Acceptable examples include days of the week, RGB color values, or database records.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "What is the exact output printed by the following code?\n\nmy_list = [4, 7, 2, 9, 1]\nmy_list.sort()\nprint(my_list[3])",
+   "answer": "7",
+   "explanation": "After sort(), the list becomes [1, 2, 4, 7, 9]. Index 3 points to the fourth element, which is 7.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a Python program that creates a list of 5 integers entered by the user, then prints the list, its length, the maximum value, and the minimum value.",
+   "starter": "# Collect 5 integers from the user\nnumbers = []\nfor i in range(5):\n    num = int(input('Enter number ' + str(i+1) + ': '))\n    # Add num to the numbers list\n    pass\n\n# Print the list, length, max, and min\n",
+   "solution": "# Collect 5 integers from the user\nnumbers = []\nfor i in range(5):\n    num = int(input('Enter number ' + str(i+1) + ': '))\n    numbers.append(num)\n\n# Print the list, length, max, and min\nprint('List:', numbers)\nprint('Length:', len(numbers))\nprint('Maximum:', max(numbers))\nprint('Minimum:', min(numbers))",
+   "explanation": "We start with an empty list and use a for loop to collect 5 integers from the user, appending each to the list. After the loop, len() gives the count of elements, max() returns the largest value, and min() returns the smallest — all built-in Python functions that work directly on lists.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What Are Lists and Tuples?",
+    "steps": [
+     {
+      "say": "Hello everyone! Today we are going to learn about two very important ways to store collections of data in Python — lists and tuples.",
+      "write": {
+       "kind": "heading",
+       "content": "Lists and Tuples in Python"
+      }
+     },
+     {
+      "say": "Think of a list like a shopping bag — you can add items, remove items, or swap them out anytime you want.",
+      "write": {
+       "kind": "bullet",
+       "content": "List  → like a shopping bag (changeable)"
+      }
+     },
+     {
+      "say": "A tuple is more like a sealed envelope — once you put items inside, they are locked and cannot be changed.",
+      "write": {
+       "kind": "bullet",
+       "content": "Tuple → like a sealed envelope (fixed)"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Creating Lists and Using Them",
+    "steps": [
+     {
+      "say": "Let us create a list called fruits. We use square brackets and separate items with commas.",
+      "write": {
+       "kind": "code",
+       "content": "fruits = ['apple','banana','mango']"
+      }
+     },
+     {
+      "say": "To access the first item we use index zero, because Python starts counting from zero.",
+      "write": {
+       "kind": "code",
+       "content": "print(fruits[0])   # apple"
+      }
+     },
+     {
+      "say": "We can add a new fruit using the append method, and remove one using the remove method.",
+      "write": {
+       "kind": "code",
+       "content": "fruits.append('grapes')\nfruits.remove('banana')"
+      }
+     },
+     {
+      "say": "After these changes the list now has apple, mango, and grapes — it has been updated successfully.",
+      "write": {
+       "kind": "text",
+       "content": "List is now: ['apple','mango','grapes']"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Creating Tuples and Why They Cannot Change",
+    "steps": [
+     {
+      "say": "Now let us create a tuple. We use parentheses instead of square brackets.",
+      "write": {
+       "kind": "code",
+       "content": "days = ('Mon', 'Tue', 'Wed')"
+      }
+     },
+     {
+      "say": "Accessing elements works the same way — index one gives us Tuesday.",
+      "write": {
+       "kind": "code",
+       "content": "print(days[1])     # Tue"
+      }
+     },
+     {
+      "say": "But if we try to change an element, Python raises a Type Error, because tuples are immutable.",
+      "write": {
+       "kind": "code",
+       "content": "days[0] = 'Sun'\n# TypeError: immutable!"
+      }
+     },
+     {
+      "say": "Remember — always use a list when your data will change, and a tuple when it should stay fixed.",
+      "write": {
+       "kind": "highlight",
+       "content": "List = mutable   Tuple = immutable"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Slicing and Negative Indexing",
+    "steps": [
+     {
+      "say": "Both lists and tuples support slicing, which means grabbing a portion of the sequence.",
+      "write": {
+       "kind": "code",
+       "content": "nums = [10, 20, 30, 40, 50]"
+      }
+     },
+     {
+      "say": "If we write nums from index one to three, we get elements at positions one and two — the stop index is excluded.",
+      "write": {
+       "kind": "code",
+       "content": "print(nums[1:3])   # [20, 30]"
+      }
+     },
+     {
+      "say": "Negative index minus one always gives the last element, no matter how long the list is.",
+      "write": {
+       "kind": "code",
+       "content": "print(nums[-1])    # 50"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us quickly recap what we learned today.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap"
+      }
+     },
+     {
+      "say": "Lists use square brackets and are mutable — you can change them. Tuples use parentheses and are immutable — they are fixed.",
+      "write": {
+       "kind": "bullet",
+       "content": "[ ] List  → mutable\n( ) Tuple → immutable"
+      }
+     },
+     {
+      "say": "Indexing starts at zero, negative index minus one gives the last element, and slicing lets you grab a part of the sequence.",
+      "write": {
+       "kind": "bullet",
+       "content": "Index from 0, -1 = last element\nSlice: list[start:stop]"
+      }
+     },
+     {
+      "say": "Use append and remove for lists, and remember that a single-element tuple needs a trailing comma. Great work today!",
+      "write": {
+       "kind": "bullet",
+       "content": "Single-element tuple: (5,)  not (5)"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

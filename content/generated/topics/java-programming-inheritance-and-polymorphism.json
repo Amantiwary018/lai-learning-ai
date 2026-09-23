@@ -1,0 +1,376 @@
+{
+ "summary": "Inheritance allows a child class to reuse code from a parent class, while polymorphism lets the same method name behave differently depending on the object calling it.",
+ "shortNotes": [
+  "Inheritance uses the `extends` keyword so a subclass acquires fields and methods of its superclass.",
+  "Polymorphism means 'many forms' — one method name can produce different behaviour in different classes.",
+  "Method overriding lets a subclass provide its own version of a method already defined in the parent class.",
+  "The `super` keyword is used to call the parent class constructor or methods from the child class.",
+  "Runtime polymorphism is achieved through method overriding and a parent-type reference pointing to a child object.",
+  "Method overloading (same name, different parameters in the same class) is compile-time polymorphism."
+ ],
+ "detailed": {
+  "explanation": "**Inheritance** is one of the four pillars of Object-Oriented Programming. It allows a new class (called a *subclass* or *child class*) to inherit the properties and behaviours of an existing class (called a *superclass* or *parent class*). This promotes code reuse. In Java, you write `class Dog extends Animal` to say that `Dog` is a type of `Animal` and automatically gets all non-private fields and methods of `Animal`.\n\nThe `super` keyword has two main uses in Java. First, `super()` inside a child class constructor calls the parent class constructor — Java actually does this automatically if you do not write it explicitly. Second, `super.methodName()` lets you call the parent version of an overridden method from inside the child class.\n\n**Polymorphism** means the ability of a single interface (method name) to represent different underlying forms. There are two types in Java. *Compile-time polymorphism* (method overloading) happens when multiple methods share the same name but differ in the number or type of parameters, and the correct one is chosen at compile time. *Runtime polymorphism* (method overriding) happens when a parent-class reference variable holds a child-class object and the JVM decides at runtime which overridden method to call.\n\n**Method Overriding** requires the method in the child class to have the exact same name, return type, and parameter list as in the parent class. You should use the `@Override` annotation — it is not mandatory, but it helps the compiler catch mistakes. A method marked `final` in the parent class cannot be overridden.\n\nA classic real-world example: an `Animal` class has a `sound()` method. `Dog` overrides it to print `Woof` and `Cat` overrides it to print `Meow`. When you write `Animal a = new Dog();` and call `a.sound()`, Java runs the `Dog` version at runtime. This is the power of polymorphism — your code is flexible and extensible.",
+  "definitions": [
+   {
+    "term": "Inheritance",
+    "meaning": "A mechanism where a child class acquires fields and methods of a parent class using the `extends` keyword."
+   },
+   {
+    "term": "Superclass (Parent class)",
+    "meaning": "The class whose properties and methods are inherited by another class."
+   },
+   {
+    "term": "Subclass (Child class)",
+    "meaning": "The class that inherits from a superclass and can add new features or override existing ones."
+   },
+   {
+    "term": "Polymorphism",
+    "meaning": "The ability of one method name to behave differently based on the object or the parameters involved."
+   },
+   {
+    "term": "Method Overriding",
+    "meaning": "Providing a new implementation of a method in a subclass that already exists in the superclass with the same signature."
+   },
+   {
+    "term": "Method Overloading",
+    "meaning": "Defining multiple methods in the same class with the same name but different parameter lists."
+   },
+   {
+    "term": "super keyword",
+    "meaning": "A reference in a subclass used to call the parent class constructor or methods."
+   },
+   {
+    "term": "@Override annotation",
+    "meaning": "An optional but recommended annotation that tells the compiler the method is intentionally overriding a parent method."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "Java supports single inheritance only — a class can extend only one class, but it can implement multiple interfaces.",
+   "All classes in Java implicitly extend the `Object` class if no other parent is specified.",
+   "Private members of the parent class are NOT inherited by the child class — they exist in memory but cannot be accessed directly.",
+   "For runtime polymorphism to work, you must use a parent-type reference: `Animal a = new Dog();`.",
+   "The `@Override` annotation is a best practice — it causes a compile error if you accidentally mis-spell the method name.",
+   "Constructor is never inherited; you must call `super()` explicitly if you need a parameterised parent constructor.",
+   "A `final` class cannot be extended, and a `final` method cannot be overridden.",
+   "Exam tip: overloading is resolved at compile time; overriding is resolved at runtime (dynamic dispatch)."
+  ]
+ },
+ "codeExample": {
+  "language": "java",
+  "code": "// Parent class\nclass Animal {\n    String name;\n\n    Animal(String name) {\n        this.name = name;\n    }\n\n    void sound() {\n        System.out.println(name + \" makes a sound.\");\n    }\n\n    void sleep() {\n        System.out.println(name + \" is sleeping.\");\n    }\n}\n\n// Child class 1 — inherits Animal\nclass Dog extends Animal {\n\n    Dog(String name) {\n        super(name); // calls Animal constructor\n    }\n\n    @Override\n    void sound() {\n        System.out.println(name + \" says: Woof!\");\n    }\n}\n\n// Child class 2 — inherits Animal\nclass Cat extends Animal {\n\n    Cat(String name) {\n        super(name); // calls Animal constructor\n    }\n\n    @Override\n    void sound() {\n        System.out.println(name + \" says: Meow!\");\n    }\n}\n\n// Main class\npublic class Main {\n    public static void main(String[] args) {\n\n        // Polymorphism: parent reference, child object\n        Animal a1 = new Dog(\"Bruno\");\n        Animal a2 = new Cat(\"Whiskers\");\n\n        a1.sound();  // Dog version called at runtime\n        a2.sound();  // Cat version called at runtime\n\n        a1.sleep();  // inherited from Animal\n        a2.sleep();  // inherited from Animal\n    }\n}",
+  "explanation": "Line 2-16: We define the parent class `Animal` with a `name` field, a constructor, a `sound()` method, and a `sleep()` method.\nLine 19-28: `Dog` extends `Animal`. Its constructor calls `super(name)` to pass the name up to the `Animal` constructor. It overrides `sound()` to print 'Woof!'.\nLine 31-40: `Cat` similarly extends `Animal` and overrides `sound()` to print 'Meow!'.\nLine 43: `Main` is our driver class.\nLine 46-47: We create `Animal`-type references but assign `Dog` and `Cat` objects to them. This is runtime polymorphism.\nLine 49-50: When `a1.sound()` is called, Java sees the actual object is a `Dog` at runtime and runs `Dog`'s `sound()`. Similarly for `a2`.\nLine 52-53: `sleep()` is not overridden, so the inherited `Animal` version runs for both.\nExpected output:\nBruno says: Woof!\nWhiskers says: Meow!\nBruno is sleeping.\nWhiskers is sleeping."
+ },
+ "commonMistakes": [
+  "Forgetting to call `super(args)` in the child constructor when the parent has only a parameterised constructor — Java cannot auto-insert it and gives a compile error.",
+  "Confusing method overloading with method overriding: overloading changes the parameter list in the SAME class; overriding uses the EXACT same signature in a CHILD class.",
+  "Assuming private fields of the parent class are directly accessible in the child class — they are not; use public or protected getter methods instead."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Which keyword is used in Java to establish inheritance between two classes?",
+   "options": [
+    "implements",
+    "extends",
+    "inherits",
+    "super"
+   ],
+   "answer": 1,
+   "explanation": "`extends` is the correct keyword. `implements` is used for interfaces, `super` is a reference to the parent class, and `inherits` does not exist in Java.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the output of the following code?\nAnimal a = new Dog(\"Rex\");\na.sound();\n(Assuming Dog overrides sound() to print 'Rex says: Woof!')",
+   "options": [
+    "Animal makes a sound.",
+    "Rex says: Woof!",
+    "Compile error",
+    "Rex says: Animal sound"
+   ],
+   "answer": 1,
+   "explanation": "Even though the reference type is `Animal`, the actual object is `Dog`. At runtime, Java calls the overridden `Dog` version — this is runtime polymorphism.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following statements about the `super` keyword is correct?",
+   "options": [
+    "It creates a new instance of the parent class.",
+    "It can only be used in static methods.",
+    "It is used to call the parent class constructor or methods.",
+    "It replaces the `extends` keyword."
+   ],
+   "answer": 2,
+   "explanation": "`super()` calls the parent constructor and `super.method()` calls a parent method. It cannot be used in static methods and has nothing to do with creating instances.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which type of polymorphism is achieved by method overriding in Java?",
+   "options": [
+    "Compile-time polymorphism",
+    "Static polymorphism",
+    "Runtime polymorphism",
+    "Interface polymorphism"
+   ],
+   "answer": 2,
+   "explanation": "Method overriding is resolved at runtime by the JVM based on the actual object type, so it is called runtime polymorphism (also known as dynamic dispatch).",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "How many classes can a Java class directly extend at the same time?",
+   "options": [
+    "Only one",
+    "Two",
+    "As many as needed",
+    "Zero"
+   ],
+   "answer": 0,
+   "explanation": "Java supports only single inheritance for classes — a class can extend only one class. Multiple inheritance is supported through interfaces.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What happens if you mark a method as `final` in the parent class?",
+   "options": [
+    "The child class must override it.",
+    "The method cannot be overridden in any child class.",
+    "The method becomes private.",
+    "The method can only be called using `super`."
+   ],
+   "answer": 1,
+   "explanation": "A `final` method cannot be overridden in any subclass. If a child class tries to override it, a compile-time error occurs.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain the difference between method overloading and method overriding with one example each.",
+   "answer": "Method overloading means having multiple methods with the same name but different parameters within the same class — for example, `add(int a, int b)` and `add(double a, double b)` in the same class. Method overriding means a subclass redefines a method inherited from the parent class using the exact same signature — for example, a `Dog` class overriding the `sound()` method of `Animal`. Overloading is resolved at compile time; overriding is resolved at runtime.",
+   "keywords": [
+    "same class",
+    "different parameters",
+    "subclass",
+    "same signature",
+    "compile time",
+    "runtime"
+   ],
+   "explanation": "This tests conceptual clarity on two commonly confused terms. The key distinguishing points are: location (same class vs subclass) and resolution time (compile time vs runtime).",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Why is the `@Override` annotation recommended even though it is optional in Java?",
+   "answer": "The `@Override` annotation tells the compiler that you intend to override a parent method. If you accidentally mis-spell the method name or change the parameter list, the compiler will show an error instead of silently creating a new overloaded method. It improves code safety and readability.",
+   "keywords": [
+    "compiler",
+    "mis-spell",
+    "error",
+    "intention",
+    "safety"
+   ],
+   "explanation": "This tests understanding of best practices. Without @Override, a typo in the method name just creates a new unrelated method — a subtle bug that is hard to find.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "How many times will the word 'Woof' be printed by the following code?\nAnimal[] animals = {new Dog(\"A\"), new Cat(\"B\"), new Dog(\"C\"), new Dog(\"D\")};\nfor (Animal a : animals) { a.sound(); }\n(Dog overrides sound() to print 'Woof', Cat overrides it to print 'Meow')",
+   "answer": "3",
+   "explanation": "There are 3 Dog objects (at index 0, 2, 3) and 1 Cat object (at index 1). When the loop runs, the Dog version prints 'Woof' 3 times and the Cat version prints 'Meow' once.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Create a class `Shape` with a method `area()` that prints 'Area not defined'. Create two subclasses `Circle` and `Rectangle` that override `area()` to print 'Area of Circle' and 'Area of Rectangle' respectively. In `main`, create a `Shape` array containing one `Circle` and one `Rectangle` object and call `area()` on each using a loop.",
+   "starter": "class Shape {\n    void area() {\n        // TODO\n    }\n}\n\nclass Circle extends Shape {\n    // TODO: override area()\n}\n\nclass Rectangle extends Shape {\n    // TODO: override area()\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Shape[] shapes = new Shape[2];\n        // TODO: assign objects and call area()\n    }\n}",
+   "solution": "class Shape {\n    void area() {\n        System.out.println(\"Area not defined\");\n    }\n}\n\nclass Circle extends Shape {\n    @Override\n    void area() {\n        System.out.println(\"Area of Circle\");\n    }\n}\n\nclass Rectangle extends Shape {\n    @Override\n    void area() {\n        System.out.println(\"Area of Rectangle\");\n    }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Shape[] shapes = new Shape[2];\n        shapes[0] = new Circle();\n        shapes[1] = new Rectangle();\n\n        for (Shape s : shapes) {\n            s.area();\n        }\n    }\n}",
+   "explanation": "The `Shape` array holds parent-type references. At runtime, Java checks the actual object type for each element and calls the correct overridden `area()` method — this is runtime polymorphism in action. The loop cleanly demonstrates how one piece of code can handle multiple types.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What is Inheritance?",
+    "steps": [
+     {
+      "say": "Welcome! Today we are learning about two of the most important ideas in Java: inheritance and polymorphism. Let us start with inheritance.",
+      "write": {
+       "kind": "heading",
+       "content": "Inheritance in Java"
+      }
+     },
+     {
+      "say": "Think of a parent and a child. A child naturally gets many traits from the parent. In Java, a child class inherits fields and methods from a parent class.",
+      "write": {
+       "kind": "bullet",
+       "content": "Child class gets parent's fields and methods"
+      }
+     },
+     {
+      "say": "We use the extends keyword to set up this relationship. Here is the basic syntax.",
+      "write": {
+       "kind": "code",
+       "content": "class Animal {"
+      }
+     },
+     {
+      "say": "Now we write a Dog class that extends Animal, meaning Dog is a type of Animal.",
+      "write": {
+       "kind": "code",
+       "content": "class Dog extends Animal {"
+      }
+     },
+     {
+      "say": "Dog automatically gets everything Animal has, so we write less code and reuse what already exists.",
+      "write": {
+       "kind": "bullet",
+       "content": "Promotes code reuse"
+      }
+     }
+    ]
+   },
+   {
+    "title": "The super Keyword and Constructor Chaining",
+    "steps": [
+     {
+      "say": "When Dog has its own constructor, we use the super keyword to call the parent Animal constructor and pass values up the chain.",
+      "write": {
+       "kind": "heading",
+       "content": "The super Keyword"
+      }
+     },
+     {
+      "say": "Inside the Dog constructor, we write super of name. This runs the Animal constructor with that name value.",
+      "write": {
+       "kind": "code",
+       "content": "Dog(String name) {"
+      }
+     },
+     {
+      "say": "The next line calls the parent constructor. Without this, Java cannot set up the Animal part of Dog properly.",
+      "write": {
+       "kind": "code",
+       "content": "  super(name);"
+      }
+     },
+     {
+      "say": "You can also use super dot method name to call a parent method from inside the child class when you need the original behaviour.",
+      "write": {
+       "kind": "bullet",
+       "content": "super.methodName() calls parent method"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Method Overriding and Polymorphism",
+    "steps": [
+     {
+      "say": "Polymorphism means many forms. In Java, a child class can give its own version of a parent method. This is called method overriding.",
+      "write": {
+       "kind": "heading",
+       "content": "Method Overriding"
+      }
+     },
+     {
+      "say": "Both Dog and Cat inherit from Animal. Animal has a sound method. Each child overrides it with its own behaviour.",
+      "write": {
+       "kind": "code",
+       "content": "void sound() {"
+      }
+     },
+     {
+      "say": "In Dog, sound prints Woof. In Cat, sound prints Meow. Same method name, different results.",
+      "write": {
+       "kind": "code",
+       "content": "  System.out.println(\"Woof!\");"
+      }
+     },
+     {
+      "say": "Always use the at-Override annotation above the method. It tells the compiler you are intentionally overriding and helps catch typos.",
+      "write": {
+       "kind": "code",
+       "content": "@Override"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Runtime Polymorphism in Action",
+    "steps": [
+     {
+      "say": "Now the really powerful part. We can use an Animal type reference to hold a Dog object. Java figures out the right method to call at runtime.",
+      "write": {
+       "kind": "heading",
+       "content": "Runtime Polymorphism"
+      }
+     },
+     {
+      "say": "We declare a1 as type Animal but assign a new Dog object to it.",
+      "write": {
+       "kind": "code",
+       "content": "Animal a1 = new Dog(\"Bruno\");"
+      }
+     },
+     {
+      "say": "When we call a1 dot sound, Java sees the actual object is a Dog and runs the Dog version that prints Woof.",
+      "write": {
+       "kind": "code",
+       "content": "a1.sound(); // prints Woof!"
+      }
+     },
+     {
+      "say": "This means one variable of type Animal can work with any animal subclass. Your code becomes flexible and easy to extend.",
+      "write": {
+       "kind": "bullet",
+       "content": "One reference, many behaviours"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Great work! Let us quickly recap what we covered today.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap"
+      }
+     },
+     {
+      "say": "Inheritance uses extends so a child class reuses the parent class code.",
+      "write": {
+       "kind": "bullet",
+       "content": "extends = inherit parent fields and methods"
+      }
+     },
+     {
+      "say": "The super keyword calls the parent constructor or method from the child class.",
+      "write": {
+       "kind": "bullet",
+       "content": "super() calls parent constructor"
+      }
+     },
+     {
+      "say": "Method overriding means the child gives its own version of a parent method, and at-Override helps avoid mistakes.",
+      "write": {
+       "kind": "bullet",
+       "content": "@Override for method overriding"
+      }
+     },
+     {
+      "say": "Runtime polymorphism lets a parent reference hold a child object and call the correct overridden method at runtime. Practice these concepts with code and you will master them!",
+      "write": {
+       "kind": "bullet",
+       "content": "Parent ref + child object = polymorphism"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

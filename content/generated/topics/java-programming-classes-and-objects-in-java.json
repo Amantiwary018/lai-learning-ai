@@ -1,0 +1,364 @@
+{
+ "summary": "A class is a blueprint that defines attributes and behaviors, and an object is a real instance created from that blueprint in Java.",
+ "shortNotes": [
+  "A class defines fields (data) and methods (behavior) but does not occupy memory by itself.",
+  "An object is created from a class using the `new` keyword and occupies memory at runtime.",
+  "The `new` keyword calls the constructor to initialize the object.",
+  "Each object has its own copy of instance variables but shares the class methods.",
+  "A constructor has the same name as the class and no return type.",
+  "You access an object's members using the dot operator, e.g., `obj.name`."
+ ],
+ "detailed": {
+  "explanation": "A **class** in Java is like a blueprint or template. It describes what data an entity will hold (called **fields** or instance variables) and what actions it can perform (called **methods**). For example, a class `Student` might have fields like `name` and `rollNo`, and a method like `displayInfo()`. The class definition itself does not create any data in memory.\n\nAn **object** is a concrete instance of a class. When you write `Student s1 = new Student();`, Java allocates memory for `s1` and sets up its fields. You can create many objects from the same class, just like a factory can produce many cars from one design. Each object has its own separate copy of the instance variables.\n\nA **constructor** is a special method that runs automatically when an object is created. It has the same name as the class and no return type. If you do not write a constructor, Java provides a default no-argument constructor. Constructors are used to give initial values to fields.\n\nYou interact with an object using the **dot operator** (`.`). For example, `s1.name = \"Ravi\";` sets the name field, and `s1.displayInfo();` calls the method on that object. This keeps data and behavior together — a core idea of Object-Oriented Programming.\n\nOrganizing code into classes and objects makes programs easier to understand, reuse, and maintain. Each class represents one clear concept, and objects represent individual items of that concept in your running program.",
+  "definitions": [
+   {
+    "term": "Class",
+    "meaning": "A user-defined blueprint that groups related fields and methods together."
+   },
+   {
+    "term": "Object",
+    "meaning": "An instance of a class created at runtime using the `new` keyword."
+   },
+   {
+    "term": "Field (Instance Variable)",
+    "meaning": "A variable declared inside a class that stores the state of each object."
+   },
+   {
+    "term": "Method",
+    "meaning": "A block of code inside a class that defines the behavior of objects."
+   },
+   {
+    "term": "Constructor",
+    "meaning": "A special method with the same name as the class and no return type, called when an object is created."
+   },
+   {
+    "term": "Dot Operator (.)",
+    "meaning": "Used to access the fields and methods of an object, e.g., `obj.fieldName`."
+   },
+   {
+    "term": "new keyword",
+    "meaning": "Allocates memory for a new object and calls its constructor."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "A class is NOT an object; it is only a template. Memory is allocated only when an object is created.",
+   "You can create multiple objects from the same class; each gets its own copy of instance variables.",
+   "A constructor name must exactly match the class name (case-sensitive) and must have no return type, not even void.",
+   "If you do not define any constructor, Java automatically provides a default no-argument constructor.",
+   "The `new` keyword always returns a reference to the newly created object.",
+   "Exam tip: Drawing a box labeled 'class' and another labeled 'object' with arrows helps in answering theory questions.",
+   "Instance variables have default values (0 for int, null for String, false for boolean) if not explicitly initialized.",
+   "Exam tip: Questions often ask you to trace the output when multiple objects of the same class are created and modified independently."
+  ]
+ },
+ "codeExample": {
+  "language": "java",
+  "code": "// Class definition — the blueprint\nclass Student {\n    // Fields (instance variables)\n    String name;\n    int rollNo;\n    float marks;\n\n    // Constructor to initialize fields\n    Student(String n, int r, float m) {\n        name   = n;\n        rollNo = r;\n        marks  = m;\n    }\n\n    // Method to display student details\n    void displayInfo() {\n        System.out.println(\"Name   : \" + name);\n        System.out.println(\"Roll No: \" + rollNo);\n        System.out.println(\"Marks  : \" + marks);\n        System.out.println(\"--------\");\n    }\n}\n\n// Main class to run the program\npublic class Main {\n    public static void main(String[] args) {\n\n        // Creating object s1 using new keyword\n        Student s1 = new Student(\"Ravi\", 101, 88.5f);\n\n        // Creating object s2 — independent from s1\n        Student s2 = new Student(\"Priya\", 102, 92.0f);\n\n        // Accessing method via dot operator\n        s1.displayInfo();\n        s2.displayInfo();\n\n        // Changing a field of s1 only\n        s1.marks = 90.0f;\n        System.out.println(\"Updated marks of s1: \" + s1.marks);\n        System.out.println(\"Marks of s2 unchanged: \" + s2.marks);\n    }\n}",
+  "explanation": "Line 2: We define a class named `Student` — this is the blueprint.\nLines 4-6: Three instance variables (`name`, `rollNo`, `marks`) store each student's data.\nLines 9-13: A constructor with three parameters initializes the fields when an object is created.\nLines 16-21: `displayInfo()` is an instance method; it prints the object's data to the console.\nLine 25: `Main` is the class containing the `main` method — the entry point of the program.\nLine 28: `new Student(\"Ravi\", 101, 88.5f)` allocates memory and calls the constructor; the reference is stored in `s1`.\nLine 31: A second independent object `s2` is created with different data.\nLines 34-35: `displayInfo()` is called on each object using the dot operator.\nLines 38-40: Changing `s1.marks` does NOT affect `s2.marks`, proving each object has its own copy of instance variables."
+ },
+ "commonMistakes": [
+  "Writing a return type (even `void`) for a constructor — constructors must have NO return type at all, otherwise Java treats it as a regular method.",
+  "Confusing the class name and the object name — the class is the template (e.g., `Student`), while the object is the variable that holds an instance (e.g., `s1`). Calling `Student.displayInfo()` directly without creating an object causes a compile error for non-static methods.",
+  "Assuming that changing a field on one object affects other objects of the same class — each object has its own independent copy of instance variables."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Which of the following best describes a class in Java?",
+   "options": [
+    "A reserved keyword used to allocate memory",
+    "A blueprint that defines fields and methods for objects",
+    "An instance created at runtime using the new keyword",
+    "A method that initializes object data"
+   ],
+   "answer": 1,
+   "explanation": "A class is a user-defined blueprint or template that groups related fields and methods. Memory is not allocated until an object is created.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which keyword is used to create an object in Java?",
+   "options": [
+    "create",
+    "object",
+    "new",
+    "this"
+   ],
+   "answer": 2,
+   "explanation": "The `new` keyword allocates memory for a new object on the heap and invokes the constructor.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the default value of an integer instance variable in Java if not explicitly initialized?",
+   "options": [
+    "null",
+    "undefined",
+    "1",
+    "0"
+   ],
+   "answer": 3,
+   "explanation": "Java automatically assigns 0 to int instance variables, null to objects, and false to boolean if no explicit initialization is done.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following is a valid constructor declaration for a class named `Car`?",
+   "options": [
+    "void Car() { }",
+    "Car Car() { }",
+    "Car() { }",
+    "int Car() { }"
+   ],
+   "answer": 2,
+   "explanation": "A constructor must have the same name as the class and NO return type — not even void. Option C is the only valid declaration.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "If two objects `a` and `b` are created from the same class, and you change a field value on object `a`, what happens to the same field in object `b`?",
+   "options": [
+    "It also changes because they share fields",
+    "It becomes null",
+    "It remains unchanged because each object has its own copy",
+    "It throws a runtime exception"
+   ],
+   "answer": 2,
+   "explanation": "Each object has its own independent copy of instance variables. Modifying one object's field does not affect another object's field.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What operator is used to access the fields and methods of an object in Java?",
+   "options": [
+    "->",
+    "::",
+    ".",
+    ":"
+   ],
+   "answer": 2,
+   "explanation": "The dot operator (.) is used to access instance variables and methods of an object, e.g., obj.fieldName or obj.methodName().",
+   "difficulty": "easy"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain the difference between a class and an object in Java with a real-world analogy.",
+   "answer": "A class is a blueprint or template that defines the structure and behavior, while an object is an actual instance created from that blueprint. For example, a 'House Plan' is the class, and the actual houses built from that plan are objects. Each house (object) has its own values for rooms and color, but all follow the same plan (class).",
+   "keywords": [
+    "blueprint",
+    "instance",
+    "class",
+    "object",
+    "new"
+   ],
+   "explanation": "This question tests conceptual understanding. A good answer must contrast the template nature of a class with the concrete memory-occupying nature of an object.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "What is a constructor in Java? How is it different from a regular method?",
+   "answer": "A constructor is a special method that is automatically called when an object is created using the new keyword. It has the same name as the class and has no return type. Unlike regular methods, you cannot call a constructor explicitly, and it cannot have a return type — not even void.",
+   "keywords": [
+    "constructor",
+    "same name",
+    "no return type",
+    "new keyword",
+    "initialize"
+   ],
+   "explanation": "Students often confuse constructors with methods. Key distinguishing features are: same name as class, no return type, and automatic invocation on object creation.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "How many objects of the class `Book` are created by the following code?\n\nBook b1 = new Book();\nBook b2 = new Book();\nb1 = new Book();\n\nEnter the exact number.",
+   "answer": "3",
+   "explanation": "Each use of the `new` keyword creates one object. `b1` is first assigned one object, then reassigned a second new object (the first becomes eligible for garbage collection), and `b2` holds a third object. Total objects created = 3.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Define a class `Rectangle` with two fields: `length` and `breadth` (both int). Write a constructor to initialize them. Add a method `area()` that returns the area (length * breadth) and a method `display()` that prints the length, breadth, and area. In the `main` method, create two Rectangle objects with different dimensions and call `display()` on both.",
+   "starter": "class Rectangle {\n    // TODO: declare fields\n\n    // TODO: write constructor\n\n    // TODO: write area() method\n\n    // TODO: write display() method\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        // TODO: create two Rectangle objects and call display()\n    }\n}",
+   "solution": "class Rectangle {\n    int length;\n    int breadth;\n\n    Rectangle(int l, int b) {\n        length  = l;\n        breadth = b;\n    }\n\n    int area() {\n        return length * breadth;\n    }\n\n    void display() {\n        System.out.println(\"Length  : \" + length);\n        System.out.println(\"Breadth : \" + breadth);\n        System.out.println(\"Area    : \" + area());\n        System.out.println(\"--------\");\n    }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Rectangle r1 = new Rectangle(5, 3);\n        Rectangle r2 = new Rectangle(10, 4);\n        r1.display();\n        r2.display();\n    }\n}",
+   "explanation": "The `Rectangle` class has two int fields. The constructor initializes them with the values passed as arguments. `area()` returns `length * breadth`. `display()` prints all three values. In `main`, two separate objects `r1` and `r2` are created with different dimensions, showing that objects are independent.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "Introduction: What Are Classes and Objects?",
+    "steps": [
+     {
+      "say": "Welcome! Today we are going to learn one of the most important ideas in Java — classes and objects. These are the building blocks of Object-Oriented Programming.",
+      "write": {
+       "kind": "heading",
+       "content": "Classes and Objects in Java"
+      }
+     },
+     {
+      "say": "Think of a class as a blueprint, like the plan for a house. The blueprint itself is not a house — it just describes what the house will look like.",
+      "write": {
+       "kind": "bullet",
+       "content": "Class = Blueprint (no memory yet)"
+      }
+     },
+     {
+      "say": "An object is the actual house built from that blueprint. It exists in memory and has real values.",
+      "write": {
+       "kind": "bullet",
+       "content": "Object = Real instance (memory allocated)"
+      }
+     },
+     {
+      "say": "You can build many houses from one blueprint, just as you can create many objects from one class.",
+      "write": {
+       "kind": "bullet",
+       "content": "One class → many objects"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Defining a Class in Java",
+    "steps": [
+     {
+      "say": "Let us see how to write a class in Java. We use the keyword class followed by the class name.",
+      "write": {
+       "kind": "code",
+       "content": "class Student {"
+      }
+     },
+     {
+      "say": "Inside the class we declare fields, which store the data for each student object.",
+      "write": {
+       "kind": "code",
+       "content": "  String name;"
+      }
+     },
+     {
+      "say": "We add more fields for roll number and marks.",
+      "write": {
+       "kind": "code",
+       "content": "  int rollNo;\n  float marks;"
+      }
+     },
+     {
+      "say": "Now we write a constructor. It has the same name as the class and no return type. It runs automatically when we create an object.",
+      "write": {
+       "kind": "code",
+       "content": "  Student(String n, int r) {\n    name = n; rollNo = r;\n  }"
+      }
+     },
+     {
+      "say": "Finally we close the class with a curly brace. This is our complete blueprint for a Student.",
+      "write": {
+       "kind": "code",
+       "content": "}"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Creating Objects Using the new Keyword",
+    "steps": [
+     {
+      "say": "Now let us create real student objects. We use the keyword new to allocate memory and call the constructor.",
+      "write": {
+       "kind": "heading",
+       "content": "Creating Objects"
+      }
+     },
+     {
+      "say": "Here we create the first object named s1 for a student called Ravi with roll number 101.",
+      "write": {
+       "kind": "code",
+       "content": "Student s1 =\n  new Student(\"Ravi\", 101);"
+      }
+     },
+     {
+      "say": "We create a second object s2 for Priya. Notice that s1 and s2 are completely independent.",
+      "write": {
+       "kind": "code",
+       "content": "Student s2 =\n  new Student(\"Priya\", 102);"
+      }
+     },
+     {
+      "say": "We use the dot operator to access the name field of each object. s1 dot name gives Ravi, and s2 dot name gives Priya.",
+      "write": {
+       "kind": "code",
+       "content": "System.out.println(s1.name);\nSystem.out.println(s2.name);"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Objects Are Independent",
+    "steps": [
+     {
+      "say": "A very important idea — each object has its own copy of the instance variables. Changing one object does not affect the other.",
+      "write": {
+       "kind": "highlight",
+       "content": "Each object owns its own fields"
+      }
+     },
+     {
+      "say": "For example, if we set s1 dot marks to 90, s2 dot marks stays exactly as it was.",
+      "write": {
+       "kind": "code",
+       "content": "s1.marks = 90.0f;"
+      }
+     },
+     {
+      "say": "Printing s2 dot marks will still show its original value, completely unaffected.",
+      "write": {
+       "kind": "code",
+       "content": "// s2.marks is unchanged"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Great work! Let us quickly recap what we learned today.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap"
+      }
+     },
+     {
+      "say": "A class is a blueprint — it defines fields and methods but does not use memory on its own.",
+      "write": {
+       "kind": "bullet",
+       "content": "Class = blueprint, no memory"
+      }
+     },
+     {
+      "say": "An object is created using the new keyword and gets its own memory and its own copy of fields.",
+      "write": {
+       "kind": "bullet",
+       "content": "Object = new ClassName(), has memory"
+      }
+     },
+     {
+      "say": "The constructor initializes the object. It has the same name as the class and no return type.",
+      "write": {
+       "kind": "bullet",
+       "content": "Constructor: same name, no return type"
+      }
+     },
+     {
+      "say": "And we use the dot operator to access fields and methods on any object. Keep practicing and you will master this quickly!",
+      "write": {
+       "kind": "bullet",
+       "content": "Dot operator: obj.field / obj.method()"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

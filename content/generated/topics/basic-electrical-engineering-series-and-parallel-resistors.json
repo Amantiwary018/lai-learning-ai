@@ -1,0 +1,363 @@
+{
+ "summary": "Series resistors add up directly while parallel resistors share current, giving two fundamental ways to combine resistance in any electrical circuit.",
+ "shortNotes": [
+  "In a series circuit, the same current flows through every resistor.",
+  "Total series resistance: R_total = R1 + R2 + ... + Rn.",
+  "In a parallel circuit, the same voltage appears across every resistor.",
+  "Total parallel resistance: 1/R_total = 1/R1 + 1/R2 + ... + 1/Rn.",
+  "For exactly two parallel resistors, use the product-over-sum shortcut: R_total = (R1 × R2) / (R1 + R2).",
+  "Adding more resistors in series always increases total resistance; adding more in parallel always decreases it."
+ ],
+ "detailed": {
+  "explanation": "When resistors are connected **end-to-end** so that only one path exists for current, they are said to be in **series**. The same current `I` passes through each resistor in turn. The total resistance is simply the sum of the individual resistances, so the circuit behaves as if it contained one large resistor equal to `R1 + R2 + ... + Rn`.\n\nWhen resistors are connected **side-by-side** so that both ends of every resistor share the same two nodes, they are in **parallel**. The voltage across each resistor is identical, but the current splits among them. The total (equivalent) resistance is found from `1/R_total = 1/R1 + 1/R2 + ... + 1/Rn`. Notice that the equivalent resistance is always **smaller** than the smallest individual resistor in the group.\n\nFor the special case of **two resistors in parallel**, the formula simplifies to the product-over-sum rule: `R_total = (R1 × R2) / (R1 + R2)`. This shortcut saves calculation time and is very commonly tested in exams.\n\nReal circuits often combine both types. To analyse a **series-parallel** network, first identify groups of resistors that are purely in series or purely in parallel, replace each group with its equivalent resistance, and repeat until one equivalent resistance remains. Ohm's law (`V = IR`) is then applied to find voltages and currents throughout.\n\nUnderstanding these two configurations is the foundation for all circuit analysis. Every complex resistor network — no matter how large — can be broken down into series and parallel combinations.",
+  "definitions": [
+   {
+    "term": "Series connection",
+    "meaning": "Resistors connected one after another along a single path so that the same current flows through each of them."
+   },
+   {
+    "term": "Parallel connection",
+    "meaning": "Resistors connected between the same two nodes so that the same voltage appears across each of them."
+   },
+   {
+    "term": "Equivalent resistance",
+    "meaning": "A single resistance value that can replace a combination of resistors without changing the voltage or current in the rest of the circuit."
+   },
+   {
+    "term": "Ohm's Law",
+    "meaning": "The relationship V = IR, which states that the voltage across a resistor equals the current through it multiplied by its resistance."
+   },
+   {
+    "term": "Node",
+    "meaning": "A junction point in a circuit where two or more elements are connected together."
+   }
+  ],
+  "formulas": [
+   {
+    "name": "Series equivalent resistance",
+    "expression": "R_total = R1 + R2 + ... + Rn",
+    "note": "Valid for any number of resistors in series; units are ohms (Ω)."
+   },
+   {
+    "name": "Parallel equivalent resistance (general)",
+    "expression": "1/R_total = 1/R1 + 1/R2 + ... + 1/Rn",
+    "note": "Invert the sum of reciprocals to get R_total; result is always less than the smallest resistor."
+   },
+   {
+    "name": "Two resistors in parallel (product-over-sum)",
+    "expression": "R_total = (R1 × R2) / (R1 + R2)",
+    "note": "Shortcut for exactly two parallel resistors; do not use for three or more."
+   },
+   {
+    "name": "Voltage divider (series circuit)",
+    "expression": "V_x = V_supply × (R_x / R_total)",
+    "note": "Gives the voltage drop across one resistor R_x in a series string."
+   },
+   {
+    "name": "Current divider (two parallel resistors)",
+    "expression": "I1 = I_total × R2 / (R1 + R2)",
+    "note": "Current through R1 when R1 and R2 are in parallel; note R2 appears in the numerator."
+   }
+  ],
+  "points": [
+   "In a series circuit, current is the same everywhere; voltage divides proportionally to resistance.",
+   "In a parallel circuit, voltage is the same across every branch; current divides inversely to resistance.",
+   "The product-over-sum formula works ONLY for two resistors; never apply it to three or more.",
+   "Adding a resistor in series always increases total resistance; adding one in parallel always decreases it.",
+   "If n identical resistors of value R are in series, R_total = nR; if in parallel, R_total = R/n.",
+   "Always check units: resistance in ohms (Ω), current in amperes (A), voltage in volts (V).",
+   "To solve a series-parallel network, reduce from the innermost group outward, one step at a time.",
+   "A short circuit (0 Ω) across any parallel resistor makes the whole parallel combination 0 Ω — a common exam trap."
+  ]
+ },
+ "codeExample": null,
+ "commonMistakes": [
+  "Applying the product-over-sum formula to three or more parallel resistors instead of using the reciprocal formula.",
+  "Forgetting to invert the result after summing the reciprocals in the parallel formula, and leaving 1/R_total as the final answer.",
+  "Assuming current is the same in a parallel circuit or that voltage is the same in a series circuit — mixing up which quantity is shared."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Three resistors of 4 Ω, 6 Ω, and 10 Ω are connected in series. What is the total resistance?",
+   "options": [
+    "20 Ω",
+    "2 Ω",
+    "1.94 Ω",
+    "10 Ω"
+   ],
+   "answer": 0,
+   "explanation": "Series total = 4 + 6 + 10 = 20 Ω. Simply add all values.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which quantity remains the same for all resistors connected in parallel?",
+   "options": [
+    "Current",
+    "Resistance",
+    "Voltage",
+    "Power"
+   ],
+   "answer": 2,
+   "explanation": "In a parallel circuit, both ends of every resistor are connected to the same two nodes, so the voltage across each is identical.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Two resistors, 6 Ω and 12 Ω, are connected in parallel. What is the equivalent resistance?",
+   "options": [
+    "18 Ω",
+    "4 Ω",
+    "9 Ω",
+    "2 Ω"
+   ],
+   "answer": 1,
+   "explanation": "Using product-over-sum: (6 × 12) / (6 + 12) = 72 / 18 = 4 Ω.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "When more resistors are added in parallel to an existing circuit, the total equivalent resistance:",
+   "options": [
+    "Increases",
+    "Stays the same",
+    "Decreases",
+    "Becomes zero"
+   ],
+   "answer": 2,
+   "explanation": "Each additional parallel path gives current another route to flow, reducing the overall opposition to current, so total resistance decreases.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "A 12 V supply is connected across two series resistors of 3 Ω and 9 Ω. What is the voltage drop across the 9 Ω resistor?",
+   "options": [
+    "3 V",
+    "9 V",
+    "12 V",
+    "6 V"
+   ],
+   "answer": 1,
+   "explanation": "Total resistance = 12 Ω. Current = 12/12 = 1 A. Voltage across 9 Ω = 1 × 9 = 9 V. Alternatively, voltage divider: 12 × (9/12) = 9 V.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Four identical 20 Ω resistors are connected in parallel. What is the equivalent resistance?",
+   "options": [
+    "80 Ω",
+    "20 Ω",
+    "5 Ω",
+    "0.2 Ω"
+   ],
+   "answer": 2,
+   "explanation": "For n identical resistors in parallel: R_total = R/n = 20/4 = 5 Ω.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain why the equivalent resistance of a parallel combination is always less than the smallest individual resistor in that combination.",
+   "answer": "In a parallel circuit, each additional resistor provides an extra path for current to flow. With more paths available, the total opposition to current is lower than any single path alone. Mathematically, summing reciprocals and then inverting always yields a value smaller than the smallest term.",
+   "keywords": [
+    "extra path",
+    "current",
+    "reciprocal",
+    "smaller",
+    "opposition"
+   ],
+   "explanation": "The key insight is that parallel resistors never block each other — they only add more routes for current, so total resistance must keep falling.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "How would you approach finding the equivalent resistance of a circuit that contains both series and parallel combinations of resistors?",
+   "answer": "Identify the innermost group that is purely series or purely parallel and replace it with its equivalent resistance. Repeat this reduction step by step, working outward, until the entire circuit is reduced to a single equivalent resistance. Apply Ohm's law as needed.",
+   "keywords": [
+    "equivalent",
+    "reduction",
+    "series",
+    "parallel",
+    "step by step"
+   ],
+   "explanation": "Systematic reduction — always starting from the innermost or simplest identifiable group — prevents errors in complex networks.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "Two resistors, 8 Ω and 8 Ω, are connected in parallel, and this combination is connected in series with a 4 Ω resistor. A 12 V battery is connected across the whole circuit. What is the total current drawn from the battery in amperes?",
+   "answer": "1.5",
+   "explanation": "Parallel pair: (8 × 8)/(8 + 8) = 64/16 = 4 Ω. Total series resistance = 4 + 4 = 8 Ω. Current = V/R = 12/8 = 1.5 A.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "Welcome and Topic Introduction",
+    "steps": [
+     {
+      "say": "Hello everyone, and welcome! Today we are going to explore one of the most important topics in basic electrical engineering — series and parallel resistors.",
+      "write": {
+       "kind": "heading",
+       "content": "Series & Parallel Resistors"
+      }
+     },
+     {
+      "say": "Whenever you build a circuit, resistors can be joined in two fundamental ways, and knowing the difference changes how you calculate everything.",
+      "write": {
+       "kind": "bullet",
+       "content": "Two ways to connect resistors:\n  1. Series\n  2. Parallel"
+      }
+     },
+     {
+      "say": "By the end of this lesson you will be able to find the total resistance for both types and solve simple circuit problems with confidence.",
+      "write": {
+       "kind": "text",
+       "content": "Goal: find equivalent resistance\nand apply Ohm's Law"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Series Resistors",
+    "steps": [
+     {
+      "say": "In a series connection, resistors are placed one after the other along a single wire, so the same current must pass through every one of them.",
+      "write": {
+       "kind": "text",
+       "content": "SERIES: one path for current\nSame I through every resistor"
+      }
+     },
+     {
+      "say": "Because all resistances oppose that single current, we simply add them together to get the total.",
+      "write": {
+       "kind": "equation",
+       "content": "R_total = R1 + R2 + ... + Rn"
+      }
+     },
+     {
+      "say": "For example, if we have three resistors of 4 ohms, 6 ohms, and 10 ohms in series, we just add them.",
+      "write": {
+       "kind": "equation",
+       "content": "R_total = 4 + 6 + 10"
+      }
+     },
+     {
+      "say": "That gives us a total resistance of 20 ohms. Adding resistors in series always makes the total bigger.",
+      "write": {
+       "kind": "equation",
+       "content": "R_total = 20 Ω"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Parallel Resistors",
+    "steps": [
+     {
+      "say": "In a parallel connection, all resistors share the same two endpoints, so the same voltage appears across each one.",
+      "write": {
+       "kind": "text",
+       "content": "PARALLEL: multiple paths\nSame V across every resistor"
+      }
+     },
+     {
+      "say": "Current has more than one route to travel, so the total resistance actually goes down. We use the reciprocal formula.",
+      "write": {
+       "kind": "equation",
+       "content": "1/R_total = 1/R1 + 1/R2 + ... + 1/Rn"
+      }
+     },
+     {
+      "say": "For exactly two resistors in parallel, there is a handy shortcut called product over sum.",
+      "write": {
+       "kind": "equation",
+       "content": "R_total = (R1 x R2) / (R1 + R2)"
+      }
+     },
+     {
+      "say": "Let us try 6 ohms and 12 ohms in parallel using this shortcut. Six times twelve is 72, divided by 6 plus 12 which is 18.",
+      "write": {
+       "kind": "equation",
+       "content": "R_total = (6 x 12) / (6 + 12)\n        = 72 / 18 = 4 Ω"
+      }
+     },
+     {
+      "say": "Notice that 4 ohms is less than either of the two individual resistors. This is always true for parallel combinations.",
+      "write": {
+       "kind": "highlight",
+       "content": "R_total is LESS than the\nsmallest resistor in parallel"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Solving a Series-Parallel Circuit",
+    "steps": [
+     {
+      "say": "Real circuits often mix both types. The strategy is to reduce the circuit one group at a time, starting from the innermost combination.",
+      "write": {
+       "kind": "text",
+       "content": "Series-Parallel strategy:\nReduce step by step"
+      }
+     },
+     {
+      "say": "Say two 8-ohm resistors are in parallel with each other, and that pair is in series with a 4-ohm resistor, all powered by a 12-volt battery.",
+      "write": {
+       "kind": "text",
+       "content": "8Ω ∥ 8Ω  in series with 4Ω\nSupply = 12 V"
+      }
+     },
+     {
+      "say": "Step one: find the parallel pair. Eight times eight over eight plus eight equals 4 ohms.",
+      "write": {
+       "kind": "equation",
+       "content": "R_parallel = (8x8)/(8+8) = 4 Ω"
+      }
+     },
+     {
+      "say": "Step two: add that result in series with the 4-ohm resistor to get the total resistance of 8 ohms.",
+      "write": {
+       "kind": "equation",
+       "content": "R_total = 4 + 4 = 8 Ω"
+      }
+     },
+     {
+      "say": "Step three: use Ohm's law. Current equals 12 volts divided by 8 ohms, which is 1.5 amperes.",
+      "write": {
+       "kind": "equation",
+       "content": "I = V / R = 12 / 8 = 1.5 A"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us quickly recap what we have covered today. In a series circuit, the same current flows through all resistors and you simply add the resistances.",
+      "write": {
+       "kind": "bullet",
+       "content": "Series: same I, add resistances\nR = R1 + R2 + ..."
+      }
+     },
+     {
+      "say": "In a parallel circuit, the same voltage is across all resistors, the current splits, and total resistance is found using the reciprocal formula.",
+      "write": {
+       "kind": "bullet",
+       "content": "Parallel: same V, reciprocal rule\n1/R = 1/R1 + 1/R2 + ..."
+      }
+     },
+     {
+      "say": "Remember, for only two parallel resistors use product over sum, and always reduce mixed circuits step by step. Great work today — keep practising!",
+      "write": {
+       "kind": "highlight",
+       "content": "2 in parallel: (R1xR2)/(R1+R2)\nReduce step by step!"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

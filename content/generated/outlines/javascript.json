@@ -1,0 +1,64 @@
+{
+ "subjects": [
+  {
+   "title": "JavaScript Fundamentals",
+   "chapters": [
+    {
+     "title": "Syntax & Core Concepts",
+     "topics": [
+      "Variables, Data Types & Operators",
+      "Control Flow: Conditionals & Loops",
+      "Functions & Scope"
+     ]
+    },
+    {
+     "title": "Objects & Arrays",
+     "topics": [
+      "Object Literals & Properties",
+      "Array Methods & Iteration",
+      "Destructuring & Spread Operator"
+     ]
+    },
+    {
+     "title": "DOM Manipulation",
+     "topics": [
+      "Selecting & Modifying Elements",
+      "Event Listeners & Handlers",
+      "Creating & Removing DOM Nodes",
+      "Traversing the DOM"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Intermediate JavaScript",
+   "chapters": [
+    {
+     "title": "Asynchronous Programming",
+     "topics": [
+      "Callbacks & the Event Loop",
+      "Promises & Chaining",
+      "Async/Await Syntax",
+      "Fetching Data with the Fetch API"
+     ]
+    },
+    {
+     "title": "ES6+ Modern Features",
+     "topics": [
+      "Arrow Functions & Template Literals",
+      "Classes & Inheritance",
+      "Default Parameters & Rest Operator"
+     ]
+    },
+    {
+     "title": "Modules & Code Organization",
+     "topics": [
+      "Exporting & Importing Modules",
+      "Default vs Named Exports",
+      "Bundling Basics with Module Systems"
+     ]
+    }
+   ]
+  }
+ ]
+}

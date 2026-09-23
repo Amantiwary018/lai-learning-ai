@@ -1,0 +1,85 @@
+{
+ "subjects": [
+  {
+   "title": "Software Development Fundamentals",
+   "chapters": [
+    {
+     "title": "Introduction to SDLC",
+     "topics": [
+      "What is Software Engineering",
+      "SDLC Phases Overview",
+      "Waterfall vs Agile Models",
+      "Choosing the Right Methodology"
+     ]
+    },
+    {
+     "title": "Requirements Engineering",
+     "topics": [
+      "Gathering User Requirements",
+      "Functional vs Non-Functional Requirements",
+      "Writing User Stories",
+      "Requirements Documentation"
+     ]
+    },
+    {
+     "title": "Software Design Principles",
+     "topics": [
+      "Introduction to Design Patterns",
+      "Creational Patterns: Singleton and Factory",
+      "Structural Patterns: Adapter and Decorator",
+      "Behavioral Patterns: Observer and Strategy"
+     ]
+    },
+    {
+     "title": "Software Testing Basics",
+     "topics": [
+      "Types of Testing: Unit, Integration, System",
+      "Writing Effective Test Cases",
+      "Test-Driven Development Intro",
+      "Debugging and Bug Reporting"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Project Management and Delivery",
+   "chapters": [
+    {
+     "title": "Agile and Scrum Fundamentals",
+     "topics": [
+      "Agile Manifesto and Core Values",
+      "Scrum Roles and Ceremonies",
+      "Managing a Product Backlog",
+      "Sprint Planning and Execution"
+     ]
+    },
+    {
+     "title": "Version Control and Collaboration",
+     "topics": [
+      "Introduction to Git",
+      "Branching and Merging Strategies",
+      "Code Reviews and Pull Requests"
+     ]
+    },
+    {
+     "title": "Project Planning and Estimation",
+     "topics": [
+      "Defining Project Scope",
+      "Effort Estimation Techniques",
+      "Risk Identification and Mitigation",
+      "Creating a Project Roadmap"
+     ]
+    },
+    {
+     "title": "Software Delivery and Maintenance",
+     "topics": [
+      "Continuous Integration and Deployment Basics",
+      "Release Management",
+      "Software Maintenance and Versioning",
+      "Post-Launch Review and Retrospectives"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,389 @@
+{
+ "summary": "Operators in Java are special symbols that perform operations on variables and values, including arithmetic, relational, logical, assignment, and more.",
+ "shortNotes": [
+  "Java operators are symbols that act on operands to produce a result.",
+  "Arithmetic operators: +, -, *, /, % for basic math calculations.",
+  "Relational operators: ==, !=, <, >, <=, >= compare two values and return boolean.",
+  "Logical operators: && (AND), || (OR), ! (NOT) combine boolean expressions.",
+  "Assignment operators: =, +=, -=, *=, /= assign or update variable values.",
+  "Operator precedence determines the order in which operators are evaluated in an expression."
+ ],
+ "detailed": {
+  "explanation": "An **operator** in Java is a symbol that tells the compiler to perform a specific operation on one or more operands. For example, `+` adds two numbers and `==` checks if two values are equal. Java has several categories of operators, each designed for a different purpose.\n\n**Arithmetic operators** (`+`, `-`, `*`, `/`, `%`) work on numeric values. The modulus operator `%` returns the remainder of a division — for example, `10 % 3` gives `1`. Integer division truncates the decimal part, so `7 / 2` gives `3`, not `3.5`.\n\n**Relational (comparison) operators** (`==`, `!=`, `<`, `>`, `<=`, `>=`) compare two values and always return a `boolean` result (`true` or `false`). These are heavily used in `if` statements and loops. Remember: `==` checks equality, while `=` is assignment — confusing them is a very common bug.\n\n**Logical operators** (`&&`, `||`, `!`) work on boolean values. `&&` returns `true` only if both sides are true; `||` returns `true` if at least one side is true; `!` flips the boolean value. Java uses **short-circuit evaluation**: if the first operand of `&&` is `false`, the second is not evaluated at all.\n\n**Assignment operators** (`=`, `+=`, `-=`, `*=`, `/=`, `%=`) store values in variables. Compound operators like `x += 5` are shorthand for `x = x + 5`. Java also has **increment/decrement** operators: `++` adds 1 and `--` subtracts 1. The prefix form (`++x`) changes the value before use, while the postfix form (`x++`) changes it after use.",
+  "definitions": [
+   {
+    "term": "Operator",
+    "meaning": "A symbol that performs a specific operation on one or more operands."
+   },
+   {
+    "term": "Operand",
+    "meaning": "A value or variable on which an operator acts."
+   },
+   {
+    "term": "Arithmetic Operator",
+    "meaning": "An operator that performs mathematical calculations such as addition, subtraction, multiplication, division, and modulus."
+   },
+   {
+    "term": "Relational Operator",
+    "meaning": "An operator that compares two values and returns a boolean result (true or false)."
+   },
+   {
+    "term": "Logical Operator",
+    "meaning": "An operator (&&, ||, !) that combines or inverts boolean expressions."
+   },
+   {
+    "term": "Assignment Operator",
+    "meaning": "An operator that stores a value into a variable; compound forms like += also compute before storing."
+   },
+   {
+    "term": "Operator Precedence",
+    "meaning": "The rule that determines the order in which operators are evaluated in an expression; e.g., * is evaluated before +."
+   },
+   {
+    "term": "Short-circuit Evaluation",
+    "meaning": "A feature of && and || where the second operand is skipped if the result is already determined by the first operand."
+   }
+  ],
+  "formulas": [
+   {
+    "name": "Modulus (Remainder)",
+    "expression": "a % b = remainder when a is divided by b",
+    "note": "Example: 10 % 3 = 1"
+   },
+   {
+    "name": "Compound Assignment",
+    "expression": "x += n  is equivalent to  x = x + n",
+    "note": "Works similarly for -=, *=, /=, %="
+   },
+   {
+    "name": "Pre-increment",
+    "expression": "++x  (increment first, then use x)",
+    "note": "y = ++x; means x becomes x+1, then y gets the new x"
+   },
+   {
+    "name": "Post-increment",
+    "expression": "x++  (use x first, then increment)",
+    "note": "y = x++; means y gets current x, then x becomes x+1"
+   }
+  ],
+  "points": [
+   "Use == to compare primitive values; never use == to compare String content (use .equals() instead).",
+   "Integer division in Java drops the decimal: 7/2 gives 3. Cast to double if you need 3.5: (double)7/2.",
+   "The % operator works on integers and gives the remainder; useful for checking even/odd: n % 2 == 0 means n is even.",
+   "Operator precedence: *, /, % are evaluated before +, -. Use parentheses to make your intention clear.",
+   "Pre-increment (++x) vs post-increment (x++): the difference matters when used inside expressions.",
+   "Short-circuit evaluation in && and || can prevent runtime errors, e.g., checking for null before calling a method.",
+   "The ternary operator (condition ? valueIfTrue : valueFIfFalse) is a compact alternative to a simple if-else.",
+   "Exam tip: Always trace through expressions step by step using operator precedence to find the final value."
+  ]
+ },
+ "codeExample": {
+  "language": "java",
+  "code": "public class OperatorsDemo {\n    public static void main(String[] args) {\n\n        // 1. Arithmetic Operators\n        int a = 15, b = 4;\n        System.out.println(\"a + b = \" + (a + b));   // 19\n        System.out.println(\"a - b = \" + (a - b));   // 11\n        System.out.println(\"a * b = \" + (a * b));   // 60\n        System.out.println(\"a / b = \" + (a / b));   // 3 (integer division)\n        System.out.println(\"a % b = \" + (a % b));   // 3 (remainder)\n\n        // 2. Relational Operators\n        System.out.println(\"a == b: \" + (a == b));  // false\n        System.out.println(\"a > b:  \" + (a > b));   // true\n        System.out.println(\"a <= b: \" + (a <= b));  // false\n\n        // 3. Logical Operators\n        boolean x = true, y = false;\n        System.out.println(\"x && y: \" + (x && y));  // false\n        System.out.println(\"x || y: \" + (x || y));  // true\n        System.out.println(\"!x:     \" + (!x));       // false\n\n        // 4. Assignment & Compound Assignment\n        int c = 10;\n        c += 5;   // c = c + 5\n        System.out.println(\"c after += 5: \" + c);   // 15\n        c *= 2;   // c = c * 2\n        System.out.println(\"c after *= 2: \" + c);   // 30\n\n        // 5. Increment / Decrement\n        int n = 5;\n        System.out.println(\"n++: \" + n++); // prints 5, then n becomes 6\n        System.out.println(\"n after post-increment: \" + n); // 6\n        System.out.println(\"++n: \" + (++n)); // n becomes 7, prints 7\n\n        // 6. Ternary Operator\n        int marks = 55;\n        String result = (marks >= 50) ? \"Pass\" : \"Fail\";\n        System.out.println(\"Result: \" + result);     // Pass\n    }\n}",
+  "explanation": "Line 1-2: Class and main method declaration.\nLine 5: Two integer variables a=15 and b=4 are declared.\nLine 6: Prints sum 15+4=19.\nLine 7: Prints difference 15-4=11.\nLine 8: Prints product 15*4=60.\nLine 9: Prints integer division 15/4=3 (decimal part dropped).\nLine 10: Prints remainder 15%4=3.\nLine 13: == compares a and b; since 15 != 4, prints false.\nLine 14: > checks if 15 is greater than 4; prints true.\nLine 15: <= checks if 15 is less than or equal to 4; prints false.\nLine 18: Two boolean variables x=true and y=false.\nLine 19: && (AND) — both must be true; true && false = false.\nLine 20: || (OR) — at least one true; true || false = true.\nLine 21: ! (NOT) flips true to false.\nLine 24: c starts at 10.\nLine 25: c += 5 is shorthand for c = c+5, so c becomes 15.\nLine 27: c *= 2 is shorthand for c = c*2, so c becomes 30.\nLine 30: n=5; n++ (post-increment) prints current value 5, then increases n to 6.\nLine 31: Confirms n is now 6.\nLine 32: ++n (pre-increment) increases n to 7 first, then prints 7.\nLine 35-36: Ternary operator checks if marks>=50; since 55>=50 is true, result is 'Pass'."
+ },
+ "commonMistakes": [
+  "Using = (assignment) instead of == (comparison) inside an if condition, e.g., writing if(x = 5) instead of if(x == 5). Java will give a compile error for non-boolean types, but it is still a conceptual mistake.",
+  "Forgetting that integer division truncates the decimal part: writing 7/2 and expecting 3.5, but getting 3. Always cast at least one operand to double when decimal results are needed.",
+  "Confusing pre-increment (++x) and post-increment (x++) when they appear inside a larger expression: System.out.println(x++) prints the original value, not the incremented one."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "What is the result of the expression 17 % 5 in Java?",
+   "options": [
+    "3",
+    "2",
+    "1",
+    "0"
+   ],
+   "answer": 1,
+   "explanation": "17 divided by 5 is 3 with a remainder of 2. The % operator returns the remainder, so 17 % 5 = 2.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which operator is used to check equality between two primitive values in Java?",
+   "options": [
+    "=",
+    "===",
+    "==",
+    ".equals()"
+   ],
+   "answer": 2,
+   "explanation": "The == operator compares the values of two primitives. A single = is assignment, === does not exist in Java, and .equals() is a method used for object comparison.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What will the following code print?\nint x = 4;\nSystem.out.println(x++);",
+   "options": [
+    "3",
+    "4",
+    "5",
+    "Compile error"
+   ],
+   "answer": 1,
+   "explanation": "x++ is post-increment: it returns the current value of x (which is 4) and then increments x to 5. So 4 is printed.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the output of: System.out.println(7 / 2); in Java?",
+   "options": [
+    "3.5",
+    "3",
+    "4",
+    "3.0"
+   ],
+   "answer": 1,
+   "explanation": "Both 7 and 2 are integers, so Java performs integer division and drops the decimal part, giving 3.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following compound assignment statements is equivalent to x = x * 3?",
+   "options": [
+    "x =* 3",
+    "x *+ 3",
+    "x *= 3",
+    "x ** 3"
+   ],
+   "answer": 2,
+   "explanation": "x *= 3 is the correct compound assignment operator and is exactly equivalent to x = x * 3.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "In Java, what does the expression (true && false) || (!false) evaluate to?",
+   "options": [
+    "false",
+    "true",
+    "0",
+    "Compile error"
+   ],
+   "answer": 1,
+   "explanation": "true && false = false; !false = true; false || true = true. So the entire expression evaluates to true.",
+   "difficulty": "hard"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain the difference between pre-increment (++x) and post-increment (x++) in Java with a brief example.",
+   "answer": "Pre-increment (++x) increases the value of x by 1 before the expression is evaluated, so the new value is used immediately. Post-increment (x++) uses the current value of x in the expression first, and then increases it by 1. For example, if x=5, then y=++x gives y=6 and x=6, but y=x++ gives y=5 and x=6.",
+   "keywords": [
+    "pre-increment",
+    "post-increment",
+    "before",
+    "after",
+    "value"
+   ],
+   "explanation": "The key distinction is timing: when does the increment actually happen relative to the use of the variable in the expression.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "What is short-circuit evaluation in Java? Why is it useful?",
+   "answer": "Short-circuit evaluation means that in a logical AND (&&) expression, if the first operand is false, Java does not evaluate the second operand because the result is already known to be false. Similarly for OR (||), if the first operand is true, the second is skipped. This is useful for preventing errors, such as checking if an object is not null before calling a method on it.",
+   "keywords": [
+    "&&",
+    "||",
+    "second operand",
+    "skipped",
+    "false"
+   ],
+   "explanation": "Short-circuit evaluation is both a performance optimization and a safety mechanism when the second operand could cause an error if evaluated.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "What is the exact output printed by this Java code?\nint a = 6;\na += 3;\na *= 2;\nSystem.out.println(a);",
+   "answer": "18",
+   "explanation": "a starts at 6. After a += 3, a = 6+3 = 9. After a *= 2, a = 9*2 = 18. So 18 is printed.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a Java program that takes two integers, num1 = 29 and num2 = 6, and prints: their sum, their difference (num1 - num2), the result of integer division (num1 / num2), the remainder (num1 % num2), and whether num1 is greater than num2 (true/false).",
+   "starter": "public class OperatorTask {\n    public static void main(String[] args) {\n        int num1 = 29, num2 = 6;\n        // Write your code below\n\n    }\n}",
+   "solution": "public class OperatorTask {\n    public static void main(String[] args) {\n        int num1 = 29, num2 = 6;\n        System.out.println(\"Sum: \" + (num1 + num2));\n        System.out.println(\"Difference: \" + (num1 - num2));\n        System.out.println(\"Division: \" + (num1 / num2));\n        System.out.println(\"Remainder: \" + (num1 % num2));\n        System.out.println(\"num1 > num2: \" + (num1 > num2));\n    }\n}",
+   "explanation": "num1+num2=35, num1-num2=23, 29/6=4 (integer division), 29%6=5 (remainder), and 29>6 is true. Each result is printed using the appropriate arithmetic or relational operator.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "Welcome to Operators in Java",
+    "steps": [
+     {
+      "say": "Hello everyone, welcome to today's lesson. We are going to learn about operators in Java, which are the building blocks of every calculation and decision in your programs.",
+      "write": {
+       "kind": "heading",
+       "content": "Operators in Java"
+      }
+     },
+     {
+      "say": "An operator is a symbol that tells Java to perform an action on one or more values. Those values are called operands.",
+      "write": {
+       "kind": "text",
+       "content": "Operator acts on Operands"
+      }
+     },
+     {
+      "say": "For example, in the expression 5 plus 3, the plus sign is the operator and 5 and 3 are the operands.",
+      "write": {
+       "kind": "equation",
+       "content": "5 + 3   (+ is the operator)"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Arithmetic and Assignment Operators",
+    "steps": [
+     {
+      "say": "Let us start with arithmetic operators. These are the ones you already know from maths, and they work just the same in Java.",
+      "write": {
+       "kind": "heading",
+       "content": "Arithmetic Operators"
+      }
+     },
+     {
+      "say": "We have plus for addition, minus for subtraction, star for multiplication, slash for division, and percent for remainder.",
+      "write": {
+       "kind": "bullet",
+       "content": "+  -  *  /  %"
+      }
+     },
+     {
+      "say": "Be careful with division. If both values are integers, Java drops the decimal. So 7 divided by 2 gives 3, not 3.5.",
+      "write": {
+       "kind": "equation",
+       "content": "7 / 2 = 3  (integer division)"
+      }
+     },
+     {
+      "say": "The percent sign gives the remainder. So 10 percent 3 equals 1, because 10 divided by 3 leaves a remainder of 1.",
+      "write": {
+       "kind": "equation",
+       "content": "10 % 3 = 1  (remainder)"
+      }
+     },
+     {
+      "say": "Compound assignment operators are shortcuts. Instead of writing x equals x plus 5, you can write x plus-equals 5. They work the same way.",
+      "write": {
+       "kind": "equation",
+       "content": "x += 5  means  x = x + 5"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Relational and Logical Operators",
+    "steps": [
+     {
+      "say": "Next we have relational operators. These compare two values and always give you a true or false answer.",
+      "write": {
+       "kind": "heading",
+       "content": "Relational Operators"
+      }
+     },
+     {
+      "say": "The double equals checks equality, not single equals. Single equals is always for assignment. This is one of the most common mistakes beginners make.",
+      "write": {
+       "kind": "bullet",
+       "content": "==  !=  <  >  <=  >="
+      }
+     },
+     {
+      "say": "Now logical operators let you combine conditions. Double ampersand means AND, double pipe means OR, and exclamation mark means NOT.",
+      "write": {
+       "kind": "heading",
+       "content": "Logical Operators"
+      }
+     },
+     {
+      "say": "AND returns true only when both sides are true. OR returns true when at least one side is true. NOT flips the boolean value.",
+      "write": {
+       "kind": "bullet",
+       "content": "&&  ||  !"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Code Example Walkthrough",
+    "steps": [
+     {
+      "say": "Let us see these operators in action with a quick code example. We declare two integers a equals 15 and b equals 4.",
+      "write": {
+       "kind": "code",
+       "content": "int a = 15, b = 4;"
+      }
+     },
+     {
+      "say": "Now we print the division and remainder. Division gives 3 because Java drops the decimal, and remainder gives 3.",
+      "write": {
+       "kind": "code",
+       "content": "System.out.println(a / b); // 3\nSystem.out.println(a % b); // 3"
+      }
+     },
+     {
+      "say": "We can also use a relational operator to check if a is greater than b. This prints true because 15 is indeed greater than 4.",
+      "write": {
+       "kind": "code",
+       "content": "System.out.println(a > b); // true"
+      }
+     },
+     {
+      "say": "And here is the ternary operator, which is a short way to write a simple if-else. If marks are 55 or above, result is Pass, otherwise Fail.",
+      "write": {
+       "kind": "code",
+       "content": "String r = (55>=50) ? \"Pass\":\"Fail\";"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Recap and Key Reminders",
+    "steps": [
+     {
+      "say": "Great work everyone. Let us quickly recap what we learned today about operators in Java.",
+      "write": {
+       "kind": "heading",
+       "content": "Quick Recap"
+      }
+     },
+     {
+      "say": "Arithmetic operators do maths. Remember integer division drops the decimal, and percent gives the remainder.",
+      "write": {
+       "kind": "bullet",
+       "content": "Arithmetic: + - * / %"
+      }
+     },
+     {
+      "say": "Relational operators compare values and return true or false. Always use double equals for comparison, not single equals.",
+      "write": {
+       "kind": "bullet",
+       "content": "Relational: == != < > <= >="
+      }
+     },
+     {
+      "say": "Logical operators combine boolean values. And needs both true, Or needs just one true, and Not flips the value.",
+      "write": {
+       "kind": "bullet",
+       "content": "Logical: && || !"
+      }
+     },
+     {
+      "say": "Keep practicing these with small programs and you will be very comfortable with operators in no time. See you in the next lesson!",
+      "write": {
+       "kind": "highlight",
+       "content": "Practice makes perfect!"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

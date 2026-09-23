@@ -1,0 +1,350 @@
+{
+ "summary": "A function in Python is a named, reusable block of code that performs a specific task, helping you avoid repetition and organise your programs clearly.",
+ "shortNotes": [
+  "A function is defined using the `def` keyword followed by the function name and parentheses.",
+  "Functions can accept input values called parameters and return output using the `return` statement.",
+  "A function must be defined before it is called in the program.",
+  "If no `return` statement is used, the function returns `None` by default.",
+  "Default parameter values let you call a function without always passing every argument.",
+  "Functions improve code reusability, readability, and make debugging easier."
+ ],
+ "detailed": {
+  "explanation": "A **function** is a block of code that runs only when it is called. Instead of writing the same logic again and again, you wrap it inside a function and call it whenever needed. This is one of the most important ideas in programming.\n\nYou define a function using the `def` keyword, followed by a name, parentheses `()`, and a colon `:`. The body of the function is indented. For example: `def greet():` starts a function named `greet`. You run it by writing `greet()` anywhere after the definition.\n\nFunctions can receive data through **parameters** listed inside the parentheses. When you call the function, you pass actual values called **arguments**. For example, `def greet(name):` defines a parameter `name`, and `greet('Riya')` passes the argument `'Riya'`.\n\nThe `return` statement sends a value back to the place where the function was called. Once `return` is executed, the function stops immediately. If there is no `return`, Python automatically returns `None`.\n\nYou can also define **default parameter values** like `def greet(name='Student'):`. If the caller does not pass an argument, the default value is used. This makes functions more flexible and convenient to use.",
+  "definitions": [
+   {
+    "term": "Function",
+    "meaning": "A named, reusable block of code that performs a specific task when called."
+   },
+   {
+    "term": "def keyword",
+    "meaning": "The Python keyword used to define (create) a function."
+   },
+   {
+    "term": "Parameter",
+    "meaning": "A variable listed in the function definition that receives a value when the function is called."
+   },
+   {
+    "term": "Argument",
+    "meaning": "The actual value passed to a function when it is called."
+   },
+   {
+    "term": "return statement",
+    "meaning": "A statement inside a function that sends a value back to the caller and ends the function."
+   },
+   {
+    "term": "Default parameter",
+    "meaning": "A parameter that has a preset value used when no argument is supplied by the caller."
+   },
+   {
+    "term": "Function call",
+    "meaning": "The line of code that executes a function by writing its name followed by parentheses."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "Always use the `def` keyword to define a function; forgetting it causes a SyntaxError.",
+   "The function body must be indented consistently (4 spaces is the Python standard).",
+   "A function with no `return` statement returns `None`; do not assume it returns 0 or an empty string.",
+   "Parameters and arguments must match in number unless default values are provided.",
+   "You can have multiple `return` statements in a function (e.g., inside if-else), but only one executes per call.",
+   "A function can call another function — this is called function composition.",
+   "In exams, trace the flow carefully: identify where the function is defined vs where it is called.",
+   "Default arguments must come after non-default arguments in the parameter list, or Python raises a SyntaxError."
+  ]
+ },
+ "codeExample": {
+  "language": "python",
+  "code": "# Function with no parameters\ndef greet():\n    print('Hello! Welcome to Python.')\n\n# Function with a parameter\ndef greet_user(name):\n    print('Hello,', name + '!')\n\n# Function with a default parameter\ndef greet_default(name='Student'):\n    print('Hello,', name + '!')\n\n# Function that returns a value\ndef add(a, b):\n    result = a + b\n    return result\n\n# Calling the functions\ngreet()\ngreet_user('Riya')\ngreet_default()\ngreet_default('Amit')\n\ntotal = add(10, 5)\nprint('Sum:', total)",
+  "explanation": "Line 2-3: `greet` is a simple function with no parameters; it just prints a welcome message.\nLine 6-7: `greet_user` accepts one parameter `name` and uses it in the print statement.\nLine 10-11: `greet_default` has a default value `'Student'` for `name`; if no argument is given, it uses that default.\nLine 14-16: `add` takes two parameters `a` and `b`, computes their sum, stores it in `result`, and returns it.\nLine 19: Calling `greet()` runs the first function and prints the welcome message.\nLine 20: Calling `greet_user('Riya')` passes 'Riya' as the argument, so it prints 'Hello, Riya!'.\nLine 21: Calling `greet_default()` uses the default value, printing 'Hello, Student!'.\nLine 22: Calling `greet_default('Amit')` overrides the default, printing 'Hello, Amit!'.\nLine 24-25: `add(10, 5)` returns 15, which is stored in `total` and then printed as 'Sum: 15'."
+ },
+ "commonMistakes": [
+  "Calling a function before defining it: Python reads code top to bottom, so defining the function after the call causes a NameError.",
+  "Forgetting to use `return` and expecting the function to give back a value: without `return`, the function returns `None`, causing unexpected results when you try to use the output.",
+  "Mixing up parameters and arguments: changing a parameter name inside the function does not affect the variable outside unless the value is returned and stored."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Which keyword is used to define a function in Python?",
+   "options": [
+    "function",
+    "def",
+    "define",
+    "fun"
+   ],
+   "answer": 1,
+   "explanation": "Python uses the `def` keyword to define a function. Other languages may use 'function' or 'fun', but in Python it is always `def`.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What does a function return if it has no `return` statement?",
+   "options": [
+    "0",
+    "False",
+    "None",
+    "An empty string"
+   ],
+   "answer": 2,
+   "explanation": "In Python, if a function does not have a `return` statement, it automatically returns `None`.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following correctly defines a function named `square` that takes one parameter `n`?",
+   "options": [
+    "function square(n):",
+    "def square(n):",
+    "def square n:",
+    "define square(n):"
+   ],
+   "answer": 1,
+   "explanation": "`def square(n):` is the correct syntax. The `def` keyword is followed by the function name, parentheses with parameters, and a colon.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the output of the following code?\n\ndef add(a, b=5):\n    return a + b\nprint(add(3))",
+   "options": [
+    "Error",
+    "5",
+    "8",
+    "3"
+   ],
+   "answer": 2,
+   "explanation": "`add(3)` passes 3 as `a` and uses the default value 5 for `b`. So 3 + 5 = 8 is returned and printed.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which statement about the `return` statement is TRUE?",
+   "options": [
+    "A function can only have one return statement",
+    "return can only send back integer values",
+    "Once return executes, the function stops immediately",
+    "return is compulsory in every Python function"
+   ],
+   "answer": 2,
+   "explanation": "When a `return` statement is executed, the function ends immediately and control goes back to the caller. Multiple `return` statements are allowed, and `return` is not compulsory.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What will happen if you define a default argument before a non-default argument in Python?",
+   "options": [
+    "The program runs normally",
+    "The default value is ignored",
+    "Python raises a SyntaxError",
+    "Python raises a TypeError at runtime"
+   ],
+   "answer": 2,
+   "explanation": "Python requires that default (optional) parameters always come after non-default (required) parameters in the function definition. Violating this rule causes a SyntaxError.",
+   "difficulty": "hard"
+  },
+  {
+   "type": "short",
+   "prompt": "What is the difference between a parameter and an argument in a Python function?",
+   "answer": "A parameter is the variable defined in the function definition inside the parentheses, acting as a placeholder. An argument is the actual value passed to the function when it is called. For example, in `def greet(name):`, `name` is the parameter; in `greet('Riya')`, `'Riya'` is the argument.",
+   "keywords": [
+    "parameter",
+    "argument",
+    "definition",
+    "call",
+    "value"
+   ],
+   "explanation": "Students often confuse these two terms. A parameter lives in the function definition; an argument is the real data supplied during the function call.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Why are functions useful in programming? Give at least two reasons.",
+   "answer": "Functions allow code reuse, so you write logic once and use it many times without repetition. They also make code easier to read, understand, and debug by breaking a large program into smaller, named pieces. Additionally, if you need to change logic, you update it in one place only.",
+   "keywords": [
+    "reuse",
+    "readability",
+    "debug",
+    "repetition",
+    "modular"
+   ],
+   "explanation": "Functions are a core tool for writing clean, maintainable programs. Students should be able to articulate at least the reusability and readability benefits.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "What is the exact output printed when the following code runs?\n\ndef multiply(x, y=3):\n    return x * y\n\nprint(multiply(4))",
+   "answer": "12",
+   "explanation": "`multiply(4)` uses `x=4` and the default `y=3`. The function returns 4 * 3 = 12, which is printed.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a Python function called `is_even` that takes one integer as input and returns `True` if the number is even, and `False` if it is odd. Then call the function with the value 7 and print the result.",
+   "starter": "# Define the function is_even below\n\n\n# Call the function with 7 and print the result\n",
+   "solution": "# Define the function is_even below\ndef is_even(n):\n    if n % 2 == 0:\n        return True\n    else:\n        return False\n\n# Call the function with 7 and print the result\nprint(is_even(7))",
+   "explanation": "The function `is_even` uses the modulo operator `%` to check if the number divides evenly by 2. If `n % 2 == 0`, the number is even and `True` is returned; otherwise `False` is returned. Calling `is_even(7)` returns `False` because 7 % 2 equals 1, not 0.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What is a Function?",
+    "steps": [
+     {
+      "say": "Hello everyone! Today we are going to learn about functions in Python, one of the most useful ideas in all of programming.",
+      "write": {
+       "kind": "heading",
+       "content": "Functions in Python"
+      }
+     },
+     {
+      "say": "Imagine you need to greet a user ten times in your program. Instead of writing the same lines ten times, you wrap that code in a function and call it whenever you need it.",
+      "write": {
+       "kind": "bullet",
+       "content": "A function = reusable block of code"
+      }
+     },
+     {
+      "say": "Functions save time, reduce mistakes, and make your code much easier to read and maintain.",
+      "write": {
+       "kind": "bullet",
+       "content": "Benefits: reuse, readability, easy debug"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Defining and Calling a Function",
+    "steps": [
+     {
+      "say": "To create a function in Python, you use the def keyword, then the function name, then parentheses and a colon.",
+      "write": {
+       "kind": "code",
+       "content": "def greet():"
+      }
+     },
+     {
+      "say": "The body of the function is indented. Here we simply print a welcome message.",
+      "write": {
+       "kind": "code",
+       "content": "    print('Hello! Welcome.')"
+      }
+     },
+     {
+      "say": "To run the function, you call it by writing its name followed by parentheses. This line is where the function actually executes.",
+      "write": {
+       "kind": "code",
+       "content": "greet()"
+      }
+     },
+     {
+      "say": "When Python reaches greet open-close parentheses, it jumps to the function body, runs it, and then comes back to continue the program.",
+      "write": {
+       "kind": "text",
+       "content": "Output: Hello! Welcome."
+      }
+     }
+    ]
+   },
+   {
+    "title": "Parameters and the return Statement",
+    "steps": [
+     {
+      "say": "Functions become more powerful when they accept input. We call these inputs parameters. Here, name is a parameter.",
+      "write": {
+       "kind": "code",
+       "content": "def greet(name):"
+      }
+     },
+     {
+      "say": "Inside the body, we use the parameter. The actual value we pass when calling is called an argument.",
+      "write": {
+       "kind": "code",
+       "content": "    print('Hello,', name)"
+      }
+     },
+     {
+      "say": "Now let us see the return statement. This function adds two numbers and sends the result back to the caller.",
+      "write": {
+       "kind": "code",
+       "content": "def add(a, b):\n    return a + b"
+      }
+     },
+     {
+      "say": "We store the returned value in a variable and print it. The output will be 8.",
+      "write": {
+       "kind": "code",
+       "content": "total = add(3, 5)\nprint(total)"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Default Parameters",
+    "steps": [
+     {
+      "say": "Sometimes you want a parameter to have a fallback value. You can set a default by using an equals sign in the definition.",
+      "write": {
+       "kind": "code",
+       "content": "def greet(name='Student'):"
+      }
+     },
+     {
+      "say": "If the caller does not pass an argument, Python uses the default value Student.",
+      "write": {
+       "kind": "code",
+       "content": "    print('Hello,', name)"
+      }
+     },
+     {
+      "say": "Calling greet with no argument prints Hello Student. Calling it with Amit prints Hello Amit.",
+      "write": {
+       "kind": "code",
+       "content": "greet()\ngreet('Amit')"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us quickly recap everything we covered today about functions in Python.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap: Functions in Python"
+      }
+     },
+     {
+      "say": "First, use def to define a function, give it a name, and indent the body.",
+      "write": {
+       "kind": "bullet",
+       "content": "def name(): -- defines the function"
+      }
+     },
+     {
+      "say": "Parameters receive input values; arguments are the actual values you pass during the call.",
+      "write": {
+       "kind": "bullet",
+       "content": "Parameters vs Arguments"
+      }
+     },
+     {
+      "say": "Use return to send a value back. Without return, the function gives back None.",
+      "write": {
+       "kind": "bullet",
+       "content": "return sends value back; else None"
+      }
+     },
+     {
+      "say": "Default parameters give a fallback value when no argument is provided. Great work today, keep practising!",
+      "write": {
+       "kind": "bullet",
+       "content": "Default params: def f(x=value)"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

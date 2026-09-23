@@ -1,0 +1,381 @@
+{
+ "summary": "In C programming, printf is used to display output on the screen and scanf is used to read input from the user, both relying on format specifiers to handle different data types.",
+ "shortNotes": [
+  "printf() prints formatted output to the console; it is defined in the stdio.h header file.",
+  "scanf() reads formatted input from the keyboard; it also requires stdio.h.",
+  "Format specifiers like %d (int), %f (float), and %c (char) tell the functions what type of data to handle.",
+  "scanf() requires the address of the variable using the & (ampersand) operator, e.g., scanf(\"%d\", &num);",
+  "\\n is a newline escape sequence used inside printf to move the cursor to the next line.",
+  "Always include #include <stdio.h> at the top of your program when using printf or scanf."
+ ],
+ "detailed": {
+  "explanation": "In C, the two most basic tools for interacting with users are `printf` and `scanf`. Both are functions provided by the standard input/output library, which you include at the top of your program using `#include <stdio.h>`. Without this line, the compiler will not recognise these functions.\n\n`printf` stands for *print formatted*. It is used to display text and variable values on the screen. You provide a format string in double quotes, which can contain plain text and format specifiers. For example, `printf(\"Age: %d\\n\", age);` will print the value of the integer variable `age` in place of `%d`. The `\\n` at the end moves the cursor to the next line.\n\n`scanf` stands for *scan formatted*. It reads input typed by the user and stores it in a variable. The key rule is that you must pass the *address* of the variable using the `&` operator. For example, `scanf(\"%d\", &age);` reads an integer and stores it at the memory location of `age`. Forgetting `&` is one of the most common beginner mistakes.\n\nFormat specifiers are codes that begin with `%` and indicate the data type. The most common ones are: `%d` for `int`, `%f` for `float`, `%lf` for `double`, `%c` for `char`, and `%s` for strings. Using the wrong specifier can cause unexpected output or even a crash.\n\nEscape sequences like `\\n` (newline), `\\t` (tab), and `\\\\` (backslash) are special character combinations used inside string literals to control formatting. They are written with a backslash prefix and are interpreted by the compiler, not printed literally.",
+  "definitions": [
+   {
+    "term": "printf",
+    "meaning": "A standard library function in C used to print formatted text and variable values to the console."
+   },
+   {
+    "term": "scanf",
+    "meaning": "A standard library function in C used to read formatted input from the keyboard and store it in variables."
+   },
+   {
+    "term": "Format Specifier",
+    "meaning": "A placeholder starting with % used inside printf and scanf to indicate the data type, e.g., %d for integer."
+   },
+   {
+    "term": "Escape Sequence",
+    "meaning": "A combination of a backslash and a character used inside strings to represent special characters, like \\n for newline."
+   },
+   {
+    "term": "& (Address-of Operator)",
+    "meaning": "An operator used in scanf to pass the memory address of a variable so the function knows where to store the input."
+   },
+   {
+    "term": "stdio.h",
+    "meaning": "The standard input/output header file in C that must be included to use printf and scanf."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "Always write #include <stdio.h> at the top of any C program that uses printf or scanf.",
+   "Use %d for int, %f for float, %lf for double, %c for char, and %s for strings.",
+   "In scanf, always use the & operator before a variable name (except for strings/arrays).",
+   "\\n inside a printf string moves output to the next line; it does not print a visible character.",
+   "printf returns the number of characters printed; scanf returns the number of items successfully read — these are rarely used by beginners but good to know for exams.",
+   "Mismatched format specifiers and variable types lead to undefined behaviour — always match them correctly.",
+   "Multiple values can be read in one scanf call: scanf(\"%d %d\", &a, &b); reads two integers.",
+   "For printing a float with 2 decimal places, use %.2f inside printf, e.g., printf(\"%.2f\", price);."
+  ]
+ },
+ "codeExample": {
+  "language": "c",
+  "code": "#include <stdio.h>\n\nint main() {\n    int age;\n    float marks;\n    char grade;\n\n    // Taking input from user\n    printf(\"Enter your age: \");\n    scanf(\"%d\", &age);\n\n    printf(\"Enter your marks: \");\n    scanf(\"%f\", &marks);\n\n    printf(\"Enter your grade (A/B/C): \");\n    scanf(\" %c\", &grade);\n\n    // Displaying output\n    printf(\"\\n--- Student Report ---\\n\");\n    printf(\"Age   : %d years\\n\", age);\n    printf(\"Marks : %.2f\\n\", marks);\n    printf(\"Grade : %c\\n\", grade);\n\n    return 0;\n}",
+  "explanation": "Line 1: #include <stdio.h> includes the standard I/O library so printf and scanf are available.\nLine 3: main() is the entry point of every C program.\nLines 4-6: Three variables are declared — age (int), marks (float), and grade (char).\nLine 9: printf prints a prompt asking the user to enter their age.\nLine 10: scanf reads an integer from the keyboard and stores it in age using &age.\nLine 12-13: Same pattern for marks using %f for float.\nLine 15-16: A space before %c in scanf skips any leftover whitespace (like a newline) from previous input.\nLines 19-22: printf displays each variable using matching format specifiers. %.2f prints marks rounded to 2 decimal places.\nLine 24: return 0 signals successful program termination."
+ },
+ "commonMistakes": [
+  "Forgetting the & operator in scanf, e.g., writing scanf(\"%d\", num) instead of scanf(\"%d\", &num). This causes undefined behaviour because scanf does not know where to store the value.",
+  "Using the wrong format specifier, such as using %d to read or print a float variable. Always match %f with float and %d with int.",
+  "Forgetting #include <stdio.h> at the top of the program, which causes a compilation error because the compiler cannot find the definitions of printf and scanf."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Which header file must be included to use printf and scanf in C?",
+   "options": [
+    "#include <stdlib.h>",
+    "#include <stdio.h>",
+    "#include <string.h>",
+    "#include <math.h>"
+   ],
+   "answer": 1,
+   "explanation": "printf and scanf are declared in the standard input/output header file stdio.h. Without it, the compiler will give an error.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the correct format specifier for reading a float value using scanf?",
+   "options": [
+    "%d",
+    "%lf",
+    "%f",
+    "%c"
+   ],
+   "answer": 2,
+   "explanation": "For float variables, %f is the correct format specifier in both printf and scanf. %lf is used for double.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What does the escape sequence \\n do inside a printf string?",
+   "options": [
+    "Prints the letter n",
+    "Moves the cursor to the next line",
+    "Adds a tab space",
+    "Terminates the program"
+   ],
+   "answer": 1,
+   "explanation": "\\n is a newline escape sequence. When printf encounters it, the cursor moves to the beginning of the next line on the console.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following scanf statements is CORRECT for reading an integer into variable x?",
+   "options": [
+    "scanf(\"%d\", x);",
+    "scanf(\"%d\", &x);",
+    "scanf(&x, \"%d\");",
+    "scanf(x, \"%d\");"
+   ],
+   "answer": 1,
+   "explanation": "scanf requires the address of the variable using the & operator. The format string comes first, followed by &x.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What will printf(\"%.2f\", 3.14159); display on the screen?",
+   "options": [
+    "3.14159",
+    "3.1",
+    "3.14",
+    "3.142"
+   ],
+   "answer": 2,
+   "explanation": "%.2f rounds and displays the float value to exactly 2 decimal places, so 3.14159 is displayed as 3.14.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which format specifier is used to print a single character using printf?",
+   "options": [
+    "%s",
+    "%d",
+    "%c",
+    "%ch"
+   ],
+   "answer": 2,
+   "explanation": "%c is the format specifier for a single character (char data type) in both printf and scanf.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "short",
+   "prompt": "Why is the & operator required in scanf but not in printf?",
+   "answer": "scanf needs to store the value entered by the user into a variable, so it requires the memory address of that variable using &. printf only reads the value of the variable to display it, so the address is not needed.",
+   "keywords": [
+    "address",
+    "memory",
+    "store",
+    "scanf",
+    "&"
+   ],
+   "explanation": "printf just reads the value to print it. scanf must write a new value into the variable, so it needs to know the exact memory location, which & provides.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "What are format specifiers in C? Give two examples.",
+   "answer": "Format specifiers are special codes starting with % used in printf and scanf to indicate the data type of the value being printed or read. For example, %d is used for integers and %f is used for float values.",
+   "keywords": [
+    "format specifier",
+    "%d",
+    "%f",
+    "data type",
+    "printf"
+   ],
+   "explanation": "Format specifiers act as placeholders. They tell the function which type of data to expect, ensuring the correct binary interpretation of the value.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "What is the exact output printed by the following code?\n\nint x = 5, y = 3;\nprintf(\"%d\", x + y);",
+   "answer": "8",
+   "explanation": "printf evaluates x + y which is 5 + 3 = 8, and prints it as an integer using %d. No newline is added, so the output is simply 8.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a C program that asks the user to enter two integers, reads them using scanf, and then prints their sum using printf.",
+   "starter": "#include <stdio.h>\n\nint main() {\n    int a, b;\n    // Read two integers from user\n\n    // Print the sum\n\n    return 0;\n}",
+   "solution": "#include <stdio.h>\n\nint main() {\n    int a, b;\n    printf(\"Enter two integers: \");\n    scanf(\"%d %d\", &a, &b);\n    printf(\"Sum = %d\\n\", a + b);\n    return 0;\n}",
+   "explanation": "We declare two integer variables a and b. We use printf to prompt the user, then scanf with %d %d and &a, &b to read both integers. Finally, printf prints the sum using %d with the expression a + b.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "Welcome: What is Input and Output in C?",
+    "steps": [
+     {
+      "say": "Hello everyone, welcome to this lesson on input and output in C programming. Today we will learn how to talk to the user, how to show information on the screen, and how to read what the user types.",
+      "write": {
+       "kind": "heading",
+       "content": "Input and Output in C"
+      }
+     },
+     {
+      "say": "In C, we use two special functions for this. printf is used to print output, and scanf is used to read input from the keyboard.",
+      "write": {
+       "kind": "bullet",
+       "content": "printf  -> display output"
+      }
+     },
+     {
+      "say": "Both these functions come from a library called stdio dot h, which we must include at the top of every program.",
+      "write": {
+       "kind": "bullet",
+       "content": "scanf   -> read input"
+      }
+     },
+     {
+      "say": "Think of printf as the program speaking to the user, and scanf as the program listening.",
+      "write": {
+       "kind": "bullet",
+       "content": "Need: #include <stdio.h>"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Using printf to Display Output",
+    "steps": [
+     {
+      "say": "Let us look at printf first. To print a simple message, we write printf followed by the message in double quotes.",
+      "write": {
+       "kind": "code",
+       "content": "#include <stdio.h>"
+      }
+     },
+     {
+      "say": "Here is our main function. Inside it, we write our printf statement.",
+      "write": {
+       "kind": "code",
+       "content": "int main() {"
+      }
+     },
+     {
+      "say": "This line prints the message Hello World on the screen. The backslash n at the end moves the cursor to a new line.",
+      "write": {
+       "kind": "code",
+       "content": "  printf(\"Hello World\\n\");"
+      }
+     },
+     {
+      "say": "To print a variable value, we use a format specifier. Percent d is for integers. The variable name comes after a comma.",
+      "write": {
+       "kind": "code",
+       "content": "  int age = 20;\n  printf(\"Age: %d\\n\", age);"
+      }
+     },
+     {
+      "say": "So percent d is replaced by the value of age when the program runs. This gives us Age colon 20 on the screen.",
+      "write": {
+       "kind": "highlight",
+       "content": "%d -> integer placeholder"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Using scanf to Read Input",
+    "steps": [
+     {
+      "say": "Now let us learn scanf. This function reads what the user types and stores it in a variable.",
+      "write": {
+       "kind": "heading",
+       "content": "Reading Input with scanf"
+      }
+     },
+     {
+      "say": "Here we declare an integer variable called num. Then we print a prompt asking the user to enter a number.",
+      "write": {
+       "kind": "code",
+       "content": "int num;\nprintf(\"Enter a number: \");"
+      }
+     },
+     {
+      "say": "Now comes scanf. Notice we write ampersand num, not just num. The ampersand gives scanf the memory address of the variable so it knows where to save the value.",
+      "write": {
+       "kind": "code",
+       "content": "scanf(\"%d\", &num);"
+      }
+     },
+     {
+      "say": "Finally we print back what the user entered to confirm it.",
+      "write": {
+       "kind": "code",
+       "content": "printf(\"You entered: %d\\n\", num);"
+      }
+     },
+     {
+      "say": "Forgetting the ampersand in scanf is the most common mistake. Always remember ampersand before the variable name in scanf.",
+      "write": {
+       "kind": "highlight",
+       "content": "Always use & in scanf!"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Format Specifiers Cheat Sheet",
+    "steps": [
+     {
+      "say": "Let us quickly go over the important format specifiers you need to know. These are used in both printf and scanf.",
+      "write": {
+       "kind": "heading",
+       "content": "Format Specifiers"
+      }
+     },
+     {
+      "say": "Percent d is for int, percent f is for float, and percent l f is for double.",
+      "write": {
+       "kind": "text",
+       "content": "%d  -> int\n%f  -> float\n%lf -> double"
+      }
+     },
+     {
+      "say": "Percent c is for a single character, and percent s is for a string of characters.",
+      "write": {
+       "kind": "text",
+       "content": "%c  -> char\n%s  -> string"
+      }
+     },
+     {
+      "say": "If you want to print a float with only two decimal places, use dot two f inside your printf format string.",
+      "write": {
+       "kind": "code",
+       "content": "printf(\"%.2f\", 3.14159);"
+      }
+     },
+     {
+      "say": "This will print 3 point 1 4. The dot two controls how many decimal places are shown.",
+      "write": {
+       "kind": "highlight",
+       "content": "Output: 3.14"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Great work today. Let us quickly recap what we have learned in this lesson.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap"
+      }
+     },
+     {
+      "say": "First, always include stdio dot h at the top of your program to use printf and scanf.",
+      "write": {
+       "kind": "bullet",
+       "content": "Include #include <stdio.h>"
+      }
+     },
+     {
+      "say": "Use printf to show output on the screen, and use the correct format specifier for the data type.",
+      "write": {
+       "kind": "bullet",
+       "content": "printf -> output to screen"
+      }
+     },
+     {
+      "say": "Use scanf to read input from the user, and always put ampersand before the variable name.",
+      "write": {
+       "kind": "bullet",
+       "content": "scanf  -> use & before variable"
+      }
+     },
+     {
+      "say": "Match your format specifiers carefully. Percent d for int, percent f for float, and percent c for char. See you in the next lesson!",
+      "write": {
+       "kind": "bullet",
+       "content": "%d int | %f float | %c char"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

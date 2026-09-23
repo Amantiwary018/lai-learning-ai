@@ -1,0 +1,81 @@
+{
+ "subjects": [
+  {
+   "title": "Data Structures",
+   "chapters": [
+    {
+     "title": "Arrays and Strings",
+     "topics": [
+      "Array basics and memory layout",
+      "Inserting, deleting, and searching elements",
+      "Multi-dimensional arrays",
+      "Introduction to string manipulation"
+     ]
+    },
+    {
+     "title": "Linked Lists",
+     "topics": [
+      "Singly linked lists and node structure",
+      "Doubly and circular linked lists",
+      "Common operations: traversal, insertion, deletion"
+     ]
+    },
+    {
+     "title": "Trees",
+     "topics": [
+      "Binary trees and tree terminology",
+      "Binary search trees: insert, search, delete",
+      "Tree traversals: inorder, preorder, postorder",
+      "Balanced trees and AVL overview"
+     ]
+    },
+    {
+     "title": "Graphs",
+     "topics": [
+      "Graph terminology: vertices, edges, directed vs undirected",
+      "Adjacency matrix and adjacency list representations",
+      "Breadth-first search and depth-first search"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Algorithms",
+   "chapters": [
+    {
+     "title": "Complexity Analysis",
+     "topics": [
+      "Big O notation and time complexity",
+      "Space complexity and trade-offs",
+      "Best, average, and worst case analysis"
+     ]
+    },
+    {
+     "title": "Sorting Algorithms",
+     "topics": [
+      "Bubble sort and selection sort",
+      "Merge sort and divide-and-conquer",
+      "Quick sort and partitioning",
+      "Comparison of sorting algorithm complexities"
+     ]
+    },
+    {
+     "title": "Searching and Recursion",
+     "topics": [
+      "Linear search vs binary search",
+      "Recursive thinking and base cases",
+      "Backtracking fundamentals"
+     ]
+    },
+    {
+     "title": "Algorithm Design Techniques",
+     "topics": [
+      "Greedy algorithms and when to apply them",
+      "Dynamic programming and memoization",
+      "Sliding window and two-pointer techniques"
+     ]
+    }
+   ]
+  }
+ ]
+}

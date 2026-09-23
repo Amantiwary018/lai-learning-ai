@@ -1,0 +1,330 @@
+{
+ "summary": "Reusable prompts are pre-written, adaptable prompt templates that save time and ensure consistent, high-quality AI responses across repeated tasks.",
+ "shortNotes": [
+  "A reusable prompt is a template you write once and use many times with small changes.",
+  "Use placeholders like [TOPIC] or [TONE] to make prompts flexible for different situations.",
+  "Good reusable prompts include role, task, format, and constraints as building blocks.",
+  "Storing prompts in a personal library helps you stay organised and work faster.",
+  "Test and refine your templates regularly to keep outputs accurate and relevant.",
+  "Reusable prompts reduce errors and save time in professional and academic tasks."
+ ],
+ "detailed": {
+  "explanation": "A **reusable prompt** is a prompt template you design once and adapt for many similar tasks. Instead of writing a new prompt from scratch every time, you create a structure with blank spaces — called **placeholders** — that you fill in as needed. For example: `Summarise the following [TOPIC] in [NUMBER] bullet points for a [AUDIENCE].` You simply swap the placeholders each time you use it.\n\nEvery strong reusable prompt has four core building blocks: **Role** (who the AI should act as), **Task** (what it should do), **Format** (how the output should look), and **Constraints** (limits like word count or tone). Writing all four into your template ensures the AI gives you a focused, useful answer every single time.\n\nCreating a **prompt library** is the next step. This is just a personal collection — a document, spreadsheet, or notes app — where you save your best templates grouped by use case, such as 'Email Writing', 'Study Notes', or 'Code Explanation'. A library means you never start from zero.\n\nRefining your templates is important. After each use, notice what worked and what did not. Edit the template slightly so future outputs are better. Good prompt engineers treat their library like a living document that improves over time.\n\nReusable prompts are especially valuable in professional settings — marketing teams, teachers, developers, and HR professionals all benefit from having standard templates for common tasks like drafting reports, creating quizzes, or summarising documents.",
+  "definitions": [
+   {
+    "term": "Reusable Prompt",
+    "meaning": "A prompt written as a template with placeholders so it can be adapted and used repeatedly for similar tasks."
+   },
+   {
+    "term": "Placeholder",
+    "meaning": "A variable slot inside a prompt template, marked with brackets like [TOPIC] or [TONE], that you replace with specific information each time you use it."
+   },
+   {
+    "term": "Prompt Library",
+    "meaning": "A personal or team collection of saved prompt templates organised by category for quick reference and reuse."
+   },
+   {
+    "term": "Role",
+    "meaning": "The persona or expertise you ask the AI to take on, such as 'Act as a career counsellor'."
+   },
+   {
+    "term": "Constraint",
+    "meaning": "A limit or rule added to a prompt to control output, such as word count, language level, or tone."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "Always include Role, Task, Format, and Constraints in your template — this is the RTFC framework for reusable prompts.",
+   "Use square brackets for placeholders: [TOPIC], [AUDIENCE], [TONE], [LENGTH] are the most common.",
+   "A prompt library can be as simple as a Google Doc or Notion page; organisation matters more than the tool.",
+   "Test every new template at least 2-3 times with different inputs before adding it to your library.",
+   "Label each saved prompt clearly with its purpose and the date last updated.",
+   "Shorter, cleaner templates are easier to reuse than long, overly specific ones — keep constraints general unless they are always needed.",
+   "Reusable prompts work across tools: the same template can be used in ChatGPT, Gemini, Copilot, or any other AI assistant.",
+   "In exams, be ready to identify which part of a sample prompt is the placeholder and which is a fixed instruction."
+  ]
+ },
+ "codeExample": null,
+ "commonMistakes": [
+  "Making placeholders too vague (e.g., [STUFF]) so the template gives unclear instructions — always use descriptive placeholder names like [TARGET AUDIENCE] or [SUBJECT].",
+  "Forgetting to include the Format instruction, which causes the AI to return output in an unexpected structure every time.",
+  "Never updating the prompt library — using outdated templates without refining them leads to consistently poor or irrelevant outputs."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "What is the main purpose of a reusable prompt?",
+   "options": [
+    "To write a different prompt from scratch each time",
+    "To create a template that can be adapted for repeated similar tasks",
+    "To make the AI generate longer responses",
+    "To restrict the AI to only one type of answer"
+   ],
+   "answer": 1,
+   "explanation": "A reusable prompt is a template built once and adapted many times for similar tasks, saving time and ensuring consistency.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "In the prompt template 'Write a [TONE] email to [RECIPIENT] about [TOPIC]', what are [TONE], [RECIPIENT], and [TOPIC] called?",
+   "options": [
+    "Keywords",
+    "Constraints",
+    "Placeholders",
+    "Roles"
+   ],
+   "answer": 2,
+   "explanation": "These are placeholders — variable slots you replace with specific information each time you use the template.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following best represents the RTFC framework for building a reusable prompt?",
+   "options": [
+    "Research, Test, Fix, Complete",
+    "Role, Task, Format, Constraints",
+    "Repeat, Type, Fill, Check",
+    "Request, Theme, Focus, Context"
+   ],
+   "answer": 1,
+   "explanation": "RTFC stands for Role, Task, Format, and Constraints — the four building blocks of an effective reusable prompt template.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "A student saves all their best prompt templates in a Google Doc grouped by subject. What is this practice called?",
+   "options": [
+    "Prompt chaining",
+    "Prompt injection",
+    "Building a prompt library",
+    "Fine-tuning"
+   ],
+   "answer": 2,
+   "explanation": "Organising saved prompt templates in one place for easy reuse is called building a prompt library.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Why is it important to test a new prompt template 2-3 times before saving it to your library?",
+   "options": [
+    "Because AI tools charge per use and you need to count them",
+    "To confirm the template produces reliable, useful output across different inputs",
+    "Because AI forgets prompts after one use",
+    "To increase the length of AI responses"
+   ],
+   "answer": 1,
+   "explanation": "Testing with multiple inputs ensures the template works reliably before you depend on it for important tasks.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of these is the MOST reusable prompt template for writing study notes?",
+   "options": [
+    "Explain photosynthesis in simple words.",
+    "Act as a teacher. Explain [TOPIC] in simple words for a [LEVEL] student. Use [NUMBER] bullet points.",
+    "Give me notes on biology.",
+    "Write everything about [TOPIC]."
+   ],
+   "answer": 1,
+   "explanation": "This option includes Role, Task, placeholders for topic, audience level, and format — making it flexible and reusable across any subject.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain what a placeholder is in a reusable prompt and give one example.",
+   "answer": "A placeholder is a variable slot inside a prompt template, usually written inside square brackets, that you replace with specific information each time you use the prompt. For example, in the template 'Summarise [TOPIC] in [NUMBER] sentences', you would replace [TOPIC] with 'climate change' and [NUMBER] with '5' when using it.",
+   "keywords": [
+    "placeholder",
+    "template",
+    "square brackets",
+    "replace",
+    "variable"
+   ],
+   "explanation": "Understanding placeholders is core to building reusable prompts — they are what make a fixed template flexible.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "What are the four building blocks of the RTFC framework and why is each one important in a reusable prompt template?",
+   "answer": "The four building blocks are Role, Task, Format, and Constraints. Role tells the AI what persona to take on (e.g., a career counsellor). Task tells it exactly what to do (e.g., write a cover letter). Format specifies how the output should look (e.g., bullet points or a table). Constraints add limits such as word count or reading level, keeping the output focused and appropriate.",
+   "keywords": [
+    "role",
+    "task",
+    "format",
+    "constraints",
+    "RTFC"
+   ],
+   "explanation": "Including all four elements in a template ensures the AI always has enough context to produce a consistent, high-quality response.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "A student has a reusable prompt template with 4 placeholders. She uses the template for 3 different assignments, filling in all placeholders each time. How many total placeholder values does she fill in across all 3 uses?",
+   "answer": "12",
+   "explanation": "4 placeholders per use multiplied by 3 uses equals 12 total placeholder values filled in.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What Is a Reusable Prompt?",
+    "steps": [
+     {
+      "say": "Hey everyone, welcome! Today we are going to learn about reusable prompts — one of the most practical skills you can build when working with AI tools.",
+      "write": {
+       "kind": "heading",
+       "content": "Creating Reusable Prompts"
+      }
+     },
+     {
+      "say": "Imagine you need to write a summary for different topics every week. Instead of thinking up a new prompt each time, you write one smart template and reuse it.",
+      "write": {
+       "kind": "text",
+       "content": "Write once. Reuse many times."
+      }
+     },
+     {
+      "say": "A reusable prompt is basically a template with blank spaces called placeholders that you fill in depending on the task.",
+      "write": {
+       "kind": "bullet",
+       "content": "Placeholder = a blank slot like [TOPIC]"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Anatomy of a Reusable Prompt",
+    "steps": [
+     {
+      "say": "Every good reusable prompt has four parts. We call this the RTFC framework — Role, Task, Format, and Constraints.",
+      "write": {
+       "kind": "heading",
+       "content": "RTFC Framework"
+      }
+     },
+     {
+      "say": "Role tells the AI who to be. For example, act as a study tutor.",
+      "write": {
+       "kind": "bullet",
+       "content": "Role: Act as a [ROLE]"
+      }
+     },
+     {
+      "say": "Task says what to do, Format says how to present it, and Constraints add limits like word count or reading level.",
+      "write": {
+       "kind": "bullet",
+       "content": "Task: Explain [TOPIC]\nFormat: [NUMBER] bullets\nConstraints: For [AUDIENCE]"
+      }
+     },
+     {
+      "say": "Put it all together and you get a template you can use again and again just by swapping the placeholders.",
+      "write": {
+       "kind": "highlight",
+       "content": "All 4 parts = a strong template"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Building Your Prompt Library",
+    "steps": [
+     {
+      "say": "Once you have a few good templates, save them in one place. This is called a prompt library.",
+      "write": {
+       "kind": "heading",
+       "content": "Your Prompt Library"
+      }
+     },
+     {
+      "say": "You can use a Google Doc, a Notion page, or even a simple notebook. Group your templates by category so they are easy to find.",
+      "write": {
+       "kind": "bullet",
+       "content": "Categories: Emails, Notes, Reports"
+      }
+     },
+     {
+      "say": "After each use, check if the output was good. If something was off, update the template. Think of your library as a living document that keeps improving.",
+      "write": {
+       "kind": "bullet",
+       "content": "Test → Refine → Save → Repeat"
+      }
+     }
+    ]
+   },
+   {
+    "title": "A Real Example",
+    "steps": [
+     {
+      "say": "Let us look at a real reusable prompt template for writing study notes.",
+      "write": {
+       "kind": "heading",
+       "content": "Example Template"
+      }
+     },
+     {
+      "say": "First line: Act as a teacher.",
+      "write": {
+       "kind": "text",
+       "content": "Act as a teacher."
+      }
+     },
+     {
+      "say": "Second line: Explain the topic in simple language for the audience.",
+      "write": {
+       "kind": "text",
+       "content": "Explain [TOPIC] simply\nfor a [LEVEL] student."
+      }
+     },
+     {
+      "say": "Third line: Give the output as bullet points, keeping it under a set number of words.",
+      "write": {
+       "kind": "text",
+       "content": "Use [NUMBER] bullet points.\nMax [WORD COUNT] words."
+      }
+     },
+     {
+      "say": "Now swap the placeholders: topic becomes Photosynthesis, level becomes Class 11, number becomes 5. You have a perfect, focused prompt in seconds.",
+      "write": {
+       "kind": "highlight",
+       "content": "Swap → Done in seconds!"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us quickly recap what we covered today.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap"
+      }
+     },
+     {
+      "say": "A reusable prompt is a template with placeholders. Use the RTFC framework — Role, Task, Format, Constraints — to build strong templates.",
+      "write": {
+       "kind": "bullet",
+       "content": "Template + Placeholders = Reusable"
+      }
+     },
+     {
+      "say": "Save your templates in a prompt library, group them by category, and keep refining them after each use.",
+      "write": {
+       "kind": "bullet",
+       "content": "Library → Organised → Refined"
+      }
+     },
+     {
+      "say": "This one skill will save you hours of work and make your AI outputs much more consistent. Great job today — keep practising!",
+      "write": {
+       "kind": "highlight",
+       "content": "Write once. Reuse. Improve."
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

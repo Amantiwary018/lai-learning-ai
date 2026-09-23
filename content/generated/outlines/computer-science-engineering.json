@@ -1,0 +1,80 @@
+{
+ "subjects": [
+  {
+   "title": "Operating Systems & Computer Organization",
+   "chapters": [
+    {
+     "title": "Introduction to Operating Systems",
+     "topics": [
+      "What is an OS: Functions and Types",
+      "Process vs Program vs Thread",
+      "System Calls and OS Structure"
+     ]
+    },
+    {
+     "title": "Process Management",
+     "topics": [
+      "Process Lifecycle and PCB",
+      "CPU Scheduling Algorithms",
+      "Deadlocks: Detection and Prevention"
+     ]
+    },
+    {
+     "title": "Memory and Storage Management",
+     "topics": [
+      "Paging and Segmentation",
+      "Virtual Memory and Page Replacement",
+      "File Systems and Disk Scheduling"
+     ]
+    },
+    {
+     "title": "Computer Organization Fundamentals",
+     "topics": [
+      "Number Systems and Boolean Algebra",
+      "CPU Architecture: ALU, Registers and Control Unit",
+      "Memory Hierarchy: Cache, RAM and Secondary Storage",
+      "Instruction Cycle and Pipelining"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Networks, DBMS & Theory of Computation",
+   "chapters": [
+    {
+     "title": "Computer Networks Basics",
+     "topics": [
+      "OSI and TCP/IP Models",
+      "IP Addressing, Subnetting and Routing",
+      "TCP vs UDP and Common Protocols"
+     ]
+    },
+    {
+     "title": "Database Management Systems",
+     "topics": [
+      "Relational Model, Keys and ER Diagrams",
+      "SQL: DDL, DML and Joins",
+      "Normalization: 1NF to BCNF",
+      "Transactions, ACID Properties and Indexing"
+     ]
+    },
+    {
+     "title": "Theory of Computation",
+     "topics": [
+      "Finite Automata: DFA and NFA",
+      "Regular Expressions and Context-Free Grammars",
+      "Pushdown Automata and Turing Machines"
+     ]
+    },
+    {
+     "title": "Computability and Complexity",
+     "topics": [
+      "Decidability and Halting Problem",
+      "P vs NP and Complexity Classes",
+      "NP-Hard and NP-Complete Problems"
+     ]
+    }
+   ]
+  }
+ ]
+}

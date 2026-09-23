@@ -1,0 +1,336 @@
+{
+ "summary": "The Scanner class in Java allows programs to read input from the user through the keyboard at runtime.",
+ "shortNotes": [
+  "Import Scanner using: import java.util.Scanner; at the top of the program",
+  "Create a Scanner object with: Scanner sc = new Scanner(System.in);",
+  "Use sc.nextInt() for integers, sc.nextDouble() for decimals, sc.next() for a single word, and sc.nextLine() for a full line",
+  "Always close the Scanner after use with sc.close() to free system resources",
+  "System.in tells Scanner to read from the keyboard (standard input stream)",
+  "Scanner is part of the java.util package, so it must be imported before use"
+ ],
+ "detailed": {
+  "explanation": "When a Java program runs, it sometimes needs to ask the user for information — like their name, age, or marks. Java provides a built-in class called `Scanner` that makes it easy to read this input from the keyboard. It is available in the `java.util` package, so you must import it before using it.\n\nTo use Scanner, you first create an object of the class: `Scanner sc = new Scanner(System.in);`. Here, `System.in` is the standard input stream — it represents the keyboard. The variable `sc` is just a name you choose; you can call it anything.\n\nOnce the Scanner object is created, you can call different methods on it depending on what type of data you want to read. Use `sc.nextInt()` to read a whole number, `sc.nextDouble()` to read a decimal number, `sc.next()` to read one word (stops at a space), and `sc.nextLine()` to read an entire line of text including spaces.\n\nA common issue beginners face is mixing `nextInt()` (or similar) with `nextLine()`. After `nextInt()` reads a number, it leaves the newline character `\\n` in the input buffer. If you call `nextLine()` right after, it reads that leftover newline instead of the actual next line. The fix is to call an extra `sc.nextLine()` to consume the leftover newline before reading the string.\n\nAlways close the Scanner at the end of your program using `sc.close()`. This is good practice because it releases the resources tied to the input stream. Leaving it open is not harmful in small programs, but it is considered poor coding habit.",
+  "definitions": [
+   {
+    "term": "Scanner",
+    "meaning": "A class in java.util that is used to read input data (integers, strings, decimals, etc.) from various sources like the keyboard or a file."
+   },
+   {
+    "term": "System.in",
+    "meaning": "A built-in Java object representing the standard input stream, which is usually the keyboard."
+   },
+   {
+    "term": "nextInt()",
+    "meaning": "A Scanner method that reads and returns the next integer value entered by the user."
+   },
+   {
+    "term": "nextLine()",
+    "meaning": "A Scanner method that reads and returns an entire line of text, including spaces, until the user presses Enter."
+   },
+   {
+    "term": "next()",
+    "meaning": "A Scanner method that reads and returns the next single token (word), stopping at whitespace."
+   },
+   {
+    "term": "nextDouble()",
+    "meaning": "A Scanner method that reads and returns the next floating-point (decimal) number entered by the user."
+   },
+   {
+    "term": "import statement",
+    "meaning": "A line written at the top of a Java file that tells the compiler to include an external class or package for use in the program."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "Always write import java.util.Scanner; as the very first line before the class definition.",
+   "Scanner sc = new Scanner(System.in); — System.in means keyboard input; forgetting it is a very common error.",
+   "Match the method to the data type: nextInt() for int, nextDouble() for double, next() for String word, nextLine() for full String.",
+   "The newline-flush problem: after using nextInt() or nextDouble(), call an extra sc.nextLine() before reading a String with nextLine().",
+   "sc.close() should be called after all input reading is done — this is good practice and may be asked in exams.",
+   "Scanner can also read from files, but for basic programs System.in (keyboard) is used.",
+   "If the user enters the wrong type (e.g., a letter when an integer is expected), Java throws InputMismatchException at runtime.",
+   "You can prompt the user before reading by using System.out.print() so the cursor stays on the same line."
+  ]
+ },
+ "codeExample": {
+  "language": "java",
+  "code": "import java.util.Scanner;\n\npublic class StudentInfo {\n    public static void main(String[] args) {\n\n        // Step 1: Create a Scanner object\n        Scanner sc = new Scanner(System.in);\n\n        // Step 2: Read the student's name (full line)\n        System.out.print(\"Enter your name: \");\n        String name = sc.nextLine();\n\n        // Step 3: Read the student's age (integer)\n        System.out.print(\"Enter your age: \");\n        int age = sc.nextInt();\n\n        // Step 4: Read the student's percentage (decimal)\n        System.out.print(\"Enter your percentage: \");\n        double percentage = sc.nextDouble();\n\n        // Step 5: Display the collected information\n        System.out.println(\"--- Student Details ---\");\n        System.out.println(\"Name       : \" + name);\n        System.out.println(\"Age        : \" + age);\n        System.out.println(\"Percentage : \" + percentage + \"%\");\n\n        // Step 6: Close the Scanner\n        sc.close();\n    }\n}",
+  "explanation": "Line 1: Imports the Scanner class from java.util package so it can be used in this program.\nLine 3: Declares a public class named StudentInfo.\nLine 4: The main method — execution starts here.\nLine 7: Creates a Scanner object 'sc' connected to System.in (keyboard).\nLine 10: Prints a prompt asking the user to enter their name (cursor stays on same line due to print).\nLine 11: sc.nextLine() reads the full line the user types including spaces and stores it in 'name'.\nLine 14: Prints a prompt for age.\nLine 15: sc.nextInt() reads an integer from the keyboard and stores it in 'age'.\nLine 18: Prints a prompt for percentage.\nLine 19: sc.nextDouble() reads a decimal number and stores it in 'percentage'.\nLines 22-25: Prints all three values back to the screen in a formatted way.\nLine 28: sc.close() closes the Scanner and frees up the resource."
+ },
+ "commonMistakes": [
+  "Forgetting to import java.util.Scanner — this causes a 'cannot find symbol' compile error because Java does not know what Scanner is without the import.",
+  "Using nextLine() immediately after nextInt() or nextDouble() without flushing the buffer — the leftover newline character causes nextLine() to return an empty string instead of reading the actual input.",
+  "Calling sc.nextLine() when you need only one word and wondering why it reads too much — use sc.next() for a single word and sc.nextLine() only when you need spaces in the input."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Which import statement is needed to use the Scanner class in Java?",
+   "options": [
+    "import java.io.Scanner;",
+    "import java.util.Scanner;",
+    "import java.lang.Scanner;",
+    "import java.scanner.Scanner;"
+   ],
+   "answer": 1,
+   "explanation": "Scanner is part of the java.util package. So the correct import is import java.util.Scanner;",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which Scanner method should you use to read a full line of text that may include spaces?",
+   "options": [
+    "sc.next()",
+    "sc.nextWord()",
+    "sc.nextLine()",
+    "sc.readLine()"
+   ],
+   "answer": 2,
+   "explanation": "sc.nextLine() reads everything the user types until they press Enter, including spaces. sc.next() stops at a space.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What does System.in represent in the statement: Scanner sc = new Scanner(System.in);?",
+   "options": [
+    "A file on the hard disk",
+    "The monitor screen",
+    "The keyboard (standard input stream)",
+    "A network connection"
+   ],
+   "answer": 2,
+   "explanation": "System.in is Java's standard input stream, which by default reads from the keyboard.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What exception does Java throw at runtime if the user enters 'abc' when the program calls sc.nextInt()?",
+   "options": [
+    "NullPointerException",
+    "NumberFormatException",
+    "InputMismatchException",
+    "ArrayIndexOutOfBoundsException"
+   ],
+   "answer": 2,
+   "explanation": "When the token in the input does not match the expected type for nextInt(), Java throws InputMismatchException.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "A student writes this code — sc.nextInt(); followed immediately by sc.nextLine(); — and finds that nextLine() returns an empty string. What is the most likely reason?",
+   "options": [
+    "nextLine() does not work after nextInt()",
+    "The newline character left by nextInt() is consumed by nextLine() before reading actual input",
+    "sc was not initialised properly",
+    "nextLine() always returns an empty string"
+   ],
+   "answer": 1,
+   "explanation": "nextInt() reads the number but leaves the newline character in the buffer. The immediately following nextLine() reads that leftover newline and returns an empty string.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which method is the correct one to read a decimal number such as 98.5 using Scanner?",
+   "options": [
+    "sc.nextFloat()",
+    "sc.nextDecimal()",
+    "sc.nextDouble()",
+    "sc.readDouble()"
+   ],
+   "answer": 2,
+   "explanation": "sc.nextDouble() reads a double-precision decimal value. sc.nextFloat() also exists but nextDouble() is more commonly used and precise. sc.readDouble() and sc.nextDecimal() do not exist.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain why sc.close() is called at the end of a program that uses Scanner, and what happens if you do not call it.",
+   "answer": "sc.close() releases the system resources (specifically the input stream) associated with the Scanner object. If you do not call it, in small programs nothing visibly bad happens, but it is considered poor practice because it may cause resource leaks in larger applications and can also trigger IDE warnings.",
+   "keywords": [
+    "resources",
+    "close",
+    "System.in",
+    "good practice",
+    "resource leak"
+   ],
+   "explanation": "Closing the Scanner is about responsible resource management. The Scanner wraps System.in; closing it signals that no more input will be read and the underlying stream can be released.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "What is the difference between sc.next() and sc.nextLine() in the Scanner class? Give an example scenario where each is appropriate.",
+   "answer": "sc.next() reads one token (word) and stops at any whitespace, so it is suitable for reading a single word like a username with no spaces. sc.nextLine() reads everything until the user presses Enter, including spaces, making it suitable for reading a full name like 'Rahul Kumar' or a sentence.",
+   "keywords": [
+    "whitespace",
+    "token",
+    "full line",
+    "spaces",
+    "Enter"
+   ],
+   "explanation": "Understanding this difference is important to avoid reading incomplete input when spaces are expected in the data.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "What is the exact output printed by the following code?\n\nScanner sc = new Scanner(System.in);\nint a = 5;\nint b = 3;\nSystem.out.println(a + b);\nsc.close();",
+   "answer": "8",
+   "explanation": "a + b is 5 + 3 = 8. println prints 8 followed by a newline. The Scanner is created but no input is actually read in this snippet, so it does not affect the output.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a complete Java program that asks the user to enter two integers, reads them using Scanner, and then prints their sum and product.",
+   "starter": "import java.util.Scanner;\n\npublic class SumProduct {\n    public static void main(String[] args) {\n        // Create Scanner object\n\n        // Read first integer\n\n        // Read second integer\n\n        // Print sum and product\n\n        // Close Scanner\n    }\n}",
+   "solution": "import java.util.Scanner;\n\npublic class SumProduct {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n\n        System.out.print(\"Enter first number: \");\n        int a = sc.nextInt();\n\n        System.out.print(\"Enter second number: \");\n        int b = sc.nextInt();\n\n        System.out.println(\"Sum: \" + (a + b));\n        System.out.println(\"Product: \" + (a * b));\n\n        sc.close();\n    }\n}",
+   "explanation": "A Scanner object is created with System.in to read from the keyboard. nextInt() is called twice to read two integers into variables a and b. The sum (a+b) and product (a*b) are calculated directly inside println and printed. Brackets around a+b ensure addition happens before string concatenation. Finally sc.close() releases the resource.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What is Scanner and Why Do We Need It?",
+    "steps": [
+     {
+      "say": "Hello everyone! Today we are going to learn how to take input from the user in Java using something called the Scanner class.",
+      "write": {
+       "kind": "heading",
+       "content": "Taking Input with Scanner"
+      }
+     },
+     {
+      "say": "Imagine you write a program that asks for a student's marks. You need a way to read what the user types on the keyboard. Scanner does exactly that.",
+      "write": {
+       "kind": "bullet",
+       "content": "Scanner reads keyboard input at runtime"
+      }
+     },
+     {
+      "say": "Scanner is not automatically available. It lives inside the java dot util package, so we have to import it first.",
+      "write": {
+       "kind": "bullet",
+       "content": "Located in: java.util package"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Setting Up Scanner — Import and Create",
+    "steps": [
+     {
+      "say": "The very first line of your program, before the class, must have this import statement.",
+      "write": {
+       "kind": "code",
+       "content": "import java.util.Scanner;"
+      }
+     },
+     {
+      "say": "Inside your main method, you create a Scanner object like this. System dot in tells Java to read from the keyboard.",
+      "write": {
+       "kind": "code",
+       "content": "Scanner sc = new Scanner(System.in);"
+      }
+     },
+     {
+      "say": "Think of this line as opening a door to the keyboard. The variable s c is just a name — you can call it anything you like.",
+      "write": {
+       "kind": "highlight",
+       "content": "System.in = keyboard input stream"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Reading Different Types of Input",
+    "steps": [
+     {
+      "say": "Now let us see the methods you use to actually read data. To read a whole number, use next int.",
+      "write": {
+       "kind": "code",
+       "content": "int age = sc.nextInt();"
+      }
+     },
+     {
+      "say": "To read a decimal number like a percentage, use next double.",
+      "write": {
+       "kind": "code",
+       "content": "double pct = sc.nextDouble();"
+      }
+     },
+     {
+      "say": "To read a full line of text that may include spaces, like a person's full name, use next line.",
+      "write": {
+       "kind": "code",
+       "content": "String name = sc.nextLine();"
+      }
+     },
+     {
+      "say": "Remember — next int reads a number, next line reads the entire line. Pick the method that matches your data type.",
+      "write": {
+       "kind": "bullet",
+       "content": "Match method to data type always"
+      }
+     }
+    ]
+   },
+   {
+    "title": "A Common Mistake — The Newline Flush Problem",
+    "steps": [
+     {
+      "say": "Here is a tricky problem many beginners face. When you call next int, it reads the number but leaves a hidden newline character behind in the buffer.",
+      "write": {
+       "kind": "text",
+       "content": "nextInt() leaves '\\n' in buffer"
+      }
+     },
+     {
+      "say": "If you then call next line right away, it picks up that leftover newline and gives you an empty string instead of the real input.",
+      "write": {
+       "kind": "code",
+       "content": "sc.nextInt();"
+      }
+     },
+     {
+      "say": "The fix is simple — add an extra next line call after next int to throw away that leftover newline before reading your string.",
+      "write": {
+       "kind": "code",
+       "content": "sc.nextLine(); // flush\nString s = sc.nextLine();"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us quickly recap what we learned today. First, always import java dot util dot Scanner at the top.",
+      "write": {
+       "kind": "bullet",
+       "content": "1. import java.util.Scanner;"
+      }
+     },
+     {
+      "say": "Second, create a Scanner object passing System dot in to connect it to the keyboard.",
+      "write": {
+       "kind": "bullet",
+       "content": "2. Scanner sc = new Scanner(System.in);"
+      }
+     },
+     {
+      "say": "Third, use the right method — next int, next double, or next line — based on the data type you need.",
+      "write": {
+       "kind": "bullet",
+       "content": "3. Use nextInt / nextDouble / nextLine"
+      }
+     },
+     {
+      "say": "And finally, always close the Scanner at the end using s c dot close. Great work today — practice writing a program that reads your name and age!",
+      "write": {
+       "kind": "bullet",
+       "content": "4. sc.close(); at the end"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

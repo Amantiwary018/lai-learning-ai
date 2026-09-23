@@ -1,0 +1,68 @@
+{
+ "subjects": [
+  {
+   "title": "Analog Electronics",
+   "chapters": [
+    {
+     "title": "Introduction to Diodes",
+     "topics": [
+      "Semiconductor Basics and P-N Junction",
+      "Diode Characteristics and I-V Curve",
+      "Rectifier Circuits",
+      "Zener Diodes and Voltage Regulation"
+     ]
+    },
+    {
+     "title": "Transistor Fundamentals",
+     "topics": [
+      "BJT Structure and Operation Modes",
+      "Common Emitter Configuration",
+      "Biasing and DC Operating Point",
+      "Introduction to MOSFETs"
+     ]
+    },
+    {
+     "title": "Amplifier Circuits",
+     "topics": [
+      "Small Signal Models and Gain",
+      "Common Emitter Amplifier Design",
+      "Frequency Response and Bandwidth",
+      "Feedback and Stability"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Digital Electronics",
+   "chapters": [
+    {
+     "title": "Number Systems and Logic Gates",
+     "topics": [
+      "Binary, Octal and Hexadecimal Systems",
+      "Basic Logic Gates: AND, OR, NOT",
+      "Compound Gates: NAND, NOR, XOR",
+      "Boolean Algebra and Simplification"
+     ]
+    },
+    {
+     "title": "Combinational Logic",
+     "topics": [
+      "Truth Tables and Logic Expressions",
+      "Karnaugh Maps",
+      "Multiplexers and Demultiplexers",
+      "Encoders and Decoders"
+     ]
+    },
+    {
+     "title": "Sequential Logic",
+     "topics": [
+      "Latches and Flip-Flops",
+      "Registers and Shift Registers",
+      "Counters and Timers",
+      "Introduction to Finite State Machines"
+     ]
+    }
+   ]
+  }
+ ]
+}

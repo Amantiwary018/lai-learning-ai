@@ -1,0 +1,341 @@
+{
+ "summary": "A structure in C is a user-defined data type that groups variables of different data types under a single name, making it easier to manage related data.",
+ "shortNotes": [
+  "A structure is declared using the `struct` keyword followed by a tag name and member list inside curly braces.",
+  "Members of a structure can be of different data types such as int, float, char, or even other structures.",
+  "Structure variables are accessed using the dot operator (.) for normal variables and arrow operator (->) for pointers.",
+  "Memory is allocated for all members of a structure; the total size is at least the sum of sizes of all members (may be more due to padding).",
+  "Structures can be passed to functions either by value (a copy is made) or by reference (using a pointer).",
+  "The `typedef` keyword can be used with structures to create a shorter alias, avoiding repeated use of the `struct` keyword."
+ ],
+ "detailed": {
+  "explanation": "A **structure** in C lets you group together variables of different types under one name. For example, a student has a name (string), roll number (int), and marks (float). Instead of keeping three separate variables, you can bundle them into a single `struct Student`. This keeps your code organized and logical.\n\nYou define a structure using the `struct` keyword, a tag name, and a list of **members** inside curly braces, ending with a semicolon. Once defined, you can create variables of that structure type just like you create `int` or `float` variables. For example: `struct Student s1;` creates a variable `s1` of type `struct Student`.\n\nTo access the members of a structure variable, you use the **dot operator** (`.`). For example, `s1.rollNo = 10;` sets the roll number. If you have a pointer to a structure, you use the **arrow operator** (`->`) instead: `ptr->rollNo = 10;`. Both do the same job but apply in different situations.\n\nStructures can be **nested**, meaning a structure can contain another structure as a member. They can also be used inside arrays — an array of structures is very useful when handling records of multiple students, employees, or products. You can also pass structures to functions, either by value or by pointer.\n\nUsing `typedef` with structures is a popular shortcut. Instead of writing `struct Student s1;` every time, you can define `typedef struct { int rollNo; float marks; } Student;` and then simply write `Student s1;`. This makes the code cleaner and easier to read.",
+  "definitions": [
+   {
+    "term": "Structure",
+    "meaning": "A user-defined data type in C that groups variables of different types under a single name using the `struct` keyword."
+   },
+   {
+    "term": "Member",
+    "meaning": "An individual variable declared inside a structure, which can be of any valid C data type."
+   },
+   {
+    "term": "Dot Operator (.)",
+    "meaning": "The operator used to access a member of a structure variable directly, e.g., `s1.rollNo`."
+   },
+   {
+    "term": "Arrow Operator (->)",
+    "meaning": "The operator used to access a member of a structure through a pointer, e.g., `ptr->rollNo`."
+   },
+   {
+    "term": "typedef",
+    "meaning": "A keyword used to create an alias for an existing data type, often used with structures to avoid writing `struct` repeatedly."
+   },
+   {
+    "term": "Nested Structure",
+    "meaning": "A structure that contains another structure as one of its members."
+   },
+   {
+    "term": "Structure Padding",
+    "meaning": "Extra bytes added by the compiler between structure members to align data in memory for faster access."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "The `struct` keyword is mandatory when declaring a structure type and its variables (unless `typedef` is used).",
+   "All members of a structure are stored in contiguous memory locations, but padding may increase the total size.",
+   "Use `sizeof(struct TagName)` to find the memory occupied by a structure — this is a common exam question.",
+   "The dot operator (`.`) is used with structure variables; the arrow operator (`->`) is used with structure pointers.",
+   "Structures cannot have functions as members in C (unlike C++ classes), only data members.",
+   "An array of structures is declared as: `struct Student arr[50];` — useful for storing multiple records.",
+   "When a structure is passed to a function by value, changes inside the function do NOT affect the original; use pointers to modify the original.",
+   "Structures can be initialized at the time of declaration: `struct Student s1 = {1, \"Rahul\", 85.5};`"
+  ]
+ },
+ "codeExample": {
+  "language": "c",
+  "code": "#include <stdio.h>\n#include <string.h>\n\n// Define a structure for a Student\nstruct Student {\n    int rollNo;\n    char name[50];\n    float marks;\n};\n\n// Function to display student details\nvoid display(struct Student s) {\n    printf(\"Roll No : %d\\n\", s.rollNo);\n    printf(\"Name    : %s\\n\", s.name);\n    printf(\"Marks   : %.2f\\n\", s.marks);\n}\n\nint main() {\n    // Declare and initialize a structure variable\n    struct Student s1;\n    s1.rollNo = 101;\n    strcpy(s1.name, \"Priya\");\n    s1.marks = 92.5;\n\n    printf(\"--- Student Details ---\\n\");\n    display(s1);\n\n    // Using a pointer to structure\n    struct Student *ptr = &s1;\n    printf(\"\\nAccessing via pointer:\\n\");\n    printf(\"Roll No : %d\\n\", ptr->rollNo);\n    printf(\"Name    : %s\\n\", ptr->name);\n\n    // Array of structures\n    struct Student class[2];\n    class[0].rollNo = 102;\n    strcpy(class[0].name, \"Amit\");\n    class[0].marks = 78.0;\n\n    class[1].rollNo = 103;\n    strcpy(class[1].name, \"Sneha\");\n    class[1].marks = 88.5;\n\n    printf(\"\\n--- Class Records ---\\n\");\n    for (int i = 0; i < 2; i++) {\n        display(class[i]);\n        printf(\"\\n\");\n    }\n\n    return 0;\n}",
+  "explanation": "Line 1: Include stdio.h for input/output functions.\nLine 2: Include string.h for strcpy function.\nLines 5-9: Define a structure `Student` with three members: rollNo (int), name (char array), and marks (float).\nLines 12-17: Function `display` takes a structure variable by value and prints its members using the dot operator.\nLines 20-23: In main, declare a structure variable `s1` and assign values to its members using the dot operator.\nLine 22: Use `strcpy` to copy a string into the `name` member (direct assignment with = does not work for char arrays).\nLines 25-26: Call `display` to print student details.\nLine 29: Declare a pointer `ptr` of type `struct Student` and point it to `s1`.\nLines 31-32: Access members through the pointer using the arrow operator `->`.\nLines 35-44: Declare an array of two `Student` structures and fill each one's members.\nLines 46-50: Loop through the array and call `display` for each student record."
+ },
+ "commonMistakes": [
+  "Using `=` to copy a string into a char array member (e.g., `s1.name = \"Rahul\";`) — this is invalid in C; always use `strcpy(s1.name, \"Rahul\");` instead.",
+  "Using the dot operator (`.`) with a pointer to a structure instead of the arrow operator (`->`), e.g., writing `ptr.rollNo` when `ptr` is a pointer — the correct form is `ptr->rollNo`.",
+  "Forgetting the semicolon at the end of the structure definition — `struct Student { ... };` must end with `;`, otherwise the compiler throws an error."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Which keyword is used to define a structure in C?",
+   "options": [
+    "union",
+    "struct",
+    "typedef",
+    "record"
+   ],
+   "answer": 1,
+   "explanation": "The `struct` keyword is used to define a structure in C. `union` is a different user-defined type, `typedef` creates aliases, and `record` is not a C keyword.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which operator is used to access a member of a structure through a pointer?",
+   "options": [
+    ".",
+    "::",
+    "->",
+    "&"
+   ],
+   "answer": 2,
+   "explanation": "The arrow operator `->` is used to access structure members via a pointer. The dot operator `.` is used with normal structure variables.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What will `sizeof(struct Point)` return for `struct Point { int x; int y; };` on a system where int is 4 bytes?",
+   "options": [
+    "2",
+    "4",
+    "8",
+    "16"
+   ],
+   "answer": 2,
+   "explanation": "The structure has two int members, each 4 bytes, so the total size is 4 + 4 = 8 bytes (assuming no extra padding between two ints of same size).",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following correctly initializes a structure variable at the time of declaration?",
+   "options": [
+    "struct Student s1 = {101, \"Rahul\", 85.5};",
+    "struct Student s1 == {101, \"Rahul\", 85.5};",
+    "Student s1 = (101, \"Rahul\", 85.5);",
+    "struct s1 = {101, \"Rahul\", 85.5};"
+   ],
+   "answer": 0,
+   "explanation": "Structures are initialized using `=` followed by values in curly braces in the same order as the members are declared. The tag name must be used after `struct`.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the purpose of `typedef` when used with a structure?",
+   "options": [
+    "It allocates memory for the structure automatically",
+    "It creates an alias so you can use the structure without writing `struct` each time",
+    "It makes the structure read-only",
+    "It allows the structure to have function members"
+   ],
+   "answer": 1,
+   "explanation": "`typedef` creates a new name (alias) for the structure type. For example, `typedef struct { int x; } Point;` lets you write `Point p;` instead of `struct Point p;`.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "When a structure is passed to a function by value, what happens to the original structure if the function modifies it?",
+   "options": [
+    "The original structure is also modified",
+    "The program crashes",
+    "The original structure remains unchanged",
+    "The structure is deleted after the function returns"
+   ],
+   "answer": 2,
+   "explanation": "Passing by value creates a copy of the structure inside the function. Any changes made to the copy do not affect the original variable in the calling function.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "What is a nested structure in C? Give a brief example.",
+   "answer": "A nested structure is a structure that contains another structure as one of its members. For example, a `struct Date` can be a member inside `struct Employee`, so each employee record stores a date of joining as a structure.",
+   "keywords": [
+    "nested",
+    "structure inside structure",
+    "member",
+    "struct"
+   ],
+   "explanation": "Nesting lets you model real-world hierarchies. For example, an address (street, city, pin) can be a sub-structure inside an Employee structure, keeping related data grouped together.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Why can't you use the assignment operator (=) to copy a string into a char array member of a structure? What should you use instead?",
+   "answer": "In C, arrays cannot be assigned using `=` after declaration; it only works for single characters or at initialization. For copying strings into char array members, you must use `strcpy()` from the `string.h` library.",
+   "keywords": [
+    "strcpy",
+    "char array",
+    "assignment",
+    "string.h"
+   ],
+   "explanation": "In C, an array name is a constant pointer, so you cannot reassign it. The `strcpy` function copies characters one by one from the source string to the destination array.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "Consider: struct Box { char a; int b; char c; }; On a system where char is 1 byte and int is 4 bytes, and the compiler aligns int on a 4-byte boundary, what is the output of printf(\"%lu\", sizeof(struct Box)); ?",
+   "answer": "12",
+   "explanation": "With padding: `a` takes 1 byte + 3 bytes padding = 4 bytes; `b` takes 4 bytes; `c` takes 1 byte + 3 bytes padding = 4 bytes. Total = 12 bytes. This is a classic structure padding example.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a C program that defines a structure `Rectangle` with two float members `length` and `width`. In main, create a structure variable, read length and width from the user, and print the area and perimeter of the rectangle.",
+   "starter": "#include <stdio.h>\n\n// Define structure Rectangle here\n\nint main() {\n    // Declare variable, read input, print area and perimeter\n    return 0;\n}",
+   "solution": "#include <stdio.h>\n\nstruct Rectangle {\n    float length;\n    float width;\n};\n\nint main() {\n    struct Rectangle r;\n    printf(\"Enter length: \");\n    scanf(\"%f\", &r.length);\n    printf(\"Enter width: \");\n    scanf(\"%f\", &r.width);\n\n    float area = r.length * r.width;\n    float perimeter = 2 * (r.length + r.width);\n\n    printf(\"Area      : %.2f\\n\", area);\n    printf(\"Perimeter : %.2f\\n\", perimeter);\n\n    return 0;\n}",
+   "explanation": "First, define `struct Rectangle` with `length` and `width` as float members. In `main`, declare a variable `r` of this type. Use `scanf` with `&r.length` and `&r.width` to read values. Calculate area as length times width, and perimeter as 2 times the sum of length and width. Print both using `printf` with `%.2f` format for two decimal places.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What is a Structure?",
+    "steps": [
+     {
+      "say": "Hello everyone! Today we are going to learn about Structures in C. Structures are one of the most useful tools in C programming.",
+      "write": {
+       "kind": "heading",
+       "content": "Structures in C"
+      }
+     },
+     {
+      "say": "Imagine you want to store information about a student. A student has a roll number, a name, and marks. These are three different types of data.",
+      "write": {
+       "kind": "bullet",
+       "content": "Student: rollNo, name, marks"
+      }
+     },
+     {
+      "say": "Instead of creating three separate variables, a structure lets you bundle all of them under one name. That is the whole idea behind a structure.",
+      "write": {
+       "kind": "text",
+       "content": "Group different data types\nunder ONE name"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Declaring a Structure",
+    "steps": [
+     {
+      "say": "Let us see how to write a structure in C. We use the struct keyword, then give it a name, and list the members inside curly braces.",
+      "write": {
+       "kind": "code",
+       "content": "struct Student {"
+      }
+     },
+     {
+      "say": "Inside the structure, we list the members. Here we have roll number as int, name as a char array, and marks as float.",
+      "write": {
+       "kind": "code",
+       "content": "  int rollNo;\n  char name[50];\n  float marks;"
+      }
+     },
+     {
+      "say": "We close the curly brace and put a semicolon at the end. This semicolon is very important and a common place to make mistakes.",
+      "write": {
+       "kind": "code",
+       "content": "};"
+      }
+     },
+     {
+      "say": "Now to create a variable of this type, we write struct Student and then the variable name. This creates a variable s1 in memory.",
+      "write": {
+       "kind": "code",
+       "content": "struct Student s1;"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Accessing Members using Dot and Arrow Operators",
+    "steps": [
+     {
+      "say": "To put values into the members of a structure variable, we use the dot operator. Write the variable name, then a dot, then the member name.",
+      "write": {
+       "kind": "code",
+       "content": "s1.rollNo = 101;"
+      }
+     },
+     {
+      "say": "For the name member, we cannot use equals directly because name is a char array. We must use the strcpy function.",
+      "write": {
+       "kind": "code",
+       "content": "strcpy(s1.name, \"Priya\");"
+      }
+     },
+     {
+      "say": "Now if we have a pointer to the structure, we use the arrow operator instead of the dot. These two lines do exactly the same thing.",
+      "write": {
+       "kind": "code",
+       "content": "struct Student *ptr = &s1;\nptr->rollNo = 101;"
+      }
+     },
+     {
+      "say": "Remember this rule: dot for normal variables, arrow for pointers. This comes up in almost every exam on structures.",
+      "write": {
+       "kind": "highlight",
+       "content": "Variable  ->  use dot (.)\nPointer   ->  use arrow (->)"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Array of Structures and typedef",
+    "steps": [
+     {
+      "say": "You can create an array of structures to store records for many students. Here we create an array for 50 students.",
+      "write": {
+       "kind": "code",
+       "content": "struct Student class[50];"
+      }
+     },
+     {
+      "say": "Access each student using the index and dot operator. For example, class of index zero dot rollNo gives the roll number of the first student.",
+      "write": {
+       "kind": "code",
+       "content": "class[0].rollNo = 101;"
+      }
+     },
+     {
+      "say": "Using typedef, we can give the structure a shorter alias. After this, we can write Student directly without the struct keyword every time.",
+      "write": {
+       "kind": "code",
+       "content": "typedef struct {\n  int rollNo;\n  float marks;\n} Student;"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us quickly recap what we learned today. A structure groups different data types under one name using the struct keyword.",
+      "write": {
+       "kind": "bullet",
+       "content": "struct groups different types"
+      }
+     },
+     {
+      "say": "We use the dot operator to access members of a normal structure variable, and the arrow operator for pointers.",
+      "write": {
+       "kind": "bullet",
+       "content": "dot (.) for variable\narrow (->) for pointer"
+      }
+     },
+     {
+      "say": "Always end the structure definition with a semicolon, and use strcpy for copying strings into char array members.",
+      "write": {
+       "kind": "bullet",
+       "content": "End struct with ;\nUse strcpy for strings"
+      }
+     },
+     {
+      "say": "Structures make your programs cleaner and easier to manage, especially when dealing with real-world records like students or employees. Great work today!",
+      "write": {
+       "kind": "highlight",
+       "content": "Structures = clean,\norganized real-world data"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

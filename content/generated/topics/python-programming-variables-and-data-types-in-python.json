@@ -1,0 +1,354 @@
+{
+ "summary": "Variables are named containers that store data in Python, and every value belongs to a specific data type such as integer, float, string, or boolean.",
+ "shortNotes": [
+  "A variable is a name that points to a value stored in memory; no declaration keyword is needed in Python.",
+  "Python has four core built-in data types: int, float, str, and bool.",
+  "Variable names must start with a letter or underscore, not a digit, and cannot be a Python keyword.",
+  "Python is dynamically typed, meaning a variable's type is set automatically when you assign a value.",
+  "Use the built-in type() function to check what data type a variable holds.",
+  "You can assign multiple variables in one line using syntax like a, b, c = 1, 2, 3."
+ ],
+ "detailed": {
+  "explanation": "A **variable** in Python is simply a label you attach to a value so you can refer to it later in your program. When you write `age = 20`, Python creates the value `20` in memory and makes the name `age` point to it. You do not need to declare the type in advance — Python figures it out on its own.\n\nPython's most commonly used **data types** are: `int` (whole numbers like `5` or `-3`), `float` (decimal numbers like `3.14`), `str` (text wrapped in quotes like `\"Hello\"`), and `bool` (either `True` or `False`). Choosing the right type matters because it controls what operations you can perform.\n\nBecause Python is **dynamically typed**, the same variable can hold different types at different points in your code. For example, `x = 10` makes `x` an integer, but later writing `x = \"ten\"` makes it a string. This is flexible but can cause bugs if you are not careful.\n\nYou can always verify a variable's current type using the built-in `type()` function: `type(3.14)` returns `<class 'float'>`. This is very useful when debugging or learning. You can also convert between types using `int()`, `float()`, and `str()` — a process called **type casting**.\n\nGood variable naming improves code readability. Use lowercase words separated by underscores (called **snake_case**), such as `student_name` or `total_marks`. Avoid single-letter names except in simple loops, and never use Python reserved words like `for`, `if`, or `class` as variable names.",
+  "definitions": [
+   {
+    "term": "Variable",
+    "meaning": "A named location in memory that stores a value which can be used and changed during program execution."
+   },
+   {
+    "term": "Data Type",
+    "meaning": "A classification that tells Python what kind of value a variable holds and what operations are valid on it."
+   },
+   {
+    "term": "int",
+    "meaning": "An integer data type that stores whole numbers, both positive and negative, with no decimal point."
+   },
+   {
+    "term": "float",
+    "meaning": "A floating-point data type that stores numbers with a decimal point, such as 3.14 or -0.5."
+   },
+   {
+    "term": "str",
+    "meaning": "A string data type that stores a sequence of characters enclosed in single or double quotes."
+   },
+   {
+    "term": "bool",
+    "meaning": "A boolean data type that holds only one of two values: True or False."
+   },
+   {
+    "term": "Dynamic Typing",
+    "meaning": "A feature of Python where the data type of a variable is determined automatically at runtime based on the assigned value."
+   },
+   {
+    "term": "Type Casting",
+    "meaning": "The process of converting a value from one data type to another using functions like int(), float(), or str()."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "Python does NOT require you to declare a variable's type — just assign a value and Python handles the rest.",
+   "Variable names are case-sensitive: `Score`, `score`, and `SCORE` are three different variables.",
+   "The type() function is your best friend for debugging data type issues in exams and real projects.",
+   "Integer division using // always returns an int, while regular division / always returns a float even if the result is whole.",
+   "String concatenation uses + but you cannot concatenate a str and an int directly — you must cast first: str(age).",
+   "Boolean values True and False are capitalised; writing true or false will cause a NameError.",
+   "Multiple assignment in one line is valid: x, y = 10, 20 — Python matches left and right side by position.",
+   "Exam tip: If asked what type() returns for 5.0, the answer is float, not int, because of the decimal point."
+  ]
+ },
+ "codeExample": {
+  "language": "python",
+  "code": "# Variables and Data Types in Python\n\n# Assigning variables of different types\nstudent_name = \"Riya\"          # str\nage = 20                        # int\npercentage = 87.5               # float\nis_passed = True                # bool\n\n# Printing values and their types\nprint(\"Name:\", student_name)\nprint(\"Type of name:\", type(student_name))\n\nprint(\"Age:\", age)\nprint(\"Type of age:\", type(age))\n\nprint(\"Percentage:\", percentage)\nprint(\"Type of percentage:\", type(percentage))\n\nprint(\"Passed:\", is_passed)\nprint(\"Type of is_passed:\", type(is_passed))\n\n# Type casting example\nage_as_string = str(age)        # int -> str\nprint(\"Age as string: '\" + age_as_string + \"'\")\n\n# Multiple assignment\nx, y, z = 5, 10, 15\nprint(\"x =\", x, \"| y =\", y, \"| z =\", z)\n\n# Dynamic typing demonstration\nvalue = 100\nprint(\"value is\", type(value))\nvalue = \"hundred\"\nprint(\"value is now\", type(value))",
+  "explanation": "Line 1: A comment explaining the program's purpose.\nLines 4-7: Four variables are created — one for each major data type. Python detects the type from the assigned value automatically.\nLines 10-11: print() displays the student_name value, and type() reveals it is a str (string).\nLines 13-14: Same pattern for age; type() confirms it is an int.\nLines 16-17: percentage stores a decimal number so type() returns float.\nLines 19-20: is_passed holds True so type() returns bool.\nLines 23-24: str(age) converts the integer 20 into the string '20', allowing it to be joined with other strings using +.\nLines 27-28: Multiple assignment lets you set x, y, and z in one compact line; Python matches values left to right.\nLines 31-34: Demonstrates dynamic typing — value starts as an int, then is reassigned a string; type() reflects the change each time."
+ },
+ "commonMistakes": [
+  "Writing boolean values as lowercase true or false instead of True or False, which causes a NameError because Python treats them as undefined variable names.",
+  "Trying to concatenate a string and an integer directly, for example print('Age: ' + age), which raises a TypeError — you must convert with str(age) first.",
+  "Starting a variable name with a digit, for example 2marks = 90, which causes a SyntaxError; variable names must begin with a letter or underscore."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "What will type(7.0) return in Python?",
+   "options": [
+    "<class 'int'>",
+    "<class 'float'>",
+    "<class 'str'>",
+    "<class 'bool'>"
+   ],
+   "answer": 1,
+   "explanation": "Even though 7.0 looks like a whole number, the decimal point makes Python treat it as a float, not an int.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following is a valid Python variable name?",
+   "options": [
+    "2ndYear",
+    "for",
+    "_total_marks",
+    "total-marks"
+   ],
+   "answer": 2,
+   "explanation": "_total_marks is valid because it starts with an underscore. 2ndYear starts with a digit, for is a reserved keyword, and total-marks uses a hyphen which is not allowed.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the output of the following code?\nx = 5\nx = 'five'\nprint(type(x))",
+   "options": [
+    "<class 'int'>",
+    "<class 'float'>",
+    "<class 'str'>",
+    "TypeError"
+   ],
+   "answer": 2,
+   "explanation": "Python is dynamically typed. After the second assignment x = 'five', the variable x now holds a string, so type(x) returns <class 'str'>.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which function is used to convert an integer to a string in Python?",
+   "options": [
+    "int()",
+    "string()",
+    "str()",
+    "convert()"
+   ],
+   "answer": 2,
+   "explanation": "The built-in str() function converts a value to its string representation. string() and convert() do not exist in standard Python.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What will be the output of: a, b = 10, 20 followed by print(a, b)?",
+   "options": [
+    "10 10",
+    "20 10",
+    "10 20",
+    "Error"
+   ],
+   "answer": 2,
+   "explanation": "Python multiple assignment maps left-to-right: a gets 10 and b gets 20. print(a, b) outputs 10 20 with a space between them.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which data type would Python assign to the value True?",
+   "options": [
+    "int",
+    "str",
+    "bool",
+    "float"
+   ],
+   "answer": 2,
+   "explanation": "True and False are Python's boolean literals and belong to the bool data type, not int or str.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain what dynamic typing means in Python and give one example.",
+   "answer": "Dynamic typing means Python automatically determines the data type of a variable based on the value assigned at runtime, without the programmer needing to declare the type. For example, x = 10 makes x an integer, but reassigning x = 'hello' makes it a string.",
+   "keywords": [
+    "automatic",
+    "runtime",
+    "assigned",
+    "type",
+    "reassign"
+   ],
+   "explanation": "A strong answer should mention that the type is set automatically when a value is assigned and that the type can change if a new value of a different type is assigned.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "What is type casting in Python? Name two built-in functions used for type casting.",
+   "answer": "Type casting is the process of converting a value from one data type to another. Two built-in functions used for this are int(), which converts a value to an integer, and str(), which converts a value to a string.",
+   "keywords": [
+    "converting",
+    "data type",
+    "int()",
+    "str()",
+    "float()"
+   ],
+   "explanation": "The answer should define type casting as conversion between types and mention at least two of the three common casting functions: int(), float(), and str().",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "What is the exact output printed by the following code?\nx = 10\ny = 3\nprint(x / y)",
+   "answer": "3.3333333333333335",
+   "explanation": "The / operator in Python 3 always performs true division and returns a float. 10 divided by 3 gives 3.3333333333333335 due to floating-point representation in Python.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a Python program that stores a student's name (string), roll number (integer), and CGPA (float) in separate variables, then prints each value along with its data type using the type() function.",
+   "starter": "# Store student details\nstudent_name = \nroll_number = \ncgpa = \n\n# Print values and types\n",
+   "solution": "# Store student details\nstudent_name = \"Amit Kumar\"\nroll_number = 101\ncgpa = 8.75\n\n# Print values and types\nprint(\"Name:\", student_name, \"| Type:\", type(student_name))\nprint(\"Roll Number:\", roll_number, \"| Type:\", type(roll_number))\nprint(\"CGPA:\", cgpa, \"| Type:\", type(cgpa))",
+   "explanation": "Assign a string value to student_name, an integer to roll_number, and a float to cgpa. Then use print() combined with type() for each variable to display both the value and its data type. This demonstrates that Python assigns types automatically based on the literal value used.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "Welcome and Topic Introduction",
+    "steps": [
+     {
+      "say": "Hello everyone, welcome to this lesson on Variables and Data Types in Python. This is one of the most fundamental topics you will need as a Python programmer.",
+      "write": {
+       "kind": "heading",
+       "content": "Variables and Data Types in Python"
+      }
+     },
+     {
+      "say": "Think of a variable like a labelled box where you can keep some information, and data types tell Python what kind of information is inside the box.",
+      "write": {
+       "kind": "bullet",
+       "content": "Variable = a named container for a value"
+      }
+     },
+     {
+      "say": "In Python you do not need to declare the type in advance. You simply write the name, an equals sign, and the value.",
+      "write": {
+       "kind": "bullet",
+       "content": "No type declaration needed in Python"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Creating Variables and the Four Core Types",
+    "steps": [
+     {
+      "say": "Let us look at the four most common data types. First we have integer for whole numbers.",
+      "write": {
+       "kind": "code",
+       "content": "age = 20"
+      }
+     },
+     {
+      "say": "Next is float for numbers with a decimal point, like a percentage or a CGPA value.",
+      "write": {
+       "kind": "code",
+       "content": "cgpa = 8.75"
+      }
+     },
+     {
+      "say": "Then we have string for text, which you wrap in quotes, and bool for true or false values.",
+      "write": {
+       "kind": "code",
+       "content": "name = \"Riya\"\nis_passed = True"
+      }
+     },
+     {
+      "say": "So the four types are int, float, str, and bool. These cover the vast majority of data you will work with as a beginner.",
+      "write": {
+       "kind": "bullet",
+       "content": "int | float | str | bool"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Checking Types and Type Casting",
+    "steps": [
+     {
+      "say": "Python gives us a built-in function called type that tells us exactly what data type a variable holds. Let us see it in action.",
+      "write": {
+       "kind": "code",
+       "content": "print(type(age))"
+      }
+     },
+     {
+      "say": "This will print class int on the screen, confirming that age is an integer. You can do this for any variable.",
+      "write": {
+       "kind": "text",
+       "content": "Output: <class 'int'>"
+      }
+     },
+     {
+      "say": "Sometimes you need to convert one type to another. This is called type casting. For example, to join age with a string you must first convert it.",
+      "write": {
+       "kind": "code",
+       "content": "age_str = str(age)"
+      }
+     },
+     {
+      "say": "The three main casting functions are str, int, and float. Use them whenever you need to switch between types safely.",
+      "write": {
+       "kind": "bullet",
+       "content": "str()  int()  float()"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Variable Naming Rules",
+    "steps": [
+     {
+      "say": "Before we wrap up, let us quickly cover the rules for naming your variables so you avoid common errors.",
+      "write": {
+       "kind": "heading",
+       "content": "Variable Naming Rules"
+      }
+     },
+     {
+      "say": "A variable name must start with a letter or an underscore, never with a digit.",
+      "write": {
+       "kind": "bullet",
+       "content": "Start with a letter or underscore _"
+      }
+     },
+     {
+      "say": "Names are case sensitive, so score and Score are two completely different variables. Also, never use reserved words like for or if as names.",
+      "write": {
+       "kind": "bullet",
+       "content": "Case sensitive | No keywords (for, if...)"
+      }
+     },
+     {
+      "say": "The recommended style in Python is snake case, where you use lowercase words joined by underscores, like student name or total marks.",
+      "write": {
+       "kind": "bullet",
+       "content": "Use snake_case: student_name"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Great work today. Let us do a fast recap of everything we covered in this lesson.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap"
+      }
+     },
+     {
+      "say": "A variable is a named container. Python sets its type automatically from the value you assign — that is called dynamic typing.",
+      "write": {
+       "kind": "bullet",
+       "content": "Variable stores a value; type is automatic"
+      }
+     },
+     {
+      "say": "The four core types are int, float, str, and bool. Use the type function to check, and str, int, or float to cast.",
+      "write": {
+       "kind": "bullet",
+       "content": "int | float | str | bool | type() | casting"
+      }
+     },
+     {
+      "say": "Follow naming rules: start with a letter or underscore, keep it lowercase with underscores, and avoid keywords. See you in the next lesson!",
+      "write": {
+       "kind": "bullet",
+       "content": "Names: snake_case, no keywords, no digits first"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,360 @@
+{
+ "summary": "Loops in Python allow you to repeatedly execute a block of code using `for` and `while` statements, making it easy to automate repetitive tasks.",
+ "shortNotes": [
+  "A `for` loop iterates over a sequence such as a list, string, or range of numbers.",
+  "A `while` loop keeps running as long as a given condition remains True.",
+  "The `range(start, stop, step)` function generates a sequence of numbers for use in loops.",
+  "Use `break` to exit a loop immediately and `continue` to skip the current iteration.",
+  "Loops can be nested — one loop placed inside another — to handle multi-dimensional problems.",
+  "An infinite loop occurs when the loop condition never becomes False; always ensure a proper exit condition."
+ ],
+ "detailed": {
+  "explanation": "A loop is a control flow structure that lets you run a block of code multiple times without rewriting it. Python provides two main types of loops: the `for` loop and the `while` loop. They save time and reduce errors when you need to process collections of data or repeat actions a certain number of times.\n\nThe `for` loop is used to iterate over any sequence — a list, a tuple, a string, or a range of numbers. The syntax is `for variable in sequence:` followed by an indented block. For example, `for i in range(5):` will run the block five times with `i` taking values 0, 1, 2, 3, and 4. The `range()` function is very commonly used here; `range(start, stop, step)` gives you fine control over the sequence of numbers.\n\nThe `while` loop runs its block as long as a condition is `True`. The syntax is `while condition:` followed by an indented block. You must make sure something inside the loop eventually makes the condition `False`, otherwise the program will run forever — this is called an infinite loop.\n\nPython also provides two special keywords to control loop execution. `break` immediately exits the loop, while `continue` skips the rest of the current iteration and jumps back to the top of the loop. Both work inside `for` and `while` loops.\n\nLoops can be placed inside other loops — this is called nesting. A nested loop is useful for working with tables, matrices, or any problem that has two levels of repetition. Be careful with nested loops as they can slow your program down if the sequences are very large.",
+  "definitions": [
+   {
+    "term": "for loop",
+    "meaning": "A loop that iterates over each item in a sequence (list, string, range, etc.) one by one."
+   },
+   {
+    "term": "while loop",
+    "meaning": "A loop that repeats its block of code as long as a specified condition evaluates to True."
+   },
+   {
+    "term": "range()",
+    "meaning": "A built-in Python function that generates a sequence of integers, commonly used with for loops."
+   },
+   {
+    "term": "break",
+    "meaning": "A keyword that immediately terminates the loop and transfers control to the statement after the loop."
+   },
+   {
+    "term": "continue",
+    "meaning": "A keyword that skips the remaining statements in the current iteration and moves to the next iteration."
+   },
+   {
+    "term": "infinite loop",
+    "meaning": "A loop whose condition never becomes False, causing the program to run endlessly."
+   },
+   {
+    "term": "nested loop",
+    "meaning": "A loop that is placed inside another loop, allowing iteration over multi-dimensional structures."
+   },
+   {
+    "term": "loop variable",
+    "meaning": "The variable in a for loop that takes the value of each element in the sequence during each iteration."
+   }
+  ],
+  "formulas": [
+   {
+    "name": "range with start, stop, step",
+    "expression": "range(start, stop, step)",
+    "note": "Generates numbers from start up to (but not including) stop, incrementing by step each time. Default start is 0 and default step is 1."
+   }
+  ],
+  "points": [
+   "The `for` loop is best when you know in advance how many times you want to iterate.",
+   "The `while` loop is best when the number of iterations depends on a condition that changes during execution.",
+   "In `range(stop)`, the stop value is EXCLUDED — `range(5)` gives 0,1,2,3,4, not 5.",
+   "`break` exits the entire loop; `continue` only skips the current iteration.",
+   "Always update the loop variable or condition inside a `while` loop to avoid infinite loops.",
+   "Python uses indentation (4 spaces or 1 tab) to define the loop body — incorrect indentation causes errors.",
+   "A `for` loop can also have an `else` clause that runs after the loop finishes normally (without a `break`).",
+   "Nested loops multiply the number of iterations — two loops of 10 each means 100 total iterations."
+  ]
+ },
+ "codeExample": {
+  "language": "python",
+  "code": "# ---- Loops in Python: Complete Example ----\n\n# 1. Basic for loop using range\nprint(\"Counting from 1 to 5:\")\nfor i in range(1, 6):\n    print(i)\n\n# 2. for loop iterating over a list\nfruits = [\"apple\", \"banana\", \"mango\"]\nprint(\"\\nFruits in the list:\")\nfor fruit in fruits:\n    print(fruit)\n\n# 3. while loop\nprint(\"\\nCountdown:\")\ncount = 5\nwhile count > 0:\n    print(count)\n    count -= 1\nprint(\"Go!\")\n\n# 4. Using break\nprint(\"\\nSearch for mango:\")\nfor fruit in fruits:\n    if fruit == \"mango\":\n        print(\"Found mango! Stopping.\")\n        break\n    print(\"Not mango:\", fruit)\n\n# 5. Using continue\nprint(\"\\nSkip banana:\")\nfor fruit in fruits:\n    if fruit == \"banana\":\n        continue\n    print(fruit)\n\n# 6. Nested loop — multiplication table (2 and 3)\nprint(\"\\nMini multiplication table:\")\nfor row in range(2, 4):\n    for col in range(1, 6):\n        print(row, \"x\", col, \"=\", row * col)",
+  "explanation": "Line 1: Comment describing the program.\nLine 3-5: A for loop using range(1,6) counts from 1 to 5 (6 is excluded). Each value of i is printed.\nLine 7-10: A for loop iterates directly over the list 'fruits'. The variable 'fruit' holds each element in turn.\nLine 12-17: A while loop starts with count=5. It prints count and decreases it by 1 each iteration. When count reaches 0, the condition is False and the loop stops. 'Go!' prints after the loop.\nLine 19-24: A for loop searches for 'mango'. When found, break exits the loop immediately; the remaining fruits are not checked.\nLine 26-29: A for loop uses continue to skip 'banana'. When fruit equals 'banana', continue jumps to the next iteration without printing it.\nLine 31-34: A nested loop prints a mini multiplication table for rows 2 and 3, each multiplied by columns 1 through 5."
+ },
+ "commonMistakes": [
+  "Using `range(1, 5)` expecting it to include 5, but it only generates 1, 2, 3, 4 — the stop value is always excluded.",
+  "Forgetting to update the loop variable inside a `while` loop (e.g., not writing `count -= 1`), which creates an infinite loop that freezes the program.",
+  "Incorrect indentation of the loop body — in Python, the statements inside the loop MUST be indented consistently; mixing spaces and tabs or wrong indentation level causes an IndentationError or logic errors."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "How many times will the following loop execute?\n\nfor i in range(3, 9, 2):\n    print(i)",
+   "options": [
+    "3 times",
+    "6 times",
+    "2 times",
+    "4 times"
+   ],
+   "answer": 0,
+   "explanation": "range(3, 9, 2) generates 3, 5, 7 — three values. The loop runs once for each value, so it executes 3 times.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which keyword is used to skip the current iteration of a loop and move to the next one?",
+   "options": [
+    "break",
+    "pass",
+    "continue",
+    "exit"
+   ],
+   "answer": 2,
+   "explanation": "`continue` skips the rest of the current iteration and goes back to the loop condition or next element. `break` exits the loop entirely.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the output of the following code?\n\nx = 0\nwhile x < 3:\n    x += 1\nprint(x)",
+   "options": [
+    "0",
+    "2",
+    "3",
+    "4"
+   ],
+   "answer": 2,
+   "explanation": "The loop increments x until x is no longer less than 3. After the loop, x equals 3, which is printed.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following correctly iterates over all characters in the string `name = \"Rahul\"`?",
+   "options": [
+    "for char in range(name):",
+    "for char in name:",
+    "for char of name:",
+    "foreach char in name:"
+   ],
+   "answer": 1,
+   "explanation": "In Python, `for char in name:` iterates over each character of the string one by one. `range()` does not accept a string, and the other two syntaxes are not valid Python.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What happens if the condition in a `while` loop is never False?",
+   "options": [
+    "Python raises a SyntaxError",
+    "The loop runs once and stops",
+    "The loop runs forever, creating an infinite loop",
+    "Python skips the loop body"
+   ],
+   "answer": 2,
+   "explanation": "If the condition never becomes False, the while loop continues to execute indefinitely, causing an infinite loop that makes the program unresponsive.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the correct output of this nested loop?\n\nfor i in range(1, 3):\n    for j in range(1, 3):\n        print(i, j)",
+   "options": [
+    "1 1\n1 2\n2 1\n2 2",
+    "1 2\n2 1",
+    "1 1\n2 2",
+    "1\n2\n1\n2"
+   ],
+   "answer": 0,
+   "explanation": "The outer loop gives i = 1 then 2. For each i, the inner loop gives j = 1 then 2. So the pairs printed in order are: (1,1), (1,2), (2,1), (2,2).",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain the difference between `break` and `continue` in Python loops with a real-life analogy.",
+   "answer": "`break` immediately terminates the entire loop — like walking out of a cinema hall before the film ends. `continue` skips only the current iteration and moves to the next one — like fast-forwarding a boring scene but continuing to watch the rest of the film.",
+   "keywords": [
+    "break",
+    "continue",
+    "terminates",
+    "skip",
+    "iteration"
+   ],
+   "explanation": "break stops the loop completely while continue only skips the current cycle. Both control the flow inside loops.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "When should you prefer a `while` loop over a `for` loop in Python?",
+   "answer": "You should prefer a `while` loop when the number of iterations is not known in advance and depends on a condition that changes during execution. For example, reading user input until a valid value is entered is best handled with a while loop.",
+   "keywords": [
+    "condition",
+    "unknown",
+    "while",
+    "iterations",
+    "dynamic"
+   ],
+   "explanation": "for loops are ideal when the number of iterations or the sequence is known. while loops are better when you need to keep looping until some condition is satisfied.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "What is the exact output printed by the following code?\n\ntotal = 0\nfor i in range(1, 5):\n    total += i\nprint(total)",
+   "answer": "10",
+   "explanation": "range(1, 5) gives 1, 2, 3, 4. Their sum is 1+2+3+4 = 10. The variable total accumulates this sum and 10 is printed.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a Python program that prints all even numbers from 2 to 20 (inclusive) using a `for` loop.",
+   "starter": "# Print even numbers from 2 to 20\nfor i in range(_____, _____, _____):\n    print(i)",
+   "solution": "# Print even numbers from 2 to 20\nfor i in range(2, 21, 2):\n    print(i)",
+   "explanation": "range(2, 21, 2) starts at 2, stops before 21 (so 20 is included), and steps by 2, giving 2, 4, 6, 8, 10, 12, 14, 16, 18, 20. Each value is printed on a new line.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What is a Loop?",
+    "steps": [
+     {
+      "say": "Hello everyone! Today we are going to learn about loops in Python. A loop lets you run the same block of code again and again without writing it multiple times.",
+      "write": {
+       "kind": "heading",
+       "content": "Loops in Python"
+      }
+     },
+     {
+      "say": "Imagine you want to print the numbers 1 to 100. Writing 100 print statements is impractical. A loop does this for you in just two lines.",
+      "write": {
+       "kind": "bullet",
+       "content": "Repeat code automatically"
+      }
+     },
+     {
+      "say": "Python gives us two main types of loops. The for loop and the while loop.",
+      "write": {
+       "kind": "bullet",
+       "content": "Types: for loop, while loop"
+      }
+     }
+    ]
+   },
+   {
+    "title": "The for Loop and range()",
+    "steps": [
+     {
+      "say": "The for loop iterates over a sequence. The most common way is to use the range function to generate numbers.",
+      "write": {
+       "kind": "heading",
+       "content": "for Loop"
+      }
+     },
+     {
+      "say": "Here is the basic syntax. We write for i in range of 1 to 6, colon, then the indented print statement.",
+      "write": {
+       "kind": "code",
+       "content": "for i in range(1, 6):"
+      }
+     },
+     {
+      "say": "Inside the loop, we print i. Notice the indentation — that tells Python this line is part of the loop body.",
+      "write": {
+       "kind": "code",
+       "content": "    print(i)"
+      }
+     },
+     {
+      "say": "This prints 1, 2, 3, 4, 5. Remember, range of 1 to 6 stops before 6, so 6 is not included.",
+      "write": {
+       "kind": "text",
+       "content": "Output: 1 2 3 4 5  (6 excluded)"
+      }
+     }
+    ]
+   },
+   {
+    "title": "The while Loop and Loop Controls",
+    "steps": [
+     {
+      "say": "The while loop keeps running as long as a condition is true. Let us look at a countdown example.",
+      "write": {
+       "kind": "heading",
+       "content": "while Loop"
+      }
+     },
+     {
+      "say": "We set count equal to 3, then write while count is greater than 0, colon.",
+      "write": {
+       "kind": "code",
+       "content": "count = 3\nwhile count > 0:"
+      }
+     },
+     {
+      "say": "Inside, we print count, then decrease it by 1. This is very important — without this line the loop would never stop.",
+      "write": {
+       "kind": "code",
+       "content": "    print(count)\n    count -= 1"
+      }
+     },
+     {
+      "say": "We also have break to exit a loop early, and continue to skip the current round and go to the next one.",
+      "write": {
+       "kind": "bullet",
+       "content": "break = exit loop\ncontinue = skip this round"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Nested Loops",
+    "steps": [
+     {
+      "say": "You can put one loop inside another. This is called a nested loop and is useful for things like multiplication tables or grids.",
+      "write": {
+       "kind": "heading",
+       "content": "Nested Loops"
+      }
+     },
+     {
+      "say": "Here the outer loop runs for rows 1 and 2. For each row, the inner loop runs for columns 1 to 3.",
+      "write": {
+       "kind": "code",
+       "content": "for row in range(1, 3):"
+      }
+     },
+     {
+      "say": "The inner loop prints each combination of row and column.",
+      "write": {
+       "kind": "code",
+       "content": "  for col in range(1, 4):\n    print(row, col)"
+      }
+     },
+     {
+      "say": "The total number of print statements here is 2 times 3, which equals 6. Always be careful with nested loops and large ranges.",
+      "write": {
+       "kind": "text",
+       "content": "Total iterations = 2 x 3 = 6"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us quickly recap what we learned today. We have two types of loops in Python.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap: Loops in Python"
+      }
+     },
+     {
+      "say": "The for loop iterates over a sequence and is great when you know how many times to repeat. The while loop runs until a condition becomes false.",
+      "write": {
+       "kind": "bullet",
+       "content": "for: known iterations\nwhile: condition-based"
+      }
+     },
+     {
+      "say": "Use break to stop the loop and continue to skip an iteration. Always avoid infinite loops by updating your condition.",
+      "write": {
+       "kind": "bullet",
+       "content": "break, continue\nAvoid infinite loops!"
+      }
+     },
+     {
+      "say": "Practice writing small programs using both loop types. The more you code, the more natural loops will feel. Happy coding!",
+      "write": {
+       "kind": "highlight",
+       "content": "Practice makes perfect!"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

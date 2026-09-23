@@ -1,0 +1,358 @@
+{
+ "summary": "Decision making in C uses if-else statements and switch statements to execute different blocks of code based on conditions.",
+ "shortNotes": [
+  "The if statement executes a block only when its condition is true.",
+  "The if-else statement provides an alternative block when the condition is false.",
+  "else-if ladder allows checking multiple conditions in sequence.",
+  "The switch statement matches an expression against constant integer or character cases.",
+  "Every case in switch should end with break to prevent fall-through to the next case.",
+  "The default case in switch acts like the final else and runs when no case matches."
+ ],
+ "detailed": {
+  "explanation": "In C programming, decision making means choosing which block of code to run based on a condition. The simplest form is the `if` statement: if the condition inside parentheses evaluates to true (non-zero), the body executes; otherwise it is skipped entirely. This lets your program react differently to different inputs.\n\nThe `if-else` statement extends this by providing a second block that runs when the condition is false. You can chain multiple conditions using `else if`, forming a ladder. The program checks each condition from top to bottom and executes only the first block whose condition is true; if none match, the optional final `else` block runs.\n\nThe `switch` statement is used when you want to compare one variable or expression against several fixed constant values. C evaluates the expression once and jumps to the matching `case` label. Without a `break` at the end of a case, execution continues into the next case — this is called fall-through, and it is a very common source of bugs for beginners.\n\nChoosing between `if-else` and `switch` depends on the situation. Use `switch` when comparing a single integer or character variable against known constant values; it is cleaner and sometimes faster. Use `if-else` when your conditions involve ranges, logical operators, or floating-point comparisons, because `switch` cannot handle those.",
+  "definitions": [
+   {
+    "term": "Condition",
+    "meaning": "An expression that evaluates to either true (non-zero) or false (zero) in C."
+   },
+   {
+    "term": "if statement",
+    "meaning": "A control structure that executes a block of code only when a specified condition is true."
+   },
+   {
+    "term": "else clause",
+    "meaning": "The optional part of an if-else statement that executes when the condition is false."
+   },
+   {
+    "term": "else-if ladder",
+    "meaning": "A chain of if-else if-else blocks used to test multiple mutually exclusive conditions in order."
+   },
+   {
+    "term": "switch statement",
+    "meaning": "A control structure that matches an integer or character expression against a list of constant case labels and jumps to the matching one."
+   },
+   {
+    "term": "case label",
+    "meaning": "A constant value inside a switch block that the expression is compared against."
+   },
+   {
+    "term": "break statement",
+    "meaning": "A keyword that exits the switch block immediately, preventing fall-through to the next case."
+   },
+   {
+    "term": "default case",
+    "meaning": "An optional label in switch that runs when no other case matches, similar to a final else."
+   },
+   {
+    "term": "fall-through",
+    "meaning": "The behavior in switch where execution continues into the next case if break is missing."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "In C, zero is treated as false and any non-zero value is treated as true in a condition.",
+   "Curly braces are optional when an if or else body has only one statement, but always using them prevents bugs.",
+   "The switch expression must evaluate to an integer type (int, char, short, etc.); float and string are not allowed.",
+   "Each case value must be a compile-time integer constant; you cannot use a variable as a case label.",
+   "If you forget break in a switch case, all subsequent cases run until a break or the end of the switch — exam favorite question.",
+   "The default case can be placed anywhere inside switch, but placing it last is the standard convention.",
+   "Nested if-else statements are allowed but deep nesting makes code hard to read; prefer else-if ladder or switch when possible.",
+   "Using = (assignment) instead of == (comparison) inside an if condition is a very common and hard-to-spot bug."
+  ]
+ },
+ "codeExample": {
+  "language": "c",
+  "code": "#include <stdio.h>\n\nint main() {\n    int marks;\n    char grade;\n\n    printf(\"Enter marks (0-100): \");\n    scanf(\"%d\", &marks);\n\n    /* if-else ladder to assign letter grade */\n    if (marks >= 90) {\n        grade = 'A';\n    } else if (marks >= 75) {\n        grade = 'B';\n    } else if (marks >= 60) {\n        grade = 'C';\n    } else if (marks >= 40) {\n        grade = 'D';\n    } else {\n        grade = 'F';\n    }\n\n    printf(\"Grade (if-else): %c\\n\", grade);\n\n    /* switch to print result message */\n    switch (grade) {\n        case 'A':\n            printf(\"Excellent!\\n\");\n            break;\n        case 'B':\n            printf(\"Very Good!\\n\");\n            break;\n        case 'C':\n            printf(\"Good\\n\");\n            break;\n        case 'D':\n            printf(\"Pass\\n\");\n            break;\n        default:\n            printf(\"Fail\\n\");\n            break;\n    }\n\n    return 0;\n}",
+  "explanation": "Line 1: Include standard input/output header.\nLine 3: Start of main function.\nLine 4-5: Declare integer variable marks and character variable grade.\nLine 7-8: Prompt user and read marks using scanf.\nLine 10-20: if-else ladder checks marks from highest to lowest range and assigns a character grade. Only the first matching condition executes.\nLine 22: Print the grade determined by the if-else ladder.\nLine 24-38: switch statement matches the value of grade against character constants. Each case prints a message and ends with break to stop fall-through. The default case handles any unmatched value (here it would print Fail for grade F).\nLine 40: Return 0 to indicate successful program execution."
+ },
+ "commonMistakes": [
+  "Writing = instead of == in a condition (e.g., if (x = 5) always evaluates to true and assigns 5 to x instead of comparing).",
+  "Forgetting break at the end of a switch case, causing fall-through where multiple case blocks execute unintentionally.",
+  "Using a float or a string expression in a switch statement, which is not allowed in C and causes a compilation error."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "What is the output of the following code?\nint x = 0;\nif (x)\n    printf(\"True\");\nelse\n    printf(\"False\");",
+   "options": [
+    "True",
+    "False",
+    "Compilation error",
+    "No output"
+   ],
+   "answer": 1,
+   "explanation": "In C, 0 is treated as false, so the else block executes and prints False.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following expressions is NOT valid as a switch expression in C?",
+   "options": [
+    "switch(ch) where ch is char",
+    "switch(n) where n is int",
+    "switch(x) where x is float",
+    "switch(n%2) where n is int"
+   ],
+   "answer": 2,
+   "explanation": "The switch expression must be an integer type. float is not an integer type and is not allowed in switch.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What happens when a switch case does not have a break statement?",
+   "options": [
+    "The program exits the switch block immediately",
+    "A compilation error occurs",
+    "Execution falls through to the next case and continues running",
+    "Only the default case runs"
+   ],
+   "answer": 2,
+   "explanation": "Without break, C continues executing the statements of the next case — this is called fall-through.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "In an else-if ladder, what happens if more than one condition is true?",
+   "options": [
+    "All matching blocks execute",
+    "Only the last matching block executes",
+    "Only the first matching block executes",
+    "A runtime error occurs"
+   ],
+   "answer": 2,
+   "explanation": "C evaluates conditions top to bottom and executes only the first block whose condition is true, then skips the rest of the ladder.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following is a valid case label in a switch statement?",
+   "options": [
+    "case 3.5:",
+    "case \"hello\":",
+    "case 'A':",
+    "case x: (where x is an int variable)"
+   ],
+   "answer": 2,
+   "explanation": "Case labels must be integer constants. 'A' is a character constant (which is an integer type in C). Float, string, and variables are not allowed.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the purpose of the default case in a switch statement?",
+   "options": [
+    "It is mandatory and the program crashes without it",
+    "It runs when no other case matches the switch expression",
+    "It always runs regardless of the switch expression value",
+    "It resets the switch expression to zero"
+   ],
+   "answer": 1,
+   "explanation": "default is optional and executes only when none of the case labels match the switch expression, similar to a final else.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain the difference between an if-else ladder and a switch statement. When would you prefer one over the other?",
+   "answer": "An if-else ladder can test any condition including ranges and logical expressions, while switch can only compare a single expression against constant integer or character values. Prefer switch when checking one variable against many fixed constant values for cleaner code; use if-else when conditions involve ranges, floating-point values, or complex logical expressions.",
+   "keywords": [
+    "condition",
+    "constant",
+    "range",
+    "integer",
+    "fall-through"
+   ],
+   "explanation": "This tests conceptual understanding of when each construct is appropriate.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "What is fall-through in a switch statement and how do you prevent it?",
+   "answer": "Fall-through occurs when a case block does not have a break statement, causing execution to continue into the next case body even if that case label does not match. You prevent it by placing a break statement at the end of every case block.",
+   "keywords": [
+    "fall-through",
+    "break",
+    "case",
+    "execution",
+    "switch"
+   ],
+   "explanation": "Understanding fall-through is critical because it is a very common source of bugs and a popular exam topic.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "What is the exact output printed by the following C code?\nint a = 5, b = 10;\nif (a > b)\n    printf(\"A\");\nelse if (a == b)\n    printf(\"B\");\nelse\n    printf(\"C\");",
+   "answer": "C",
+   "explanation": "5 is not greater than 10, so the first condition is false. 5 is not equal to 10, so the second condition is also false. The else block executes and prints C.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a C program that reads an integer between 1 and 7 from the user and uses a switch statement to print the corresponding day of the week (1 = Monday, 2 = Tuesday, ..., 7 = Sunday). If the number is outside 1-7, print Invalid.",
+   "starter": "#include <stdio.h>\n\nint main() {\n    int day;\n    printf(\"Enter a number (1-7): \");\n    scanf(\"%d\", &day);\n\n    // Write your switch statement here\n\n    return 0;\n}",
+   "solution": "#include <stdio.h>\n\nint main() {\n    int day;\n    printf(\"Enter a number (1-7): \");\n    scanf(\"%d\", &day);\n\n    switch (day) {\n        case 1:\n            printf(\"Monday\\n\");\n            break;\n        case 2:\n            printf(\"Tuesday\\n\");\n            break;\n        case 3:\n            printf(\"Wednesday\\n\");\n            break;\n        case 4:\n            printf(\"Thursday\\n\");\n            break;\n        case 5:\n            printf(\"Friday\\n\");\n            break;\n        case 6:\n            printf(\"Saturday\\n\");\n            break;\n        case 7:\n            printf(\"Sunday\\n\");\n            break;\n        default:\n            printf(\"Invalid\\n\");\n            break;\n    }\n\n    return 0;\n}",
+   "explanation": "The switch expression is the variable day. Each case from 1 to 7 prints the corresponding day name followed by break to prevent fall-through. The default case handles any value outside 1 to 7 and prints Invalid.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "Introduction to Decision Making in C",
+    "steps": [
+     {
+      "say": "Hello everyone! Today we are going to learn about decision making in C, which is how your program chooses what to do based on different situations.",
+      "write": {
+       "kind": "heading",
+       "content": "Decision Making in C"
+      }
+     },
+     {
+      "say": "Think of it like a crossroads. The program looks at a condition and picks the right path to follow.",
+      "write": {
+       "kind": "bullet",
+       "content": "Condition is true  -> one path"
+      }
+     },
+     {
+      "say": "If the condition is false, it takes a different path. C gives us two main tools for this: the if-else statement and the switch statement.",
+      "write": {
+       "kind": "bullet",
+       "content": "Condition is false -> another path"
+      }
+     }
+    ]
+   },
+   {
+    "title": "The if-else Statement",
+    "steps": [
+     {
+      "say": "Let us look at the if-else statement. We write the keyword if, then the condition inside round brackets.",
+      "write": {
+       "kind": "code",
+       "content": "if (condition) {"
+      }
+     },
+     {
+      "say": "Inside the curly braces we write the code that runs when the condition is true.",
+      "write": {
+       "kind": "code",
+       "content": "    // runs if true"
+      }
+     },
+     {
+      "say": "Then we write else and another block that runs when the condition is false.",
+      "write": {
+       "kind": "code",
+       "content": "} else {\n    // runs if false\n}"
+      }
+     },
+     {
+      "say": "For example, if marks are greater than or equal to 40, we print Pass, otherwise we print Fail. The program checks the condition once and picks exactly one block to run.",
+      "write": {
+       "kind": "code",
+       "content": "if (marks >= 40)\n    printf(\"Pass\");\nelse\n    printf(\"Fail\");"
+      }
+     }
+    ]
+   },
+   {
+    "title": "The else-if Ladder",
+    "steps": [
+     {
+      "say": "When you have more than two choices, you can chain conditions using else-if. This is called an else-if ladder.",
+      "write": {
+       "kind": "heading",
+       "content": "else-if Ladder"
+      }
+     },
+     {
+      "say": "The program checks conditions from top to bottom and runs only the first block that is true.",
+      "write": {
+       "kind": "code",
+       "content": "if (marks >= 90)"
+      }
+     },
+     {
+      "say": "If that is not true, it checks the next condition.",
+      "write": {
+       "kind": "code",
+       "content": "else if (marks >= 75)"
+      }
+     },
+     {
+      "say": "And finally, if none of the conditions match, the else block runs. Remember, only one block ever runs in a ladder.",
+      "write": {
+       "kind": "code",
+       "content": "else if (marks >= 40)\nelse\n    printf(\"Fail\");"
+      }
+     }
+    ]
+   },
+   {
+    "title": "The switch Statement",
+    "steps": [
+     {
+      "say": "Now let us look at the switch statement. It is great when you are comparing one variable against several fixed values.",
+      "write": {
+       "kind": "heading",
+       "content": "switch Statement"
+      }
+     },
+     {
+      "say": "We write switch, then the variable inside brackets. Inside the block we write case labels.",
+      "write": {
+       "kind": "code",
+       "content": "switch (grade) {"
+      }
+     },
+     {
+      "say": "Each case has a constant value. The program jumps to the matching case. Always end each case with break, otherwise execution falls into the next case.",
+      "write": {
+       "kind": "code",
+       "content": "    case 'A':\n        printf(\"Excellent\");\n        break;"
+      }
+     },
+     {
+      "say": "The default case runs when no case matches. It works just like a final else.",
+      "write": {
+       "kind": "code",
+       "content": "    default:\n        printf(\"Fail\");\n        break;\n}"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us quickly recap what we learned today. The if statement runs a block only when the condition is true.",
+      "write": {
+       "kind": "bullet",
+       "content": "if: runs block when true"
+      }
+     },
+     {
+      "say": "The else-if ladder checks multiple conditions in order and runs only the first matching block.",
+      "write": {
+       "kind": "bullet",
+       "content": "else-if ladder: first match wins"
+      }
+     },
+     {
+      "say": "The switch statement matches one expression against constant values. Always use break to stop fall-through.",
+      "write": {
+       "kind": "bullet",
+       "content": "switch: use break to stop fall-through"
+      }
+     },
+     {
+      "say": "Use switch for fixed constant values, and use if-else for ranges or complex conditions. Great work today, see you in the next lesson!",
+      "write": {
+       "kind": "highlight",
+       "content": "switch = constants, if-else = ranges"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

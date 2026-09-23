@@ -1,0 +1,326 @@
+{
+ "summary": "A class is a blueprint for creating objects that bundle data (attributes) and behaviour (methods) together in Python.",
+ "shortNotes": [
+  "A class is defined using the `class` keyword followed by the class name and a colon.",
+  "An object is an instance of a class created by calling the class like a function.",
+  "The `__init__` method is the constructor — it runs automatically when an object is created.",
+  "`self` refers to the current object and must be the first parameter of every instance method.",
+  "Attributes store data about an object; methods define what the object can do.",
+  "Multiple objects can be created from the same class, each with its own independent data."
+ ],
+ "detailed": {
+  "explanation": "A **class** is like a blueprint or a template. Just as an architect's blueprint describes how to build a house, a class describes how to create objects. The class defines what data each object will hold (called **attributes**) and what actions each object can perform (called **methods**).\n\nAn **object** is a real, usable instance built from that blueprint. You can create many objects from one class, just like you can build many houses from one blueprint. Each object gets its own copy of the attributes, so changing one object does not affect another.\n\nThe special method `__init__` (short for initialise) acts as the **constructor**. Python calls it automatically every time you create a new object. Inside `__init__` you set up the initial values of the attributes using `self.attribute_name = value`.\n\nThe keyword `self` is a reference to the object that is being used at that moment. Every instance method must have `self` as its first parameter, even though you do not pass it manually when calling the method — Python passes it for you.\n\nTo access an attribute or call a method on an object, use **dot notation**: `object_name.attribute` or `object_name.method()`. This is the standard way to interact with objects in Python and is used everywhere in real-world Python programming.",
+  "definitions": [
+   {
+    "term": "Class",
+    "meaning": "A user-defined blueprint that bundles attributes and methods together to describe a type of object."
+   },
+   {
+    "term": "Object",
+    "meaning": "A specific instance created from a class, with its own set of attribute values."
+   },
+   {
+    "term": "__init__",
+    "meaning": "The constructor method in Python that is called automatically when a new object is created."
+   },
+   {
+    "term": "self",
+    "meaning": "A reference to the current instance of the class, used inside methods to access the object's own attributes and methods."
+   },
+   {
+    "term": "Attribute",
+    "meaning": "A variable that belongs to an object and stores information about it."
+   },
+   {
+    "term": "Method",
+    "meaning": "A function defined inside a class that describes a behaviour or action of the object."
+   },
+   {
+    "term": "Instantiation",
+    "meaning": "The process of creating an object from a class by calling the class name like a function."
+   },
+   {
+    "term": "Dot notation",
+    "meaning": "The syntax object.attribute or object.method() used to access members of an object."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "The class name should follow PascalCase convention in Python — e.g., `StudentRecord`, not `studentRecord`.",
+   "Every instance method's first parameter must be `self`; forgetting it causes a TypeError.",
+   "`__init__` is not called manually; Python calls it automatically during object creation.",
+   "You can create as many objects from one class as needed, and each object has independent attribute values.",
+   "Attributes set inside `__init__` using `self.` are called instance attributes and belong to each object separately.",
+   "A method is called on an object using `obj.method()` — Python automatically passes the object as `self`.",
+   "Use `type(object)` to check which class an object belongs to — useful for debugging.",
+   "In exams, tracing what `self.attribute` holds after a series of method calls is a common question type."
+  ]
+ },
+ "codeExample": {
+  "language": "python",
+  "code": "# Class definition\nclass Student:\n    # Constructor method\n    def __init__(self, name, marks):\n        self.name = name      # instance attribute\n        self.marks = marks    # instance attribute\n\n    # Method to display student info\n    def display(self):\n        print(\"Name :\", self.name)\n        print(\"Marks:\", self.marks)\n\n    # Method to check pass or fail\n    def result(self):\n        if self.marks >= 40:\n            print(self.name, \"has PASSED\")\n        else:\n            print(self.name, \"has FAILED\")\n\n# Creating objects (instances)\ns1 = Student(\"Ananya\", 85)\ns2 = Student(\"Rohan\", 32)\n\n# Calling methods on each object\ns1.display()\ns1.result()\n\nprint()  # blank line for readability\n\ns2.display()\ns2.result()",
+  "explanation": "Line 2: Define a class named Student using the class keyword.\nLine 4: __init__ is the constructor; it runs when a new Student object is created. It takes self, name, and marks as parameters.\nLine 5-6: self.name and self.marks are instance attributes that store each student's own data.\nLine 9-11: The display method prints the student's name and marks. self gives access to the object's own attributes.\nLine 14-18: The result method checks if marks are 40 or above and prints pass or fail accordingly.\nLine 21: s1 = Student('Ananya', 85) creates the first object. Python calls __init__ automatically with name='Ananya' and marks=85.\nLine 22: s2 = Student('Rohan', 32) creates a second, independent object with different data.\nLines 25-26: Calling s1.display() and s1.result() works on Ananya's data only.\nLines 30-31: Calling s2.display() and s2.result() works on Rohan's data only, showing that each object is independent."
+ },
+ "commonMistakes": [
+  "Forgetting `self` as the first parameter of a method — this causes a TypeError saying the method received the wrong number of arguments.",
+  "Writing `__init__` incorrectly (e.g., `_init_` with single underscores) — Python will not treat it as a constructor and the attributes will not be initialised.",
+  "Trying to access an attribute without `self` inside a method (e.g., writing `name` instead of `self.name`) — this raises a NameError because Python looks for a local variable, not the object's attribute."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Which keyword is used to define a class in Python?",
+   "options": [
+    "object",
+    "def",
+    "class",
+    "struct"
+   ],
+   "answer": 2,
+   "explanation": "The `class` keyword is used to define a class in Python, followed by the class name and a colon.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the role of `__init__` in a Python class?",
+   "options": [
+    "It deletes the object when it is no longer needed.",
+    "It is called automatically when a new object is created to initialise its attributes.",
+    "It prints the object's details to the screen.",
+    "It is used to define class-level constants."
+   ],
+   "answer": 1,
+   "explanation": "`__init__` is the constructor method. Python calls it automatically at the moment of object creation to set up the object's initial attributes.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What does `self` represent inside a class method?",
+   "options": [
+    "The class itself",
+    "The previous object that was created",
+    "The current instance (object) on which the method is called",
+    "A global variable shared by all objects"
+   ],
+   "answer": 2,
+   "explanation": "`self` is a reference to the specific object on which the method is being called, allowing access to that object's own attributes and methods.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Given `class Car:` with `__init__(self, brand)` setting `self.brand = brand`, which line correctly creates an object?",
+   "options": [
+    "Car.brand = 'Toyota'",
+    "c = Car('Toyota')",
+    "c = Car.init('Toyota')",
+    "object Car('Toyota')"
+   ],
+   "answer": 1,
+   "explanation": "To create an object you call the class name like a function and pass the required arguments. Python automatically handles calling `__init__`.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Two objects `a = Dog('Tommy')` and `b = Dog('Bruno')` are created from the same class. If you change `a.name = 'Max'`, what happens to `b.name`?",
+   "options": [
+    "b.name also becomes 'Max'",
+    "b.name remains 'Bruno'",
+    "b.name becomes None",
+    "An error is raised"
+   ],
+   "answer": 1,
+   "explanation": "Each object has its own independent copy of instance attributes. Changing one object's attribute does not affect another object.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following will correctly call the method `greet` on an object `p` of class `Person`?",
+   "options": [
+    "Person.greet",
+    "greet(p)",
+    "p.greet()",
+    "call p.greet"
+   ],
+   "answer": 2,
+   "explanation": "Dot notation is used to call a method on an object: `object_name.method()`. Python automatically passes the object as `self`.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain the difference between a class and an object in Python with a real-life analogy.",
+   "answer": "A class is a blueprint or template that defines the structure and behaviour, while an object is a real instance built from that blueprint. For example, a class is like the blueprint of a mobile phone, and each actual phone manufactured is an object — each phone has its own colour and storage, just as each object has its own attribute values.",
+   "keywords": [
+    "blueprint",
+    "instance",
+    "class",
+    "object",
+    "attributes"
+   ],
+   "explanation": "This question tests conceptual understanding. A good answer uses an analogy and mentions that many objects can be created from one class, each with independent data.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Why must `self` be the first parameter in every instance method, and what happens if you forget it?",
+   "answer": "Python automatically passes the calling object as the first argument to every instance method, so `self` must be there to receive it. If you forget `self`, Python still passes the object, but the method has no parameter to receive it, resulting in a TypeError stating the method received too many arguments.",
+   "keywords": [
+    "self",
+    "instance",
+    "TypeError",
+    "automatically",
+    "parameter"
+   ],
+   "explanation": "Understanding why `self` is required — because Python passes the object implicitly — is a key conceptual point often tested in exams.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "What is the exact output printed by the following code?\n\nclass Box:\n    def __init__(self, size):\n        self.size = size\n    def show(self):\n        print(self.size * 2)\n\nb = Box(7)\nb.show()",
+   "answer": "14",
+   "explanation": "The object b is created with size=7. Calling b.show() executes print(self.size * 2) which is print(7 * 2) = print(14), so the output is 14.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a Python class called `Rectangle` that has attributes `length` and `width`. Include a method called `area` that returns the area of the rectangle, and a method called `perimeter` that returns the perimeter. Create one object with length 8 and width 5, then print both the area and the perimeter.",
+   "starter": "class Rectangle:\n    def __init__(self, length, width):\n        # set attributes here\n        pass\n\n    def area(self):\n        # return area\n        pass\n\n    def perimeter(self):\n        # return perimeter\n        pass\n\n# Create object and print area and perimeter\n",
+   "solution": "class Rectangle:\n    def __init__(self, length, width):\n        self.length = length\n        self.width = width\n\n    def area(self):\n        return self.length * self.width\n\n    def perimeter(self):\n        return 2 * (self.length + self.width)\n\nr = Rectangle(8, 5)\nprint(\"Area     :\", r.area())\nprint(\"Perimeter:\", r.perimeter())",
+   "explanation": "The `__init__` method stores length and width as instance attributes. The `area` method returns length times width. The `perimeter` method returns 2 times the sum of length and width. An object r is created with length=8 and width=5, giving area=40 and perimeter=26.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What is a Class?",
+    "steps": [
+     {
+      "say": "Welcome! Today we are going to learn about classes and objects in Python. Think of a class as a blueprint — just like an architect's plan for a building.",
+      "write": {
+       "kind": "heading",
+       "content": "Classes and Objects in Python"
+      }
+     },
+     {
+      "say": "The blueprint itself is not a building. It just describes what the building will look like. Similarly a class describes what an object will look like.",
+      "write": {
+       "kind": "bullet",
+       "content": "Class = blueprint / template"
+      }
+     },
+     {
+      "say": "When we actually build a house using that blueprint, that house is the object. We can build many houses from one blueprint.",
+      "write": {
+       "kind": "bullet",
+       "content": "Object = real instance from class"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Defining a Class in Python",
+    "steps": [
+     {
+      "say": "Let us write a simple class in Python. We use the class keyword followed by the class name. Notice the name starts with a capital letter — that is the convention.",
+      "write": {
+       "kind": "code",
+       "content": "class Student:"
+      }
+     },
+     {
+      "say": "Inside the class we write the init method. This is the constructor. Python calls it automatically whenever we create a new object.",
+      "write": {
+       "kind": "code",
+       "content": "  def __init__(self, name, marks):"
+      }
+     },
+     {
+      "say": "Inside init we set the attributes. Self dot name stores the name for this specific object. Self always refers to the object being created.",
+      "write": {
+       "kind": "code",
+       "content": "    self.name = name\n    self.marks = marks"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Adding Methods and Creating Objects",
+    "steps": [
+     {
+      "say": "Now let us add a method called display. A method is just a function inside a class. It must have self as its first parameter.",
+      "write": {
+       "kind": "code",
+       "content": "  def display(self):\n    print(self.name, self.marks)"
+      }
+     },
+     {
+      "say": "To create an object we call the class name like a function and pass the required values. Here we create a student named Ananya with 85 marks.",
+      "write": {
+       "kind": "code",
+       "content": "s1 = Student(\"Ananya\", 85)"
+      }
+     },
+     {
+      "say": "We call the display method on s1 using dot notation. Python automatically passes s1 as self, so we do not write it ourselves.",
+      "write": {
+       "kind": "code",
+       "content": "s1.display()"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Multiple Objects are Independent",
+    "steps": [
+     {
+      "say": "We can create as many objects as we want from the same class. Let us create a second student named Rohan with 32 marks.",
+      "write": {
+       "kind": "code",
+       "content": "s2 = Student(\"Rohan\", 32)"
+      }
+     },
+     {
+      "say": "Each object has its own data. Changing s1 dot marks will not affect s2 at all. They are completely independent from each other.",
+      "write": {
+       "kind": "bullet",
+       "content": "s1.marks = 85  (Ananya's own data)"
+      }
+     },
+     {
+      "say": "This is the power of object oriented programming — one class, many independent objects, each managing its own information.",
+      "write": {
+       "kind": "bullet",
+       "content": "s2.marks = 32  (Rohan's own data)"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Great work! Let us quickly recap what we covered today. A class is a blueprint defined with the class keyword.",
+      "write": {
+       "kind": "bullet",
+       "content": "class keyword  defines a class"
+      }
+     },
+     {
+      "say": "The init method is the constructor that sets up attributes when an object is created. Self always refers to the current object.",
+      "write": {
+       "kind": "bullet",
+       "content": "__init__  sets up attributes"
+      }
+     },
+     {
+      "say": "We create objects by calling the class like a function, and we use dot notation to access attributes and call methods. You are ready to write your own classes!",
+      "write": {
+       "kind": "bullet",
+       "content": "obj = Class()  then  obj.method()"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

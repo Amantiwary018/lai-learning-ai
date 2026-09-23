@@ -1,0 +1,309 @@
+{
+ "summary": "Step-by-step task instructions in prompts break complex requests into clear, numbered actions so AI produces accurate, structured, and useful output.",
+ "shortNotes": [
+  "Break your request into numbered steps so the AI follows a clear sequence.",
+  "Each step should contain one clear action — avoid combining multiple tasks in one step.",
+  "Use action verbs like 'list', 'summarise', 'compare', or 'write' to start each step.",
+  "Specify format, length, or tone within the steps when needed.",
+  "Step-by-step prompts reduce vague or incomplete AI responses.",
+  "You can include context at the top and constraints at the bottom of your prompt."
+ ],
+ "detailed": {
+  "explanation": "When you give an AI a vague or one-line prompt, the response can be incomplete or off-target. Step-by-step task instructions solve this by breaking your request into small, ordered actions. The AI processes each step in sequence, which keeps the output organised and easier to review.\n\nThink of it like giving someone directions. Instead of saying 'go to the market', you say: '1. Exit the building. 2. Turn left. 3. Walk 200 metres. 4. Enter the shop on the right.' Each step is clear and actionable. The same logic applies to prompting AI.\n\nA well-structured step-by-step prompt usually has three parts: **context** (who you are or what you need), **numbered steps** (the actual tasks in order), and **constraints** (length, tone, format, or audience). For example: `You are helping a student. 1. Define machine learning. 2. Give one real-life example. 3. Keep the answer under 100 words.`\n\nAction verbs are key. Words like `list`, `define`, `compare`, `summarise`, `explain`, `write`, and `translate` tell the AI exactly what kind of output you expect. Avoid vague instructions like 'talk about' or 'mention something about'.\n\nStep-by-step prompts are especially useful for multi-part tasks like writing a report, analysing a case study, or creating a lesson plan. They also make it easier to edit your prompt — if one step produces a weak result, you can refine just that step without rewriting the whole prompt.",
+  "definitions": [
+   {
+    "term": "Prompt",
+    "meaning": "The instruction or question you type into an AI tool to get a response."
+   },
+   {
+    "term": "Step-by-step task instruction",
+    "meaning": "A prompting technique where the request is broken into numbered, sequential actions for the AI to follow."
+   },
+   {
+    "term": "Action verb",
+    "meaning": "A doing word such as 'list', 'compare', or 'summarise' that tells the AI what kind of output to produce."
+   },
+   {
+    "term": "Constraint",
+    "meaning": "A condition added to a prompt that limits or shapes the output, such as word count, tone, or audience."
+   },
+   {
+    "term": "Context",
+    "meaning": "Background information added to a prompt so the AI understands who is asking and why."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "Always number your steps — this tells the AI the order matters and helps it stay on track.",
+   "One action per step is the golden rule; combining two tasks in one step often causes the AI to skip one.",
+   "Start each step with a strong action verb: define, list, explain, write, compare, translate.",
+   "Add context at the beginning of the prompt so the AI understands the purpose behind the steps.",
+   "Add constraints (word limit, tone, format) at the end or inside the relevant step.",
+   "Step-by-step prompts are ideal for reports, lesson plans, emails, analyses, and summaries.",
+   "If the output is wrong, check which step caused the problem and rewrite only that step.",
+   "Exam tip: Questions may ask you to identify a well-formed step-by-step prompt — look for numbered steps, action verbs, and clear constraints."
+  ]
+ },
+ "codeExample": null,
+ "commonMistakes": [
+  "Putting two separate tasks in a single step (e.g., 'Define and compare machine learning and AI') — split them into two steps instead.",
+  "Forgetting to add context, so the AI does not know the audience or purpose and gives a generic answer.",
+  "Using vague language like 'write something about' instead of precise action verbs like 'summarise' or 'list three advantages of'."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "What is the main purpose of using step-by-step task instructions in a prompt?",
+   "options": [
+    "To make the prompt look longer and more impressive",
+    "To break a complex request into clear, ordered actions for the AI",
+    "To confuse the AI into giving creative answers",
+    "To avoid giving context to the AI"
+   ],
+   "answer": 1,
+   "explanation": "Step-by-step instructions break a complex request into small, ordered actions so the AI produces structured and accurate output.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following is the best example of a step-by-step prompt?",
+   "options": [
+    "Tell me about climate change.",
+    "1. Define climate change. 2. List two causes. 3. Suggest one solution. Keep the answer under 80 words.",
+    "Climate change is important. Write about it nicely.",
+    "Mention something about climate change causes and effects."
+   ],
+   "answer": 1,
+   "explanation": "Option B has numbered steps, action verbs, and a constraint (word limit), which are the key features of a well-formed step-by-step prompt.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of these is an example of an action verb suitable for starting a prompt step?",
+   "options": [
+    "Something",
+    "About",
+    "Summarise",
+    "Very"
+   ],
+   "answer": 2,
+   "explanation": "'Summarise' is an action verb that tells the AI exactly what kind of output to produce. The other options are not action verbs.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "A student writes: '1. Define photosynthesis and also compare it with respiration.' What is wrong with this step?",
+   "options": [
+    "It uses an action verb",
+    "It contains two separate tasks in one step",
+    "It is too short",
+    "It does not mention biology"
+   ],
+   "answer": 1,
+   "explanation": "The golden rule is one action per step. Combining 'define' and 'compare' in the same step can cause the AI to skip or poorly handle one of the tasks.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Where should constraints like word count or tone usually be placed in a step-by-step prompt?",
+   "options": [
+    "They should never be included in a prompt",
+    "Only inside the middle steps",
+    "At the end of the prompt or inside the relevant step",
+    "At the very beginning, before any context"
+   ],
+   "answer": 2,
+   "explanation": "Constraints are most effective when placed at the end of the prompt or within the specific step they apply to, so the AI knows what limits to apply.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which three parts make up a well-structured step-by-step prompt?",
+   "options": [
+    "Title, paragraph, conclusion",
+    "Context, numbered steps, constraints",
+    "Introduction, body, references",
+    "Question, answer, feedback"
+   ],
+   "answer": 1,
+   "explanation": "A well-structured step-by-step prompt includes context (background), numbered steps (the tasks), and constraints (limits on the output).",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain why using one action per step is important when writing a step-by-step prompt for an AI.",
+   "answer": "When each step contains only one clear action, the AI can focus fully on that task and complete it properly. If two tasks are combined in one step, the AI may skip one or give a shallow response to both. One action per step keeps the output organised and easier to check.",
+   "keywords": [
+    "one action",
+    "skip",
+    "organised",
+    "clear",
+    "step"
+   ],
+   "explanation": "The key idea is that combining tasks reduces quality. Students should mention that one action per step helps the AI stay focused and produce complete output.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "A student wants to use AI to help write a job application email. Write a short step-by-step prompt they could use.",
+   "answer": "You are helping a college student apply for an internship. 1. Write a subject line for a job application email. 2. Write a three-sentence opening paragraph introducing the student. 3. List two skills the student should mention. 4. Write a polite closing sentence. Keep the tone formal and the email under 150 words.",
+   "keywords": [
+    "numbered steps",
+    "action verbs",
+    "context",
+    "constraints",
+    "formal"
+   ],
+   "explanation": "A good answer should include context, at least three numbered steps with action verbs, and at least one constraint such as tone or word count.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "A student writes a prompt with the following structure: one line of context, four numbered steps, and one line of constraints. How many total lines does this prompt have?",
+   "answer": "6",
+   "explanation": "1 line of context + 4 numbered steps + 1 line of constraints = 6 lines in total.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What Are Step-by-Step Task Instructions?",
+    "steps": [
+     {
+      "say": "Welcome! Today we are learning how to give AI clear, step-by-step instructions so it gives us exactly what we need.",
+      "write": {
+       "kind": "heading",
+       "content": "Step-by-Step Task Instructions"
+      }
+     },
+     {
+      "say": "When you give AI a vague one-line request, the answer is often incomplete or goes in the wrong direction.",
+      "write": {
+       "kind": "bullet",
+       "content": "Vague prompt = incomplete answer"
+      }
+     },
+     {
+      "say": "Breaking your request into numbered steps helps the AI follow a clear path and produce organised, useful output.",
+      "write": {
+       "kind": "bullet",
+       "content": "Numbered steps = structured output"
+      }
+     }
+    ]
+   },
+   {
+    "title": "The Three Parts of a Good Prompt",
+    "steps": [
+     {
+      "say": "A well-built step-by-step prompt has three parts. First, context — tell the AI who you are and what you need.",
+      "write": {
+       "kind": "text",
+       "content": "1. Context – background info"
+      }
+     },
+     {
+      "say": "Second, your numbered steps — each step has one clear action for the AI to complete.",
+      "write": {
+       "kind": "text",
+       "content": "2. Numbered steps – one action each"
+      }
+     },
+     {
+      "say": "Third, constraints — things like word count, tone, or audience that shape the final output.",
+      "write": {
+       "kind": "text",
+       "content": "3. Constraints – limits and format"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Building a Step-by-Step Prompt",
+    "steps": [
+     {
+      "say": "Let us build a prompt together. We start with context — for example, you are helping a student understand solar energy.",
+      "write": {
+       "kind": "text",
+       "content": "You are helping a student."
+      }
+     },
+     {
+      "say": "Now we add step one — define solar energy. Notice we use the action verb define.",
+      "write": {
+       "kind": "text",
+       "content": "1. Define solar energy."
+      }
+     },
+     {
+      "say": "Step two — list two advantages. Step three — give one real-life example from India.",
+      "write": {
+       "kind": "text",
+       "content": "2. List two advantages.\n3. Give one India example."
+      }
+     },
+     {
+      "say": "Finally we add a constraint — keep the total answer under one hundred words. The prompt is now complete and clear.",
+      "write": {
+       "kind": "text",
+       "content": "Keep answer under 100 words."
+      }
+     }
+    ]
+   },
+   {
+    "title": "Action Verbs and Common Mistakes",
+    "steps": [
+     {
+      "say": "Always start each step with a strong action verb. Words like list, define, compare, summarise, and write tell the AI exactly what to do.",
+      "write": {
+       "kind": "bullet",
+       "content": "list / define / compare / summarise"
+      }
+     },
+     {
+      "say": "One of the most common mistakes is putting two tasks in a single step. For example, do not say define and compare in the same step.",
+      "write": {
+       "kind": "highlight",
+       "content": "Mistake: Define AND compare — split!"
+      }
+     },
+     {
+      "say": "Another mistake is forgetting context, so the AI does not know your purpose and gives a very generic answer.",
+      "write": {
+       "kind": "bullet",
+       "content": "Always add context at the top"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us quickly recap what we covered today. A step-by-step prompt has context, numbered steps, and constraints.",
+      "write": {
+       "kind": "bullet",
+       "content": "Context + Steps + Constraints"
+      }
+     },
+     {
+      "say": "Use one action verb per step and keep each step focused on a single task.",
+      "write": {
+       "kind": "bullet",
+       "content": "One action verb per step"
+      }
+     },
+     {
+      "say": "This technique works for reports, emails, lesson plans, and any complex task. Try it the next time you use an AI tool!",
+      "write": {
+       "kind": "highlight",
+       "content": "Clear steps = better AI output!"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

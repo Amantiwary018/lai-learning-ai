@@ -1,0 +1,354 @@
+{
+ "summary": "File handling in Python allows programs to create, read, write, and close files stored on disk using built-in functions like open(), read(), write(), and close().",
+ "shortNotes": [
+  "Use open(filename, mode) to open a file; common modes are 'r' (read), 'w' (write), 'a' (append), and 'r+' (read and write).",
+  "Always close a file after use with file.close(), or use a with block which closes it automatically.",
+  "The read() method reads the entire file as one string; readline() reads one line; readlines() returns a list of all lines.",
+  "The write() method writes a string to a file; it does not add a newline automatically — you must add '\\n' yourself.",
+  "Opening a file in 'w' mode erases existing content; use 'a' mode to add content without deleting what is already there.",
+  "The with statement (context manager) is the recommended way to handle files as it handles closing even if an error occurs."
+ ],
+ "detailed": {
+  "explanation": "File handling means reading data from files and writing data to files stored on your computer's disk. This is important because data stored in variables is lost when a program ends, but data in files stays permanently. Python makes file handling simple with its built-in `open()` function.\n\nTo open a file, you call `open(filename, mode)`. The `filename` is a string like `'data.txt'`, and the `mode` tells Python what you want to do with the file. The most common modes are `'r'` for reading, `'w'` for writing (creates the file or overwrites it), `'a'` for appending (adds to the end without deleting), and `'r+'` for both reading and writing.\n\nOnce a file is open, you can read its contents using `read()` (entire file as one string), `readline()` (one line at a time), or `readlines()` (all lines as a list). To write to a file, use the `write()` method passing a string. Remember that `write()` does not automatically add a newline character, so you must include `'\\n'` yourself when needed.\n\nThe safest and most recommended way to work with files is using the `with` statement. When you write `with open('file.txt', 'r') as f:`, Python automatically closes the file when the block ends, even if an error occurs inside the block. This prevents resource leaks and is considered best practice.\n\nAlways be careful about file modes: using `'w'` on an existing file will delete all its previous content immediately. If you want to keep existing content and just add more, use `'a'` (append) mode instead.",
+  "definitions": [
+   {
+    "term": "File",
+    "meaning": "A named location on disk used to store data permanently."
+   },
+   {
+    "term": "open()",
+    "meaning": "A built-in Python function that opens a file and returns a file object for reading or writing."
+   },
+   {
+    "term": "File mode",
+    "meaning": "A string argument passed to open() that specifies how the file will be used, such as 'r' for read or 'w' for write."
+   },
+   {
+    "term": "read()",
+    "meaning": "A method that reads the entire content of an open file and returns it as a single string."
+   },
+   {
+    "term": "write()",
+    "meaning": "A method that writes a given string to an open file."
+   },
+   {
+    "term": "close()",
+    "meaning": "A method that closes the file object and releases the system resource associated with it."
+   },
+   {
+    "term": "with statement",
+    "meaning": "A Python construct (context manager) that automatically closes a file when the indented block finishes, even if an error occurs."
+   },
+   {
+    "term": "append mode ('a')",
+    "meaning": "A file mode that opens an existing file and adds new content at the end without deleting existing content."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "The syntax for opening a file is: file_object = open('filename.txt', 'mode') — remember both arguments.",
+   "Using 'w' mode creates the file if it does not exist, but destroys existing content if it does — be careful!",
+   "The with statement is preferred over manually calling close() because it is safer and cleaner.",
+   "readlines() returns a list where each element is one line of the file including the '\\n' character.",
+   "To read a file line by line efficiently, use a for loop: for line in file: — this works on the file object directly.",
+   "Binary files (images, PDFs) should be opened with 'rb' or 'wb' modes, not plain 'r' or 'w'.",
+   "If you try to open a file in 'r' mode and the file does not exist, Python raises a FileNotFoundError.",
+   "Exam tip: Know the difference between read(), readline(), and readlines() — a common MCQ topic."
+  ]
+ },
+ "codeExample": {
+  "language": "python",
+  "code": "# File Handling in Python - Complete Example\n\n# Step 1: Writing to a file\nwith open('students.txt', 'w') as f:\n    f.write('Alice\\n')\n    f.write('Bob\\n')\n    f.write('Charlie\\n')\nprint('File written successfully.')\n\n# Step 2: Appending to the file\nwith open('students.txt', 'a') as f:\n    f.write('Diana\\n')\nprint('Data appended successfully.')\n\n# Step 3: Reading the entire file\nwith open('students.txt', 'r') as f:\n    content = f.read()\nprint('Full file content:')\nprint(content)\n\n# Step 4: Reading line by line\nprint('Reading line by line:')\nwith open('students.txt', 'r') as f:\n    for line in f:\n        print(line.strip())\n\n# Step 5: Reading all lines into a list\nwith open('students.txt', 'r') as f:\n    lines = f.readlines()\nprint('Total students:', len(lines))",
+  "explanation": "Line 4: 'with open' opens students.txt in write mode ('w') and names the file object 'f'. If the file exists, it is overwritten.\nLines 5-7: f.write() writes each student name followed by '\\n' (newline). Without '\\n', all names would appear on one line.\nLine 8: The with block ends here — Python closes the file automatically.\nLine 11: We reopen the same file in append mode ('a') so existing content is preserved.\nLine 12: Diana is added at the end of the file without deleting Alice, Bob, or Charlie.\nLine 16: We open the file in read mode ('r') and use f.read() to get the entire content as one string stored in 'content'.\nLines 18-19: We print the full content of the file.\nLine 22: We loop directly over the file object 'f' — Python reads one line per iteration.\nLine 23: line.strip() removes the trailing newline character '\\n' so the output looks clean.\nLine 26: readlines() reads all lines at once and returns a Python list. Each element is one line including '\\n'.\nLine 28: len(lines) gives us the total count of students (lines) in the file."
+ },
+ "commonMistakes": [
+  "Opening a file in 'w' mode when you meant 'a' mode — this silently deletes all existing content in the file with no warning.",
+  "Forgetting to add '\\n' at the end of each string passed to write(), causing all written data to appear on a single line when the file is read back.",
+  "Not closing the file (or not using a with block) — this can lead to data not being saved (write buffer not flushed) or the file remaining locked."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Which file mode in Python opens a file for writing and erases all existing content?",
+   "options": [
+    "'r'",
+    "'a'",
+    "'w'",
+    "'r+'"
+   ],
+   "answer": 2,
+   "explanation": "'w' (write) mode opens the file for writing. If the file already exists, its content is completely erased. 'a' appends without erasing, 'r' is read-only, and 'r+' reads and writes without erasing.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What does the readlines() method return?",
+   "options": [
+    "A single string containing the entire file content",
+    "The first line of the file as a string",
+    "A list of strings where each string is one line of the file",
+    "An integer representing the number of lines in the file"
+   ],
+   "answer": 2,
+   "explanation": "readlines() reads all lines from the file and returns them as a Python list. Each element in the list is one line, including the newline character '\\n' at the end.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the main advantage of using the 'with' statement when handling files?",
+   "options": [
+    "It makes reading files faster",
+    "It automatically closes the file even if an error occurs",
+    "It allows reading and writing at the same time",
+    "It creates a backup of the file before opening"
+   ],
+   "answer": 1,
+   "explanation": "The with statement uses Python's context manager protocol to guarantee that the file is closed when the block exits, whether normally or due to an exception. This prevents resource leaks.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which exception does Python raise when you try to open a non-existent file in read mode?",
+   "options": [
+    "ValueError",
+    "FileNotFoundError",
+    "IOError",
+    "PermissionError"
+   ],
+   "answer": 1,
+   "explanation": "Python raises FileNotFoundError when open() is called in 'r' mode and the specified file does not exist on disk. This is a subclass of OSError.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "You want to add new data to an existing file without deleting its current content. Which mode should you use?",
+   "options": [
+    "'w'",
+    "'r'",
+    "'x'",
+    "'a'"
+   ],
+   "answer": 3,
+   "explanation": "'a' (append) mode opens the file and positions the write pointer at the end of the existing content, so new data is added after what is already there. 'w' would erase everything first.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following correctly reads one single line from an open file object named 'f'?",
+   "options": [
+    "f.read()",
+    "f.readlines()",
+    "f.readline()",
+    "f.readone()"
+   ],
+   "answer": 2,
+   "explanation": "readline() reads and returns one line from the file as a string, including the trailing newline character. read() reads the entire file, readlines() returns all lines as a list, and readone() does not exist.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain the difference between 'w' mode and 'a' mode when opening a file in Python.",
+   "answer": "'w' (write) mode opens a file for writing and completely erases any existing content before writing. 'a' (append) mode also opens a file for writing, but it preserves the existing content and adds new data at the end of the file.",
+   "keywords": [
+    "write",
+    "append",
+    "erases",
+    "existing content",
+    "end of file"
+   ],
+   "explanation": "This is a very commonly tested concept. The key difference is what happens to existing content: 'w' destroys it, 'a' keeps it and adds to the end.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Why is it important to close a file after you are done working with it in Python?",
+   "answer": "Closing a file releases the system resource (file handle) back to the operating system. It also ensures that any data written to the file is flushed from the buffer and actually saved to disk. Not closing a file can cause data loss or prevent other programs from accessing the file.",
+   "keywords": [
+    "close",
+    "resource",
+    "buffer",
+    "flush",
+    "data loss"
+   ],
+   "explanation": "File objects use OS-level resources. Leaving files open wastes resources and risks incomplete writes because data may sit in a memory buffer and never reach the disk.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "Consider the following Python code. What is the exact output printed to the screen?\n\nwith open('test.txt', 'w') as f:\n    f.write('Hello\\n')\n    f.write('World\\n')\n\nwith open('test.txt', 'r') as f:\n    lines = f.readlines()\n\nprint(len(lines))",
+   "answer": "2",
+   "explanation": "Two strings are written to the file, each ending with a newline character. readlines() reads each line as a separate element in a list. So lines has 2 elements: 'Hello\\n' and 'World\\n'. len(lines) is therefore 2.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a Python program that asks the user to enter their name and age, then saves this information to a file called 'user_info.txt' in the format 'Name: <name>, Age: <age>'. After saving, read the file and print its content to confirm.",
+   "starter": "# Get input from user\nname = input('Enter your name: ')\nage = input('Enter your age: ')\n\n# Write to file\n# YOUR CODE HERE\n\n# Read and print file content\n# YOUR CODE HERE",
+   "solution": "# Get input from user\nname = input('Enter your name: ')\nage = input('Enter your age: ')\n\n# Write to file\nwith open('user_info.txt', 'w') as f:\n    f.write('Name: ' + name + ', Age: ' + age + '\\n')\n\n# Read and print file content\nwith open('user_info.txt', 'r') as f:\n    content = f.read()\nprint(content)",
+   "explanation": "We use input() to collect the user's name and age as strings. We open 'user_info.txt' in 'w' mode using a with block, then use write() to save the formatted string including a newline at the end. We then open the same file in 'r' mode, use read() to get all the content as a string, and print it to verify the data was saved correctly.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What is File Handling?",
+    "steps": [
+     {
+      "say": "Welcome everyone! Today we are going to learn about file handling in Python. This is a very useful topic because it lets your program save data permanently.",
+      "write": {
+       "kind": "heading",
+       "content": "File Handling in Python"
+      }
+     },
+     {
+      "say": "When your program ends, all variables are lost. But if you save data to a file on disk, it stays there even after the program closes.",
+      "write": {
+       "kind": "bullet",
+       "content": "Variables: lost when program ends"
+      }
+     },
+     {
+      "say": "Files on disk are permanent. Python makes it very easy to create, read, and write files using just a few built-in tools.",
+      "write": {
+       "kind": "bullet",
+       "content": "Files on disk: data stays permanently"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Opening a File and File Modes",
+    "steps": [
+     {
+      "say": "To work with a file in Python, you first need to open it using the built-in open function. It takes two arguments: the file name and the mode.",
+      "write": {
+       "kind": "heading",
+       "content": "Opening a File"
+      }
+     },
+     {
+      "say": "The mode tells Python what you want to do. Use r for reading, w for writing, and a for appending.",
+      "write": {
+       "kind": "text",
+       "content": "open('file.txt', mode)"
+      }
+     },
+     {
+      "say": "Write mode with w creates the file if it does not exist, but warning — it will erase all content if the file already exists.",
+      "write": {
+       "kind": "bullet",
+       "content": "'r' = read,  'w' = write,  'a' = append"
+      }
+     },
+     {
+      "say": "Append mode with a is safe to use when you want to add new data without deleting what is already there.",
+      "write": {
+       "kind": "highlight",
+       "content": "'w' erases existing content!"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Writing and Reading Files with 'with'",
+    "steps": [
+     {
+      "say": "The best way to handle files is using the with statement. It automatically closes the file for you when the block is done.",
+      "write": {
+       "kind": "heading",
+       "content": "The 'with' Statement"
+      }
+     },
+     {
+      "say": "Here we open a file called notes dot txt in write mode. The file object is called f.",
+      "write": {
+       "kind": "code",
+       "content": "with open('notes.txt', 'w') as f:"
+      }
+     },
+     {
+      "say": "Inside the block we call f dot write to save a line of text. We add backslash n for a new line.",
+      "write": {
+       "kind": "code",
+       "content": "    f.write('Hello Python\\n')"
+      }
+     },
+     {
+      "say": "Now to read it back, we open the same file in read mode and call f dot read to get all the content as one string.",
+      "write": {
+       "kind": "code",
+       "content": "with open('notes.txt', 'r') as f:\n    data = f.read()\nprint(data)"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Reading Methods Compared",
+    "steps": [
+     {
+      "say": "Python gives you three ways to read a file and it is important to know the difference between them.",
+      "write": {
+       "kind": "heading",
+       "content": "Reading Methods"
+      }
+     },
+     {
+      "say": "f dot read returns the entire file as one single string. Use this when the file is small.",
+      "write": {
+       "kind": "bullet",
+       "content": "read()      -> entire file, one string"
+      }
+     },
+     {
+      "say": "f dot readline reads just one line each time you call it. Good when you want to process one line at a time.",
+      "write": {
+       "kind": "bullet",
+       "content": "readline()  -> one line as a string"
+      }
+     },
+     {
+      "say": "f dot readlines reads all lines and gives you a Python list where each item is one line. You can then use len to count the lines.",
+      "write": {
+       "kind": "bullet",
+       "content": "readlines() -> all lines as a list"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Great work today! Let us quickly recap what we learned about file handling in Python.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap: File Handling"
+      }
+     },
+     {
+      "say": "Use open with the file name and a mode. The three key modes are r, w, and a.",
+      "write": {
+       "kind": "bullet",
+       "content": "open(filename, mode): r, w, a"
+      }
+     },
+     {
+      "say": "Always use the with statement so the file closes automatically and safely.",
+      "write": {
+       "kind": "bullet",
+       "content": "Use 'with' to auto-close the file"
+      }
+     },
+     {
+      "say": "Remember that write mode will delete existing content, so use append mode if you want to keep it. And always add backslash n when you need a new line.",
+      "write": {
+       "kind": "bullet",
+       "content": "'w' deletes content; 'a' keeps it"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,330 @@
+{
+ "summary": "Controlling output format and quality means telling an AI exactly how you want your answer structured, how long it should be, and what tone or style to use, so you get useful results every time.",
+ "shortNotes": [
+  "Specify the format explicitly: bullet points, numbered list, table, paragraph, etc.",
+  "Set the length: ask for a one-line answer, a 200-word summary, or a detailed report.",
+  "Define the tone: formal, casual, professional, simple, or academic.",
+  "Ask for structure elements like headings, subheadings, or sections to organise long outputs.",
+  "Request quality markers such as examples, evidence, step-by-step reasoning, or plain language.",
+  "Iterate and refine: if the first output is not right, add more format instructions and try again."
+ ],
+ "detailed": {
+  "explanation": "When you type a prompt into an AI tool, the AI does not automatically know whether you want a short answer, a long essay, a table, or a list. Without clear instructions, it will make its own guess — and that guess may not match what you actually need. Controlling output format means you tell the AI precisely how to present its response.\n\nThe most common format controls are: asking for **bullet points** or a **numbered list** for quick reading, requesting a **table** when comparing items, specifying **headings and sections** for longer documents, or asking for plain **paragraphs** for essays. You can also tell the AI to limit its answer to a certain word count, for example `Summarise in under 100 words`.\n\nTone and language level are equally important. Asking an AI to `explain like I am a 10-year-old` gives a very different result from `write a formal report for a company director`. For college assignments you might write `use an academic tone with in-text citations style` to guide the quality and register of the writing.\n\nQuality can also be improved by asking the AI to include **examples**, show **step-by-step reasoning**, avoid jargon, or flag any assumptions it is making. Phrases like `give one real-world example` or `think step by step` are powerful quality boosters that cost you just a few extra words in your prompt.\n\nFinally, remember that prompt writing is iterative. If the AI's first response is too long, too vague, or in the wrong format, you can follow up with a refined instruction such as `now rewrite this as a three-column table` or `shorten to five bullet points`. Each follow-up is just another prompt.",
+  "definitions": [
+   {
+    "term": "Output Format",
+    "meaning": "The structure or layout of the AI's response, such as a list, table, paragraph, or numbered steps."
+   },
+   {
+    "term": "Tone",
+    "meaning": "The style or register of writing, for example formal, casual, friendly, or academic."
+   },
+   {
+    "term": "Prompt Iteration",
+    "meaning": "The process of refining and rewriting a prompt based on the AI's previous response to get a better result."
+   },
+   {
+    "term": "Word Count Constraint",
+    "meaning": "An instruction in a prompt that limits how long the AI's answer should be, e.g., 'in under 150 words'."
+   },
+   {
+    "term": "Step-by-step Reasoning",
+    "meaning": "Asking the AI to explain its thinking one step at a time, which usually improves accuracy and clarity."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "Always state the format you want upfront in your prompt — do not leave it to the AI to decide.",
+   "Use phrases like 'in bullet points', 'as a numbered list', 'in a table with two columns', or 'in three paragraphs'.",
+   "Specify tone by giving a role or audience, e.g., 'explain to a first-year college student' or 'write for a business manager'.",
+   "Length control phrases: 'in under 100 words', 'in exactly five points', 'write a one-page summary'.",
+   "Quality boosters: 'give a real-world example', 'think step by step', 'avoid technical jargon', 'cite any assumptions'.",
+   "For exams or assignments, mention the required format explicitly — AI can mimic academic essay structure if asked.",
+   "Iterative prompting is normal and expected; treat it like a conversation, not a single question.",
+   "Combining format + tone + length in one prompt gives the most precise and useful output."
+  ]
+ },
+ "codeExample": null,
+ "commonMistakes": [
+  "Writing a vague prompt with no format instruction and then blaming the AI for giving a long, rambling answer.",
+  "Asking for a 'short answer' without specifying what short means — always give a word count or number of points.",
+  "Forgetting to mention tone or audience, which causes the AI to default to a generic style that may not suit your purpose."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Which part of a prompt controls whether the AI responds in bullet points or paragraphs?",
+   "options": [
+    "The topic keyword",
+    "The output format instruction",
+    "The word 'please' at the start",
+    "The question mark at the end"
+   ],
+   "answer": 1,
+   "explanation": "The output format instruction tells the AI how to structure its response. Topic keywords tell it what to write about, but not how to present it.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "A student writes: 'Explain photosynthesis in simple English for a 12-year-old.' What is the student controlling here?",
+   "options": [
+    "Only the topic",
+    "The length of the answer",
+    "The tone and language level",
+    "The number of examples"
+   ],
+   "answer": 2,
+   "explanation": "'Simple English for a 12-year-old' sets the tone and language complexity. It does not directly set length or number of examples.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which prompt is most likely to produce a high-quality, well-structured output?",
+   "options": [
+    "Tell me about climate change.",
+    "Climate change?",
+    "Write a 200-word summary of climate change causes in three bullet points for a college student.",
+    "Climate change causes and effects and solutions please."
+   ],
+   "answer": 2,
+   "explanation": "Option C specifies word count, format (bullet points), number of points, topic focus (causes), and audience (college student) — all quality and format controls together.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What does 'prompt iteration' mean?",
+   "options": [
+    "Writing the same prompt many times without changing it",
+    "Copying a prompt from the internet",
+    "Refining your prompt based on the AI's response to get a better result",
+    "Translating a prompt into another language"
+   ],
+   "answer": 2,
+   "explanation": "Prompt iteration means you look at the AI's output, decide what needs to improve, and write a new or updated prompt to get closer to what you need.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "A student wants the AI to show its working clearly. Which phrase should they add to their prompt?",
+   "options": [
+    "Be creative",
+    "Think step by step",
+    "Use advanced vocabulary",
+    "Keep it short"
+   ],
+   "answer": 1,
+   "explanation": "'Think step by step' is a well-known quality booster that encourages the AI to explain its reasoning one step at a time, improving accuracy and clarity.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which prompt best controls both format AND length?",
+   "options": [
+    "What are the benefits of exercise?",
+    "List five benefits of exercise as a numbered list in under 80 words.",
+    "Exercise benefits numbered.",
+    "Give me a long detailed answer about exercise benefits."
+   ],
+   "answer": 1,
+   "explanation": "Option B specifies format (numbered list), exact number of items (five), topic (benefits of exercise), and a word limit (under 80 words) — it controls both format and length precisely.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Why is it important to specify the tone when writing a prompt for an AI?",
+   "answer": "Specifying tone ensures the AI writes at the right level and style for your audience. Without a tone instruction, the AI defaults to a generic style that may be too technical, too casual, or unsuitable for your specific purpose.",
+   "keywords": [
+    "tone",
+    "audience",
+    "style",
+    "default",
+    "suitable"
+   ],
+   "explanation": "Tone controls the register and complexity of language. A formal report and a casual explanation of the same topic look very different, so the AI needs to be told which one you want.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "A friend says, 'I asked the AI for a summary but it wrote five paragraphs. The AI must be broken.' How would you correct this misunderstanding?",
+   "answer": "The AI is not broken. The prompt did not specify how long the summary should be or how many points to include. Adding a word count or saying 'in three bullet points' would have given a shorter, more focused output.",
+   "keywords": [
+    "prompt",
+    "word count",
+    "format",
+    "specify",
+    "instruction"
+   ],
+   "explanation": "Without a length or format instruction, the AI makes its own choice. The fix is to add clear constraints to the prompt, not to blame the AI.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "A student's prompt says: 'List exactly 4 advantages of online learning as a numbered list.' How many items should appear in the AI's response?",
+   "answer": "4",
+   "explanation": "The prompt explicitly says 'exactly 4 advantages', so a well-formed AI response following the format instruction will contain exactly 4 numbered items.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What Does Controlling Output Format Mean?",
+    "steps": [
+     {
+      "say": "Welcome! Today we are learning how to control the format and quality of answers we get from AI tools. This is one of the most practical skills you will ever learn.",
+      "write": {
+       "kind": "heading",
+       "content": "Controlling Output Format & Quality"
+      }
+     },
+     {
+      "say": "When you type a prompt, the AI does not know if you want a list, a table, or a paragraph. You have to tell it.",
+      "write": {
+       "kind": "text",
+       "content": "AI cannot guess your format.\nYou must specify it."
+      }
+     },
+     {
+      "say": "Think of it like ordering food. If you just say 'give me food', you may get anything. But if you say 'one masala dosa, crispy', you get exactly what you want.",
+      "write": {
+       "kind": "bullet",
+       "content": "Vague prompt → random format\nClear prompt → exact format"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Format, Length, and Tone Controls",
+    "steps": [
+     {
+      "say": "There are three main things you can control: format, length, and tone. Let us look at each one.",
+      "write": {
+       "kind": "heading",
+       "content": "3 Controls in a Prompt"
+      }
+     },
+     {
+      "say": "Format means how the answer looks. You can ask for bullet points, a numbered list, a table, or plain paragraphs.",
+      "write": {
+       "kind": "bullet",
+       "content": "1. Format: list / table / paragraph"
+      }
+     },
+     {
+      "say": "Length means how long the answer is. For example, say 'in under 100 words' or 'in exactly five points'.",
+      "write": {
+       "kind": "bullet",
+       "content": "2. Length: word count / number of points"
+      }
+     },
+     {
+      "say": "Tone means the style of writing. You can ask for formal, casual, simple, or academic language depending on your audience.",
+      "write": {
+       "kind": "bullet",
+       "content": "3. Tone: formal / simple / academic"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Comparing a Weak Prompt vs a Strong Prompt",
+    "steps": [
+     {
+      "say": "Let me show you the difference between a weak prompt and a strong prompt side by side.",
+      "write": {
+       "kind": "heading",
+       "content": "Weak vs Strong Prompt"
+      }
+     },
+     {
+      "say": "Here is a weak prompt. It only states a topic and nothing else.",
+      "write": {
+       "kind": "text",
+       "content": "Weak: Tell me about climate change."
+      }
+     },
+     {
+      "say": "Now here is a strong prompt. It tells the AI the format, the length, the focus, and the audience all at once.",
+      "write": {
+       "kind": "text",
+       "content": "Strong: Summarise 3 causes of\nclimate change as bullet points\nin under 80 words for a\ncollege student."
+      }
+     },
+     {
+      "say": "The strong prompt gives the AI four clear instructions. That is why the output will be much more useful.",
+      "write": {
+       "kind": "highlight",
+       "content": "Format + Length + Focus + Audience\n= High Quality Output"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quality Boosters and Prompt Iteration",
+    "steps": [
+     {
+      "say": "You can also boost quality by adding a few special phrases to your prompt.",
+      "write": {
+       "kind": "heading",
+       "content": "Quality Booster Phrases"
+      }
+     },
+     {
+      "say": "Saying 'think step by step' makes the AI explain its reasoning clearly, which is great for maths or logic problems.",
+      "write": {
+       "kind": "bullet",
+       "content": "\"Think step by step\""
+      }
+     },
+     {
+      "say": "Saying 'give a real-world example' forces the AI to make its answer concrete and easier to understand.",
+      "write": {
+       "kind": "bullet",
+       "content": "\"Give a real-world example\""
+      }
+     },
+     {
+      "say": "And if the first answer is not right, just refine your prompt and ask again. This is called prompt iteration and it is completely normal.",
+      "write": {
+       "kind": "bullet",
+       "content": "Iterate: refine and ask again"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us quickly recap what we covered today. These are your key takeaways.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap"
+      }
+     },
+     {
+      "say": "Always specify format, length, and tone in your prompt. Do not leave it to the AI to guess.",
+      "write": {
+       "kind": "bullet",
+       "content": "Specify format, length, tone"
+      }
+     },
+     {
+      "say": "Add quality boosters like 'think step by step' or 'give an example' to get more useful answers.",
+      "write": {
+       "kind": "bullet",
+       "content": "Use quality booster phrases"
+      }
+     },
+     {
+      "say": "And remember, prompt writing is a skill you build by practising. Iterate, improve, and you will get great results every time. Good luck!",
+      "write": {
+       "kind": "highlight",
+       "content": "Practice + Iterate = Better Prompts"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

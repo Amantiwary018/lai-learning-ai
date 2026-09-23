@@ -1,0 +1,80 @@
+{
+ "subjects": [
+  {
+   "title": "Supervised and Unsupervised Learning",
+   "chapters": [
+    {
+     "title": "Introduction to Machine Learning",
+     "topics": [
+      "What is Machine Learning and AI",
+      "Types of Machine Learning",
+      "Setting Up Your ML Environment"
+     ]
+    },
+    {
+     "title": "Supervised Learning Fundamentals",
+     "topics": [
+      "Linear and Logistic Regression",
+      "Decision Trees and Random Forests",
+      "Support Vector Machines",
+      "Hands-On Classification Project"
+     ]
+    },
+    {
+     "title": "Unsupervised Learning Techniques",
+     "topics": [
+      "K-Means and Hierarchical Clustering",
+      "Dimensionality Reduction with PCA",
+      "Anomaly Detection Basics"
+     ]
+    },
+    {
+     "title": "Model Evaluation and Improvement",
+     "topics": [
+      "Evaluation Metrics for Classification and Regression",
+      "Overfitting, Underfitting and Cross-Validation",
+      "Hyperparameter Tuning Strategies"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Neural Networks and Model Deployment",
+   "chapters": [
+    {
+     "title": "Neural Network Foundations",
+     "topics": [
+      "How Neurons and Layers Work",
+      "Activation Functions and Backpropagation",
+      "Building Your First Neural Network"
+     ]
+    },
+    {
+     "title": "Deep Learning Architectures",
+     "topics": [
+      "Convolutional Neural Networks for Images",
+      "Recurrent Neural Networks for Sequences",
+      "Introduction to Transfer Learning"
+     ]
+    },
+    {
+     "title": "Training and Optimizing Models",
+     "topics": [
+      "Loss Functions and Optimizers",
+      "Regularization and Dropout",
+      "Batch Normalization and Learning Rate Scheduling"
+     ]
+    },
+    {
+     "title": "Deploying Machine Learning Models",
+     "topics": [
+      "Saving and Exporting Trained Models",
+      "Building a REST API with Flask or FastAPI",
+      "Deployment on Cloud Platforms",
+      "Monitoring Models in Production"
+     ]
+    }
+   ]
+  }
+ ]
+}

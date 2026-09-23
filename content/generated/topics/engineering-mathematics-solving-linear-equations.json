@@ -1,0 +1,338 @@
+{
+ "summary": "A linear equation is an algebraic equation where the variable has degree one, and solving it means finding the value of the unknown that makes both sides equal.",
+ "shortNotes": [
+  "A linear equation in one variable has the form ax + b = c, where a ≠ 0.",
+  "The goal is to isolate the variable on one side using inverse operations.",
+  "Whatever operation you perform on one side must be done on the other side too.",
+  "Addition, subtraction, multiplication, and division are used to simplify step by step.",
+  "Always verify your answer by substituting it back into the original equation.",
+  "Linear equations have exactly one solution (unless they are contradictions or identities)."
+ ],
+ "detailed": {
+  "explanation": "A **linear equation** in one variable is an equation of the form `ax + b = c`, where `a`, `b`, and `c` are real numbers and `a ≠ 0`. The word *linear* comes from the fact that when graphed, such equations produce a straight line. The variable (usually `x`) appears only to the first power — never squared, cubed, or under a root.\n\nTo **solve** a linear equation means to find the value of the unknown variable that satisfies the equation — that is, makes the left-hand side equal to the right-hand side. The key principle is the **balance principle**: an equation is like a weighing scale; any operation performed on one side must also be performed on the other side to keep it balanced.\n\nThe standard strategy is to **isolate the variable** using inverse operations. First, use addition or subtraction to move constant terms to one side. Then use multiplication or division to remove any coefficient attached to the variable. For example, to solve `2x + 5 = 17`, subtract 5 from both sides to get `2x = 12`, then divide both sides by 2 to get `x = 6`.\n\nSome equations may require **simplification first** — expanding brackets, collecting like terms, or clearing fractions by multiplying through by the LCM of denominators. Always simplify both sides fully before applying inverse operations.\n\nFinally, **verify your solution** by substituting the answer back into the original equation. If both sides become equal, the solution is correct. This step is especially important in exams to avoid errors from simple arithmetic mistakes.",
+  "definitions": [
+   {
+    "term": "Linear Equation",
+    "meaning": "An algebraic equation in which the highest power of the variable is 1, e.g., ax + b = c."
+   },
+   {
+    "term": "Variable",
+    "meaning": "An unknown quantity represented by a letter (such as x or y) whose value we wish to find."
+   },
+   {
+    "term": "Coefficient",
+    "meaning": "The numerical factor multiplied by the variable in a term, e.g., in 3x the coefficient is 3."
+   },
+   {
+    "term": "Constant",
+    "meaning": "A fixed numerical value in an equation that does not contain a variable, e.g., the 5 in 2x + 5 = 17."
+   },
+   {
+    "term": "Balance Principle",
+    "meaning": "The rule that any mathematical operation applied to one side of an equation must also be applied to the other side to maintain equality."
+   },
+   {
+    "term": "Solution (Root)",
+    "meaning": "The value of the variable that makes the equation true when substituted into it."
+   }
+  ],
+  "formulas": [
+   {
+    "name": "Standard Form of a Linear Equation",
+    "expression": "ax + b = c",
+    "note": "Where a ≠ 0; a is the coefficient, b and c are constants."
+   },
+   {
+    "name": "Solution Formula",
+    "expression": "x = (c - b) / a",
+    "note": "Derived by subtracting b from both sides and dividing by a."
+   }
+  ],
+  "points": [
+   "The degree (highest power) of the variable in a linear equation is always 1.",
+   "Perform the same operation on both sides — this is the golden rule of equation solving.",
+   "Move all variable terms to one side and all constants to the other before solving.",
+   "When multiplying or dividing by a negative number, the equation stays valid but be careful with signs.",
+   "To clear fractions, multiply every term in the equation by the LCM of all denominators.",
+   "Always substitute your answer back into the original equation to verify it is correct.",
+   "An equation with no solution (e.g., 0 = 5) is called a contradiction; one true for all values (e.g., 0 = 0) is an identity.",
+   "In exams, show each step clearly — partial marks are awarded for correct working even if the final answer is wrong."
+  ]
+ },
+ "codeExample": null,
+ "commonMistakes": [
+  "Performing an operation on only one side of the equation instead of both sides, which breaks the balance and gives a wrong answer.",
+  "Making sign errors when moving terms across the equals sign — remember that moving a term requires changing its sign (e.g., +5 becomes -5).",
+  "Skipping the verification step and not substituting the answer back, so arithmetic errors go unnoticed."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "What is the solution of the equation 3x + 6 = 18?",
+   "options": [
+    "x = 2",
+    "x = 4",
+    "x = 6",
+    "x = 8"
+   ],
+   "answer": 1,
+   "explanation": "Subtract 6 from both sides: 3x = 12. Divide both sides by 3: x = 4.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following is the correct first step to solve 5x - 10 = 20?",
+   "options": [
+    "Divide both sides by 5",
+    "Add 10 to both sides",
+    "Subtract 20 from both sides",
+    "Multiply both sides by 5"
+   ],
+   "answer": 1,
+   "explanation": "To isolate the variable term, first eliminate the constant -10 by adding 10 to both sides, giving 5x = 30.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "The equation 2(x + 3) = 14 simplifies to which of the following after expanding?",
+   "options": [
+    "2x + 3 = 14",
+    "2x + 6 = 14",
+    "2x + 6 = 28",
+    "x + 6 = 14"
+   ],
+   "answer": 1,
+   "explanation": "Distributing 2 over (x + 3) gives 2·x + 2·3 = 2x + 6 = 14.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which value of x satisfies the equation x/4 + 2 = 5?",
+   "options": [
+    "x = 7",
+    "x = 12",
+    "x = 28",
+    "x = 3"
+   ],
+   "answer": 1,
+   "explanation": "Subtract 2 from both sides: x/4 = 3. Multiply both sides by 4: x = 12.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "If 7 - 2x = 1, what is the value of x?",
+   "options": [
+    "x = -3",
+    "x = 3",
+    "x = 4",
+    "x = -4"
+   ],
+   "answer": 1,
+   "explanation": "Subtract 7 from both sides: -2x = -6. Divide both sides by -2: x = 3.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "An equation that is true for every value of the variable is called:",
+   "options": [
+    "A contradiction",
+    "A linear equation",
+    "An identity",
+    "A quadratic equation"
+   ],
+   "answer": 2,
+   "explanation": "An identity holds for all values of the variable (e.g., 2(x+1) = 2x + 2). A contradiction holds for no value.",
+   "difficulty": "hard"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain the balance principle in solving linear equations and why it is important.",
+   "answer": "The balance principle states that any operation performed on one side of an equation must also be performed on the other side. This keeps both sides equal and maintains the validity of the equation. It is important because violating it changes the equation and leads to an incorrect solution.",
+   "keywords": [
+    "both sides",
+    "equal",
+    "operation",
+    "balance",
+    "validity"
+   ],
+   "explanation": "The balance principle is the foundation of equation solving. It ensures equality is preserved at every step.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Describe the steps you would use to solve the equation 3(2x - 4) = 12.",
+   "answer": "First expand the bracket: 6x - 12 = 12. Then add 12 to both sides: 6x = 24. Finally divide both sides by 6: x = 4. Verify by substituting: 3(2·4 - 4) = 3(4) = 12, which is correct.",
+   "keywords": [
+    "expand",
+    "add",
+    "divide",
+    "isolate",
+    "verify"
+   ],
+   "explanation": "Expanding brackets first, then using inverse operations to isolate x, and finally verifying are the key steps.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "Solve for x: 4x - 7 = 13. What is the value of x?",
+   "answer": "5",
+   "explanation": "Add 7 to both sides: 4x = 20. Divide both sides by 4: x = 5. Verify: 4(5) - 7 = 20 - 7 = 13. Correct.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What is a Linear Equation?",
+    "steps": [
+     {
+      "say": "Hello everyone, welcome to today's lesson. We are going to learn how to solve linear equations, which is one of the most important skills in mathematics.",
+      "write": {
+       "kind": "heading",
+       "content": "Solving Linear Equations"
+      }
+     },
+     {
+      "say": "A linear equation is an equation where the variable has a power of exactly one. It looks like this.",
+      "write": {
+       "kind": "equation",
+       "content": "ax + b = c  (a ≠ 0)"
+      }
+     },
+     {
+      "say": "For example, if we have two x plus five equals seventeen, x is the unknown we need to find.",
+      "write": {
+       "kind": "equation",
+       "content": "2x + 5 = 17"
+      }
+     }
+    ]
+   },
+   {
+    "title": "The Balance Principle",
+    "steps": [
+     {
+      "say": "The most important rule in equation solving is the balance principle. Think of an equation as a weighing scale — both sides must stay equal.",
+      "write": {
+       "kind": "text",
+       "content": "Balance Principle:"
+      }
+     },
+     {
+      "say": "Whatever you do to one side, you must do the same to the other side. This keeps the equation true.",
+      "write": {
+       "kind": "bullet",
+       "content": "Same operation on BOTH sides"
+      }
+     },
+     {
+      "say": "Our goal is always to isolate the variable — to get x alone on one side of the equals sign.",
+      "write": {
+       "kind": "bullet",
+       "content": "Goal: isolate the variable x"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Solving a Linear Equation Step by Step",
+    "steps": [
+     {
+      "say": "Let us solve two x plus five equals seventeen, one step at a time.",
+      "write": {
+       "kind": "equation",
+       "content": "2x + 5 = 17"
+      }
+     },
+     {
+      "say": "First, subtract five from both sides to remove the constant on the left.",
+      "write": {
+       "kind": "equation",
+       "content": "2x = 17 - 5 = 12"
+      }
+     },
+     {
+      "say": "Now divide both sides by two to find the value of x.",
+      "write": {
+       "kind": "equation",
+       "content": "x = 12 / 2 = 6"
+      }
+     },
+     {
+      "say": "Always verify your answer. Substitute x equals six back into the original equation and check that both sides match.",
+      "write": {
+       "kind": "equation",
+       "content": "2(6) + 5 = 12 + 5 = 17 ✓"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Solving with Brackets",
+    "steps": [
+     {
+      "say": "Sometimes equations have brackets. Let us solve three times open bracket two x minus four close bracket equals twelve.",
+      "write": {
+       "kind": "equation",
+       "content": "3(2x - 4) = 12"
+      }
+     },
+     {
+      "say": "First, expand the bracket by multiplying three into both terms inside.",
+      "write": {
+       "kind": "equation",
+       "content": "6x - 12 = 12"
+      }
+     },
+     {
+      "say": "Add twelve to both sides to move the constant to the right.",
+      "write": {
+       "kind": "equation",
+       "content": "6x = 24"
+      }
+     },
+     {
+      "say": "Divide both sides by six to get x equals four. Verify it yourself as practice.",
+      "write": {
+       "kind": "equation",
+       "content": "x = 24 / 6 = 4"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us quickly recap what we learned today about solving linear equations.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap"
+      }
+     },
+     {
+      "say": "A linear equation has the variable to the power of one, written as a x plus b equals c.",
+      "write": {
+       "kind": "bullet",
+       "content": "Form: ax + b = c"
+      }
+     },
+     {
+      "say": "Always apply the same operation to both sides to keep the equation balanced.",
+      "write": {
+       "kind": "bullet",
+       "content": "Same operation on both sides"
+      }
+     },
+     {
+      "say": "Use inverse operations — subtraction, addition, division — to isolate x, and always verify your final answer.",
+      "write": {
+       "kind": "bullet",
+       "content": "Isolate x, then verify"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

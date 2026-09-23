@@ -1,0 +1,323 @@
+{
+ "summary": "Conditional statements in Java allow a program to make decisions and execute different blocks of code based on whether a condition is true or false.",
+ "shortNotes": [
+  "if statement runs a block only when its condition is true.",
+  "if-else gives two paths: one for true, one for false.",
+  "else-if ladder checks multiple conditions one by one.",
+  "switch statement matches a variable against several fixed values (cases).",
+  "Conditions use relational operators: ==, !=, <, >, <=, >=.",
+  "Logical operators && (AND), || (OR), ! (NOT) combine or negate conditions."
+ ],
+ "detailed": {
+  "explanation": "A **conditional statement** lets your program choose what to do based on a condition. Instead of always running the same code from top to bottom, your program can ask a question like \"Is the user's age above 18?\" and take different actions depending on the answer.\n\nThe simplest form is the `if` statement. You write a condition inside parentheses; if it evaluates to `true`, the block inside the curly braces runs. If it is `false`, that block is skipped entirely.\n\nAn `if-else` statement adds a second block that runs when the condition is `false`. This gives you exactly two paths. When you need more than two paths, you chain `else if` blocks together — Java checks each condition from top to bottom and runs the first one that is `true`. Any remaining `else` block acts as a default.\n\nThe `switch` statement is a cleaner alternative when you are comparing one variable against many specific constant values (like integers or characters). Each `case` label matches a possible value, and a `break` statement stops execution from falling into the next case. A `default` case handles values that do not match any label.\n\nChoosing the right conditional structure makes code easier to read and maintain. Use `if-else` for range checks or complex boolean expressions, and prefer `switch` when matching a single variable to a list of exact values.",
+  "definitions": [
+   {
+    "term": "Condition",
+    "meaning": "A boolean expression that evaluates to either true or false, used to control which code block runs."
+   },
+   {
+    "term": "if statement",
+    "meaning": "A conditional statement that executes a block of code only when its condition is true."
+   },
+   {
+    "term": "if-else statement",
+    "meaning": "A conditional structure that executes one block if the condition is true and another block if it is false."
+   },
+   {
+    "term": "else-if ladder",
+    "meaning": "A chain of if and else-if blocks used to test multiple conditions sequentially."
+   },
+   {
+    "term": "switch statement",
+    "meaning": "A conditional statement that compares a single variable to multiple constant case values and executes the matching block."
+   },
+   {
+    "term": "break",
+    "meaning": "A keyword used inside a switch block to stop execution from continuing into the next case."
+   },
+   {
+    "term": "default",
+    "meaning": "The optional last case in a switch statement that runs when no other case matches."
+   },
+   {
+    "term": "Relational operator",
+    "meaning": "An operator such as ==, !=, <, or > that compares two values and returns a boolean result."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "Always use == to compare values in conditions, not = (which is assignment).",
+   "Curly braces {} are optional for a single-statement body, but always using them prevents bugs.",
+   "In an else-if ladder, only the first matching condition executes; the rest are skipped.",
+   "switch works with byte, short, int, char, String, and enum types — not with float or double.",
+   "Forgetting break in a switch causes fall-through: execution continues into the next case.",
+   "The default case in switch does not have to be last, but placing it last is best practice.",
+   "Logical AND (&&) requires both conditions to be true; logical OR (||) requires at least one to be true.",
+   "Exam tip: Trace code step-by-step, evaluating each condition with the given values to predict output."
+  ]
+ },
+ "codeExample": {
+  "language": "java",
+  "code": "public class ConditionalDemo {\n    public static void main(String[] args) {\n\n        // --- if statement ---\n        int age = 20;\n        if (age >= 18) {\n            System.out.println(\"You are an adult.\");\n        }\n\n        // --- if-else statement ---\n        int marks = 45;\n        if (marks >= 50) {\n            System.out.println(\"Pass\");\n        } else {\n            System.out.println(\"Fail\");\n        }\n\n        // --- else-if ladder ---\n        int score = 72;\n        if (score >= 90) {\n            System.out.println(\"Grade: A\");\n        } else if (score >= 75) {\n            System.out.println(\"Grade: B\");\n        } else if (score >= 60) {\n            System.out.println(\"Grade: C\");\n        } else {\n            System.out.println(\"Grade: D\");\n        }\n\n        // --- switch statement ---\n        int day = 3;\n        switch (day) {\n            case 1:\n                System.out.println(\"Monday\");\n                break;\n            case 2:\n                System.out.println(\"Tuesday\");\n                break;\n            case 3:\n                System.out.println(\"Wednesday\");\n                break;\n            default:\n                System.out.println(\"Other day\");\n        }\n    }\n}",
+  "explanation": "Line 1: Declare the class ConditionalDemo.\nLine 2: main method — program starts here.\nLine 5: Declare integer variable age with value 20.\nLine 6: if condition checks whether age is 18 or more.\nLine 7: Prints 'You are an adult.' because 20 >= 18 is true.\nLine 11: Declare marks with value 45.\nLine 12: if checks marks >= 50 — this is false (45 < 50).\nLine 15: else block runs, printing 'Fail'.\nLine 19: Declare score with value 72.\nLine 20: First condition score >= 90 is false.\nLine 22: Second condition score >= 75 is false.\nLine 24: Third condition score >= 60 is true, so 'Grade: C' is printed.\nLine 29: Declare day with value 3.\nLine 30: switch compares day to each case.\nLine 36: case 3 matches; prints 'Wednesday'.\nLine 38: break exits the switch block.\nLine 39: default is not reached because a case matched.\nOutput: You are an adult. / Fail / Grade: C / Wednesday"
+ },
+ "commonMistakes": [
+  "Using = (assignment) instead of == (comparison) inside a condition, e.g., writing if (x = 5) instead of if (x == 5). Java will give a compile error for boolean contexts, but it is a very common confusion for beginners.",
+  "Forgetting the break statement in a switch case, causing fall-through where execution continues into the next case and prints unexpected output.",
+  "Writing conditions in the wrong order in an else-if ladder, such as checking score >= 60 before score >= 90, which causes higher grades to never be reached because a lower condition matches first."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Which keyword is used to provide a default block in a switch statement when no case matches?",
+   "options": [
+    "else",
+    "default",
+    "break",
+    "case"
+   ],
+   "answer": 1,
+   "explanation": "The 'default' keyword in a switch statement marks the block that runs when none of the case values match the variable being tested.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the output of the following code?\nint x = 10;\nif (x > 5) { System.out.print(\"A\"); } else { System.out.print(\"B\"); }",
+   "options": [
+    "B",
+    "AB",
+    "A",
+    "No output"
+   ],
+   "answer": 2,
+   "explanation": "x is 10, which is greater than 5, so the if block executes and prints A. The else block is skipped.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following data types CANNOT be used directly in a switch statement in Java?",
+   "options": [
+    "int",
+    "char",
+    "String",
+    "double"
+   ],
+   "answer": 3,
+   "explanation": "Java's switch statement does not support floating-point types like double or float. It supports int, char, String, byte, short, and enum.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "In an else-if ladder, if the second condition is true, what happens to the remaining else-if blocks?",
+   "options": [
+    "They are all checked as well.",
+    "They are all executed.",
+    "They are skipped.",
+    "The program throws an error."
+   ],
+   "answer": 2,
+   "explanation": "Once a matching condition is found in an else-if ladder, its block executes and all subsequent else-if and else blocks are skipped.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What will happen if you omit the break statement in a switch case in Java?",
+   "options": [
+    "A compile-time error occurs.",
+    "Only the matching case executes.",
+    "Execution falls through to the next case.",
+    "The default case runs immediately."
+   ],
+   "answer": 2,
+   "explanation": "Without break, Java continues executing the statements in the following case(s) — this is called fall-through behaviour.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which logical operator returns true only when BOTH conditions are true?",
+   "options": [
+    "|| (OR)",
+    "! (NOT)",
+    "&& (AND)",
+    "^ (XOR)"
+   ],
+   "answer": 2,
+   "explanation": "The && operator (logical AND) requires both operands to evaluate to true before the whole expression is true.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain the difference between an if-else statement and a switch statement. When would you prefer to use switch?",
+   "answer": "An if-else statement evaluates any boolean expression and supports ranges or complex conditions, while a switch statement compares a single variable against fixed constant values. You prefer switch when you have many exact values to match for a single variable, such as day numbers or menu options, because it is cleaner and easier to read than a long else-if ladder.",
+   "keywords": [
+    "boolean expression",
+    "constant values",
+    "single variable",
+    "cleaner",
+    "exact match"
+   ],
+   "explanation": "This question tests the student's understanding of when each conditional structure is appropriate, which is a common exam question.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Why is it important to use == instead of = when writing a condition in an if statement in Java?",
+   "answer": "The = operator is the assignment operator; it sets a variable's value. The == operator is the equality comparison operator; it checks whether two values are equal and returns a boolean result. Using = inside a condition would attempt an assignment rather than a comparison, which causes a compile error in most boolean contexts in Java.",
+   "keywords": [
+    "assignment",
+    "comparison",
+    "==",
+    "boolean",
+    "compile error"
+   ],
+   "explanation": "Confusing = and == is one of the most frequent beginner mistakes in Java and many other languages.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "What is the exact output printed by the following Java code?\nint n = 15;\nif (n % 2 == 0) {\n    System.out.println(\"Even\");\n} else {\n    System.out.println(\"Odd\");\n}",
+   "answer": "Odd",
+   "explanation": "15 divided by 2 gives a remainder of 1 (not 0), so the condition n % 2 == 0 is false, and the else block executes printing 'Odd'.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a Java program that reads an integer variable called 'temperature' (set it to any value you like). Using an if-else-if ladder, print 'Hot' if temperature is above 35, 'Warm' if it is between 20 and 35 (inclusive), and 'Cold' if it is below 20.",
+   "starter": "public class WeatherCheck {\n    public static void main(String[] args) {\n        int temperature = 28; // change this value to test\n        // Write your if-else-if ladder here\n    }\n}",
+   "solution": "public class WeatherCheck {\n    public static void main(String[] args) {\n        int temperature = 28;\n        if (temperature > 35) {\n            System.out.println(\"Hot\");\n        } else if (temperature >= 20) {\n            System.out.println(\"Warm\");\n        } else {\n            System.out.println(\"Cold\");\n        }\n    }\n}",
+   "explanation": "First condition checks if temperature is strictly above 35 — if true, prints Hot. The else-if checks if temperature is 20 or above (we already know it is not above 35 at this point, so this covers 20 to 35) — prints Warm. The final else catches everything below 20 — prints Cold. With temperature set to 28, the output is Warm.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What Are Conditional Statements?",
+    "steps": [
+     {
+      "say": "Welcome! Today we are learning about conditional statements in Java. These let your program make decisions, just like you do in real life.",
+      "write": {
+       "kind": "heading",
+       "content": "Conditional Statements in Java"
+      }
+     },
+     {
+      "say": "Think of it this way: if it is raining, you carry an umbrella, otherwise you don't. Your program works the same way.",
+      "write": {
+       "kind": "bullet",
+       "content": "Program chooses code to run\nbased on a condition (true/false)"
+      }
+     },
+     {
+      "say": "A condition is just a question that has a yes or no answer, which in Java we call true or false.",
+      "write": {
+       "kind": "text",
+       "content": "Condition → true or false"
+      }
+     }
+    ]
+   },
+   {
+    "title": "The if and if-else Statements",
+    "steps": [
+     {
+      "say": "The simplest conditional is the if statement. Let's write one. We have a variable age set to 20.",
+      "write": {
+       "kind": "code",
+       "content": "int age = 20;"
+      }
+     },
+     {
+      "say": "We write if, then the condition in round brackets, then the code to run inside curly braces.",
+      "write": {
+       "kind": "code",
+       "content": "if (age >= 18) {"
+      }
+     },
+     {
+      "say": "If age is 18 or more, this line runs. Because 20 is greater than 18, Java prints you are an adult.",
+      "write": {
+       "kind": "code",
+       "content": "  System.out.println(\"Adult\");\n}"
+      }
+     },
+     {
+      "say": "Now we add an else block. If the condition is false, Java runs the else block instead. So we get exactly two paths.",
+      "write": {
+       "kind": "code",
+       "content": "else {\n  System.out.println(\"Minor\");\n}"
+      }
+     }
+    ]
+   },
+   {
+    "title": "The else-if Ladder and switch",
+    "steps": [
+     {
+      "say": "When you have more than two choices, you chain else-if blocks. Java checks each condition from top to bottom and runs the first one that is true.",
+      "write": {
+       "kind": "heading",
+       "content": "else-if Ladder"
+      }
+     },
+     {
+      "say": "Here we check a student score. If score is 90 or above, grade A. Else if 75 or above, grade B. Otherwise grade C.",
+      "write": {
+       "kind": "code",
+       "content": "if (score >= 90) { // Grade A\n} else if (score >= 75) { // B\n} else { // Grade C\n}"
+      }
+     },
+     {
+      "say": "The switch statement is great when you compare one variable to many exact values. Each case is one possible value, and break stops it from running into the next case.",
+      "write": {
+       "kind": "code",
+       "content": "switch (day) {\n  case 1: // Monday\n    break;\n  default: // other\n}"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Common Mistakes to Avoid",
+    "steps": [
+     {
+      "say": "Here is a very common mistake. Using a single equals sign inside a condition is assignment, not comparison. Always use double equals for comparison.",
+      "write": {
+       "kind": "highlight",
+       "content": "WRONG:  if (x = 5)\nCORRECT: if (x == 5)"
+      }
+     },
+     {
+      "say": "Another mistake is forgetting break in a switch case. Without it, execution falls through into the next case and prints extra output you did not expect.",
+      "write": {
+       "kind": "bullet",
+       "content": "Forget break → fall-through!\nAlways add break after each case."
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us quickly recap. We have four main conditional tools in Java: if, if-else, the else-if ladder, and switch.",
+      "write": {
+       "kind": "bullet",
+       "content": "if → one condition\nif-else → two paths\nelse-if ladder → many conditions\nswitch → match exact values"
+      }
+     },
+     {
+      "say": "Remember to use double equals for comparison, always add break in switch, and use curly braces to keep your code safe and clear.",
+      "write": {
+       "kind": "highlight",
+       "content": "== for comparison\nbreak in switch\n{} always"
+      }
+     },
+     {
+      "say": "Great work today! Practice by writing small programs that take a number and print different messages based on its value. See you in the next lesson.",
+      "write": null
+     }
+    ]
+   }
+  ]
+ }
+}

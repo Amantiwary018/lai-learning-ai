@@ -1,0 +1,80 @@
+{
+ "subjects": [
+  {
+   "title": "Python for Data Science Foundations",
+   "chapters": [
+    {
+     "title": "Python & Environment Setup",
+     "topics": [
+      "Installing Python, Jupyter Notebook and Anaconda",
+      "Python basics: variables, loops and functions",
+      "Writing and running your first data script"
+     ]
+    },
+    {
+     "title": "Data Manipulation with NumPy",
+     "topics": [
+      "NumPy arrays: creation, indexing and slicing",
+      "Array operations and broadcasting",
+      "Statistical computations with NumPy"
+     ]
+    },
+    {
+     "title": "Data Analysis with pandas",
+     "topics": [
+      "DataFrames and Series: loading and inspecting data",
+      "Filtering, sorting and grouping data",
+      "Handling missing values and data cleaning",
+      "Merging and reshaping DataFrames"
+     ]
+    },
+    {
+     "title": "Data Visualization Essentials",
+     "topics": [
+      "Plotting with Matplotlib: line, bar and scatter charts",
+      "Exploratory data analysis with Seaborn",
+      "Visualizing distributions and correlations"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Machine Learning with scikit-learn",
+   "chapters": [
+    {
+     "title": "ML Fundamentals & Data Preparation",
+     "topics": [
+      "Supervised vs unsupervised learning concepts",
+      "Train-test split and cross-validation",
+      "Feature scaling and encoding categorical variables"
+     ]
+    },
+    {
+     "title": "Supervised Learning Algorithms",
+     "topics": [
+      "Linear and logistic regression",
+      "Decision trees and random forests",
+      "Support vector machines and k-nearest neighbors",
+      "Evaluating models: accuracy, precision, recall and F1"
+     ]
+    },
+    {
+     "title": "Unsupervised Learning & Dimensionality Reduction",
+     "topics": [
+      "K-means clustering and interpreting clusters",
+      "Hierarchical clustering with dendrograms",
+      "Principal component analysis (PCA)"
+     ]
+    },
+    {
+     "title": "Model Tuning & End-to-End Pipeline",
+     "topics": [
+      "Hyperparameter tuning with GridSearchCV",
+      "Building reusable pipelines with scikit-learn Pipeline",
+      "Saving, loading and deploying trained models"
+     ]
+    }
+   ]
+  }
+ ]
+}

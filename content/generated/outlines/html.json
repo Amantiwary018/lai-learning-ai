@@ -1,0 +1,70 @@
+{
+ "subjects": [
+  {
+   "title": "HTML Foundations & Semantic Structure",
+   "chapters": [
+    {
+     "title": "Introduction to HTML5",
+     "topics": [
+      "What is HTML and how browsers render pages",
+      "Anatomy of an HTML document",
+      "Block vs inline elements"
+     ]
+    },
+    {
+     "title": "Semantic HTML5 Elements",
+     "topics": [
+      "Structural tags: header, nav, main, footer",
+      "Content tags: article, section, aside",
+      "Text semantics: figure, figcaption, time, mark"
+     ]
+    },
+    {
+     "title": "HTML Forms",
+     "topics": [
+      "Form structure and the form element",
+      "Input types, labels and fieldsets",
+      "Validation attributes and error handling"
+     ]
+    },
+    {
+     "title": "Media in HTML5",
+     "topics": [
+      "Embedding images with responsive attributes",
+      "Audio and video elements with controls",
+      "iframe and embedded content"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Accessibility & Best Practices",
+   "chapters": [
+    {
+     "title": "Web Accessibility Fundamentals",
+     "topics": [
+      "What is accessibility and WCAG guidelines",
+      "Screen readers and assistive technologies",
+      "Keyboard navigation and focus management"
+     ]
+    },
+    {
+     "title": "ARIA and Accessible Markup",
+     "topics": [
+      "ARIA roles, states and properties",
+      "Accessible forms with labels and descriptions",
+      "Alt text and accessible media"
+     ]
+    },
+    {
+     "title": "HTML Best Practices",
+     "topics": [
+      "Document outline and heading hierarchy",
+      "SEO-friendly semantic structure",
+      "Validating and linting HTML code"
+     ]
+    }
+   ]
+  }
+ ]
+}

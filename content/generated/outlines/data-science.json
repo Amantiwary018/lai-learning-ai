@@ -1,0 +1,77 @@
+{
+ "subjects": [
+  {
+   "title": "Statistics & Data Wrangling",
+   "chapters": [
+    {
+     "title": "Introduction to Statistics",
+     "topics": [
+      "Descriptive Statistics: Mean, Median, Mode",
+      "Variance and Standard Deviation",
+      "Probability Basics and Distributions"
+     ]
+    },
+    {
+     "title": "Data Collection & Cleaning",
+     "topics": [
+      "Types of Data and Data Sources",
+      "Handling Missing Values and Outliers",
+      "Data Normalization and Transformation"
+     ]
+    },
+    {
+     "title": "Data Wrangling with Pandas",
+     "topics": [
+      "DataFrames: Loading and Inspecting Data",
+      "Filtering, Grouping, and Aggregation",
+      "Merging and Reshaping Datasets"
+     ]
+    },
+    {
+     "title": "Exploratory Data Analysis",
+     "topics": [
+      "Summary Statistics and Correlation",
+      "Identifying Patterns and Anomalies",
+      "EDA Workflow and Reporting"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Visualization & Predictive Modelling",
+   "chapters": [
+    {
+     "title": "Data Visualization Fundamentals",
+     "topics": [
+      "Choosing the Right Chart Type",
+      "Visualizing Distributions and Relationships",
+      "Building Plots with Matplotlib and Seaborn"
+     ]
+    },
+    {
+     "title": "Advanced Visualization",
+     "topics": [
+      "Interactive Charts with Plotly",
+      "Dashboard Basics and Storytelling with Data"
+     ]
+    },
+    {
+     "title": "Introduction to Predictive Modelling",
+     "topics": [
+      "Supervised vs Unsupervised Learning",
+      "Linear and Logistic Regression",
+      "Train/Test Split and Model Evaluation"
+     ]
+    },
+    {
+     "title": "Building and Improving Models",
+     "topics": [
+      "Decision Trees and Random Forests",
+      "Overfitting, Underfitting, and Cross-Validation",
+      "Feature Selection and Model Tuning"
+     ]
+    }
+   ]
+  }
+ ]
+}

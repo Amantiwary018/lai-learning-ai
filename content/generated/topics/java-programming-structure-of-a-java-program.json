@@ -1,0 +1,336 @@
+{
+ "summary": "A Java program has a fixed structure built around a class definition, a main method, and statements — understanding this skeleton is the first step to writing any Java program.",
+ "shortNotes": [
+  "Every Java program must have at least one class defined using the `class` keyword.",
+  "Execution always starts from the `main` method with the exact signature: `public static void main(String[] args)`.",
+  "Curly braces `{}` mark the beginning and end of every class and method body.",
+  "Java is case-sensitive — `Main`, `main`, and `MAIN` are three different identifiers.",
+  "Each statement in Java ends with a semicolon `;`.",
+  "The file name must exactly match the public class name, with the `.java` extension."
+ ],
+ "detailed": {
+  "explanation": "A Java program is organized around **classes**. Even the simplest program must be written inside a class. You define a class using the keyword `class` followed by the class name and a pair of curly braces `{}`. Everything that belongs to the class lives inside those braces.\n\nInside the class, you write **methods** — blocks of code that perform tasks. The most important method is `main`. When you run a Java program, the Java Virtual Machine (JVM) looks for a method with the exact signature `public static void main(String[] args)` and starts executing from the first line inside it. If this signature is even slightly wrong, the program will not run.\n\nStatements are the individual instructions inside a method. In Java, every statement must end with a **semicolon** `;`. For example, `System.out.println(\"Hello\");` is a single statement that prints a line of text to the screen. Forgetting the semicolon is one of the most common beginner errors.\n\nThe **file name** must match the name of the `public` class exactly, including the capitalisation. For example, if your class is named `HelloWorld`, the file must be saved as `HelloWorld.java`. After compiling with `javac HelloWorld.java`, a file named `HelloWorld.class` is created, which the JVM then runs using `java HelloWorld`.\n\nOverall, the skeleton of a Java program is: a class declaration wrapping a `main` method, which in turn contains statements. Mastering this structure is the foundation for everything else in Java.",
+  "definitions": [
+   {
+    "term": "Class",
+    "meaning": "A blueprint or container in Java that holds data and methods; every Java program must have at least one class."
+   },
+   {
+    "term": "Method",
+    "meaning": "A named block of code inside a class that performs a specific task when called."
+   },
+   {
+    "term": "main method",
+    "meaning": "The special method `public static void main(String[] args)` where program execution begins."
+   },
+   {
+    "term": "Statement",
+    "meaning": "A single instruction in Java that ends with a semicolon, e.g., a print or assignment instruction."
+   },
+   {
+    "term": "JVM (Java Virtual Machine)",
+    "meaning": "The engine that runs compiled Java bytecode (.class files) on any platform."
+   },
+   {
+    "term": "Syntax",
+    "meaning": "The set of rules that define how Java code must be written so the compiler can understand it."
+   },
+   {
+    "term": "Identifier",
+    "meaning": "A name given to a class, method, or variable by the programmer; Java identifiers are case-sensitive."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "The `main` method signature must be exactly `public static void main(String[] args)` — changing any word will prevent execution.",
+   "Java is strictly case-sensitive: `system.out.println` will not work; only `System.out.println` is correct.",
+   "Every opening brace `{` must have a matching closing brace `}` — mismatched braces cause compile errors.",
+   "The public class name and the file name must be identical, including capitalisation.",
+   "A program can have many classes in one file, but only one class can be declared `public`, and it must match the file name.",
+   "Statements inside methods end with `;`; class and method declarations end with `{}`, not `;`.",
+   "The `System.out.println()` method prints text followed by a newline; `System.out.print()` prints without a newline.",
+   "Compilation converts `.java` source code to `.class` bytecode; running executes the bytecode on the JVM."
+  ]
+ },
+ "codeExample": {
+  "language": "java",
+  "code": "// File name must be: HelloWorld.java\npublic class HelloWorld {\n\n    // main method: execution starts here\n    public static void main(String[] args) {\n\n        // Print a greeting to the screen\n        System.out.println(\"Hello, World!\");\n\n        // Print a second line\n        System.out.println(\"Welcome to Java!\");\n\n    } // end of main method\n\n} // end of class HelloWorld",
+  "explanation": "Line 1: A single-line comment using `//`; comments are ignored by the compiler and are just notes for the reader.\nLine 2: `public class HelloWorld` — declares a public class named HelloWorld; the opening `{` starts the class body.\nLine 5: `public static void main(String[] args)` — the main method declaration; this is the entry point of the program.\nLine 8: `System.out.println(\"Hello, World!\");` — a statement that prints the text Hello, World! followed by a newline; ends with `;`.\nLine 11: A second print statement that outputs Welcome to Java! on a new line.\nLine 13: `}` closes the main method body.\nLine 15: `}` closes the class body."
+ },
+ "commonMistakes": [
+  "Writing `public static void Main(String[] args)` with a capital M — Java is case-sensitive and will not find the entry point, causing a runtime error.",
+  "Saving the file as `helloworld.java` when the class is named `HelloWorld` — the file name must exactly match the public class name in capitalisation.",
+  "Forgetting the semicolon at the end of a statement, e.g., writing `System.out.println(\"Hi\")` without `;` — this causes a compile-time error."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Where does execution of a Java program always begin?",
+   "options": [
+    "The first class defined in the file",
+    "The `public static void main(String[] args)` method",
+    "The first variable declaration in the program",
+    "Any method marked with the `start` keyword"
+   ],
+   "answer": 1,
+   "explanation": "The JVM always looks for the exact method signature `public static void main(String[] args)` as the entry point. There is no `start` keyword in Java.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "If a public class is named `StudentInfo`, what must the file be saved as?",
+   "options": [
+    "studentinfo.java",
+    "Student.java",
+    "StudentInfo.java",
+    "StudentInfo.class"
+   ],
+   "answer": 2,
+   "explanation": "The file name must exactly match the public class name including capitalisation, and must use the `.java` extension. The `.class` file is produced after compilation, not written by the programmer.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following correctly ends a Java statement?",
+   "options": [
+    "A colon `:`",
+    "A dot `.`",
+    "A semicolon `;`",
+    "A comma `,`"
+   ],
+   "answer": 2,
+   "explanation": "In Java, every statement must end with a semicolon `;`. Forgetting it is one of the most common compile-time errors.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the purpose of curly braces `{}` in a Java program?",
+   "options": [
+    "They mark the end of a statement",
+    "They are used only for comments",
+    "They define the beginning and end of a class or method body",
+    "They are optional decorators with no effect"
+   ],
+   "answer": 2,
+   "explanation": "Curly braces delimit code blocks. Every class body and every method body must be enclosed in a matching pair of `{}`.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which command compiles a Java source file named `Demo.java`?",
+   "options": [
+    "`java Demo.java`",
+    "`run Demo.java`",
+    "`javac Demo.java`",
+    "`compile Demo`"
+   ],
+   "answer": 2,
+   "explanation": "`javac` is the Java compiler. It takes a `.java` source file and produces a `.class` bytecode file. The `java` command is used to run the compiled bytecode.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "How many `public` classes can be defined in a single Java source file?",
+   "options": [
+    "As many as needed",
+    "Exactly two",
+    "Only one",
+    "None — public classes are not allowed in source files"
+   ],
+   "answer": 2,
+   "explanation": "A Java source file can contain multiple classes, but only one of them may be declared `public`, and the file name must match that public class's name.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain why the `main` method in Java is declared as `public static void`. What does each keyword mean in this context?",
+   "answer": "`public` means the method is accessible from anywhere, including by the JVM. `static` means the method belongs to the class itself, so the JVM can call it without creating an object of the class. `void` means the method does not return any value.",
+   "keywords": [
+    "public",
+    "static",
+    "void",
+    "JVM",
+    "object"
+   ],
+   "explanation": "Each modifier in the main method signature serves a specific purpose: accessibility, the ability to call without an instance, and indicating no return value.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "What is the difference between `System.out.println()` and `System.out.print()` in Java?",
+   "answer": "`System.out.println()` prints the given text and then moves the cursor to a new line, so the next output appears on the next line. `System.out.print()` prints the text but does not add a newline at the end, so the next output continues on the same line.",
+   "keywords": [
+    "println",
+    "print",
+    "newline",
+    "output",
+    "cursor"
+   ],
+   "explanation": "Understanding the difference helps beginners control the formatting of their program output.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "How many lines of output does the following code produce?\n\npublic class Test {\n    public static void main(String[] args) {\n        System.out.println(\"Line 1\");\n        System.out.print(\"Line 2\");\n        System.out.println(\" and Line 3\");\n    }\n}",
+   "answer": "2",
+   "explanation": "`println(\"Line 1\")` outputs Line 1 and moves to a new line. `print(\"Line 2\")` outputs Line 2 without a newline. `println(\" and Line 3\")` outputs and Line 3 on the same line as Line 2 and then moves to a new line. So there are exactly 2 lines of output: 'Line 1' and 'Line 2 and Line 3'.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a complete Java program in a class named `MyProfile` that prints your name on the first line, your college name on the second line, and your favourite subject on the third line.",
+   "starter": "public class MyProfile {\n    public static void main(String[] args) {\n        // Write your three print statements here\n\n    }\n}",
+   "solution": "public class MyProfile {\n    public static void main(String[] args) {\n        System.out.println(\"Riya Sharma\");\n        System.out.println(\"Delhi College of Engineering\");\n        System.out.println(\"Mathematics\");\n    }\n}",
+   "explanation": "Three `System.out.println()` statements are used, one for each piece of information. Each call prints its argument and then moves to a new line, producing three separate lines of output. The program follows the standard Java structure: a public class whose name matches the file name, containing the main method, with statements ending in semicolons.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "Welcome and Topic Introduction",
+    "steps": [
+     {
+      "say": "Hello everyone, welcome to our Java programming course. Today we are going to look at something very fundamental — the structure of a Java program.",
+      "write": {
+       "kind": "heading",
+       "content": "Structure of a Java Program"
+      }
+     },
+     {
+      "say": "Think of it like a letter. A letter has a greeting, a body, and a closing. A Java program also has a fixed skeleton you must follow every single time.",
+      "write": {
+       "kind": "bullet",
+       "content": "Java program = fixed skeleton"
+      }
+     }
+    ]
+   },
+   {
+    "title": "The Class — The Outer Container",
+    "steps": [
+     {
+      "say": "Every Java program lives inside a class. You declare a class using the keyword class, followed by the class name, and then a pair of curly braces.",
+      "write": {
+       "kind": "code",
+       "content": "public class HelloWorld {"
+      }
+     },
+     {
+      "say": "The opening curly brace marks the start of the class body. Everything belonging to this class goes inside these braces.",
+      "write": {
+       "kind": "code",
+       "content": "  // class body goes here"
+      }
+     },
+     {
+      "say": "And the closing curly brace marks the end of the class. Every opening brace must have a matching closing brace.",
+      "write": {
+       "kind": "code",
+       "content": "}"
+      }
+     }
+    ]
+   },
+   {
+    "title": "The main Method — Where Execution Begins",
+    "steps": [
+     {
+      "say": "Inside the class, we write the main method. This is the most important method because the Java Virtual Machine always starts running your program from here.",
+      "write": {
+       "kind": "code",
+       "content": "public static void main(String[] args) {"
+      }
+     },
+     {
+      "say": "The keywords public, static, and void each have a specific role. Public means anyone can access it, static means it belongs to the class, and void means it returns nothing.",
+      "write": {
+       "kind": "bullet",
+       "content": "public  static  void  — each word matters"
+      }
+     },
+     {
+      "say": "Now let us add a statement inside the main method. This line prints Hello World to the screen.",
+      "write": {
+       "kind": "code",
+       "content": "  System.out.println(\"Hello, World!\");"
+      }
+     },
+     {
+      "say": "Notice the semicolon at the end of the statement. In Java, every statement must end with a semicolon — forgetting it is a very common mistake.",
+      "write": {
+       "kind": "highlight",
+       "content": "Semicolon ; ends every statement"
+      }
+     }
+    ]
+   },
+   {
+    "title": "The Complete Program Together",
+    "steps": [
+     {
+      "say": "Let us now see the whole program together, from top to bottom.",
+      "write": {
+       "kind": "code",
+       "content": "public class HelloWorld {"
+      }
+     },
+     {
+      "say": "The main method goes inside the class body.",
+      "write": {
+       "kind": "code",
+       "content": "  public static void main(String[] args) {"
+      }
+     },
+     {
+      "say": "Our print statement goes inside the main method.",
+      "write": {
+       "kind": "code",
+       "content": "    System.out.println(\"Hello, World!\");"
+      }
+     },
+     {
+      "say": "We close the main method and then close the class with two closing braces. Also remember the file must be saved as HelloWorld dot java.",
+      "write": {
+       "kind": "code",
+       "content": "  }\n}"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us quickly recap what we learned today. Every Java program must have a class, and the class name must match the file name exactly.",
+      "write": {
+       "kind": "bullet",
+       "content": "Class name = File name (.java)"
+      }
+     },
+     {
+      "say": "Execution always starts from the main method with that exact signature.",
+      "write": {
+       "kind": "bullet",
+       "content": "Entry point: main method"
+      }
+     },
+     {
+      "say": "Every statement ends with a semicolon, and every block of code is wrapped in matching curly braces.",
+      "write": {
+       "kind": "bullet",
+       "content": "Statements end with ;  Blocks use { }"
+      }
+     },
+     {
+      "say": "That is the foundation of every Java program you will ever write. Practice this structure until it becomes second nature. See you in the next lesson!",
+      "write": {
+       "kind": "highlight",
+       "content": "Class  →  main method  →  Statements"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

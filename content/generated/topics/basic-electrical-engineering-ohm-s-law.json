@@ -1,0 +1,377 @@
+{
+ "summary": "Ohm's Law states that the current through a conductor is directly proportional to the voltage across it and inversely proportional to its resistance, expressed as V = IR.",
+ "shortNotes": [
+  "Ohm's Law: V = IR, where V is voltage (volts), I is current (amperes), and R is resistance (ohms).",
+  "Doubling the voltage doubles the current, provided resistance stays constant.",
+  "Doubling the resistance halves the current, provided voltage stays constant.",
+  "Ohm's Law applies only to ohmic (linear) conductors at constant temperature.",
+  "The slope of a V-I graph for an ohmic conductor equals the resistance R.",
+  "Power dissipated in a resistor can be found using P = VI = I²R = V²/R."
+ ],
+ "detailed": {
+  "explanation": "Ohm's Law, stated by German physicist Georg Simon Ohm in 1827, is one of the most fundamental relationships in electrical engineering. It says that the voltage (V) across a conductor is equal to the product of the current (I) flowing through it and its resistance (R). In simple terms, if you push more voltage across a resistor, more current flows; if you increase the resistance, less current flows for the same voltage.\n\nThe mathematical form is `V = IR`. From this single equation, you can derive two rearrangements: `I = V / R` (to find current) and `R = V / I` (to find resistance). Always keep track of units — voltage in **volts (V)**, current in **amperes (A)**, and resistance in **ohms (Ω)**.\n\nA practical way to remember the formula is the **VIR triangle**: cover the quantity you want to find, and the remaining two show you the operation. Cover V → multiply I × R. Cover I → divide V by R. Cover R → divide V by I.\n\nOhm's Law holds true only for **ohmic conductors** — materials where resistance remains constant regardless of the applied voltage or current. Metals like copper and aluminium behave this way at constant temperature. Non-ohmic devices such as diodes, transistors, and filament bulbs do **not** obey Ohm's Law because their resistance changes with operating conditions.\n\nIn a V-I (voltage vs. current) graph, an ohmic conductor produces a **straight line through the origin**. The slope of that line equals the resistance R. A steeper slope means higher resistance. This graphical interpretation is very useful when analysing resistor behaviour in laboratory experiments.",
+  "definitions": [
+   {
+    "term": "Voltage (V)",
+    "meaning": "The electric potential difference between two points in a circuit, measured in volts (V). It is the 'push' that drives current through a conductor."
+   },
+   {
+    "term": "Current (I)",
+    "meaning": "The rate of flow of electric charge through a conductor, measured in amperes (A)."
+   },
+   {
+    "term": "Resistance (R)",
+    "meaning": "The opposition offered by a material to the flow of electric current, measured in ohms (Ω)."
+   },
+   {
+    "term": "Ohmic Conductor",
+    "meaning": "A conductor that obeys Ohm's Law — its resistance remains constant with changes in voltage and current, provided temperature is constant."
+   },
+   {
+    "term": "Non-Ohmic Device",
+    "meaning": "A device (e.g., diode, filament bulb) whose resistance changes with applied voltage or current, so it does not follow Ohm's Law."
+   }
+  ],
+  "formulas": [
+   {
+    "name": "Ohm's Law",
+    "expression": "V = I × R",
+    "note": "V in volts, I in amperes, R in ohms. This is the primary form."
+   },
+   {
+    "name": "Current from Ohm's Law",
+    "expression": "I = V / R",
+    "note": "Use this form when voltage and resistance are known and current is required."
+   },
+   {
+    "name": "Resistance from Ohm's Law",
+    "expression": "R = V / I",
+    "note": "Use this form to calculate resistance when voltage and current are measured."
+   },
+   {
+    "name": "Power Dissipation",
+    "expression": "P = V × I = I² × R = V² / R",
+    "note": "P in watts (W). Derived by combining Ohm's Law with the power formula P = VI."
+   }
+  ],
+  "points": [
+   "Always write units alongside every value in your working — mixing volts, millivolts, or kiloohms without converting first is a very common source of errors.",
+   "Ohm's Law is valid only at constant temperature; resistance of metallic conductors increases with temperature.",
+   "In exams, if resistance is given in kΩ, convert to Ω (multiply by 1000) before using V = IR.",
+   "The V-I graph for an ohmic resistor is a straight line passing through the origin; its slope = R.",
+   "The I-V graph (current on Y-axis) for an ohmic resistor has slope = 1/R (conductance).",
+   "Non-ohmic devices are commonly asked in MCQs — remember: diode, LED, thermistor, and filament lamp are all non-ohmic.",
+   "Power formula P = I²R is useful when current and resistance are known but voltage is not.",
+   "In numericals, if asked for 'what happens to current when resistance doubles', apply I = V/R directly rather than memorising rules."
+  ]
+ },
+ "codeExample": null,
+ "commonMistakes": [
+  "Forgetting to convert units — for example, using 2 kΩ as 2 instead of 2000 Ω in the formula, which gives a current 1000 times too large.",
+  "Assuming Ohm's Law applies to all components — it does NOT apply to non-ohmic devices like diodes or filament bulbs where resistance varies.",
+  "Confusing the V-I graph slope with resistance: slope of V (y-axis) vs I (x-axis) gives R, but if axes are swapped, slope gives 1/R, not R."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "A resistor has a voltage of 12 V across it and a current of 3 A through it. What is its resistance?",
+   "options": [
+    "36 Ω",
+    "4 Ω",
+    "0.25 Ω",
+    "9 Ω"
+   ],
+   "answer": 1,
+   "explanation": "Using R = V / I = 12 / 3 = 4 Ω.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following devices does NOT obey Ohm's Law?",
+   "options": [
+    "Copper wire",
+    "Carbon resistor",
+    "P-N junction diode",
+    "Nichrome wire"
+   ],
+   "answer": 2,
+   "explanation": "A P-N junction diode is a non-ohmic device — its resistance changes with the applied voltage, so it does not follow Ohm's Law. The others behave as ohmic conductors under normal conditions.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "In a V-I graph for an ohmic conductor, what does the slope of the straight line represent?",
+   "options": [
+    "Current",
+    "Power",
+    "Conductance (1/R)",
+    "Resistance (R)"
+   ],
+   "answer": 3,
+   "explanation": "When voltage V is plotted on the y-axis and current I on the x-axis, the slope = V/I = R (resistance).",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "If the voltage across a fixed resistor is doubled, what happens to the current through it?",
+   "options": [
+    "It becomes half",
+    "It remains the same",
+    "It doubles",
+    "It becomes four times"
+   ],
+   "answer": 2,
+   "explanation": "From I = V/R, with R constant, current is directly proportional to voltage. Doubling V doubles I.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "A 100 Ω resistor carries a current of 0.5 A. What is the power dissipated in it?",
+   "options": [
+    "50 W",
+    "25 W",
+    "200 W",
+    "0.005 W"
+   ],
+   "answer": 1,
+   "explanation": "P = I²R = (0.5)² × 100 = 0.25 × 100 = 25 W.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Ohm's Law is stated to hold good under which condition?",
+   "options": [
+    "Constant pressure and volume",
+    "Constant temperature and physical state of the conductor",
+    "Variable resistance and constant current",
+    "High voltage only"
+   ],
+   "answer": 1,
+   "explanation": "Ohm's Law is valid only when the temperature and physical state of the conductor remain constant, so that resistance does not change.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain the difference between an ohmic and a non-ohmic conductor, giving one example of each.",
+   "answer": "An ohmic conductor obeys Ohm's Law — its resistance remains constant regardless of the applied voltage or current, as long as temperature is constant. An example is a copper wire. A non-ohmic conductor does not obey Ohm's Law because its resistance changes with the applied voltage or current. An example is a P-N junction diode.",
+   "keywords": [
+    "ohmic",
+    "constant resistance",
+    "non-ohmic",
+    "diode",
+    "Ohm's Law"
+   ],
+   "explanation": "The key distinction is whether resistance stays constant. Ohmic conductors show a linear V-I relationship; non-ohmic conductors do not.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "A student says: 'If I increase the resistance in a circuit, the current will increase.' Is this correct? Justify your answer using Ohm's Law.",
+   "answer": "No, this is incorrect. According to Ohm's Law, I = V/R. With voltage (V) constant, current (I) is inversely proportional to resistance (R). Therefore, increasing resistance will decrease the current, not increase it.",
+   "keywords": [
+    "inversely proportional",
+    "I = V/R",
+    "resistance increases",
+    "current decreases",
+    "constant voltage"
+   ],
+   "explanation": "This tests understanding of the inverse relationship between current and resistance in Ohm's Law when voltage is held constant.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "A circuit has a resistor of 470 Ω connected to a 9 V battery. Calculate the current flowing through the resistor in milliamperes (mA). Round your answer to two decimal places.",
+   "answer": "19.15 mA",
+   "explanation": "Using I = V/R = 9 / 470 = 0.019148... A. Converting to mA: 0.019148 × 1000 ≈ 19.15 mA.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "Welcome and Topic Introduction",
+    "steps": [
+     {
+      "say": "Hello everyone, welcome to Basic Electrical Engineering. Today we are going to learn about one of the most important laws in all of electronics — Ohm's Law.",
+      "write": {
+       "kind": "heading",
+       "content": "Ohm's Law"
+      }
+     },
+     {
+      "say": "This law connects three quantities you will use every single day as an engineer — voltage, current, and resistance.",
+      "write": {
+       "kind": "bullet",
+       "content": "Connects: Voltage, Current, Resistance"
+      }
+     },
+     {
+      "say": "It was discovered by a German physicist named Georg Simon Ohm back in 1827, and it still sits at the heart of every circuit we analyse.",
+      "write": {
+       "kind": "text",
+       "content": "Discovered by Georg Simon Ohm, 1827"
+      }
+     }
+    ]
+   },
+   {
+    "title": "The Three Quantities and the Formula",
+    "steps": [
+     {
+      "say": "Let us quickly define our three quantities. Voltage, written as V, is measured in volts and it is the electrical push that drives current around a circuit.",
+      "write": {
+       "kind": "bullet",
+       "content": "V = Voltage (volts)"
+      }
+     },
+     {
+      "say": "Current, written as I, is the flow of electric charge, measured in amperes.",
+      "write": {
+       "kind": "bullet",
+       "content": "I = Current (amperes)"
+      }
+     },
+     {
+      "say": "Resistance, written as R, is the opposition to that flow, measured in ohms.",
+      "write": {
+       "kind": "bullet",
+       "content": "R = Resistance (ohms)"
+      }
+     },
+     {
+      "say": "Ohm's Law ties all three together in one clean equation — V equals I times R.",
+      "write": {
+       "kind": "equation",
+       "content": "V = I × R"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Rearranging the Formula — The VIR Triangle",
+    "steps": [
+     {
+      "say": "From V equals I R, we can find any one quantity if we know the other two. Let me show you the rearrangements.",
+      "write": {
+       "kind": "equation",
+       "content": "V = I × R"
+      }
+     },
+     {
+      "say": "If you need to find current, divide both sides by R — current equals V divided by R.",
+      "write": {
+       "kind": "equation",
+       "content": "I = V / R"
+      }
+     },
+     {
+      "say": "And if you need resistance, divide voltage by current — R equals V divided by I.",
+      "write": {
+       "kind": "equation",
+       "content": "R = V / I"
+      }
+     },
+     {
+      "say": "A handy trick is the VIR triangle — place V on top, I and R side by side below. Cover the one you want and the triangle shows the operation.",
+      "write": {
+       "kind": "text",
+       "content": "VIR Triangle: cover V -> I x R\n              cover I -> V / R\n              cover R -> V / I"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Worked Example",
+    "steps": [
+     {
+      "say": "Let us solve a simple example together. We have a resistor with 12 volts across it and 3 amperes flowing through it. What is the resistance?",
+      "write": {
+       "kind": "text",
+       "content": "V = 12 V,  I = 3 A,  R = ?"
+      }
+     },
+     {
+      "say": "We use R equals V divided by I.",
+      "write": {
+       "kind": "equation",
+       "content": "R = V / I"
+      }
+     },
+     {
+      "say": "Substituting the values, R equals 12 divided by 3.",
+      "write": {
+       "kind": "equation",
+       "content": "R = 12 / 3"
+      }
+     },
+     {
+      "say": "So R equals 4 ohms. Always write the unit — without it, the answer is incomplete.",
+      "write": {
+       "kind": "equation",
+       "content": "R = 4 Ω"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Ohmic vs Non-Ohmic Conductors",
+    "steps": [
+     {
+      "say": "Now, an important point — Ohm's Law does not work for every component. It only applies to ohmic conductors where resistance stays constant.",
+      "write": {
+       "kind": "text",
+       "content": "Ohmic: resistance is constant\n  e.g. copper wire, resistor"
+      }
+     },
+     {
+      "say": "Devices like diodes and filament bulbs are non-ohmic — their resistance changes with voltage, so Ohm's Law does not apply to them.",
+      "write": {
+       "kind": "text",
+       "content": "Non-Ohmic: resistance changes\n  e.g. diode, filament bulb"
+      }
+     },
+     {
+      "say": "Also remember — Ohm's Law holds only when temperature is constant. If temperature changes, resistance changes, and the law breaks down.",
+      "write": {
+       "kind": "highlight",
+       "content": "Valid only at constant temperature"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us quickly recap what we learnt today. Ohm's Law says voltage equals current times resistance.",
+      "write": {
+       "kind": "equation",
+       "content": "V = I × R"
+      }
+     },
+     {
+      "say": "We can rearrange it to find I or R as well, and the VIR triangle helps us remember all three forms.",
+      "write": {
+       "kind": "bullet",
+       "content": "I = V/R     R = V/I"
+      }
+     },
+     {
+      "say": "It applies only to ohmic conductors at constant temperature — not to diodes, LEDs, or filament bulbs.",
+      "write": {
+       "kind": "bullet",
+       "content": "Only for ohmic devices\nat constant temperature"
+      }
+     },
+     {
+      "say": "That is Ohm's Law. Practice a few numericals, keep your units correct, and you will master this topic. See you in the next lesson!",
+      "write": {
+       "kind": "highlight",
+       "content": "Always include units in answers!"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

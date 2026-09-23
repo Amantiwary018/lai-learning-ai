@@ -1,0 +1,78 @@
+{
+ "subjects": [
+  {
+   "title": "Security Fundamentals & Cryptography",
+   "chapters": [
+    {
+     "title": "Introduction to Cyber Security",
+     "topics": [
+      "Core Security Concepts: CIA Triad",
+      "Types of Cyber Threats and Attackers",
+      "Security Policies and Best Practices"
+     ]
+    },
+    {
+     "title": "Cryptography Basics",
+     "topics": [
+      "Symmetric vs Asymmetric Encryption",
+      "Hashing Algorithms and Digital Signatures",
+      "Public Key Infrastructure (PKI)"
+     ]
+    },
+    {
+     "title": "Authentication & Access Control",
+     "topics": [
+      "Password Security and Multi-Factor Authentication",
+      "Role-Based Access Control (RBAC)",
+      "Identity and Access Management (IAM)"
+     ]
+    },
+    {
+     "title": "Security Vulnerabilities & Risk Management",
+     "topics": [
+      "Common Vulnerability Types (CVE, OWASP Top 10)",
+      "Risk Assessment and Threat Modeling",
+      "Incident Response Fundamentals"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Network Security & Ethical Hacking",
+   "chapters": [
+    {
+     "title": "Network Security Essentials",
+     "topics": [
+      "TCP/IP and OSI Model for Security",
+      "Firewalls, IDS and IPS Systems",
+      "VPNs and Secure Network Architecture"
+     ]
+    },
+    {
+     "title": "Common Network Attacks",
+     "topics": [
+      "Man-in-the-Middle and Sniffing Attacks",
+      "DDoS and Denial of Service Attacks",
+      "DNS Spoofing and ARP Poisoning"
+     ]
+    },
+    {
+     "title": "Ethical Hacking Foundations",
+     "topics": [
+      "Penetration Testing Phases and Methodology",
+      "Reconnaissance and Information Gathering",
+      "Scanning and Enumeration Techniques"
+     ]
+    },
+    {
+     "title": "Security Tools & Reporting",
+     "topics": [
+      "Introduction to Kali Linux and Common Tools",
+      "Using Nmap, Wireshark and Metasploit Basics",
+      "Writing Vulnerability Reports and Remediation"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,70 @@
+{
+ "subjects": [
+  {
+   "title": "CSS Fundamentals",
+   "chapters": [
+    {
+     "title": "CSS Selectors",
+     "topics": [
+      "Basic selectors: element, class, and ID",
+      "Combinators: descendant, child, and sibling",
+      "Pseudo-classes and pseudo-elements"
+     ]
+    },
+    {
+     "title": "The Box Model",
+     "topics": [
+      "Content, padding, border, and margin",
+      "Box-sizing: content-box vs border-box",
+      "Display types: block, inline, and inline-block"
+     ]
+    },
+    {
+     "title": "CSS Flexbox",
+     "topics": [
+      "Flex container properties: display, flex-direction, and flex-wrap",
+      "Aligning items: justify-content and align-items",
+      "Flex item properties: flex-grow, flex-shrink, and flex-basis"
+     ]
+    },
+    {
+     "title": "CSS Grid",
+     "topics": [
+      "Defining grid columns and rows with grid-template",
+      "Placing items with grid-column and grid-row",
+      "Grid gaps and the fr unit"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Responsive Design",
+   "chapters": [
+    {
+     "title": "Responsive Design Basics",
+     "topics": [
+      "Mobile-first vs desktop-first approach",
+      "The viewport meta tag",
+      "Fluid units: percentages, em, rem, vw, and vh"
+     ]
+    },
+    {
+     "title": "Media Queries",
+     "topics": [
+      "Writing media queries with min-width and max-width",
+      "Common breakpoints and device targeting",
+      "Combining media queries with Flexbox and Grid"
+     ]
+    },
+    {
+     "title": "Responsive Images and Typography",
+     "topics": [
+      "Fluid images with max-width and object-fit",
+      "Scalable typography with clamp() and viewport units",
+      "Responsive layouts with auto-fit and auto-fill in Grid"
+     ]
+    }
+   ]
+  }
+ ]
+}

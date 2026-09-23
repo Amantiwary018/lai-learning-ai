@@ -1,0 +1,369 @@
+{
+ "summary": "A quadratic equation is a second-degree polynomial equation in one variable, and it can be solved by factorisation, completing the square, or the quadratic formula.",
+ "shortNotes": [
+  "A quadratic equation has the standard form ax² + bx + c = 0, where a ≠ 0.",
+  "The three main methods to solve quadratics are: factorisation, completing the square, and the quadratic formula.",
+  "The quadratic formula is x = (−b ± √(b²−4ac)) / 2a.",
+  "The discriminant D = b²−4ac tells us the nature of roots: D > 0 gives two real roots, D = 0 gives one repeated root, D < 0 gives no real roots.",
+  "If the product of two factors is zero, at least one factor must be zero — this is the zero-product property used in factorisation.",
+  "Always check your answers by substituting them back into the original equation."
+ ],
+ "detailed": {
+  "explanation": "A **quadratic equation** is any equation that can be written in the form `ax² + bx + c = 0`, where `a`, `b`, and `c` are real numbers and `a ≠ 0`. The highest power of the variable is 2, which is why it is called a second-degree equation. Examples include `x² − 5x + 6 = 0` and `2x² + 3x − 2 = 0`.\n\n**Method 1 – Factorisation:** If the quadratic can be expressed as a product of two linear factors, set each factor to zero and solve. For example, `x² − 5x + 6 = 0` factors into `(x − 2)(x − 3) = 0`, giving `x = 2` or `x = 3`. This method is quick but only works neatly when the roots are rational.\n\n**Method 2 – Completing the Square:** Rewrite the equation so that one side is a perfect square trinomial. For `x² + 6x + 5 = 0`, move the constant: `x² + 6x = −5`, then add `(6/2)² = 9` to both sides: `(x + 3)² = 4`, so `x + 3 = ±2`, giving `x = −1` or `x = −5`. This method always works and also leads directly to the quadratic formula.\n\n**Method 3 – Quadratic Formula:** For any quadratic `ax² + bx + c = 0`, the roots are given by `x = (−b ± √(b²−4ac)) / 2a`. This formula works for all quadratic equations. The term under the square root, `D = b²−4ac`, is called the **discriminant** and determines the nature of the roots without fully solving the equation.\n\n**Nature of roots:** If `D > 0`, the equation has two distinct real roots. If `D = 0`, both roots are equal (called a repeated or double root). If `D < 0`, there are no real roots — the roots are complex/imaginary, which is beyond the scope of this introductory topic but worth knowing exists.",
+  "definitions": [
+   {
+    "term": "Quadratic Equation",
+    "meaning": "A polynomial equation of degree 2, written in the form ax² + bx + c = 0, where a ≠ 0."
+   },
+   {
+    "term": "Discriminant",
+    "meaning": "The expression D = b²−4ac that determines the number and type of roots of a quadratic equation."
+   },
+   {
+    "term": "Roots (Solutions)",
+    "meaning": "The values of x that satisfy the quadratic equation, also called zeros of the quadratic polynomial."
+   },
+   {
+    "term": "Factorisation",
+    "meaning": "A method of solving a quadratic by expressing it as a product of two linear factors and applying the zero-product property."
+   },
+   {
+    "term": "Completing the Square",
+    "meaning": "A method that rewrites the quadratic so one side becomes a perfect square, making it easy to isolate x."
+   },
+   {
+    "term": "Zero-Product Property",
+    "meaning": "If A × B = 0, then A = 0 or B = 0 (or both). This property is the basis for solving by factorisation."
+   }
+  ],
+  "formulas": [
+   {
+    "name": "Standard Form of a Quadratic Equation",
+    "expression": "ax² + bx + c = 0, a ≠ 0",
+    "note": "Always rearrange your equation into this form before applying any solving method."
+   },
+   {
+    "name": "Quadratic Formula",
+    "expression": "x = (−b ± √(b²−4ac)) / 2a",
+    "note": "Works for every quadratic equation. Use when factorisation is not obvious."
+   },
+   {
+    "name": "Discriminant",
+    "expression": "D = b²−4ac",
+    "note": "D > 0: two distinct real roots; D = 0: one repeated real root; D < 0: no real roots."
+   },
+   {
+    "name": "Sum and Product of Roots",
+    "expression": "α + β = −b/a,  α × β = c/a",
+    "note": "Useful for verifying roots or forming a quadratic when roots are known."
+   }
+  ],
+  "points": [
+   "Always write the equation in standard form ax² + bx + c = 0 before solving.",
+   "In the quadratic formula, the ± sign means you get two separate values of x — calculate each one individually.",
+   "Check the discriminant first: it tells you how many real solutions to expect, saving time in exams.",
+   "When factorising, look for two numbers that multiply to give ac and add to give b (the middle term splitting method).",
+   "Completing the square is more reliable than factorisation for equations with irrational or non-integer roots.",
+   "Never cancel x from both sides of an equation like x² = 5x by dividing by x — you will lose the root x = 0.",
+   "Substitute your answers back into the original equation to verify — this habit catches sign errors quickly.",
+   "If a question asks for the 'nature of roots', compute only the discriminant; you do not need to find the roots themselves."
+  ]
+ },
+ "codeExample": null,
+ "commonMistakes": [
+  "Forgetting the ± in the quadratic formula and writing only one root instead of two.",
+  "Making a sign error when identifying b: if the equation is x² − 5x + 6 = 0, then b = −5, not +5.",
+  "Dividing both sides by x to simplify (e.g., turning x² = 3x into x = 3), which loses the root x = 0."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Which of the following is the standard form of a quadratic equation?",
+   "options": [
+    "ax + b = 0",
+    "ax² + bx + c = 0, a ≠ 0",
+    "ax³ + bx² + c = 0",
+    "ax² + bx + c = 0, a = 0"
+   ],
+   "answer": 1,
+   "explanation": "A quadratic equation must have degree 2, so the x² term is required and its coefficient a must not be zero.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the discriminant of the equation 2x² − 4x + 2 = 0?",
+   "options": [
+    "8",
+    "−8",
+    "0",
+    "16"
+   ],
+   "answer": 2,
+   "explanation": "D = b²−4ac = (−4)²−4(2)(2) = 16−16 = 0. Since D = 0, there is exactly one repeated real root.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "The roots of x² − 7x + 12 = 0 obtained by factorisation are:",
+   "options": [
+    "x = 3 and x = 4",
+    "x = −3 and x = −4",
+    "x = 6 and x = 2",
+    "x = 12 and x = 1"
+   ],
+   "answer": 0,
+   "explanation": "Factor: (x−3)(x−4) = 0, so x = 3 or x = 4. Check: 3×4 = 12 and 3+4 = 7. ✓",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "If the discriminant of a quadratic equation is negative, the equation has:",
+   "options": [
+    "Two distinct real roots",
+    "One repeated real root",
+    "No real roots",
+    "Infinitely many real roots"
+   ],
+   "answer": 2,
+   "explanation": "A negative discriminant means the square root term is imaginary, so no real solutions exist for the equation.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Using the quadratic formula, what are the roots of x² + 2x − 3 = 0?",
+   "options": [
+    "x = 1 and x = −3",
+    "x = −1 and x = 3",
+    "x = 2 and x = −3",
+    "x = 1 and x = 3"
+   ],
+   "answer": 0,
+   "explanation": "a=1, b=2, c=−3. D = 4+12 = 16. x = (−2 ± 4)/2. So x = 1 or x = −3.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "For a quadratic equation ax² + bx + c = 0, the product of its roots equals:",
+   "options": [
+    "−b/a",
+    "b/a",
+    "c/a",
+    "−c/a"
+   ],
+   "answer": 2,
+   "explanation": "By Vieta's formulas, the product of roots α × β = c/a, and the sum of roots α + β = −b/a.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain the zero-product property and how it is used to solve a quadratic equation by factorisation. Give a brief example.",
+   "answer": "The zero-product property states that if A × B = 0, then A = 0 or B = 0. When a quadratic is factorised into two linear factors, we set each factor equal to zero to find the roots. For example, (x−2)(x−5) = 0 gives x = 2 or x = 5.",
+   "keywords": [
+    "zero-product",
+    "factor",
+    "set equal to zero",
+    "roots",
+    "linear factors"
+   ],
+   "explanation": "This property is the mathematical justification for why factorisation works — once the equation is in factored form, each factor independently provides one root.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "A student says: 'To solve x² = 5x, I will divide both sides by x to get x = 5.' What is wrong with this reasoning?",
+   "answer": "Dividing both sides by x is incorrect because x could equal zero. Doing so loses the root x = 0. The correct method is to rearrange to x² − 5x = 0, then factorise as x(x−5) = 0, giving roots x = 0 and x = 5.",
+   "keywords": [
+    "divide by x",
+    "loses root",
+    "x = 0",
+    "factorise",
+    "zero"
+   ],
+   "explanation": "Dividing by a variable is only valid when it is guaranteed to be non-zero. Since x = 0 is a valid solution here, dividing by x removes it from consideration.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "Find the sum of the roots of the quadratic equation 3x² − 9x + 6 = 0.",
+   "answer": "3",
+   "explanation": "Using Vieta's formula, sum of roots = −b/a = −(−9)/3 = 9/3 = 3. You can verify: roots are x=1 and x=2 (since 3(x−1)(x−2)=0), and 1+2=3.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What is a Quadratic Equation?",
+    "steps": [
+     {
+      "say": "Welcome! Today we are going to learn about quadratic equations, one of the most important topics in engineering mathematics.",
+      "write": {
+       "kind": "heading",
+       "content": "Quadratic Equations"
+      }
+     },
+     {
+      "say": "A quadratic equation is simply an equation where the highest power of x is two.",
+      "write": {
+       "kind": "equation",
+       "content": "ax² + bx + c = 0, a ≠ 0"
+      }
+     },
+     {
+      "say": "Here a, b, and c are real numbers. The most important condition is that a must not be zero, otherwise it is no longer quadratic.",
+      "write": {
+       "kind": "bullet",
+       "content": "a, b, c are real numbers"
+      }
+     },
+     {
+      "say": "A simple example is x squared minus five x plus six equals zero.",
+      "write": {
+       "kind": "equation",
+       "content": "x² - 5x + 6 = 0"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Method 1 – Solving by Factorisation",
+    "steps": [
+     {
+      "say": "The first method is factorisation. We want to split the middle term and write the equation as a product of two brackets.",
+      "write": {
+       "kind": "heading",
+       "content": "Method 1: Factorisation"
+      }
+     },
+     {
+      "say": "Let us solve x squared minus five x plus six equals zero. We need two numbers that multiply to six and add to negative five.",
+      "write": {
+       "kind": "equation",
+       "content": "x² - 5x + 6 = 0"
+      }
+     },
+     {
+      "say": "Those two numbers are negative two and negative three. So we factorise like this.",
+      "write": {
+       "kind": "equation",
+       "content": "(x - 2)(x - 3) = 0"
+      }
+     },
+     {
+      "say": "By the zero-product property, either x minus two equals zero or x minus three equals zero.",
+      "write": {
+       "kind": "equation",
+       "content": "x = 2  or  x = 3"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Method 2 – The Quadratic Formula",
+    "steps": [
+     {
+      "say": "The quadratic formula works for every quadratic equation, even when factorisation is not straightforward.",
+      "write": {
+       "kind": "heading",
+       "content": "Method 2: Quadratic Formula"
+      }
+     },
+     {
+      "say": "The formula gives x equals negative b plus or minus the square root of b squared minus four a c, all divided by two a.",
+      "write": {
+       "kind": "equation",
+       "content": "x = (-b ± √(b²-4ac)) / 2a"
+      }
+     },
+     {
+      "say": "Let us use it on two x squared plus three x minus two equals zero. Here a is two, b is three, and c is negative two.",
+      "write": {
+       "kind": "equation",
+       "content": "2x² + 3x - 2 = 0"
+      }
+     },
+     {
+      "say": "The discriminant is three squared minus four times two times negative two, which equals nine plus sixteen, giving twenty-five.",
+      "write": {
+       "kind": "equation",
+       "content": "D = 9 + 16 = 25"
+      }
+     },
+     {
+      "say": "So x equals negative three plus or minus five, all over four. That gives us x equals one half or x equals negative two.",
+      "write": {
+       "kind": "equation",
+       "content": "x = 1/2  or  x = -2"
+      }
+     }
+    ]
+   },
+   {
+    "title": "The Discriminant and Nature of Roots",
+    "steps": [
+     {
+      "say": "Before fully solving, the discriminant tells us how many real solutions to expect. This saves time in exams.",
+      "write": {
+       "kind": "heading",
+       "content": "Discriminant: D = b²- 4ac"
+      }
+     },
+     {
+      "say": "If D is greater than zero, the equation has two different real roots.",
+      "write": {
+       "kind": "bullet",
+       "content": "D > 0 → Two distinct real roots"
+      }
+     },
+     {
+      "say": "If D equals zero, both roots are the same — we call it a repeated root.",
+      "write": {
+       "kind": "bullet",
+       "content": "D = 0 → One repeated real root"
+      }
+     },
+     {
+      "say": "And if D is less than zero, there are no real roots at all.",
+      "write": {
+       "kind": "bullet",
+       "content": "D < 0 → No real roots"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Great work! Let us quickly recap everything we covered today about quadratic equations.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap"
+      }
+     },
+     {
+      "say": "A quadratic equation has the standard form a x squared plus b x plus c equals zero, where a is not zero.",
+      "write": {
+       "kind": "equation",
+       "content": "ax² + bx + c = 0, a ≠ 0"
+      }
+     },
+     {
+      "say": "We can solve it by factorisation when roots are simple, or always by the quadratic formula.",
+      "write": {
+       "kind": "bullet",
+       "content": "Factorise  OR  use x=(-b±√D)/2a"
+      }
+     },
+     {
+      "say": "Always check the discriminant first to know the nature of your roots, and verify your answers by substituting back. You are doing great!",
+      "write": {
+       "kind": "highlight",
+       "content": "Check D first. Verify your roots!"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

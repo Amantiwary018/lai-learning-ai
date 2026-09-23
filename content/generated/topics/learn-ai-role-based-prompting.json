@@ -1,0 +1,330 @@
+{
+ "summary": "Role-based prompting means telling an AI to act as a specific expert or persona so that its responses become more focused, relevant, and useful for your task.",
+ "shortNotes": [
+  "Role-based prompting assigns a specific identity or expertise to the AI before asking your question.",
+  "It works by adding a phrase like 'You are a ...' at the start of your prompt.",
+  "The assigned role shapes the tone, vocabulary, and depth of the AI's answer.",
+  "Roles can be professional (doctor, lawyer, teacher) or situational (debate opponent, strict editor).",
+  "A good role prompt includes the role, context, and the actual task together.",
+  "Changing the role in the same prompt changes the answer significantly, even for the same question."
+ ],
+ "detailed": {
+  "explanation": "When you talk to an AI without giving it any context, it responds in a very general way. Role-based prompting solves this by telling the AI *who* it should behave as before you ask your question. For example, starting with `You are an experienced nutritionist` makes the AI answer diet questions with the depth and care a real nutritionist would use.\n\nThe core idea is simple: the AI has been trained on text written by people with many different backgrounds. By specifying a role, you guide it to draw on the knowledge, tone, and style connected to that role. A response from `You are a friendly high-school science teacher` will sound very different from `You are a PhD researcher in physics`, even if both answer the same question.\n\nA strong role-based prompt usually has three parts: the **role** ('You are a senior marketing manager'), the **context** ('working for a small Indian startup'), and the **task** ('write three taglines for our new water bottle'). When all three are present, the AI has everything it needs to give a precise and useful answer.\n\nRole-based prompting is especially valuable for professional tasks. Law students can ask the AI to act as a moot court judge and give feedback on their arguments. Engineering students can ask it to act as a technical interviewer and ask them coding questions. The role creates a realistic simulation that helps you learn or work faster.\n\nOne important thing to remember: the AI is still an AI. Assigning a role does not make it infallible. Always verify important information — especially in medical, legal, or financial contexts — with a real qualified professional.",
+  "definitions": [
+   {
+    "term": "Role-Based Prompting",
+    "meaning": "A prompting technique where you instruct the AI to take on a specific identity, expertise, or persona before answering your question."
+   },
+   {
+    "term": "Prompt",
+    "meaning": "The instruction or question you type into an AI tool to get a response."
+   },
+   {
+    "term": "Persona",
+    "meaning": "A character or professional identity assigned to the AI to shape the style and focus of its output."
+   },
+   {
+    "term": "Context",
+    "meaning": "Background information added to a prompt that helps the AI understand the situation it is responding to."
+   },
+   {
+    "term": "Tone",
+    "meaning": "The overall style and attitude of the AI's response, such as formal, friendly, technical, or simple."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "Always begin the role instruction with 'You are a ...' — it is the clearest signal for the AI to adopt that persona.",
+   "The more specific the role, the better the result. 'You are a tax consultant specialising in GST in India' works better than just 'You are a consultant'.",
+   "Combine role + context + task in one prompt for the best output.",
+   "You can stack details into the role: 'You are a strict grammar teacher who gives short, direct feedback' sets both expertise and tone.",
+   "Role-based prompting is not magic — it improves relevance and tone but does not guarantee factual accuracy.",
+   "You can change the role mid-conversation to get different perspectives on the same topic (e.g., first ask as a lawyer, then as an economist).",
+   "Exam tip: If asked to write a role-based prompt, always include all three parts — role, context, and task.",
+   "Avoid overly vague roles like 'an expert' — always name the specific field or profession."
+  ]
+ },
+ "codeExample": null,
+ "commonMistakes": [
+  "Writing only the role without a clear task — for example, 'You are a doctor.' with no question gives the AI nothing to respond to.",
+  "Making the role too vague — saying 'You are an expert' does not tell the AI which field or style to use, so the response stays generic.",
+  "Trusting the AI's role-based response blindly — students sometimes treat the AI's answer as a certified professional opinion, which can be misleading especially in medical or legal topics."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "What is the main purpose of role-based prompting?",
+   "options": [
+    "To make the AI generate longer responses",
+    "To guide the AI to respond with the knowledge and tone of a specific persona",
+    "To prevent the AI from making mistakes",
+    "To ask the AI multiple questions at once"
+   ],
+   "answer": 1,
+   "explanation": "Role-based prompting assigns a persona so the AI responds with the focus, vocabulary, and tone associated with that role, making answers more relevant.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following is the best example of a role-based prompt?",
+   "options": [
+    "Tell me about marketing.",
+    "What is marketing?",
+    "You are an experienced digital marketing strategist. Suggest three low-cost marketing ideas for a college canteen in Pune.",
+    "Give me a long answer about marketing strategies."
+   ],
+   "answer": 2,
+   "explanation": "This option includes all three key parts: a specific role, relevant context, and a clear task, making it a complete role-based prompt.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "A student writes: 'You are a scientist. Explain photosynthesis.' What is missing from this prompt?",
+   "options": [
+    "A role",
+    "A task",
+    "Specific context such as audience level or field of science",
+    "Nothing — it is a perfect role-based prompt"
+   ],
+   "answer": 2,
+   "explanation": "The role is too vague ('a scientist' covers many fields) and there is no context, such as whether the explanation is for a 10-year-old or a college student.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "How does assigning a role change the AI's response?",
+   "options": [
+    "It changes the AI's database of knowledge permanently",
+    "It makes the AI slower to respond",
+    "It guides the AI to use the tone, vocabulary, and focus associated with that role",
+    "It stops the AI from answering off-topic questions"
+   ],
+   "answer": 2,
+   "explanation": "The role does not change the AI's underlying model; it guides which part of its training knowledge to draw on for tone and focus.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which statement about role-based prompting is TRUE?",
+   "options": [
+    "The AI becomes a real certified professional when given a role",
+    "Role-based prompting guarantees factually correct answers",
+    "A role-based response should be verified by a real professional for critical topics",
+    "Role-based prompting only works for creative writing tasks"
+   ],
+   "answer": 2,
+   "explanation": "Assigning a role improves relevance and tone but does not guarantee accuracy. For medical, legal, or financial advice, always consult a real qualified professional.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "A student wants feedback on their resume. Which prompt uses role-based prompting BEST?",
+   "options": [
+    "Check my resume.",
+    "Is my resume good?",
+    "You are a senior HR manager at a tech company in India. Review this resume for a software engineering internship and suggest three specific improvements.",
+    "You are someone. Look at this resume."
+   ],
+   "answer": 2,
+   "explanation": "This prompt gives a specific professional role, relevant context (tech company, India, internship), and a clear actionable task with a defined output format.",
+   "difficulty": "hard"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain in your own words what role-based prompting is and give one example of a role you could assign to an AI for your college studies.",
+   "answer": "Role-based prompting means telling the AI to act as a specific expert or persona before asking your question, so its response is more focused and relevant. For example, a student studying law could write 'You are a law professor specialising in Indian constitutional law' before asking for an explanation of fundamental rights.",
+   "keywords": [
+    "persona",
+    "role",
+    "focused",
+    "expert",
+    "You are a"
+   ],
+   "explanation": "A good answer defines the technique and shows understanding through a practical, relevant example from the student's own academic life.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "What are the three key parts of a strong role-based prompt? Briefly explain each.",
+   "answer": "The three parts are: the role (who the AI should be, e.g., a financial advisor), the context (the situation or background, e.g., advising a college student in India with limited savings), and the task (what the AI should actually do, e.g., suggest three safe investment options). Together these give the AI everything it needs to produce a useful, targeted response.",
+   "keywords": [
+    "role",
+    "context",
+    "task",
+    "specific",
+    "prompt"
+   ],
+   "explanation": "Understanding all three components is essential for writing effective role-based prompts; missing any one of them weakens the output.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "A student writes 5 prompts. In 2 of them she includes only a role with no task or context. In 2 others she includes a role and a task but no context. In 1 prompt she includes all three parts: role, context, and task. How many of her prompts are complete role-based prompts (containing all three parts)?",
+   "answer": "1",
+   "explanation": "Only the prompt that includes all three components — role, context, and task — qualifies as a complete and well-formed role-based prompt. The other four are incomplete.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What is Role-Based Prompting?",
+    "steps": [
+     {
+      "say": "Welcome! Today we are learning about a really useful AI skill called role-based prompting. It is one of the simplest ways to get much better answers from any AI tool.",
+      "write": {
+       "kind": "heading",
+       "content": "Role-Based Prompting"
+      }
+     },
+     {
+      "say": "The idea is straightforward. Instead of just asking the AI a question, you first tell it who to be.",
+      "write": {
+       "kind": "text",
+       "content": "Tell the AI WHO to be\nbefore asking your question."
+      }
+     },
+     {
+      "say": "You do this by starting your prompt with the phrase You are a, followed by a specific role.",
+      "write": {
+       "kind": "highlight",
+       "content": "Start with: \"You are a ...\""
+      }
+     }
+    ]
+   },
+   {
+    "title": "Why Does the Role Matter?",
+    "steps": [
+     {
+      "say": "Think about it this way. If you ask a random person about chest pain, you get a general answer. But if you ask a doctor, you get a focused, professional response.",
+      "write": {
+       "kind": "text",
+       "content": "Same question, different role\n= very different answer."
+      }
+     },
+     {
+      "say": "The AI works the same way. It has learned from text written by people across many fields. The role tells it which knowledge and tone to use.",
+      "write": {
+       "kind": "bullet",
+       "content": "Role shapes: tone, vocabulary, depth"
+      }
+     },
+     {
+      "say": "For example, compare these two prompts for the same topic.",
+      "write": {
+       "kind": "text",
+       "content": "Prompt A:\n\"Explain inflation.\""
+      }
+     },
+     {
+      "say": "Now see the second version with a role added.",
+      "write": {
+       "kind": "text",
+       "content": "Prompt B:\n\"You are a high-school economics\nteacher. Explain inflation\nto a first-year student.\""
+      }
+     }
+    ]
+   },
+   {
+    "title": "The Three Parts of a Strong Prompt",
+    "steps": [
+     {
+      "say": "A strong role-based prompt has three parts. Let us build one together on the board.",
+      "write": {
+       "kind": "heading",
+       "content": "3 Parts of a Role-Based Prompt"
+      }
+     },
+     {
+      "say": "Part one is the role — who the AI should be.",
+      "write": {
+       "kind": "bullet",
+       "content": "1. Role: who the AI should be"
+      }
+     },
+     {
+      "say": "Part two is the context — the background or situation.",
+      "write": {
+       "kind": "bullet",
+       "content": "2. Context: the situation/background"
+      }
+     },
+     {
+      "say": "And part three is the task — what you actually want the AI to do.",
+      "write": {
+       "kind": "bullet",
+       "content": "3. Task: what you want it to do"
+      }
+     },
+     {
+      "say": "Here is a complete example using all three parts together.",
+      "write": {
+       "kind": "text",
+       "content": "\"You are a senior HR manager\nat a tech company in India.\nReview this resume for an\ninternship and give 3 tips.\""
+      }
+     }
+    ]
+   },
+   {
+    "title": "Common Mistake and Important Warning",
+    "steps": [
+     {
+      "say": "One common mistake is writing just the role with no task. Something like You are a doctor with no question gives the AI nothing to work with.",
+      "write": {
+       "kind": "text",
+       "content": "Mistake: role only, no task.\n\"You are a doctor.\" — incomplete!"
+      }
+     },
+     {
+      "say": "Another mistake is being too vague. Saying You are an expert does not help because it does not name the field.",
+      "write": {
+       "kind": "text",
+       "content": "Vague: \"You are an expert.\"\nBetter: \"You are a GST consultant.\""
+      }
+     },
+     {
+      "say": "And an important reminder — giving the AI a role does not make it a real professional. Always check important advice with a real qualified person.",
+      "write": {
+       "kind": "highlight",
+       "content": "Always verify critical AI advice\nwith a real professional."
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us quickly recap what we covered today.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap: Role-Based Prompting"
+      }
+     },
+     {
+      "say": "Role-based prompting means starting your prompt with You are a, followed by a specific persona to shape the AI's response.",
+      "write": {
+       "kind": "bullet",
+       "content": "Start with \"You are a [role]\""
+      }
+     },
+     {
+      "say": "A complete prompt needs three things — the role, the context, and the task.",
+      "write": {
+       "kind": "bullet",
+       "content": "Role + Context + Task = strong prompt"
+      }
+     },
+     {
+      "say": "Be specific in your role, avoid vague terms, and always verify critical information with a real expert. Happy prompting!",
+      "write": {
+       "kind": "bullet",
+       "content": "Be specific. Always verify."
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

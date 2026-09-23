@@ -1,0 +1,320 @@
+{
+ "summary": "Giving clear context and specific instructions in a prompt helps AI understand exactly what you need and produce more accurate, useful responses.",
+ "shortNotes": [
+  "Context tells the AI who you are, what situation you are in, and why you need the answer.",
+  "Instructions tell the AI how to respond — format, tone, length, and style.",
+  "A weak prompt with no context gets a generic answer; a rich prompt gets a tailored answer.",
+  "The RACE framework (Role, Action, Context, Expectation) is a simple way to build good prompts.",
+  "Specificity reduces guesswork — the more precise your prompt, the less the AI has to assume.",
+  "Always review the AI output and refine your prompt if the result is not what you expected."
+ ],
+ "detailed": {
+  "explanation": "When you type a message to an AI like ChatGPT, that message is called a **prompt**. The quality of the answer you get depends almost entirely on the quality of the prompt you give. Two of the most powerful things you can add to any prompt are **context** and **instructions**.\n\n**Context** is background information that helps the AI understand your situation. It answers questions like: Who are you? What is the task about? For whom is the output? For example, instead of asking *'Write an email,'* you give context: *'I am a second-year engineering student writing to my professor to request an extension on an assignment because I was unwell.'* Now the AI knows the sender, the reader, the purpose, and the reason.\n\n**Instructions** tell the AI exactly how you want the response delivered. This includes the format (bullet points, paragraph, table), the tone (formal, friendly, simple), the length (50 words, one page), and any special requirements (avoid jargon, use Hindi examples, include a summary at the end). Without instructions, the AI makes its own choices, which may not match your needs.\n\nA useful mental framework is **RACE**: **R**ole (tell the AI what role to play, e.g., *'Act as a career counsellor'*), **A**ction (what you want done), **C**ontext (the background), **E**xpectation (the format or standard of the output). This four-part structure helps beginners remember all the key ingredients of a strong prompt.\n\nPractice is essential. Start with a basic prompt, look at the output, identify what is missing or wrong, and then rewrite the prompt with more context or clearer instructions. This process of improving your prompt step by step is called **prompt iteration**, and it is a skill every professional benefits from learning.",
+  "definitions": [
+   {
+    "term": "Prompt",
+    "meaning": "The text input you give to an AI model to get a response."
+   },
+   {
+    "term": "Context",
+    "meaning": "Background information added to a prompt so the AI understands the situation, audience, and purpose."
+   },
+   {
+    "term": "Instructions",
+    "meaning": "Directions in a prompt that specify how the AI should format, style, or limit its response."
+   },
+   {
+    "term": "RACE Framework",
+    "meaning": "A prompt-writing guide standing for Role, Action, Context, and Expectation."
+   },
+   {
+    "term": "Prompt Iteration",
+    "meaning": "The process of reviewing an AI response and rewriting the prompt to get a better result."
+   },
+   {
+    "term": "Tone",
+    "meaning": "The feeling or style of the writing — for example, formal, casual, persuasive, or empathetic."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "Always state who you are or what role the AI should play at the start of the prompt.",
+   "Include the purpose of the task — why do you need this response?",
+   "Specify the audience — a response for a professor differs from one for a classmate.",
+   "Mention desired format explicitly: bullet list, numbered steps, table, short paragraph, etc.",
+   "State the desired length or word count when it matters.",
+   "Avoid vague words like 'good' or 'nice' — be specific about the quality standard you want.",
+   "In exams, remember the RACE framework as a ready checklist for prompt evaluation questions.",
+   "Prompt iteration (rewriting based on output) is considered a core AI literacy skill in most syllabi."
+  ]
+ },
+ "codeExample": null,
+ "commonMistakes": [
+  "Writing one-line prompts with no context, such as 'Write a cover letter,' and expecting a perfectly personalised result.",
+  "Giving context but forgetting instructions — the AI then chooses its own format and length, which may not suit the task.",
+  "Overloading a single prompt with too many unrelated tasks at once, which causes the AI to give an unfocused or incomplete answer."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "What does 'context' in a prompt primarily provide to the AI?",
+   "options": [
+    "A list of grammar rules to follow",
+    "Background information about the situation, purpose, and audience",
+    "Instructions about font and colour",
+    "A summary of the AI's previous responses"
+   ],
+   "answer": 1,
+   "explanation": "Context gives the AI the background it needs — who is asking, for what purpose, and for whom — so the response is relevant and tailored.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "In the RACE framework, what does the letter 'E' stand for?",
+   "options": [
+    "Example",
+    "Emotion",
+    "Expectation",
+    "Evaluation"
+   ],
+   "answer": 2,
+   "explanation": "RACE stands for Role, Action, Context, and Expectation. The 'E' reminds you to state the format or standard you expect in the output.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following prompts is BEST because it includes both context and instructions?",
+   "options": [
+    "Write about climate change.",
+    "Explain climate change.",
+    "I am a first-year college student in India. Explain climate change in 100 words using simple English and bullet points.",
+    "Tell me something about climate change in detail."
+   ],
+   "answer": 2,
+   "explanation": "Option C names the user's identity (first-year student in India), specifies the format (bullet points), length (100 words), and language level (simple English) — covering both context and instructions.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is 'prompt iteration'?",
+   "options": [
+    "Writing as many prompts as possible in one minute",
+    "Copying a prompt from the internet and using it directly",
+    "Reviewing the AI output and rewriting the prompt to improve the result",
+    "Asking the AI to repeat the same answer twice"
+   ],
+   "answer": 2,
+   "explanation": "Prompt iteration means looking at what the AI returned, identifying gaps or errors, and then revising your prompt to get a better response.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "A student writes: 'Act as a career counsellor and suggest three job roles for a computer science graduate who enjoys public speaking, in a numbered list.' Which part of RACE is covered by 'Act as a career counsellor'?",
+   "options": [
+    "Action",
+    "Context",
+    "Role",
+    "Expectation"
+   ],
+   "answer": 2,
+   "explanation": "Telling the AI to 'act as a career counsellor' assigns it a Role — the R in RACE. This shapes the perspective and expertise level of the response.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Why does specifying the audience in a prompt matter?",
+   "options": [
+    "It makes the prompt longer, which always improves AI output.",
+    "It helps the AI choose vocabulary, examples, and detail level appropriate for that audience.",
+    "It forces the AI to search the internet for audience-specific data.",
+    "It has no real effect; the AI ignores audience information."
+   ],
+   "answer": 1,
+   "explanation": "Knowing the audience lets the AI adjust complexity, tone, and examples. A response for a school student will differ greatly from one for a research professor.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain the difference between context and instructions in a prompt, and give one example of each.",
+   "answer": "Context is background information that tells the AI about the situation — for example, 'I am a nursing student preparing for my final exam.' Instructions tell the AI how to respond — for example, 'Explain in simple English using bullet points under 150 words.' Context sets the scene; instructions set the rules for the output.",
+   "keywords": [
+    "context",
+    "instructions",
+    "background",
+    "format",
+    "example"
+   ],
+   "explanation": "A strong answer distinguishes the two concepts clearly and supports each with a concrete example, showing applied understanding.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "A classmate says, 'I just type whatever comes to mind and the AI figures it out.' Using what you have learned about context and instructions, explain why this approach often leads to poor results.",
+   "answer": "Without context, the AI does not know who is asking or why, so it gives a generic answer that may not fit the real need. Without instructions, the AI chooses its own format and length, which may not be suitable. Together, missing context and instructions force the AI to make many assumptions, reducing the accuracy and usefulness of the response.",
+   "keywords": [
+    "context",
+    "instructions",
+    "generic",
+    "assumptions",
+    "accuracy"
+   ],
+   "explanation": "The answer should show understanding that both elements reduce ambiguity and direct the AI toward a specific, useful output.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "The RACE framework has four components. A student's prompt covers Role and Action but forgets the other two. How many components of the RACE framework are missing from that prompt?",
+   "answer": "2",
+   "explanation": "RACE has four parts: Role, Action, Context, and Expectation. If Role and Action are present, Context and Expectation are missing — that is 2 missing components.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What Is a Prompt and Why Does It Matter?",
+    "steps": [
+     {
+      "say": "Welcome! Today we are talking about one of the most practical AI skills you will ever learn — how to write a prompt that actually gets you what you need.",
+      "write": {
+       "kind": "heading",
+       "content": "Writing Effective Prompts"
+      }
+     },
+     {
+      "say": "A prompt is simply the message you type to an AI. Think of it like placing an order at a restaurant — the clearer your order, the better your meal.",
+      "write": {
+       "kind": "text",
+       "content": "Prompt = your message to the AI"
+      }
+     },
+     {
+      "say": "The two ingredients that transform a weak prompt into a strong one are context and instructions. Let us look at each one.",
+      "write": {
+       "kind": "bullet",
+       "content": "Two key ingredients:\n1. Context\n2. Instructions"
+      }
+     }
+    ]
+   },
+   {
+    "title": "What Is Context?",
+    "steps": [
+     {
+      "say": "Context is the background information you give the AI so it understands your situation. It answers three simple questions.",
+      "write": {
+       "kind": "heading",
+       "content": "Context = Background Information"
+      }
+     },
+     {
+      "say": "Who are you? What is the task about? And who will read the output? Let us write those down.",
+      "write": {
+       "kind": "bullet",
+       "content": "- Who are you?\n- What is the task?\n- Who is the audience?"
+      }
+     },
+     {
+      "say": "Compare these two prompts. The first one has no context at all.",
+      "write": {
+       "kind": "text",
+       "content": "Weak: Write an email."
+      }
+     },
+     {
+      "say": "Now look at this version with context added — the AI now knows exactly who is writing, to whom, and why.",
+      "write": {
+       "kind": "highlight",
+       "content": "Strong: I am a student requesting\nan assignment extension\nfrom my professor\nbecause I was unwell."
+      }
+     }
+    ]
+   },
+   {
+    "title": "What Are Instructions?",
+    "steps": [
+     {
+      "say": "Instructions tell the AI how to deliver the response. Without them, the AI makes its own choices, which may not suit you at all.",
+      "write": {
+       "kind": "heading",
+       "content": "Instructions = How to Respond"
+      }
+     },
+     {
+      "say": "You can instruct the AI on format, tone, and length. For example, you might ask for bullet points in a formal tone under one hundred words.",
+      "write": {
+       "kind": "bullet",
+       "content": "- Format: bullet list, table, paragraph\n- Tone: formal, friendly, simple\n- Length: 50 words, one page"
+      }
+     },
+     {
+      "say": "Adding these details removes all the guesswork and gives you a response that fits your exact need right away.",
+      "write": {
+       "kind": "highlight",
+       "content": "Tip: Be specific —\nvague prompts get vague answers."
+      }
+     }
+    ]
+   },
+   {
+    "title": "The RACE Framework",
+    "steps": [
+     {
+      "say": "A great tool for remembering what to include is the RACE framework. Each letter stands for one key ingredient.",
+      "write": {
+       "kind": "heading",
+       "content": "RACE Framework"
+      }
+     },
+     {
+      "say": "R stands for Role — tell the AI what role to play, like a career counsellor or a science teacher.",
+      "write": {
+       "kind": "text",
+       "content": "R = Role"
+      }
+     },
+     {
+      "say": "A is for Action, which is what you want done. C is Context, the background. And E is Expectation — the format or standard you want.",
+      "write": {
+       "kind": "bullet",
+       "content": "A = Action\nC = Context\nE = Expectation"
+      }
+     },
+     {
+      "say": "Use RACE as a quick checklist every time you write a prompt and you will rarely miss an important detail.",
+      "write": {
+       "kind": "highlight",
+       "content": "Role + Action + Context\n+ Expectation = Strong Prompt"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us quickly recap what we covered today. A prompt is your message to the AI, and its quality decides the quality of the answer.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap"
+      }
+     },
+     {
+      "say": "Context gives the AI background — who you are, the purpose, and the audience. Instructions tell it how to respond — format, tone, and length.",
+      "write": {
+       "kind": "bullet",
+       "content": "- Context: who, what, for whom\n- Instructions: format, tone, length"
+      }
+     },
+     {
+      "say": "Use the RACE framework as your checklist, and keep refining your prompt until you get the result you need. You have got this!",
+      "write": {
+       "kind": "highlight",
+       "content": "RACE: Role, Action,\nContext, Expectation\nIterate until it is right!"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

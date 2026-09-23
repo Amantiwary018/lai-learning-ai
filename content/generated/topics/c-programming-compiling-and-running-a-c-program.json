@@ -1,0 +1,339 @@
+{
+ "summary": "To run a C program, you must first write the source code, then compile it using a compiler like GCC, and finally execute the output file.",
+ "shortNotes": [
+  "C is a compiled language — source code must be converted to machine code before it can run.",
+  "The most common compiler used in India's colleges is GCC (GNU Compiler Collection).",
+  "The basic compile command is: gcc filename.c -o outputname",
+  "If there are no errors, the compiler produces an executable file you can run.",
+  "On Linux/Mac run the program with ./outputname; on Windows use outputname.exe",
+  "Compilation errors must be fixed in the source code before a working program is produced."
+ ],
+ "detailed": {
+  "explanation": "A C program goes through several steps before it actually runs on your computer. First, you write the **source code** in a text editor or IDE and save it with a `.c` extension (for example, `hello.c`). This file contains human-readable instructions.\n\nNext, you **compile** the source code using a C compiler. The most widely used compiler is **GCC** (GNU Compiler Collection), which is free and available on Linux, Windows (via MinGW), and macOS. The compiler reads your `.c` file, checks it for syntax errors, and converts it into a binary **executable** file that the computer's processor can understand.\n\nThe basic GCC command looks like this:\n```\ngcc hello.c -o hello\n```\nHere, `gcc` calls the compiler, `hello.c` is your source file, `-o hello` tells the compiler to name the output file `hello`. If you omit `-o`, GCC creates a default file called `a.out` on Linux/Mac.\n\nIf the compilation is successful (no errors), you run the executable. On Linux or macOS type `./hello` in the terminal. On Windows, type `hello.exe`. The program then executes and you see the output on the screen.\n\nIf the compiler finds **errors**, it prints messages telling you the line number and type of problem. You must go back to your source code, fix the errors, and compile again. This edit-compile-run cycle is the core workflow every C programmer uses.",
+  "definitions": [
+   {
+    "term": "Source Code",
+    "meaning": "The human-readable C instructions you write and save in a .c file."
+   },
+   {
+    "term": "Compiler",
+    "meaning": "A program that translates source code into machine-executable binary code."
+   },
+   {
+    "term": "GCC",
+    "meaning": "GNU Compiler Collection — a free, widely used C compiler available on most operating systems."
+   },
+   {
+    "term": "Executable",
+    "meaning": "The binary output file produced by the compiler that the computer can directly run."
+   },
+   {
+    "term": "Compilation Error",
+    "meaning": "A mistake in the source code (like a missing semicolon) that prevents the compiler from producing an executable."
+   },
+   {
+    "term": "Terminal / Command Prompt",
+    "meaning": "The text-based interface where you type commands to compile and run your program."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "The file extension for a C source file is .c (e.g., hello.c).",
+   "GCC is the standard compiler used in most Indian universities; learn its basic flags.",
+   "The flag -o lets you name your output file; without it the default name is a.out.",
+   "Always check the terminal output after compiling — no news is good news (no errors means success).",
+   "Warnings are different from errors: the program may still compile but could behave unexpectedly.",
+   "Use -Wall flag (gcc hello.c -Wall -o hello) to see all warnings — good habit from day one.",
+   "On Windows, the executable is hello.exe; on Linux/Mac it has no extension but is run with ./hello.",
+   "The edit-compile-run cycle is fundamental: change code → compile → test → repeat."
+  ]
+ },
+ "codeExample": {
+  "language": "c",
+  "code": "#include <stdio.h>\n\nint main() {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}\n",
+  "explanation": "Line 1: #include <stdio.h> — includes the Standard Input/Output library so we can use printf.\nLine 3: int main() — the main function; every C program starts executing from here.\nLine 4: printf(\"Hello, World!\\n\"); — prints the text to the screen; \\n moves the cursor to a new line.\nLine 5: return 0; — tells the operating system the program finished successfully.\nTo compile: gcc hello.c -o hello\nTo run on Linux/Mac: ./hello\nTo run on Windows: hello.exe\nExpected output: Hello, World!"
+ },
+ "commonMistakes": [
+  "Forgetting to save the .c file before compiling — the compiler works on the saved version, not unsaved changes.",
+  "Typing the compile command incorrectly (e.g., missing the filename or misspelling gcc) and being confused by 'command not found' errors.",
+  "Not adding ./ before the program name on Linux/Mac when running (e.g., typing hello instead of ./hello), which gives a 'command not found' error."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Which command correctly compiles a file named program.c and names the output file program using GCC?",
+   "options": [
+    "gcc -o program program.c",
+    "compile program.c program",
+    "gcc program.c",
+    "run program.c -o program"
+   ],
+   "answer": 0,
+   "explanation": "gcc -o program program.c is the correct syntax. The -o flag specifies the output filename. Option C would work but creates a.out, not program. Options B and D are not valid commands.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the default output filename when you compile with GCC without using the -o flag on Linux?",
+   "options": [
+    "output.exe",
+    "program.out",
+    "a.out",
+    "main.bin"
+   ],
+   "answer": 2,
+   "explanation": "When you do not specify -o, GCC automatically names the executable a.out on Linux and macOS systems.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following is the correct way to run an executable named hello on a Linux terminal?",
+   "options": [
+    "run hello",
+    "execute hello",
+    "hello",
+    "./hello"
+   ],
+   "answer": 3,
+   "explanation": "./hello is correct on Linux/Mac. The ./ tells the shell to look in the current directory. Just typing hello may fail if the current directory is not in the system PATH.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What does the GCC flag -Wall do?",
+   "options": [
+    "Compiles all .c files in the folder",
+    "Enables all common warning messages",
+    "Links all standard libraries",
+    "Runs the program after compiling"
+   ],
+   "answer": 1,
+   "explanation": "-Wall stands for 'warnings all'. It tells GCC to display all common warning messages, helping you catch potential bugs even when there are no fatal errors.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What type of file does a C compiler produce as output?",
+   "options": [
+    "A .c source file",
+    "A plain text file",
+    "A binary executable file",
+    "An HTML file"
+   ],
+   "answer": 2,
+   "explanation": "The compiler converts human-readable source code (.c file) into a binary executable file containing machine code that the processor can run directly.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "If GCC finds a syntax error in your code during compilation, what happens?",
+   "options": [
+    "It compiles anyway and the error is fixed automatically",
+    "It prints an error message and does NOT produce an executable",
+    "It produces an executable but it runs incorrectly",
+    "It opens your source file and fixes it"
+   ],
+   "answer": 1,
+   "explanation": "When GCC encounters a syntax error it stops compilation, prints an error message with the line number and description, and does not create an executable file. You must fix the code and recompile.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain the difference between a compilation error and a runtime error in a C program.",
+   "answer": "A compilation error is a mistake (like a missing semicolon or undeclared variable) that the compiler detects before the program runs; it prevents an executable from being produced. A runtime error occurs after successful compilation, while the program is actually running, such as dividing by zero or accessing invalid memory.",
+   "keywords": [
+    "compilation error",
+    "runtime error",
+    "compiler",
+    "executable",
+    "running"
+   ],
+   "explanation": "Understanding the two stages — compile time and run time — helps programmers know when and where to look for different kinds of bugs.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "What is the role of #include <stdio.h> at the top of a C program?",
+   "answer": "#include <stdio.h> is a preprocessor directive that includes the Standard Input/Output header file. It gives the program access to functions like printf and scanf that handle input and output. Without it, the compiler will not recognize these functions.",
+   "keywords": [
+    "preprocessor",
+    "header file",
+    "stdio.h",
+    "printf",
+    "scanf"
+   ],
+   "explanation": "Header files declare functions from standard libraries. Including stdio.h is necessary whenever you use any standard I/O functions in your program.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "What is the exact output printed to the screen when the following program is compiled and run?\n\n#include <stdio.h>\nint main() {\n    printf(\"Score: %d\", 10 + 5);\n    return 0;\n}",
+   "answer": "Score: 15",
+   "explanation": "10 + 5 evaluates to 15. The printf statement prints the string 'Score: ' followed by the integer value 15. There is no newline character so nothing extra is printed.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a complete C program that prints your name and your college name on two separate lines. Use printf for each line.",
+   "starter": "#include <stdio.h>\n\nint main() {\n    // Write your printf statements here\n\n    return 0;\n}",
+   "solution": "#include <stdio.h>\n\nint main() {\n    printf(\"Name: Ravi Kumar\\n\");\n    printf(\"College: Delhi College of Engineering\\n\");\n    return 0;\n}",
+   "explanation": "Each printf call prints one line. The \\n at the end of each string moves the cursor to the next line so the two pieces of information appear on separate lines. The actual name and college can be any valid strings.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What Does Compiling Mean?",
+    "steps": [
+     {
+      "say": "Welcome! Today we are going to learn how to compile and run a C program. This is the very first practical skill every C programmer needs.",
+      "write": {
+       "kind": "heading",
+       "content": "Compiling and Running a C Program"
+      }
+     },
+     {
+      "say": "Computers do not understand the English-like code we write. A compiler is a special program that translates our code into machine language.",
+      "write": {
+       "kind": "bullet",
+       "content": "Compiler: translates C code → machine code"
+      }
+     },
+     {
+      "say": "We write our code in a dot-c file, the compiler reads it, and produces an executable file we can actually run.",
+      "write": {
+       "kind": "text",
+       "content": "hello.c  →  [GCC Compiler]  →  hello"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Writing Your First C Program",
+    "steps": [
+     {
+      "say": "Let us write a simple program. Every C program starts with including the standard input output library.",
+      "write": {
+       "kind": "code",
+       "content": "#include <stdio.h>"
+      }
+     },
+     {
+      "say": "Now we add the main function. Execution of every C program begins from main.",
+      "write": {
+       "kind": "code",
+       "content": "\nint main() {"
+      }
+     },
+     {
+      "say": "Inside main, we call printf to print Hello World on the screen. The backslash n moves to the next line.",
+      "write": {
+       "kind": "code",
+       "content": "  printf(\"Hello, World!\\n\");"
+      }
+     },
+     {
+      "say": "Finally, return zero tells the operating system the program finished successfully. Then we close the curly brace.",
+      "write": {
+       "kind": "code",
+       "content": "  return 0;\n}"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Compiling with GCC",
+    "steps": [
+     {
+      "say": "Save the file as hello dot c. Now open your terminal and type the GCC command to compile it.",
+      "write": {
+       "kind": "heading",
+       "content": "Compile Command"
+      }
+     },
+     {
+      "say": "Type g c c, then the filename hello dot c, then dash o hello. The dash o flag sets the name of the output file.",
+      "write": {
+       "kind": "code",
+       "content": "gcc hello.c -o hello"
+      }
+     },
+     {
+      "say": "If there are no errors, the compiler silently creates an executable file called hello. No message means success!",
+      "write": {
+       "kind": "bullet",
+       "content": "No output = compiled successfully"
+      }
+     },
+     {
+      "say": "If you see an error message, read it carefully. It tells you the line number and what went wrong. Fix it and compile again.",
+      "write": {
+       "kind": "bullet",
+       "content": "Error shown → fix code → compile again"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Running the Program",
+    "steps": [
+     {
+      "say": "Once compiled, run the program. On Linux or Mac, type dot slash hello in the terminal.",
+      "write": {
+       "kind": "code",
+       "content": "./hello"
+      }
+     },
+     {
+      "say": "On Windows, type hello dot exe to run the program.",
+      "write": {
+       "kind": "code",
+       "content": "hello.exe"
+      }
+     },
+     {
+      "say": "You should see Hello World printed on the screen. Congratulations, you just ran your first C program!",
+      "write": {
+       "kind": "text",
+       "content": "Output:  Hello, World!"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us quickly recap what we covered today. The full process has three simple steps.",
+      "write": {
+       "kind": "heading",
+       "content": "The 3 Steps"
+      }
+     },
+     {
+      "say": "Step one: write your code and save it as a dot c file.",
+      "write": {
+       "kind": "bullet",
+       "content": "1. Write code → save as hello.c"
+      }
+     },
+     {
+      "say": "Step two: compile using g c c with the dash o flag to name your output.",
+      "write": {
+       "kind": "bullet",
+       "content": "2. Compile: gcc hello.c -o hello"
+      }
+     },
+     {
+      "say": "Step three: run the executable. Use dot slash on Linux and Mac, or just the name on Windows. Keep practising this cycle every day!",
+      "write": {
+       "kind": "bullet",
+       "content": "3. Run: ./hello  or  hello.exe"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,80 @@
+{
+ "subjects": [
+  {
+   "title": "Thermodynamics & Mechanics",
+   "chapters": [
+    {
+     "title": "Fundamentals of Thermodynamics",
+     "topics": [
+      "Temperature, Heat, and Work",
+      "Laws of Thermodynamics",
+      "Thermodynamic Systems and Processes"
+     ]
+    },
+    {
+     "title": "Heat Transfer Basics",
+     "topics": [
+      "Conduction and Convection",
+      "Radiation Heat Transfer",
+      "Practical Heat Transfer Applications"
+     ]
+    },
+    {
+     "title": "Statics and Forces",
+     "topics": [
+      "Forces, Vectors, and Equilibrium",
+      "Free Body Diagrams",
+      "Moments and Torque",
+      "Support Reactions and Trusses"
+     ]
+    },
+    {
+     "title": "Dynamics and Motion",
+     "topics": [
+      "Kinematics of Particles",
+      "Newton's Laws of Motion",
+      "Work, Energy, and Power",
+      "Friction and its Applications"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Materials & Manufacturing",
+   "chapters": [
+    {
+     "title": "Engineering Materials",
+     "topics": [
+      "Properties of Metals and Alloys",
+      "Polymers, Ceramics, and Composites",
+      "Material Selection Criteria"
+     ]
+    },
+    {
+     "title": "Material Behavior Under Load",
+     "topics": [
+      "Stress and Strain Concepts",
+      "Elastic and Plastic Deformation",
+      "Fatigue and Fracture Basics"
+     ]
+    },
+    {
+     "title": "Manufacturing Processes",
+     "topics": [
+      "Casting and Molding",
+      "Machining and Cutting Operations",
+      "Joining Processes: Welding and Fastening"
+     ]
+    },
+    {
+     "title": "Quality and Measurement",
+     "topics": [
+      "Tolerances and Fits",
+      "Measurement Tools and Techniques",
+      "Introduction to Quality Control"
+     ]
+    }
+   ]
+  }
+ ]
+}

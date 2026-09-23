@@ -1,0 +1,346 @@
+{
+ "summary": "Conditional statements in Python allow a program to make decisions and execute different blocks of code based on whether a condition is true or false.",
+ "shortNotes": [
+  "Use `if` to run a block of code only when a condition is True.",
+  "Use `elif` to check additional conditions if the previous ones were False.",
+  "Use `else` to run a block when none of the above conditions matched.",
+  "Python uses indentation (4 spaces) to define which code belongs to each block.",
+  "Comparison operators like ==, !=, <, >, <=, >= are used to form conditions.",
+  "Logical operators `and`, `or`, `not` can combine multiple conditions."
+ ],
+ "detailed": {
+  "explanation": "A **conditional statement** tells Python: 'If this condition is true, do this; otherwise, do something else.' This is how programs make decisions — just like you decide to carry an umbrella *if* it looks like rain.\n\nThe simplest form is the `if` statement. You write `if condition:` and then indent the code you want to run. If the condition evaluates to `True`, Python runs that indented block. If it is `False`, Python skips it entirely.\n\nWhen you want to check a second possibility, you add `elif` (short for *else if*). You can add as many `elif` blocks as needed. Python checks each condition from top to bottom and runs only the first block whose condition is `True`.\n\nThe `else` block is optional and acts as a catch-all. It runs when none of the `if` or `elif` conditions were `True`. You never write a condition after `else` — it simply covers every remaining case.\n\nIndentation is critical in Python. Unlike many other languages, Python does not use curly braces `{}` to group code. A block of code that belongs to an `if`, `elif`, or `else` must be consistently indented — the standard is 4 spaces. A wrong indentation will cause an `IndentationError` or a logic bug.",
+  "definitions": [
+   {
+    "term": "if statement",
+    "meaning": "A conditional construct that executes a block of code only when its condition is True."
+   },
+   {
+    "term": "elif",
+    "meaning": "Short for 'else if'; checks another condition when the previous if or elif condition was False."
+   },
+   {
+    "term": "else",
+    "meaning": "A block that runs when none of the preceding if or elif conditions were True."
+   },
+   {
+    "term": "condition",
+    "meaning": "An expression that Python evaluates to either True or False, often using comparison or logical operators."
+   },
+   {
+    "term": "indentation",
+    "meaning": "The spaces at the beginning of a line that Python uses to determine which block the line belongs to."
+   },
+   {
+    "term": "boolean expression",
+    "meaning": "An expression that results in True or False, used as the condition in if statements."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "The `if` keyword is always followed by a condition and a colon (:).",
+   "Python is case-sensitive: write `if`, `elif`, `else` in lowercase only.",
+   "Indentation must be consistent — mixing tabs and spaces causes errors.",
+   "Only the FIRST matching block in an if-elif-else chain is executed; the rest are skipped.",
+   "An `else` block does not have a condition — adding one causes a SyntaxError.",
+   "You can nest `if` statements inside other `if` blocks, but keep nesting shallow for readability.",
+   "The equality operator is `==` (two equals signs); using a single `=` inside a condition is a common bug.",
+   "Logical operators let you combine conditions: `if age >= 18 and age <= 60:` checks both at once."
+  ]
+ },
+ "codeExample": {
+  "language": "python",
+  "code": "# Conditional Statements in Python - Complete Example\n\n# Get the student's marks as input\nmarks = int(input(\"Enter your marks (0-100): \"))\n\n# Check which grade the student gets\nif marks >= 90:\n    grade = \"O (Outstanding)\"\nelif marks >= 75:\n    grade = \"A (Excellent)\"\nelif marks >= 60:\n    grade = \"B (Good)\"\nelif marks >= 40:\n    grade = \"C (Pass)\"\nelse:\n    grade = \"F (Fail)\"\n\n# Print the result\nprint(\"Your grade is:\", grade)\n\n# Extra decision using logical operators\nif marks >= 40 and marks <= 100:\n    print(\"You are eligible for the next semester.\")\nelse:\n    print(\"Please appear for the supplementary exam.\")",
+  "explanation": "Line 1: A comment describing the program.\nLine 4: We read the user's input and convert it to an integer using int().\nLine 7: The first `if` checks if marks are 90 or above — assigns Outstanding grade.\nLine 9: `elif` checks if marks are 75 or above (but less than 90, since previous check failed).\nLine 11: `elif` checks for 60 or above — Good grade.\nLine 13: `elif` checks for 40 or above — Pass grade.\nLine 15-16: `else` covers all remaining cases (marks below 40) — Fail grade.\nLine 19: Prints the grade that was assigned.\nLine 22: Uses the `and` logical operator to check two conditions at once — marks must be both >= 40 AND <= 100 to be eligible.\nLine 25: `else` handles the case when the student failed or entered an invalid mark."
+ },
+ "commonMistakes": [
+  "Using a single equals sign `=` instead of double `==` in a condition (e.g., writing `if marks = 90:` instead of `if marks == 90:`) — `=` is assignment, not comparison.",
+  "Forgetting the colon `:` at the end of the `if`, `elif`, or `else` line, which causes a SyntaxError.",
+  "Incorrect or inconsistent indentation inside the block — Python relies purely on indentation to understand which code belongs to which condition, so misaligned code causes IndentationError or silent logic errors."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "What is the correct syntax to start an if statement in Python?",
+   "options": [
+    "if (condition) {",
+    "if condition:",
+    "if condition then",
+    "IF condition:"
+   ],
+   "answer": 1,
+   "explanation": "Python uses `if condition:` — lowercase `if`, the condition, and a colon. No parentheses are required (though allowed), and there are no curly braces or `then` keyword.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which block runs when none of the `if` or `elif` conditions are True?",
+   "options": [
+    "elif",
+    "default",
+    "else",
+    "finally"
+   ],
+   "answer": 2,
+   "explanation": "The `else` block is the catch-all — it runs only when all the preceding `if` and `elif` conditions evaluated to False.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What will the following code print?\n\nx = 15\nif x > 20:\n    print('A')\nelif x > 10:\n    print('B')\nelse:\n    print('C')",
+   "options": [
+    "A",
+    "B",
+    "C",
+    "B and C"
+   ],
+   "answer": 1,
+   "explanation": "x = 15 is not greater than 20, so the first block is skipped. x = 15 IS greater than 10, so `elif` matches and 'B' is printed. The `else` is skipped because a match was already found.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following correctly combines two conditions using a logical operator?",
+   "options": [
+    "if age > 18 & age < 60:",
+    "if age > 18 AND age < 60:",
+    "if age > 18 and age < 60:",
+    "if age > 18 && age < 60:"
+   ],
+   "answer": 2,
+   "explanation": "Python uses the keyword `and` (lowercase) to combine conditions. `&&` is used in languages like C and Java. `AND` (uppercase) and `&` (bitwise operator) are not the correct logical operators for this use case.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What error will Python raise if you forget to indent the block under an `if` statement?",
+   "options": [
+    "SyntaxError",
+    "IndentationError",
+    "TypeError",
+    "ValueError"
+   ],
+   "answer": 1,
+   "explanation": "Python enforces indentation strictly. If the code block under an `if` statement is not indented, Python raises an `IndentationError`.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "How many `elif` blocks can you have in a single if-elif-else chain?",
+   "options": [
+    "Only one",
+    "Maximum two",
+    "Maximum five",
+    "As many as you need"
+   ],
+   "answer": 3,
+   "explanation": "Python places no limit on the number of `elif` blocks. You can add as many as your logic requires between the `if` and the optional `else`.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "What is the difference between `=` and `==` in Python, and why does it matter inside an `if` statement?",
+   "answer": "In Python, `=` is the assignment operator used to store a value in a variable, while `==` is the equality comparison operator used to check whether two values are equal. Inside an `if` statement, you must use `==` to compare values; using `=` there will cause a SyntaxError because Python does not allow assignment in a condition.",
+   "keywords": [
+    "assignment",
+    "comparison",
+    "==",
+    "condition",
+    "SyntaxError"
+   ],
+   "explanation": "This is one of the most frequent beginner errors. Understanding that = assigns and == compares is fundamental to writing correct conditional logic.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain why indentation is important in Python conditional statements.",
+   "answer": "Python uses indentation to define code blocks instead of curly braces. The lines indented under an `if`, `elif`, or `else` are treated as part of that block and will only execute when the corresponding condition is met. Incorrect or inconsistent indentation causes either an IndentationError or unintended program behavior.",
+   "keywords": [
+    "indentation",
+    "block",
+    "IndentationError",
+    "spaces",
+    "structure"
+   ],
+   "explanation": "Unlike most languages, Python's block structure depends entirely on whitespace, making consistent indentation a core language rule and not just a style choice.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "What is the exact output printed by the following code?\n\nx = 10\nif x > 10:\n    print(1)\nelif x == 10:\n    print(2)\nelse:\n    print(3)",
+   "answer": "2",
+   "explanation": "x is 10. The first condition x > 10 is False (10 is not greater than 10). The second condition x == 10 is True, so Python prints 2 and skips the else block.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a Python program that asks the user to enter a number and then prints 'Positive' if the number is greater than zero, 'Negative' if it is less than zero, and 'Zero' if it is exactly zero.",
+   "starter": "# Get input from the user\nnum = int(input(\"Enter a number: \"))\n\n# Write your if-elif-else statement below\n",
+   "solution": "# Get input from the user\nnum = int(input(\"Enter a number: \"))\n\n# Check and print the sign of the number\nif num > 0:\n    print(\"Positive\")\nelif num < 0:\n    print(\"Negative\")\nelse:\n    print(\"Zero\")",
+   "explanation": "We read an integer from the user. The `if` block handles positive numbers (greater than 0). The `elif` block handles negative numbers (less than 0). The `else` block covers the only remaining case: the number is exactly 0. Only one of these three blocks will execute for any given input.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What Are Conditional Statements?",
+    "steps": [
+     {
+      "say": "Welcome! Today we are going to learn about conditional statements in Python. These let your program make decisions, just like you do in real life.",
+      "write": {
+       "kind": "heading",
+       "content": "Conditional Statements in Python"
+      }
+     },
+     {
+      "say": "Think about this: if it rains, you carry an umbrella. Otherwise, you do not. A program works the same way.",
+      "write": {
+       "kind": "bullet",
+       "content": "If condition is True → run this block"
+      }
+     },
+     {
+      "say": "Python gives us three keywords for this: if, elif, and else. Let us see how each one works.",
+      "write": {
+       "kind": "bullet",
+       "content": "Keywords: if, elif, else"
+      }
+     }
+    ]
+   },
+   {
+    "title": "The if and else Statement",
+    "steps": [
+     {
+      "say": "Here is the simplest form. We write if, then our condition, then a colon. The indented line below runs only when the condition is true.",
+      "write": {
+       "kind": "code",
+       "content": "marks = 85"
+      }
+     },
+     {
+      "say": "So we check if marks are greater than or equal to 40.",
+      "write": {
+       "kind": "code",
+       "content": "if marks >= 40:"
+      }
+     },
+     {
+      "say": "If that is true, we print Pass. Notice the four spaces of indentation — that is how Python knows this line belongs to the if block.",
+      "write": {
+       "kind": "code",
+       "content": "    print(\"Pass\")"
+      }
+     },
+     {
+      "say": "Now we add else. If the condition was false, Python comes here instead and prints Fail.",
+      "write": {
+       "kind": "code",
+       "content": "else:\n    print(\"Fail\")"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Adding elif for Multiple Conditions",
+    "steps": [
+     {
+      "say": "What if we need to check more than two possibilities? That is where elif comes in. It stands for else if.",
+      "write": {
+       "kind": "heading",
+       "content": "Using elif"
+      }
+     },
+     {
+      "say": "Python checks conditions from top to bottom and stops at the first one that is true.",
+      "write": {
+       "kind": "code",
+       "content": "if marks >= 75:"
+      }
+     },
+     {
+      "say": "If marks are 75 or above, we print grade A.",
+      "write": {
+       "kind": "code",
+       "content": "    print(\"Grade A\")"
+      }
+     },
+     {
+      "say": "If not, we check the next condition with elif. If marks are 40 or above, we print grade B.",
+      "write": {
+       "kind": "code",
+       "content": "elif marks >= 40:\n    print(\"Grade B\")"
+      }
+     },
+     {
+      "say": "And if none of those matched, else catches it and prints Fail. Only one block ever runs.",
+      "write": {
+       "kind": "code",
+       "content": "else:\n    print(\"Fail\")"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Common Mistakes to Avoid",
+    "steps": [
+     {
+      "say": "Let me quickly show you the three mistakes beginners make most often. First, using a single equals sign instead of double equals inside a condition.",
+      "write": {
+       "kind": "highlight",
+       "content": "Use == to compare, not ="
+      }
+     },
+     {
+      "say": "Second, forgetting the colon at the end of the if or else line. That gives you a syntax error immediately.",
+      "write": {
+       "kind": "highlight",
+       "content": "Always end if/elif/else with :"
+      }
+     },
+     {
+      "say": "Third, wrong indentation. Python does not use curly braces, so your indentation must be consistent — use four spaces every time.",
+      "write": {
+       "kind": "highlight",
+       "content": "Indent block with 4 spaces"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Great work! Let us quickly recap what we covered today.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap"
+      }
+     },
+     {
+      "say": "Use if to run code when a condition is true. Use elif to check more conditions. Use else to handle everything else.",
+      "write": {
+       "kind": "bullet",
+       "content": "if → elif → else"
+      }
+     },
+     {
+      "say": "Always use double equals for comparison, end each condition line with a colon, and indent your blocks with four spaces.",
+      "write": {
+       "kind": "bullet",
+       "content": "==  |  colon :  |  4-space indent"
+      }
+     },
+     {
+      "say": "Python runs only the first matching block and skips the rest. Now try writing your own conditional program and experiment with different inputs. Good luck!",
+      "write": {
+       "kind": "bullet",
+       "content": "Only ONE block runs per chain"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

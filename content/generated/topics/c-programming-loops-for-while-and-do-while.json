@@ -1,0 +1,352 @@
+{
+ "summary": "Loops in C (for, while, do-while) allow a block of code to execute repeatedly based on a condition, reducing redundancy and making programs efficient.",
+ "shortNotes": [
+  "A loop repeats a block of code as long as a given condition is true.",
+  "The `for` loop is best when the number of iterations is known in advance.",
+  "The `while` loop checks the condition before executing the body (entry-controlled).",
+  "The `do-while` loop executes the body at least once before checking the condition (exit-controlled).",
+  "`break` exits a loop immediately; `continue` skips the rest of the current iteration.",
+  "An infinite loop occurs when the loop condition never becomes false — always update the loop variable."
+ ],
+ "detailed": {
+  "explanation": "A **loop** is a control flow structure that repeats a set of statements multiple times. Instead of writing the same code ten times, you write it once inside a loop and tell the program how many times (or under what condition) to repeat it. C provides three types of loops: `for`, `while`, and `do-while`.\n\nThe **`for` loop** is the most compact. Its header contains three parts separated by semicolons: initialization, condition, and update. For example, `for (int i = 0; i < 5; i++)` starts `i` at 0, runs while `i` is less than 5, and increments `i` after each iteration. It is ideal when you know the exact number of repetitions beforehand.\n\nThe **`while` loop** first checks the condition, and only if it is true does it execute the body. Because the check happens at the top, if the condition is false from the very beginning the body never runs. It is useful when the number of iterations is not known in advance — for example, reading input until the user types -1.\n\nThe **`do-while` loop** is similar to `while`, but the condition is checked *after* the body executes. This guarantees the body runs at least once. The syntax ends with a semicolon after the closing parenthesis: `do { ... } while (condition);`. A classic use case is a menu-driven program where you always want to show the menu at least once.\n\nAll three loops support `break` (exit the loop immediately) and `continue` (skip the remaining statements in the current iteration and go to the next). Nested loops are also allowed — a loop inside another loop — which is commonly used for patterns and matrix operations.",
+  "definitions": [
+   {
+    "term": "Loop",
+    "meaning": "A programming construct that repeats a block of statements until a specified condition becomes false."
+   },
+   {
+    "term": "for loop",
+    "meaning": "An entry-controlled loop with initialization, condition, and update all in one line; best when the iteration count is known."
+   },
+   {
+    "term": "while loop",
+    "meaning": "An entry-controlled loop that checks its condition before each iteration; the body may never execute if the condition starts false."
+   },
+   {
+    "term": "do-while loop",
+    "meaning": "An exit-controlled loop that executes its body first, then checks the condition; the body always runs at least once."
+   },
+   {
+    "term": "Loop variable (counter)",
+    "meaning": "A variable used to control how many times a loop executes, typically initialized before and updated inside or in the loop header."
+   },
+   {
+    "term": "Infinite loop",
+    "meaning": "A loop whose condition never becomes false, causing the program to run forever; usually a bug caused by forgetting to update the loop variable."
+   },
+   {
+    "term": "break",
+    "meaning": "A statement that immediately exits the nearest enclosing loop or switch."
+   },
+   {
+    "term": "continue",
+    "meaning": "A statement that skips the rest of the current loop iteration and jumps to the next iteration's condition check."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "The `for` loop syntax is: `for (init; condition; update) { body }` — all three parts are optional but the two semicolons are mandatory.",
+   "The `while` loop is entry-controlled: if the condition is false at the start, the body executes zero times.",
+   "The `do-while` loop is exit-controlled: the body always executes at least once regardless of the condition.",
+   "Always ensure the loop variable is updated; missing the update step is the most common cause of infinite loops.",
+   "In a `for` loop you can declare the counter variable inside the header (`int i = 0`); its scope is limited to the loop in C99 and later.",
+   "`break` inside a nested loop exits only the innermost loop, not all loops.",
+   "For exam questions: if asked 'which loop guarantees at least one execution', the answer is `do-while`.",
+   "The `continue` statement in a `for` loop still executes the update expression before re-checking the condition."
+  ]
+ },
+ "codeExample": {
+  "language": "c",
+  "code": "#include <stdio.h>\n\nint main() {\n    int i;\n\n    /* 1. for loop: print 1 to 5 */\n    printf(\"for loop:\\n\");\n    for (i = 1; i <= 5; i++) {\n        printf(\"%d \", i);\n    }\n    printf(\"\\n\");\n\n    /* 2. while loop: print 1 to 5 */\n    printf(\"while loop:\\n\");\n    i = 1;\n    while (i <= 5) {\n        printf(\"%d \", i);\n        i++;\n    }\n    printf(\"\\n\");\n\n    /* 3. do-while loop: print 1 to 5 */\n    printf(\"do-while loop:\\n\");\n    i = 1;\n    do {\n        printf(\"%d \", i);\n        i++;\n    } while (i <= 5);\n    printf(\"\\n\");\n\n    /* 4. break and continue demo */\n    printf(\"skip 3, stop at 7:\\n\");\n    for (i = 1; i <= 10; i++) {\n        if (i == 3) continue; /* skip 3 */\n        if (i == 7) break;    /* stop at 7 */\n        printf(\"%d \", i);\n    }\n    printf(\"\\n\");\n\n    return 0;\n}",
+  "explanation": "Line 1: Include standard input/output header.\nLine 3: main() is the program entry point.\nLine 4: Declare integer variable i used across all loops.\nLine 7-10: for loop — i starts at 1, runs while i <= 5, increments i by 1 each time; prints 1 2 3 4 5.\nLine 13-18: while loop — i is set to 1 before the loop; condition i <= 5 is checked first; body prints i and increments it; same output.\nLine 21-26: do-while loop — body runs first (prints i, increments), then condition is checked; also prints 1 2 3 4 5.\nLine 29-34: Combined break and continue — when i equals 3, continue skips the printf for that iteration; when i equals 7, break exits the loop entirely; output is 1 2 4 5 6."
+ },
+ "commonMistakes": [
+  "Forgetting to update the loop variable inside a `while` or `do-while` loop, causing an infinite loop (e.g., writing `while (i < 5)` but never writing `i++` inside the body).",
+  "Using a semicolon immediately after the `for` or `while` header, like `for (i=0; i<5; i++);` — this creates an empty loop body and the intended block never executes as part of the loop.",
+  "Off-by-one errors: using `<` vs `<=` incorrectly — for example, `for (i=1; i<5; i++)` prints only 1 to 4, not 1 to 5; always trace through the first and last values manually."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Which loop in C is guaranteed to execute its body at least once?",
+   "options": [
+    "for loop",
+    "while loop",
+    "do-while loop",
+    "None of the above"
+   ],
+   "answer": 2,
+   "explanation": "The do-while loop checks its condition after the body executes, so the body always runs at least once even if the condition is false from the start.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the output of the following code?\n\nfor (int i = 0; i < 3; i++) { printf(\"%d \", i); }",
+   "options": [
+    "1 2 3",
+    "0 1 2 3",
+    "0 1 2",
+    "0 1"
+   ],
+   "answer": 2,
+   "explanation": "i starts at 0 and the loop runs while i < 3. So i takes values 0, 1, 2. When i becomes 3, the condition fails and the loop ends. Output is 0 1 2.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "In a `for` loop header `for (A; B; C)`, which part executes only once at the very beginning?",
+   "options": [
+    "B (condition)",
+    "C (update)",
+    "A (initialization)",
+    "The body"
+   ],
+   "answer": 2,
+   "explanation": "Part A (initialization) executes exactly once before the loop begins. Part B is checked before every iteration, and Part C runs after every iteration.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What does the `continue` statement do inside a loop?",
+   "options": [
+    "Exits the loop immediately",
+    "Skips the rest of the current iteration and moves to the next",
+    "Restarts the loop from the initialization",
+    "Pauses the loop temporarily"
+   ],
+   "answer": 1,
+   "explanation": "continue skips the remaining statements in the current iteration and jumps to the condition check (and update step for a for loop) for the next iteration.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following is an entry-controlled loop?",
+   "options": [
+    "do-while",
+    "do loop",
+    "while loop",
+    "repeat-until loop"
+   ],
+   "answer": 2,
+   "explanation": "The while loop checks its condition at the entry (top) of the loop. The do-while loop is exit-controlled because it checks the condition at the bottom. C does not have 'do' or 'repeat-until' loops.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What happens when `break` is used inside the inner loop of a nested loop?",
+   "options": [
+    "Both loops terminate",
+    "Only the inner loop terminates",
+    "Only the outer loop terminates",
+    "The program exits"
+   ],
+   "answer": 1,
+   "explanation": "break only exits the innermost loop in which it appears. The outer loop continues its execution normally.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain the difference between a `while` loop and a `do-while` loop in C.",
+   "answer": "A while loop is entry-controlled: it checks the condition before executing the body, so if the condition is false initially, the body never runs. A do-while loop is exit-controlled: it executes the body first and checks the condition afterward, guaranteeing the body runs at least once.",
+   "keywords": [
+    "entry-controlled",
+    "exit-controlled",
+    "condition",
+    "at least once"
+   ],
+   "explanation": "The key distinction is where the condition is evaluated — before or after the body — which determines the minimum number of times the body can execute (zero for while, one for do-while).",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "What is an infinite loop? Give one common reason it occurs in C.",
+   "answer": "An infinite loop is a loop whose condition never becomes false, so it keeps executing forever. A common reason is forgetting to update (increment or decrement) the loop variable, for example writing `while (i < 5)` without any `i++` inside the body.",
+   "keywords": [
+    "condition",
+    "never false",
+    "update",
+    "loop variable"
+   ],
+   "explanation": "Without updating the loop variable, the condition remains true forever. Always check that the loop variable changes in a way that will eventually make the condition false.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "How many times will the following loop body execute?\n\nint i = 1;\ndo {\n    i++;\n} while (i < 1);",
+   "answer": "1",
+   "explanation": "The do-while loop executes the body first (i becomes 2), then checks the condition: 2 < 1 is false, so the loop ends. The body executes exactly 1 time.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a C program that uses a `for` loop to calculate and print the sum of all even numbers from 1 to 20 (inclusive).",
+   "starter": "#include <stdio.h>\n\nint main() {\n    int sum = 0;\n    // write your for loop here\n\n    printf(\"Sum of even numbers: %d\\n\", sum);\n    return 0;\n}",
+   "solution": "#include <stdio.h>\n\nint main() {\n    int sum = 0;\n    for (int i = 2; i <= 20; i += 2) {\n        sum += i;\n    }\n    printf(\"Sum of even numbers: %d\\n\", sum);\n    return 0;\n}",
+   "explanation": "The loop starts at i=2 (the first even number) and increments by 2 each time (i += 2) so it visits only even numbers: 2, 4, 6, ..., 20. Each even number is added to sum. The even numbers from 2 to 20 are 2+4+6+8+10+12+14+16+18+20 = 110. An alternative approach is to loop from 1 to 20 and use `if (i % 2 == 0)` to add only even numbers.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What is a Loop?",
+    "steps": [
+     {
+      "say": "Welcome! Today we are going to learn about loops in C. A loop lets you run the same block of code again and again without writing it multiple times.",
+      "write": {
+       "kind": "heading",
+       "content": "Loops in C"
+      }
+     },
+     {
+      "say": "Imagine you want to print hello five times. Without a loop you would write five print statements. With a loop, you write just one.",
+      "write": {
+       "kind": "bullet",
+       "content": "Repeat code without rewriting it"
+      }
+     },
+     {
+      "say": "C gives us three types of loops: the for loop, the while loop, and the do-while loop.",
+      "write": {
+       "kind": "bullet",
+       "content": "Types: for | while | do-while"
+      }
+     }
+    ]
+   },
+   {
+    "title": "The for Loop",
+    "steps": [
+     {
+      "say": "The for loop is the most popular loop. Its header has three parts: initialization, condition, and update, all separated by semicolons.",
+      "write": {
+       "kind": "text",
+       "content": "for (init; condition; update)"
+      }
+     },
+     {
+      "say": "Let us write a for loop that prints numbers one to five. We start i at one, run while i is less than or equal to five, and add one to i each time.",
+      "write": {
+       "kind": "code",
+       "content": "for (i = 1; i <= 5; i++)"
+      }
+     },
+     {
+      "say": "Inside the curly braces we write the statement we want to repeat — here we print the value of i.",
+      "write": {
+       "kind": "code",
+       "content": "    printf(\"%d \", i);"
+      }
+     },
+     {
+      "say": "The output will be one two three four five. The loop stops when i becomes six and the condition is no longer true.",
+      "write": {
+       "kind": "text",
+       "content": "Output: 1 2 3 4 5"
+      }
+     }
+    ]
+   },
+   {
+    "title": "The while and do-while Loops",
+    "steps": [
+     {
+      "say": "The while loop checks its condition first, before running the body. If the condition is false right away, the body never executes.",
+      "write": {
+       "kind": "code",
+       "content": "while (i <= 5) {"
+      }
+     },
+     {
+      "say": "The do-while loop is different. It runs the body first, then checks the condition. So the body always runs at least once.",
+      "write": {
+       "kind": "code",
+       "content": "do {"
+      }
+     },
+     {
+      "say": "Notice the do-while ends with a semicolon after the closing parenthesis — this is a common place to make a mistake.",
+      "write": {
+       "kind": "code",
+       "content": "} while (i <= 5);"
+      }
+     },
+     {
+      "say": "Think of a menu-driven program: you always want to show the menu at least once, so do-while is the perfect choice there.",
+      "write": {
+       "kind": "bullet",
+       "content": "do-while: body runs at least once"
+      }
+     }
+    ]
+   },
+   {
+    "title": "break and continue",
+    "steps": [
+     {
+      "say": "Two special statements help you control loops. The break statement exits the loop immediately when it is reached.",
+      "write": {
+       "kind": "text",
+       "content": "break  → exit loop now"
+      }
+     },
+     {
+      "say": "The continue statement skips the rest of the current iteration and jumps to the next one.",
+      "write": {
+       "kind": "text",
+       "content": "continue → skip to next iteration"
+      }
+     },
+     {
+      "say": "Here is a quick example. When i equals three we skip it, and when i equals seven we stop the loop entirely.",
+      "write": {
+       "kind": "code",
+       "content": "if (i==3) continue;"
+      }
+     },
+     {
+      "say": "Adding the break for seven means the loop ends before reaching eight, nine, or ten.",
+      "write": {
+       "kind": "code",
+       "content": "if (i==7) break;"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Let us quickly recap what we learned today. There are three loops in C, and each has its own best use case.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap"
+      }
+     },
+     {
+      "say": "Use the for loop when you know how many times to repeat. Use while when the count depends on a condition checked at the top.",
+      "write": {
+       "kind": "bullet",
+       "content": "for → known count"
+      }
+     },
+     {
+      "say": "Use do-while when you need the body to run at least once no matter what.",
+      "write": {
+       "kind": "bullet",
+       "content": "do-while → at least once"
+      }
+     },
+     {
+      "say": "Always remember to update your loop variable, otherwise you will get an infinite loop. Good luck with your practice!",
+      "write": {
+       "kind": "highlight",
+       "content": "Always update the loop variable!"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

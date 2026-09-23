@@ -1,0 +1,364 @@
+{
+ "summary": "This topic covers how to display output using print(), take user input using input(), and convert between data types using int(), float(), str(), and related functions in Python.",
+ "shortNotes": [
+  "print() is used to display output on the screen; it accepts multiple values separated by commas.",
+  "input() always returns a string, no matter what the user types.",
+  "Type conversion (casting) changes a value from one data type to another using int(), float(), str(), bool().",
+  "int() converts a valid string or float to an integer; float() converts to a decimal number.",
+  "If you try to convert an invalid string like 'hello' to int, Python raises a ValueError.",
+  "Use the sep and end parameters of print() to customize how output is displayed."
+ ],
+ "detailed": {
+  "explanation": "Python uses the built-in `print()` function to send output to the screen. You can pass one or more values to it separated by commas, and Python will display them with a space in between by default. For example, `print('Hello', 'World')` prints `Hello World`. You can also use the `sep` parameter to change the separator and the `end` parameter to change what is printed at the end of the line.\n\nTo take input from the user, Python provides the `input()` function. It displays an optional message (called a prompt) and then waits for the user to type something and press Enter. The important rule to remember is that `input()` always returns a **string**, even if the user types a number. So `x = input('Enter a number: ')` stores a string in `x`, not an integer.\n\nThis is where **type conversion** becomes necessary. If you want to do arithmetic with a number the user typed, you must convert it using `int()` or `float()`. For example, `int('42')` gives the integer `42`, and `float('3.14')` gives `3.14`. You can also convert numbers back to strings with `str()`, which is useful when you want to join a number with text using the `+` operator.\n\nPython also supports `bool()` for converting to True or False. Any non-zero number or non-empty string converts to `True`, while `0`, `0.0`, or an empty string `''` converts to `False`. Be careful when converting: calling `int('hello')` will raise a `ValueError` because `'hello'` cannot be turned into a number. Always make sure the value is valid before converting.",
+  "definitions": [
+   {
+    "term": "print()",
+    "meaning": "A built-in Python function that displays output to the screen."
+   },
+   {
+    "term": "input()",
+    "meaning": "A built-in Python function that reads a line of text entered by the user and returns it as a string."
+   },
+   {
+    "term": "Type Conversion (Casting)",
+    "meaning": "The process of changing a value from one data type to another, for example from string to integer."
+   },
+   {
+    "term": "int()",
+    "meaning": "A built-in function that converts a compatible string or float to an integer."
+   },
+   {
+    "term": "float()",
+    "meaning": "A built-in function that converts a compatible string or integer to a floating-point number."
+   },
+   {
+    "term": "str()",
+    "meaning": "A built-in function that converts any value to its string representation."
+   },
+   {
+    "term": "ValueError",
+    "meaning": "An error raised by Python when a function receives an argument of the right type but an invalid value, such as int('abc')."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "input() ALWAYS returns a string — this is the most commonly tested fact in exams.",
+   "To accept a number from the user, wrap input() with int() or float(): int(input('Enter: ')).",
+   "print() can take multiple arguments separated by commas; it adds a space between them by default.",
+   "Use sep='' to remove the space between print() arguments, and end='' to avoid the newline at the end.",
+   "int() truncates the decimal part when converting a float: int(3.9) gives 3, not 4.",
+   "str() is useful when concatenating a number with a string: 'Age: ' + str(20).",
+   "bool('') returns False; bool('hello') returns True — empty sequences are falsy.",
+   "Trying to convert a non-numeric string with int() or float() causes a ValueError at runtime."
+  ]
+ },
+ "codeExample": {
+  "language": "python",
+  "code": "# Input, Output and Type Conversion Example\n\n# 1. Basic print output\nprint('Welcome to Python!')\n\n# 2. print with multiple values and sep\nprint('Roll No:', 101, sep=' ')  \nprint('Name', 'Age', sep=' | ')  \n\n# 3. print with end parameter\nprint('Loading', end='...')\nprint('Done')\n\n# 4. Taking user input (always a string)\nname = input('Enter your name: ')\nprint('Hello,', name)\n\n# 5. Converting input to int and doing arithmetic\nage_str = input('Enter your age: ')\nage = int(age_str)          # convert string to int\nyear_of_birth = 2025 - age\nprint('You were born around', year_of_birth)\n\n# 6. Converting input to float\nprice = float(input('Enter price: '))\ndiscount = price * 0.10\nprint('Discount amount:', discount)\n\n# 7. Converting number to string for concatenation\nscore = 95\nmessage = 'Your score is ' + str(score)\nprint(message)\n\n# 8. bool() conversion\nprint(bool(0))      # False\nprint(bool(42))     # True\nprint(bool(''))     # False\nprint(bool('hi'))   # True",
+  "explanation": "Line 4: print() displays a simple string message. Lines 6-7: The sep parameter changes the separator between values in print(). Lines 9-10: end='...' stops print from moving to a new line; the next print continues on the same line. Line 13: input() shows a prompt and waits; the result stored in 'name' is a string. Line 14: print() with a comma joins two values with a space. Line 17: input() returns a string stored in age_str. Line 18: int() converts that string to an integer stored in age. Line 19-20: Normal arithmetic is done and result is printed. Line 23: float() converts the input string to a decimal number. Lines 24-25: Arithmetic on float and display. Lines 28-29: str() converts integer score to string so it can be joined with + to another string. Lines 32-35: bool() shows how zero and empty string are False, while non-zero and non-empty are True."
+ },
+ "commonMistakes": [
+  "Forgetting that input() returns a string and trying to do arithmetic directly: x = input('Enter number: '); print(x + 5) causes a TypeError because you cannot add a string and an integer.",
+  "Using + to join a number and a string in print without converting: print('Score: ' + 90) raises a TypeError; you must write print('Score: ' + str(90)) or simply print('Score:', 90).",
+  "Passing a non-numeric string to int() or float(), for example int('12.5') raises a ValueError because '12.5' is not a valid integer string; you must use float('12.5') first, then int() if needed."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "What data type does the input() function always return in Python?",
+   "options": [
+    "int",
+    "float",
+    "str",
+    "depends on what the user types"
+   ],
+   "answer": 2,
+   "explanation": "input() always returns a string (str), regardless of what the user types. You must explicitly convert it if you need another type.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the output of the following code?\nprint('A', 'B', 'C', sep='-')",
+   "options": [
+    "A B C",
+    "A-B-C",
+    "ABC",
+    "A, B, C"
+   ],
+   "answer": 1,
+   "explanation": "The sep='-' parameter tells print() to place a hyphen between each value instead of the default space, so the output is A-B-C.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following will correctly read an integer from the user?",
+   "options": [
+    "x = input(int('Enter: '))",
+    "x = int(input('Enter: '))",
+    "x = input('Enter: ', int)",
+    "x = integer(input('Enter: '))"
+   ],
+   "answer": 1,
+   "explanation": "The correct syntax is int(input('Enter: ')). input() gets the string from the user, and int() wraps it to convert the string to an integer.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What will int(3.9) return in Python?",
+   "options": [
+    "4",
+    "3",
+    "3.9",
+    "Error"
+   ],
+   "answer": 1,
+   "explanation": "int() does not round; it truncates the decimal part. So int(3.9) returns 3.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What error does Python raise when you execute int('hello')?",
+   "options": [
+    "TypeError",
+    "SyntaxError",
+    "ValueError",
+    "NameError"
+   ],
+   "answer": 2,
+   "explanation": "A ValueError is raised when a function gets the right type of argument but an invalid value. 'hello' is a string (correct type for int()) but cannot be converted to an integer.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the output of this code?\nprint('Hi', end='!')\nprint('Bye')",
+   "options": [
+    "Hi\nBye",
+    "Hi!Bye",
+    "HiBye!",
+    "Hi!\nBye"
+   ],
+   "answer": 1,
+   "explanation": "end='!' replaces the default newline with '!', so the first print outputs 'Hi!' without moving to a new line. The second print then outputs 'Bye' immediately after, giving 'Hi!Bye'.",
+   "difficulty": "hard"
+  },
+  {
+   "type": "short",
+   "prompt": "Why is type conversion necessary when using input() to get a number from the user? Give an example.",
+   "answer": "The input() function always returns a string, even when the user types a number. If you want to perform arithmetic, you must convert the string to a numeric type using int() or float(). For example, if a user types 10, input() returns '10' (a string). You must do int(input('Enter: ')) to get the integer 10.",
+   "keywords": [
+    "input",
+    "string",
+    "int()",
+    "convert",
+    "arithmetic"
+   ],
+   "explanation": "This tests the fundamental understanding that input() returns str and numeric operations require explicit conversion.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "What is the difference between the sep and end parameters of the print() function? Give one example for each.",
+   "answer": "The sep parameter controls the separator placed between multiple values passed to print(); its default is a single space. For example, print('a','b', sep='-') outputs 'a-b'. The end parameter controls what is printed at the very end of the output; its default is a newline character. For example, print('Hello', end='!') outputs 'Hello!' without moving to a new line.",
+   "keywords": [
+    "sep",
+    "end",
+    "separator",
+    "newline",
+    "print"
+   ],
+   "explanation": "These are commonly asked parameters that customize print() behavior beyond its default.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "What is the exact output printed by the following code?\nx = int(7.8)\nprint(x)",
+   "answer": "7",
+   "explanation": "int() truncates the decimal part without rounding. int(7.8) gives 7. print(7) outputs 7.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a Python program that asks the user to enter two numbers (which may have decimal points), calculates their sum, and prints the result in the format: 'Sum = <result>'. For example, if the user enters 3.5 and 2.5, the output should be: Sum = 6.0",
+   "starter": "# Ask the user for two numbers\nnum1 = input('Enter first number: ')\nnum2 = input('Enter second number: ')\n# TODO: convert to float, calculate sum, and print",
+   "solution": "# Ask the user for two numbers\nnum1 = input('Enter first number: ')\nnum2 = input('Enter second number: ')\n\n# Convert strings to float\nn1 = float(num1)\nn2 = float(num2)\n\n# Calculate the sum\ntotal = n1 + n2\n\n# Print the result\nprint('Sum =', total)",
+   "explanation": "input() collects both values as strings. float() converts each string to a floating-point number so addition works correctly. The total is then printed using print() with the label 'Sum =' as a separate argument so Python automatically adds a space before the value.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "Welcome: What is Input, Output and Type Conversion?",
+    "steps": [
+     {
+      "say": "Hello everyone! Today we are going to learn three very important ideas in Python: how to show output, how to take input from the user, and how to convert between data types.",
+      "write": {
+       "kind": "heading",
+       "content": "Input, Output & Type Conversion"
+      }
+     },
+     {
+      "say": "These three things are the building blocks of almost every Python program you will ever write.",
+      "write": {
+       "kind": "bullet",
+       "content": "Output  -> print()"
+      }
+     },
+     {
+      "say": "When we want the computer to show something to the user, we use print. When we want the user to give us information, we use input.",
+      "write": {
+       "kind": "bullet",
+       "content": "Input   -> input()"
+      }
+     },
+     {
+      "say": "And type conversion is how we change a value from one type to another, like turning a piece of text into a number.",
+      "write": {
+       "kind": "bullet",
+       "content": "Convert -> int(), float(), str()"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Using print() for Output",
+    "steps": [
+     {
+      "say": "Let us start with print. The simplest use is to pass a message inside quotes and Python will display it on the screen.",
+      "write": {
+       "kind": "code",
+       "content": "print('Hello, World!')"
+      }
+     },
+     {
+      "say": "You can pass multiple values to print separated by commas, and Python puts a space between them by default.",
+      "write": {
+       "kind": "code",
+       "content": "print('Name:', 'Riya')"
+      }
+     },
+     {
+      "say": "You can change that separator using the s-e-p parameter. Here we use a hyphen instead of a space.",
+      "write": {
+       "kind": "code",
+       "content": "print('A', 'B', sep='-')"
+      }
+     },
+     {
+      "say": "By default print moves to the next line after printing. Use the end parameter to change that behaviour, for example to stay on the same line.",
+      "write": {
+       "kind": "code",
+       "content": "print('Loading', end='...')"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Using input() and Why We Need Type Conversion",
+    "steps": [
+     {
+      "say": "Now let us look at input. When we call input, Python shows the prompt to the user and waits for them to type something and press Enter.",
+      "write": {
+       "kind": "code",
+       "content": "name = input('Enter name: ')"
+      }
+     },
+     {
+      "say": "Here is the most important rule. input always returns a string, no matter what the user types. Even if they type the number 10, Python stores it as the text ten.",
+      "write": {
+       "kind": "highlight",
+       "content": "input() ALWAYS returns a string"
+      }
+     },
+     {
+      "say": "So if we try to add 5 to what the user typed, Python will give us a type error, because you cannot add a number to a string.",
+      "write": {
+       "kind": "code",
+       "content": "age = input('Enter age: ')\n# age is a string!"
+      }
+     },
+     {
+      "say": "The fix is to wrap input with int or float. This converts the string the user typed into an actual number we can do maths with.",
+      "write": {
+       "kind": "code",
+       "content": "age = int(input('Enter age: '))"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Type Conversion Functions",
+    "steps": [
+     {
+      "say": "Python gives us several built-in functions for converting between types. Let us look at the most common ones.",
+      "write": {
+       "kind": "heading",
+       "content": "Type Conversion Functions"
+      }
+     },
+     {
+      "say": "int converts a string or float to a whole number. Notice that int of 3.9 gives 3, not 4. It simply cuts off the decimal part.",
+      "write": {
+       "kind": "code",
+       "content": "int('42')   # 42\nint(3.9)    # 3"
+      }
+     },
+     {
+      "say": "float converts a string or integer to a decimal number. str converts any value to text, which is useful when you want to join a number with a string.",
+      "write": {
+       "kind": "code",
+       "content": "float('3.14') # 3.14\nstr(100)      # '100'"
+      }
+     },
+     {
+      "say": "Be careful: if you pass a value that cannot be converted, like the word hello to int, Python raises a ValueError and your program stops.",
+      "write": {
+       "kind": "highlight",
+       "content": "int('hello') -> ValueError!"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Great work today! Let us quickly recap the key points before we finish.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap"
+      }
+     },
+     {
+      "say": "print is used to show output. You can customise it with sep and end.",
+      "write": {
+       "kind": "bullet",
+       "content": "print() -> displays output"
+      }
+     },
+     {
+      "say": "input always gives back a string. Always remember this when you take numbers from users.",
+      "write": {
+       "kind": "bullet",
+       "content": "input() -> always returns str"
+      }
+     },
+     {
+      "say": "Use int, float, or str to convert between types. And remember, converting an invalid string to a number causes a ValueError.",
+      "write": {
+       "kind": "bullet",
+       "content": "int() float() str() -> convert types"
+      }
+     },
+     {
+      "say": "These three concepts form the foundation of interactive Python programs. Practice them well and you will be ready for everything that comes next!",
+      "write": {
+       "kind": "highlight",
+       "content": "int(input('...')) -> right way!"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

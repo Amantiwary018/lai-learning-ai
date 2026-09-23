@@ -1,0 +1,80 @@
+{
+ "subjects": [
+  {
+   "title": "CI/CD and Containerization",
+   "chapters": [
+    {
+     "title": "Introduction to DevOps",
+     "topics": [
+      "DevOps principles and culture",
+      "DevOps lifecycle overview",
+      "Version control with Git"
+     ]
+    },
+    {
+     "title": "Continuous Integration",
+     "topics": [
+      "Setting up a CI pipeline",
+      "Automated testing strategies",
+      "Build tools and artifact management"
+     ]
+    },
+    {
+     "title": "Continuous Delivery and Deployment",
+     "topics": [
+      "CD pipeline design",
+      "Deployment strategies: blue-green and canary",
+      "Pipeline as code with Jenkins and GitHub Actions"
+     ]
+    },
+    {
+     "title": "Containers with Docker",
+     "topics": [
+      "Docker architecture and core concepts",
+      "Writing and optimizing Dockerfiles",
+      "Docker Compose for multi-container apps",
+      "Container registries and image management"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Cloud Infrastructure, Monitoring and Automation",
+   "chapters": [
+    {
+     "title": "Container Orchestration with Kubernetes",
+     "topics": [
+      "Kubernetes architecture and components",
+      "Deployments, services and pods",
+      "ConfigMaps, secrets and persistent storage"
+     ]
+    },
+    {
+     "title": "Cloud Infrastructure and IaC",
+     "topics": [
+      "Cloud fundamentals: AWS, Azure and GCP",
+      "Infrastructure as Code with Terraform",
+      "Configuration management with Ansible"
+     ]
+    },
+    {
+     "title": "Monitoring and Logging",
+     "topics": [
+      "Monitoring concepts and metrics collection",
+      "Prometheus and Grafana setup",
+      "Centralized logging with ELK Stack",
+      "Alerting and incident response basics"
+     ]
+    },
+    {
+     "title": "Security and Automation",
+     "topics": [
+      "DevSecOps principles and shift-left security",
+      "Secrets management and access control",
+      "Automating workflows with scripts and webhooks"
+     ]
+    }
+   ]
+  }
+ ]
+}

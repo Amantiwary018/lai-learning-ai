@@ -1,0 +1,339 @@
+{
+ "summary": "Python is a beginner-friendly, high-level programming language widely used in web development, data science, and automation, and your first program simply prints text to the screen.",
+ "shortNotes": [
+  "Python is a high-level, interpreted programming language created by Guido van Rossum in 1991.",
+  "It uses simple, readable syntax that resembles plain English, making it ideal for beginners.",
+  "Python is platform-independent — the same code runs on Windows, macOS, and Linux.",
+  "The print() function is used to display output on the screen.",
+  "Python files are saved with the .py extension and run using the python command in the terminal.",
+  "Python is used in web development, data science, artificial intelligence, automation, and more."
+ ],
+ "detailed": {
+  "explanation": "Python is a **high-level, interpreted** programming language first released in 1991 by Guido van Rossum. 'High-level' means it is closer to human language than machine language, so you do not have to manage memory or write complex hardware instructions. 'Interpreted' means Python runs your code line by line through an interpreter instead of compiling the entire program first, which makes debugging easier and development faster.\n\nPython's design philosophy emphasises **readability and simplicity**. Its syntax avoids unnecessary punctuation like curly braces `{}` for blocks — it uses indentation instead. This makes Python code look clean and is one of the main reasons it is recommended as a first programming language for students.\n\nPython is **versatile and widely used** in industry. Companies like Google, Netflix, NASA, and Infosys use Python for tasks ranging from building websites to training machine-learning models. In India, Python skills are in high demand for jobs in data analytics, backend development, and automation testing.\n\nThe simplest Python program uses the built-in `print()` function. Writing `print(\"Hello, World!\")` tells the interpreter to display the text inside the parentheses on the screen. This one-line program is traditionally the very first program every programmer writes, and it already demonstrates Python's clean, readable style.",
+  "definitions": [
+   {
+    "term": "Python",
+    "meaning": "A high-level, interpreted, general-purpose programming language created by Guido van Rossum, known for its simple and readable syntax."
+   },
+   {
+    "term": "Interpreter",
+    "meaning": "A program that reads and executes source code line by line without converting the entire code to machine language beforehand."
+   },
+   {
+    "term": "print() function",
+    "meaning": "A built-in Python function that displays the value or text given inside its parentheses on the screen."
+   },
+   {
+    "term": "High-level language",
+    "meaning": "A programming language that is closer to human language and abstracts away hardware-level details like memory management."
+   },
+   {
+    "term": "Syntax",
+    "meaning": "The set of rules that defines how Python code must be written so the interpreter can understand it."
+   },
+   {
+    "term": "Source code",
+    "meaning": "The human-readable instructions written by a programmer in a programming language such as Python."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "Python was created by Guido van Rossum and first released in 1991 — this date is commonly asked in exams.",
+   "Python is an interpreted language, not a compiled language like C or Java.",
+   "Python uses indentation (spaces or tabs) to define blocks of code — incorrect indentation causes an IndentationError.",
+   "The print() function requires parentheses; writing print without them does nothing useful in Python 3.",
+   "String values passed to print() must be enclosed in single quotes ('') or double quotes (\"\").",
+   "Python files must be saved with the .py extension to be recognised and run by the interpreter.",
+   "Python is case-sensitive: print() works, but Print() or PRINT() will cause an error.",
+   "Python 3 is the current version; Python 2 reached end-of-life in 2020 and should not be used for new projects."
+  ]
+ },
+ "codeExample": {
+  "language": "python",
+  "code": "# My first Python program\nprint(\"Hello, World!\")\nprint(\"Welcome to Python Programming!\")\nprint(\"My name is Arjun and I am learning Python.\")\n",
+  "explanation": "Line 1: A comment starting with # — Python ignores this line; it is only for the programmer to read.\nLine 2: Calls the built-in print() function with the string \"Hello, World!\" — this text is displayed on screen.\nLine 3: Another print() call that displays a welcome message — each print() starts on a new line.\nLine 4: Prints a personalised message — you can change the text inside the quotes to anything you like."
+ },
+ "commonMistakes": [
+  "Forgetting the parentheses: writing `print \"Hello\"` instead of `print(\"Hello\")` causes a SyntaxError in Python 3.",
+  "Mixing up quote types or forgetting to close them — for example, `print('Hello\")` will cause a SyntaxError because the opening and closing quotes do not match.",
+  "Misspelling the function name with a capital letter, such as `Print(\"Hello\")`, which causes a NameError because Python is case-sensitive."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Who created the Python programming language?",
+   "options": [
+    "Dennis Ritchie",
+    "James Gosling",
+    "Guido van Rossum",
+    "Bjarne Stroustrup"
+   ],
+   "answer": 2,
+   "explanation": "Python was created by Guido van Rossum and first released in 1991. Dennis Ritchie created C, James Gosling created Java, and Bjarne Stroustrup created C++.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following correctly prints the text Hello to the screen in Python 3?",
+   "options": [
+    "print Hello",
+    "PRINT(\"Hello\")",
+    "print(\"Hello\")",
+    "echo(\"Hello\")"
+   ],
+   "answer": 2,
+   "explanation": "In Python 3, print() is a function and requires parentheses. The function name must be lowercase. echo() is not a Python function.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What type of language is Python — compiled or interpreted?",
+   "options": [
+    "Compiled",
+    "Interpreted",
+    "Assembly",
+    "Machine-level"
+   ],
+   "answer": 1,
+   "explanation": "Python is an interpreted language. The Python interpreter executes code line by line rather than compiling the entire program into machine code before running it.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What extension must a Python source file have?",
+   "options": [
+    ".java",
+    ".txt",
+    ".py",
+    ".exe"
+   ],
+   "answer": 2,
+   "explanation": "Python source files must be saved with the .py extension so the Python interpreter recognises them as Python programs.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What will happen if you write Print(\"Hello\") in Python 3?",
+   "options": [
+    "It prints Hello normally",
+    "It causes a SyntaxError",
+    "It causes a NameError because Python is case-sensitive",
+    "It prints HELLO in uppercase"
+   ],
+   "answer": 2,
+   "explanation": "Python is case-sensitive. The built-in function is print() in lowercase. Print() with a capital P is not defined, so Python raises a NameError.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following is a valid comment in Python?",
+   "options": [
+    "// This is a comment",
+    "/* This is a comment */",
+    "# This is a comment",
+    "-- This is a comment"
+   ],
+   "answer": 2,
+   "explanation": "In Python, comments start with the # symbol. The other styles belong to languages like C, Java, or SQL.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "short",
+   "prompt": "Explain why Python is described as a 'high-level' programming language.",
+   "answer": "Python is called high-level because its syntax is close to human language and it hides low-level details such as memory management from the programmer. This makes it easier to read, write, and understand compared to low-level languages like Assembly or C.",
+   "keywords": [
+    "human language",
+    "memory management",
+    "readable",
+    "abstracts",
+    "low-level"
+   ],
+   "explanation": "A high-level language sits far from hardware details. Python's English-like syntax and automatic memory management (garbage collection) are the key reasons it is labelled high-level.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "What is the role of the print() function in Python, and how do you use it to display a message?",
+   "answer": "The print() function is a built-in Python function that outputs text or values to the screen. To display a message, you write print() with the text enclosed in quotes inside the parentheses, for example print(\"Hello, World!\").",
+   "keywords": [
+    "output",
+    "screen",
+    "parentheses",
+    "string",
+    "built-in"
+   ],
+   "explanation": "print() is the standard way to produce output in Python. The value or string to display is passed as an argument inside the parentheses.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "How many lines of output does the following code produce?\nprint(\"Line one\")\nprint(\"Line two\")\nprint(\"Line three\")",
+   "answer": "3",
+   "explanation": "Each call to print() outputs one line. There are three print() calls, so the program produces exactly 3 lines of output.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a Python program that prints your name on the first line and your college name on the second line.",
+   "starter": "# Write your program below\n",
+   "solution": "# Print name and college\nprint(\"Priya Sharma\")\nprint(\"Delhi University\")\n",
+   "explanation": "Two separate print() calls are used — each call automatically moves to the next line. Replace the text inside the quotes with your actual name and college name. Strings must be enclosed in matching single or double quotes.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "Welcome to Python",
+    "steps": [
+     {
+      "say": "Hello everyone, welcome to your very first Python lesson. Today we are going to answer a simple question — what is Python, and how do you write your first program?",
+      "write": {
+       "kind": "heading",
+       "content": "What is Python?"
+      }
+     },
+     {
+      "say": "Python is a high-level, interpreted programming language. That simply means it is easy for humans to read and write, and a program called an interpreter runs it line by line.",
+      "write": {
+       "kind": "bullet",
+       "content": "High-level: close to human language"
+      }
+     },
+     {
+      "say": "Python was created by Guido van Rossum and released in 1991. It is one of the most popular languages in the world today.",
+      "write": {
+       "kind": "bullet",
+       "content": "Created by Guido van Rossum, 1991"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Why Learn Python?",
+    "steps": [
+     {
+      "say": "You might wonder — why should I learn Python and not some other language? Great question. Python is used almost everywhere.",
+      "write": {
+       "kind": "heading",
+       "content": "Why Python?"
+      }
+     },
+     {
+      "say": "It is used in web development, data science, artificial intelligence, and automation. Big companies like Google and Netflix use Python every day.",
+      "write": {
+       "kind": "bullet",
+       "content": "Web, Data Science, AI, Automation"
+      }
+     },
+     {
+      "say": "Most importantly for you, Python has very clean and simple syntax. You spend less time fighting the language and more time solving real problems.",
+      "write": {
+       "kind": "bullet",
+       "content": "Simple syntax — great for beginners"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Your First Python Program",
+    "steps": [
+     {
+      "say": "Now the exciting part — let us write actual Python code. The very first program every programmer writes is called Hello World.",
+      "write": {
+       "kind": "heading",
+       "content": "Your First Program"
+      }
+     },
+     {
+      "say": "We start with a comment. A comment begins with a hash symbol and Python ignores it — it is just a note for you.",
+      "write": {
+       "kind": "code",
+       "content": "# My first Python program"
+      }
+     },
+     {
+      "say": "Now we use the print function. We type print, open parentheses, then our message inside double quotes, then close parentheses.",
+      "write": {
+       "kind": "code",
+       "content": "print(\"Hello, World!\")"
+      }
+     },
+     {
+      "say": "We can add a second print call to show another message. Each print statement outputs one new line on the screen.",
+      "write": {
+       "kind": "code",
+       "content": "print(\"Welcome to Python!\")"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Common Mistakes to Avoid",
+    "steps": [
+     {
+      "say": "Before you go off and practise, let me quickly show you the three mistakes beginners make most often.",
+      "write": {
+       "kind": "heading",
+       "content": "Common Mistakes"
+      }
+     },
+     {
+      "say": "First — always use lowercase p in print. Writing capital P will give you a NameError because Python is case-sensitive.",
+      "write": {
+       "kind": "bullet",
+       "content": "print() correct  |  Print() ERROR"
+      }
+     },
+     {
+      "say": "Second — do not forget the parentheses. In Python 3, print is a function, so it must have opening and closing brackets.",
+      "write": {
+       "kind": "bullet",
+       "content": "print(\"Hi\") correct  |  print \"Hi\" ERROR"
+      }
+     },
+     {
+      "say": "Third — make sure your quotes match. If you open with a double quote, you must close with a double quote.",
+      "write": {
+       "kind": "bullet",
+       "content": "Matching quotes: \"Hello\" or 'Hello'"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Fantastic work today. Let us do a quick recap of everything we covered in this lesson.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap"
+      }
+     },
+     {
+      "say": "Python is a high-level interpreted language created in 1991. It is beginner friendly and used across many industries.",
+      "write": {
+       "kind": "bullet",
+       "content": "Python: high-level, interpreted, 1991"
+      }
+     },
+     {
+      "say": "The print function is how we display output. Always use lowercase, include parentheses, and put your text inside matching quotes.",
+      "write": {
+       "kind": "bullet",
+       "content": "print(\"Your message here\")"
+      }
+     },
+     {
+      "say": "Save your file with dot p y extension and run it. You are now officially a Python programmer — well done and keep practising!",
+      "write": {
+       "kind": "bullet",
+       "content": "Save as filename.py and run it"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

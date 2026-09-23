@@ -1,0 +1,372 @@
+{
+ "summary": "Variables are named memory locations that store data, and data types tell the compiler what kind of data will be stored in those locations.",
+ "shortNotes": [
+  "A variable is a named storage location in memory that holds a value which can change during program execution.",
+  "Every variable in C must be declared with a data type before it can be used.",
+  "Common basic data types in C: int (integer), float (decimal), double (larger decimal), char (single character).",
+  "The size of data types can vary by system; use sizeof() operator to check the exact size in bytes.",
+  "Variable names must start with a letter or underscore and cannot be a C keyword (e.g., int, return).",
+  "Initializing a variable means assigning a value at the time of declaration, e.g., int age = 20;"
+ ],
+ "detailed": {
+  "explanation": "In C programming, a **variable** is a named location in the computer's memory where you can store a value. Think of it like a labelled box — the label is the variable name, and whatever you put inside is the value. You can change the value inside the box at any time during program execution, which is why it is called a 'variable'.\n\nBefore you can use a variable in C, you must **declare** it. A declaration tells the compiler two things: the name of the variable and the **data type** — that is, what kind of data it will hold. The syntax is simple: `int age;` declares a variable called `age` that will store whole numbers.\n\nC provides several built-in **primitive data types**. `int` stores whole numbers (e.g., 5, -3, 100). `float` stores decimal numbers with about 6–7 digits of precision (e.g., 3.14). `double` stores decimal numbers with about 15–16 digits of precision and uses more memory. `char` stores a single character (e.g., 'A', 'z', '5') and is stored internally as a small integer using ASCII values.\n\nYou can **initialize** a variable when you declare it: `int marks = 95;`. If you declare a variable without initializing it, it may hold a garbage (random) value — this is a very common source of bugs for beginners. Always initialize variables before using them.\n\nThe `sizeof()` operator is very useful — it returns the number of bytes a data type or variable occupies in memory. For example, `sizeof(int)` typically returns 4 on most modern systems. Knowing sizes helps you understand memory usage and avoid overflow errors.",
+  "definitions": [
+   {
+    "term": "Variable",
+    "meaning": "A named memory location that stores a value which can be read and modified during program execution."
+   },
+   {
+    "term": "Data Type",
+    "meaning": "A classification that tells the compiler what kind of data a variable will hold and how much memory to allocate for it."
+   },
+   {
+    "term": "Declaration",
+    "meaning": "A statement that introduces a variable to the compiler by specifying its data type and name, e.g., int x;"
+   },
+   {
+    "term": "Initialization",
+    "meaning": "Assigning an initial value to a variable at the time of its declaration, e.g., int x = 10;"
+   },
+   {
+    "term": "int",
+    "meaning": "A data type used to store whole numbers (integers), typically occupying 4 bytes on modern systems."
+   },
+   {
+    "term": "float",
+    "meaning": "A data type used to store single-precision decimal (floating-point) numbers, typically 4 bytes."
+   },
+   {
+    "term": "double",
+    "meaning": "A data type used to store double-precision decimal numbers with greater accuracy than float, typically 8 bytes."
+   },
+   {
+    "term": "char",
+    "meaning": "A data type used to store a single character, occupying 1 byte and using ASCII encoding internally."
+   },
+   {
+    "term": "sizeof() operator",
+    "meaning": "A built-in C operator that returns the size (in bytes) of a data type or variable at compile time."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "Always declare a variable before using it — C does not allow undeclared variables.",
+   "Variable names are case-sensitive: `Age`, `age`, and `AGE` are three different variables.",
+   "A variable name cannot start with a digit; it must start with a letter (a-z, A-Z) or an underscore (_).",
+   "C keywords like `int`, `return`, `if`, `while` cannot be used as variable names.",
+   "Uninitialized local variables contain garbage values — always initialize before use to avoid bugs.",
+   "Use `%d` format specifier for `int`, `%f` for `float`, `%lf` for `double`, and `%c` for `char` in printf/scanf.",
+   "The `double` type is preferred over `float` for scientific calculations because of its higher precision.",
+   "Exam tip: sizeof(char) = 1, sizeof(int) = 4, sizeof(float) = 4, sizeof(double) = 8 on most 32/64-bit systems."
+  ]
+ },
+ "codeExample": {
+  "language": "c",
+  "code": "#include <stdio.h>\n\nint main() {\n    /* Variable declarations and initialization */\n    int age = 20;\n    float cgpa = 8.75;\n    double distance = 12345.6789;\n    char grade = 'A';\n\n    /* Print all variables */\n    printf(\"Age     : %d years\\n\", age);\n    printf(\"CGPA    : %.2f\\n\", cgpa);\n    printf(\"Distance: %.4lf km\\n\", distance);\n    printf(\"Grade   : %c\\n\", grade);\n\n    /* Show sizes of data types */\n    printf(\"\\n--- Size of Data Types ---\\n\");\n    printf(\"Size of int    : %zu bytes\\n\", sizeof(int));\n    printf(\"Size of float  : %zu bytes\\n\", sizeof(float));\n    printf(\"Size of double : %zu bytes\\n\", sizeof(double));\n    printf(\"Size of char   : %zu bytes\\n\", sizeof(char));\n\n    /* Changing a variable's value */\n    age = 21;\n    printf(\"\\nUpdated Age: %d years\\n\", age);\n\n    return 0;\n}",
+  "explanation": "Line 1: Include stdio.h for input/output functions like printf.\nLine 3: main() is the entry point of every C program.\nLine 5: Declare and initialize an integer variable 'age' with value 20.\nLine 6: Declare and initialize a float variable 'cgpa' with a decimal value.\nLine 7: Declare and initialize a double variable 'distance' with a high-precision decimal.\nLine 8: Declare and initialize a char variable 'grade' with the character A (use single quotes for char).\nLines 11-14: Print each variable using its matching format specifier (%d for int, %f for float, %lf for double, %c for char). %.2f means print float with 2 decimal places.\nLines 17-21: Use sizeof() with %zu format specifier to print the memory size of each data type in bytes.\nLine 24: Reassign a new value (21) to the variable 'age' — this shows variables can change.\nLine 25: Print the updated value of age.\nLine 27: return 0 signals successful program termination to the operating system."
+ },
+ "commonMistakes": [
+  "Using a variable without declaring it first — C requires every variable to be declared with a data type before use; forgetting this causes a compilation error.",
+  "Using the wrong format specifier in printf/scanf — for example, using %f to print an int or %d to print a float gives incorrect output or undefined behavior.",
+  "Not initializing a variable before using it — local variables in C are not automatically set to zero; they contain garbage values, which can cause unpredictable results in calculations."
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Which of the following is a valid variable name in C?",
+   "options": [
+    "2marks",
+    "_total",
+    "int",
+    "my-score"
+   ],
+   "answer": 1,
+   "explanation": "'_total' is valid because variable names can start with an underscore. '2marks' starts with a digit (invalid), 'int' is a reserved keyword (invalid), and 'my-score' contains a hyphen which is not allowed.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the correct format specifier for printing a float variable using printf()?",
+   "options": [
+    "%d",
+    "%c",
+    "%f",
+    "%lf"
+   ],
+   "answer": 2,
+   "explanation": "%f is the correct format specifier for float. %d is for int, %c is for char, and %lf is used for double.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "How many bytes does a char data type typically occupy in C?",
+   "options": [
+    "2 bytes",
+    "4 bytes",
+    "8 bytes",
+    "1 byte"
+   ],
+   "answer": 3,
+   "explanation": "A char data type always occupies exactly 1 byte (8 bits) in C. This is guaranteed by the C standard (sizeof(char) == 1 always).",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which data type should you use to store the value 3.14159265358979 with maximum precision in C?",
+   "options": [
+    "int",
+    "char",
+    "float",
+    "double"
+   ],
+   "answer": 3,
+   "explanation": "double provides about 15-16 decimal digits of precision, which is much better than float's 6-7 digits. For values like pi that require high precision, double is the correct choice.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What will happen if you use a local variable in C without initializing it?",
+   "options": [
+    "The compiler will automatically set it to 0",
+    "The program will not compile",
+    "It will contain a garbage (unpredictable) value",
+    "It will contain the value -1"
+   ],
+   "answer": 2,
+   "explanation": "In C, local variables that are declared but not initialized contain whatever value happens to be at that memory address — called a garbage value. The compiler does not automatically initialize local variables to zero.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following correctly declares AND initializes an integer variable named 'score' with value 85?",
+   "options": [
+    "int = score 85;",
+    "score int = 85;",
+    "int score = 85;",
+    "integer score = 85;"
+   ],
+   "answer": 2,
+   "explanation": "The correct C syntax is: data_type variable_name = value; — so 'int score = 85;' is correct. 'integer' is not a valid C keyword; the correct keyword is 'int'.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "short",
+   "prompt": "What is the difference between float and double data types in C?",
+   "answer": "Both float and double are used to store decimal (floating-point) numbers in C. The key difference is precision and size: float uses 4 bytes and provides about 6-7 significant decimal digits of precision, while double uses 8 bytes and provides about 15-16 significant decimal digits. double is preferred when higher accuracy is needed.",
+   "keywords": [
+    "precision",
+    "float",
+    "double",
+    "bytes",
+    "decimal"
+   ],
+   "explanation": "Students should understand that the core distinction is precision (number of accurate decimal digits) and memory size. double is called 'double precision' because it has roughly double the precision of float.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Why is it important to always initialize a variable in C before using it in a calculation?",
+   "answer": "Uninitialized local variables in C contain garbage values — whatever random data happens to be at that memory location. If you use such a variable in a calculation, the result will be unpredictable and incorrect. Always initializing variables ensures your program produces correct and consistent results.",
+   "keywords": [
+    "garbage value",
+    "uninitialized",
+    "memory",
+    "unpredictable",
+    "initialize"
+   ],
+   "explanation": "Unlike some other languages, C does not automatically zero-initialize local variables. This is a deliberate design choice for performance, but it puts the responsibility on the programmer to initialize variables before use.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "What is the exact output printed by the following C code?\n\n#include <stdio.h>\nint main() {\n    int x = 10;\n    float y = 2.5;\n    printf(\"%d\", x + (int)y);\n    return 0;\n}",
+   "answer": "12",
+   "explanation": "The variable x is 10. y is 2.5 but is cast to int, which truncates it to 2 (int cast drops the decimal part). So x + (int)y = 10 + 2 = 12. The format specifier %d prints it as an integer: 12.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a complete C program that declares variables to store a student's name initial (char), age (int), and percentage marks (float). Initialize them with any valid sample values and print all three values with appropriate labels using printf().",
+   "starter": "#include <stdio.h>\n\nint main() {\n    // Declare and initialize your variables here\n\n    // Print the variables here\n\n    return 0;\n}",
+   "solution": "#include <stdio.h>\n\nint main() {\n    // Declare and initialize variables\n    char initial = 'R';\n    int age = 19;\n    float percentage = 87.5;\n\n    // Print the variables\n    printf(\"Student Initial : %c\\n\", initial);\n    printf(\"Age             : %d years\\n\", age);\n    printf(\"Percentage      : %.2f%%\\n\", percentage);\n\n    return 0;\n}",
+   "explanation": "We declare three variables with appropriate types: char for the initial (single character, stored in single quotes), int for age (whole number), and float for percentage (decimal number). Each is initialized with a sample value. In printf(), we use %c for char, %d for int, and %.2f for float (showing 2 decimal places). The %% in the format string prints a literal percent symbol.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What is a Variable?",
+    "steps": [
+     {
+      "say": "Hello everyone! Today we are going to learn about one of the most fundamental building blocks of C programming — variables and data types.",
+      "write": {
+       "kind": "heading",
+       "content": "Variables and Data Types in C"
+      }
+     },
+     {
+      "say": "Think of a variable as a labelled box in your computer's memory. You give the box a name, and you can put a value inside it.",
+      "write": {
+       "kind": "text",
+       "content": "Variable = named memory location"
+      }
+     },
+     {
+      "say": "The value inside the box can change any time during the program — that is exactly why we call it a variable.",
+      "write": {
+       "kind": "bullet",
+       "content": "Value can change during execution"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Declaring Variables in C",
+    "steps": [
+     {
+      "say": "In C, before you use any variable, you must declare it. A declaration has two parts — the data type and the variable name.",
+      "write": {
+       "kind": "text",
+       "content": "Syntax: data_type variable_name;"
+      }
+     },
+     {
+      "say": "For example, to store a student's age as a whole number, we write: int age semicolon.",
+      "write": {
+       "kind": "code",
+       "content": "int age;"
+      }
+     },
+     {
+      "say": "We can also give it a starting value right away — this is called initialization. Here we set age equal to 20.",
+      "write": {
+       "kind": "code",
+       "content": "int age = 20;"
+      }
+     },
+     {
+      "say": "Always initialize your variables. If you do not, the variable holds a garbage value — random data left over in memory.",
+      "write": {
+       "kind": "highlight",
+       "content": "Always initialize variables!"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Common Data Types in C",
+    "steps": [
+     {
+      "say": "Now let us look at the four most common data types you will use in C programming.",
+      "write": {
+       "kind": "heading",
+       "content": "Basic Data Types"
+      }
+     },
+     {
+      "say": "int stores whole numbers. float stores decimal numbers. double stores decimal numbers with much higher precision.",
+      "write": {
+       "kind": "bullet",
+       "content": "int   -> whole numbers (e.g. 10)"
+      }
+     },
+     {
+      "say": "And char stores a single character like the letter A, which you write inside single quotes.",
+      "write": {
+       "kind": "bullet",
+       "content": "float  -> decimals (e.g. 3.14)"
+      }
+     },
+     {
+      "say": "Each type tells the compiler exactly how much memory to reserve and how to interpret the stored bits.",
+      "write": {
+       "kind": "bullet",
+       "content": "double -> high precision decimal"
+      }
+     },
+     {
+      "say": "The sizes are typically: int and float are 4 bytes each, double is 8 bytes, and char is always 1 byte.",
+      "write": {
+       "kind": "bullet",
+       "content": "char   -> 1 character (e.g. 'A')"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Writing and Running the Code",
+    "steps": [
+     {
+      "say": "Let us see all of this together in a short C program. We start with the standard include and main function.",
+      "write": {
+       "kind": "code",
+       "content": "#include <stdio.h>\nint main() {"
+      }
+     },
+     {
+      "say": "Now we declare and initialize one variable of each type — age as int, cgpa as float, and grade as char.",
+      "write": {
+       "kind": "code",
+       "content": "  int age = 20;\n  float cgpa = 8.75;\n  char grade = 'A';"
+      }
+     },
+     {
+      "say": "Next we print them. Notice we use percent d for int, percent f for float, and percent c for char.",
+      "write": {
+       "kind": "code",
+       "content": "  printf(\"%d %f %c\",\n    age, cgpa, grade);"
+      }
+     },
+     {
+      "say": "We close the program with return zero and a closing brace. When we run this, it prints 20, 8.75, and A.",
+      "write": {
+       "kind": "code",
+       "content": "  return 0;\n}"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Great work! Let us quickly recap what we learned today about variables and data types.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap"
+      }
+     },
+     {
+      "say": "A variable is a named memory location. You must declare it with a data type before using it.",
+      "write": {
+       "kind": "bullet",
+       "content": "Declare before use: int x;"
+      }
+     },
+     {
+      "say": "The four basic types are int, float, double, and char. Each has a specific size and purpose.",
+      "write": {
+       "kind": "bullet",
+       "content": "int, float, double, char"
+      }
+     },
+     {
+      "say": "Always initialize your variables to avoid garbage values. Use the correct format specifier when printing with printf.",
+      "write": {
+       "kind": "bullet",
+       "content": "%d %f %lf %c -> format specifiers"
+      }
+     },
+     {
+      "say": "Practice writing small programs with different data types — that is the best way to get comfortable with these concepts. See you in the next lesson!",
+      "write": {
+       "kind": "highlight",
+       "content": "Practice makes perfect!"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

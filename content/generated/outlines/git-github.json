@@ -1,0 +1,78 @@
+{
+ "subjects": [
+  {
+   "title": "Git Version Control",
+   "chapters": [
+    {
+     "title": "Getting Started with Git",
+     "topics": [
+      "What is version control and why it matters",
+      "Installing and configuring Git",
+      "Initializing a repository"
+     ]
+    },
+    {
+     "title": "Tracking Changes",
+     "topics": [
+      "Staging and committing files",
+      "Viewing commit history with git log",
+      "Undoing changes and reverting commits"
+     ]
+    },
+    {
+     "title": "Branching and Merging",
+     "topics": [
+      "Creating and switching branches",
+      "Merging branches",
+      "Resolving merge conflicts"
+     ]
+    },
+    {
+     "title": "Working with Remote Repositories",
+     "topics": [
+      "Cloning a repository",
+      "Pushing and pulling changes",
+      "Fetching vs pulling"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "GitHub and Collaboration",
+   "chapters": [
+    {
+     "title": "Introduction to GitHub",
+     "topics": [
+      "Creating a GitHub account and repository",
+      "Connecting local Git to GitHub",
+      "Exploring the GitHub interface"
+     ]
+    },
+    {
+     "title": "Pull Requests and Code Review",
+     "topics": [
+      "Forking a repository",
+      "Opening a pull request",
+      "Reviewing and merging pull requests"
+     ]
+    },
+    {
+     "title": "Collaboration Workflows",
+     "topics": [
+      "Feature branch workflow",
+      "Keeping forks in sync",
+      "Using issues and project boards"
+     ]
+    },
+    {
+     "title": "Best Practices and Tools",
+     "topics": [
+      "Writing meaningful commit messages",
+      "Using .gitignore effectively",
+      "Introduction to GitHub Actions"
+     ]
+    }
+   ]
+  }
+ ]
+}

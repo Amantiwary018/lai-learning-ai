@@ -1,0 +1,82 @@
+{
+ "subjects": [
+  {
+   "title": "React Fundamentals",
+   "chapters": [
+    {
+     "title": "Getting Started with React",
+     "topics": [
+      "What is React and why use it",
+      "Setting up a React project with Vite",
+      "JSX syntax and expressions"
+     ]
+    },
+    {
+     "title": "Components and Props",
+     "topics": [
+      "Creating functional components",
+      "Passing and reading props",
+      "Component composition and reuse",
+      "Prop types and default values"
+     ]
+    },
+    {
+     "title": "State and Event Handling",
+     "topics": [
+      "Introduction to useState hook",
+      "Handling user events",
+      "Lifting state up",
+      "Controlled vs uncontrolled inputs"
+     ]
+    },
+    {
+     "title": "Core Hooks",
+     "topics": [
+      "useEffect and side effects",
+      "useRef for DOM access",
+      "Custom hooks basics"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Building Single Page Applications",
+   "chapters": [
+    {
+     "title": "Component Patterns",
+     "topics": [
+      "Conditional rendering",
+      "Rendering lists with keys",
+      "Reusable layout components"
+     ]
+    },
+    {
+     "title": "Managing Application State",
+     "topics": [
+      "useContext and the Context API",
+      "useReducer for complex state",
+      "Combining context with useReducer"
+     ]
+    },
+    {
+     "title": "Routing with React Router",
+     "topics": [
+      "Setting up React Router",
+      "Defining routes and navigation",
+      "Dynamic routes and URL params",
+      "Nested routes and layouts"
+     ]
+    },
+    {
+     "title": "Fetching Data and Finishing SPAs",
+     "topics": [
+      "Fetching data with useEffect",
+      "Loading and error states",
+      "Environment variables and API keys",
+      "Project structure best practices"
+     ]
+    }
+   ]
+  }
+ ]
+}

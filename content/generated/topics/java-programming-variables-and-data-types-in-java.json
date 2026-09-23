@@ -1,0 +1,351 @@
+{
+ "summary": "Variables are named memory locations that store data values, and Java provides several built-in primitive and reference data types to define what kind of data a variable can hold.",
+ "shortNotes": [
+  "A variable in Java must be declared with a data type before it can be used.",
+  "Java has 8 primitive data types: byte, short, int, long, float, double, char, and boolean.",
+  "String is a reference data type (a class), not a primitive, but is very commonly used.",
+  "Variable names are case-sensitive and must start with a letter, underscore, or dollar sign.",
+  "Java is a statically typed language, meaning the type of a variable is fixed at compile time.",
+  "Use int for whole numbers, double for decimals, char for a single character, and boolean for true/false values."
+ ],
+ "detailed": {
+  "explanation": "A **variable** is a named container in memory that holds a value your program can read or change. In Java, before you can use a variable, you must **declare** it by specifying its data type and giving it a name, for example `int age = 20;`. This tells the compiler to reserve the right amount of memory and to only allow integer values in that container.\n\nJava has **8 primitive data types**. The most commonly used ones are `int` (whole numbers, 4 bytes), `double` (decimal numbers, 8 bytes), `char` (a single character, 2 bytes), and `boolean` (true or false, 1 bit logically). Less commonly used primitives include `byte`, `short`, `long`, and `float`. Each type has a specific size and range, which is important when memory efficiency matters.\n\n**Reference data types** store the address of an object rather than the value itself. The most important example for beginners is `String`, which represents a sequence of characters, like `String name = \"Rahul\";`. Unlike primitives, reference types are based on classes and have methods you can call on them.\n\nJava is a **statically typed** language. This means the data type of a variable is decided at compile time and cannot change during the program's execution. For example, if you declare `int marks = 85;`, you cannot later store a decimal number like `85.5` in the same variable without changing its type or using a cast.\n\nYou can also declare a variable without immediately assigning a value — this is called **declaration without initialization** — but you must assign a value before you use it, or the compiler will give an error. It is good practice to initialize variables when you declare them to avoid unexpected behavior.",
+  "definitions": [
+   {
+    "term": "Variable",
+    "meaning": "A named memory location that stores a value of a specific data type in a Java program."
+   },
+   {
+    "term": "Data Type",
+    "meaning": "A classification that tells the compiler what kind of value a variable can hold and how much memory to allocate."
+   },
+   {
+    "term": "Primitive Data Type",
+    "meaning": "One of Java's 8 built-in basic types (byte, short, int, long, float, double, char, boolean) that store simple values directly."
+   },
+   {
+    "term": "Reference Data Type",
+    "meaning": "A data type that stores a reference (memory address) to an object rather than the value itself; examples include String and arrays."
+   },
+   {
+    "term": "Declaration",
+    "meaning": "The statement that introduces a variable to the compiler by specifying its type and name, e.g., int age;"
+   },
+   {
+    "term": "Initialization",
+    "meaning": "Assigning a value to a variable for the first time, e.g., age = 20; or int age = 20;"
+   },
+   {
+    "term": "Static Typing",
+    "meaning": "A feature of Java where each variable's data type is checked and fixed at compile time, not at runtime."
+   }
+  ],
+  "formulas": [],
+  "points": [
+   "Always declare a variable with its data type in Java: `int x = 5;` not just `x = 5;`.",
+   "The default value for int is 0, double is 0.0, boolean is false, and object references are null — but only for class-level (instance/static) variables, not local variables.",
+   "Use `long` instead of `int` when storing very large numbers; append L to the literal, e.g., `long population = 1400000000L;`.",
+   "Use `double` for decimal precision; avoid `float` unless memory is a constraint (float uses 4 bytes, double uses 8 bytes).",
+   "char values are enclosed in single quotes: `char grade = 'A';` while String values use double quotes: `String name = \"Amit\";`.",
+   "Variable names cannot start with a digit, cannot be a Java keyword (like int, class, for), and cannot contain spaces.",
+   "Java follows camelCase naming convention for variables: `studentAge`, `totalMarks`, `isEligible`.",
+   "Exam tip: Know the size of each primitive type — int is 4 bytes, long is 8 bytes, double is 8 bytes, char is 2 bytes, byte is 1 byte."
+  ]
+ },
+ "codeExample": {
+  "language": "java",
+  "code": "public class VariablesDemo {\n    public static void main(String[] args) {\n\n        // Integer variable\n        int age = 21;\n\n        // Double variable for decimal values\n        double percentage = 87.5;\n\n        // Char variable for a single character\n        char grade = 'A';\n\n        // Boolean variable\n        boolean isEnrolled = true;\n\n        // String (reference type)\n        String studentName = \"Priya Sharma\";\n\n        // Long for large numbers\n        long collegeId = 2024001234L;\n\n        // Print all variables\n        System.out.println(\"Name: \" + studentName);\n        System.out.println(\"Age: \" + age);\n        System.out.println(\"Percentage: \" + percentage);\n        System.out.println(\"Grade: \" + grade);\n        System.out.println(\"Enrolled: \" + isEnrolled);\n        System.out.println(\"College ID: \" + collegeId);\n    }\n}",
+  "explanation": "Line 1: We define a public class named VariablesDemo — every Java program needs a class.\nLine 2: The main method is the entry point of the program.\nLine 5: We declare an int variable 'age' and assign the value 21 — suitable for whole numbers.\nLine 8: We declare a double variable 'percentage' with a decimal value 87.5.\nLine 11: We declare a char variable 'grade' with the character 'A' in single quotes.\nLine 14: We declare a boolean variable 'isEnrolled' set to true — only true or false allowed.\nLine 17: We declare a String variable 'studentName' with a name in double quotes — String is a reference type.\nLine 20: We declare a long variable 'collegeId' with a large number; the L suffix marks it as a long literal.\nLines 23-28: We use System.out.println to print each variable's value to the console, concatenating labels with the + operator."
+ },
+ "commonMistakes": [
+  "Using single quotes for String values — String must use double quotes (\"Hello\"), while char uses single quotes ('H'). Writing String name = 'Rahul'; is a compile error.",
+  "Forgetting to initialize a local variable before using it — Java does not give local variables a default value, so using an uninitialized local variable causes a compile-time error.",
+  "Storing a decimal number in an int variable without casting — writing int marks = 95.5; causes a compile error; you must either use double or cast: int marks = (int) 95.5;"
+ ],
+ "questions": [
+  {
+   "type": "mcq",
+   "prompt": "Which of the following is the correct way to declare an integer variable in Java?",
+   "options": [
+    "integer age = 21;",
+    "int age = 21;",
+    "Int age = 21;",
+    "age int = 21;"
+   ],
+   "answer": 1,
+   "explanation": "In Java, the keyword for integer type is 'int' (all lowercase). 'integer' is not a keyword, 'Int' has wrong capitalization, and the type must come before the variable name.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the size of the 'double' data type in Java?",
+   "options": [
+    "2 bytes",
+    "4 bytes",
+    "8 bytes",
+    "16 bytes"
+   ],
+   "answer": 2,
+   "explanation": "The double data type in Java occupies 8 bytes (64 bits) of memory and can store decimal numbers with double precision.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following variable names is NOT valid in Java?",
+   "options": [
+    "_score",
+    "$amount",
+    "2ndPlace",
+    "totalMarks"
+   ],
+   "answer": 2,
+   "explanation": "Variable names in Java cannot begin with a digit. '2ndPlace' starts with '2', which makes it invalid. All others are valid as they start with an underscore, dollar sign, or letter.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which data type would you use to store the value true or false in Java?",
+   "options": [
+    "int",
+    "char",
+    "String",
+    "boolean"
+   ],
+   "answer": 3,
+   "explanation": "The boolean data type in Java is specifically designed to hold only two values: true or false. It is commonly used in conditions and flags.",
+   "difficulty": "easy"
+  },
+  {
+   "type": "mcq",
+   "prompt": "What is the correct literal suffix used when assigning a value to a long variable in Java?",
+   "options": [
+    "D",
+    "F",
+    "L",
+    "S"
+   ],
+   "answer": 2,
+   "explanation": "The suffix 'L' (or 'l', but uppercase is preferred) is appended to a numeric literal to indicate it is of type long, e.g., long x = 9876543210L;",
+   "difficulty": "medium"
+  },
+  {
+   "type": "mcq",
+   "prompt": "Which of the following statements about String in Java is correct?",
+   "options": [
+    "String is a primitive data type in Java.",
+    "String values are enclosed in single quotes.",
+    "String is a reference data type based on a class.",
+    "String variables cannot be printed using System.out.println."
+   ],
+   "answer": 2,
+   "explanation": "String is a reference data type in Java — it is actually a class in the java.lang package. Its values are enclosed in double quotes, and it can be printed using System.out.println.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "What is the difference between a primitive data type and a reference data type in Java? Give one example of each.",
+   "answer": "A primitive data type stores the actual value directly in memory (e.g., int stores the integer value itself). A reference data type stores the memory address of an object rather than the value (e.g., String stores a reference to a String object). Java has 8 primitive types, while reference types are based on classes.",
+   "keywords": [
+    "primitive",
+    "reference",
+    "memory",
+    "object",
+    "int",
+    "String"
+   ],
+   "explanation": "Understanding this distinction helps students grasp how Java manages memory and why operations on reference types (like comparing with ==) behave differently than on primitives.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "short",
+   "prompt": "Why is Java called a statically typed language, and how does this affect how you write variables?",
+   "answer": "Java is called statically typed because the data type of every variable is checked and fixed at compile time, not at runtime. This means you must declare a variable's type before using it, and you cannot store a value of a different incompatible type in it later without explicit conversion. For example, once you declare int age = 20;, you cannot store 20.5 in age without changing the type.",
+   "keywords": [
+    "compile time",
+    "declared",
+    "type fixed",
+    "statically typed",
+    "incompatible"
+   ],
+   "explanation": "Static typing helps Java catch type errors early during compilation rather than at runtime, making programs more reliable.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "numerical",
+   "prompt": "What is the exact output printed by the following Java code?\n\nint x = 10;\ndouble y = 2.5;\nSystem.out.println(x + y);",
+   "answer": "12.5",
+   "explanation": "When an int and a double are added in Java, the int is automatically promoted to double (widening conversion), and the result is a double. So 10 + 2.5 = 12.5, and System.out.println prints 12.5.",
+   "difficulty": "medium"
+  },
+  {
+   "type": "coding",
+   "prompt": "Write a complete Java program that declares variables to store a student's name (String), roll number (int), CGPA (double), and whether they have passed (boolean). Assign suitable values to each variable and print them all.",
+   "starter": "public class StudentInfo {\n    public static void main(String[] args) {\n        // Declare and initialize your variables here\n\n        // Print all variables\n    }\n}",
+   "solution": "public class StudentInfo {\n    public static void main(String[] args) {\n        // Declare and initialize your variables here\n        String studentName = \"Arjun Mehta\";\n        int rollNumber = 101;\n        double cgpa = 8.75;\n        boolean hasPassed = true;\n\n        // Print all variables\n        System.out.println(\"Name: \" + studentName);\n        System.out.println(\"Roll Number: \" + rollNumber);\n        System.out.println(\"CGPA: \" + cgpa);\n        System.out.println(\"Passed: \" + hasPassed);\n    }\n}",
+   "explanation": "We use String for the name (reference type, double quotes), int for roll number (whole number), double for CGPA (decimal value), and boolean for the pass status (true/false). Each variable is declared with its correct type, initialized with a value, and printed using System.out.println with a descriptive label concatenated using the + operator.",
+   "difficulty": "medium"
+  }
+ ],
+ "video": {
+  "scenes": [
+   {
+    "title": "What is a Variable?",
+    "steps": [
+     {
+      "say": "Welcome! Today we are going to learn about variables and data types in Java. These are the very building blocks of any Java program.",
+      "write": {
+       "kind": "heading",
+       "content": "Variables and Data Types in Java"
+      }
+     },
+     {
+      "say": "Think of a variable as a labelled box in memory. You give the box a name, and you can store a value inside it.",
+      "write": {
+       "kind": "text",
+       "content": "Variable = named box in memory"
+      }
+     },
+     {
+      "say": "In Java, before using a variable, you must declare its type and name. For example, int age equals 21.",
+      "write": {
+       "kind": "code",
+       "content": "int age = 21;"
+      }
+     },
+     {
+      "say": "Here, int is the data type, age is the variable name, and 21 is the value stored inside it.",
+      "write": {
+       "kind": "bullet",
+       "content": "type  name = value;"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Primitive Data Types",
+    "steps": [
+     {
+      "say": "Java has eight primitive data types. Let us look at the four most important ones you will use every day.",
+      "write": {
+       "kind": "heading",
+       "content": "4 Key Primitive Types"
+      }
+     },
+     {
+      "say": "int is used for whole numbers like age or marks. double is used for decimal numbers like percentage.",
+      "write": {
+       "kind": "bullet",
+       "content": "int   → whole numbers (4 bytes)"
+      }
+     },
+     {
+      "say": "char stores a single character like A or B, and boolean stores only true or false.",
+      "write": {
+       "kind": "bullet",
+       "content": "double → decimals  (8 bytes)\nchar   → 1 character (2 bytes)\nboolean→ true/false"
+      }
+     },
+     {
+      "say": "Notice that char values are written inside single quotes, and boolean can only be true or false, nothing else.",
+      "write": {
+       "kind": "code",
+       "content": "char grade = 'A';\nboolean passed = true;"
+      }
+     }
+    ]
+   },
+   {
+    "title": "String and Reference Types",
+    "steps": [
+     {
+      "say": "Besides primitives, Java has reference types. The most common one for beginners is String, which stores a sequence of characters.",
+      "write": {
+       "kind": "heading",
+       "content": "Reference Type: String"
+      }
+     },
+     {
+      "say": "String is actually a class in Java, not a primitive. You write String with a capital S and the value in double quotes.",
+      "write": {
+       "kind": "code",
+       "content": "String name = \"Priya\";"
+      }
+     },
+     {
+      "say": "A common mistake is using single quotes for String. Always remember — String uses double quotes, char uses single quotes.",
+      "write": {
+       "kind": "highlight",
+       "content": "String → double quotes \"  \"\nchar   → single quotes '  '"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Writing a Simple Program",
+    "steps": [
+     {
+      "say": "Let us now write a small Java program that declares a few variables and prints their values.",
+      "write": {
+       "kind": "heading",
+       "content": "Variables in a Program"
+      }
+     },
+     {
+      "say": "We start with the class and main method, which is the entry point of every Java program.",
+      "write": {
+       "kind": "code",
+       "content": "public class Demo {\n  public static void main(String[] a){"
+      }
+     },
+     {
+      "say": "Now we declare an int for age and a String for the student name.",
+      "write": {
+       "kind": "code",
+       "content": "    int age = 21;\n    String name = \"Rahul\";"
+      }
+     },
+     {
+      "say": "Finally, we print the values using System dot out dot println and close the braces.",
+      "write": {
+       "kind": "code",
+       "content": "    System.out.println(name);\n    System.out.println(age);\n  }\n}"
+      }
+     }
+    ]
+   },
+   {
+    "title": "Quick Recap",
+    "steps": [
+     {
+      "say": "Great work! Let us quickly recap what we covered today about variables and data types.",
+      "write": {
+       "kind": "heading",
+       "content": "Recap"
+      }
+     },
+     {
+      "say": "A variable is a named memory location. You must declare its type in Java before using it.",
+      "write": {
+       "kind": "bullet",
+       "content": "Variable: named memory location"
+      }
+     },
+     {
+      "say": "The four key primitive types are int, double, char, and boolean. String is a reference type written with a capital S.",
+      "write": {
+       "kind": "bullet",
+       "content": "int, double, char, boolean\nString (reference type)"
+      }
+     },
+     {
+      "say": "Always remember — Java is statically typed, so types are fixed at compile time. Get these basics right and the rest of Java becomes much easier!",
+      "write": {
+       "kind": "highlight",
+       "content": "Java = statically typed\nDeclare type before use!"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}
